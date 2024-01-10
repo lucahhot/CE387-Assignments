@@ -1,0 +1,26 @@
+Simulation cycle count: 395ns/10ns = 39.5 total cycles for 3 test classdebug
+
+Max Frequency: 224.3 MHz
+
+Resource Utilization:
+
+Total combinational functions 50 of 6272 ( 0%)
+Logic element usage by number of inputs
+          4 input functions      13
+          3 input functions      1
+          [=2 input functions    36
+Logic elements by mode
+          normal mode            17
+          arithmetic mode        33
+Total registers 68 of 6272 ( 1%)
+
+LUTs for combinational functions: 50
+I/O Pins: 36
+DSP Blocks (dsp_used): 0 (15)
+Non I/O Registers (non_io_reg): 68
+I/O registers (total_io_reg): 0
+Memory Bits: 0
+
+Multipliers: 0
+
+
