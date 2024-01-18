@@ -78,39 +78,41 @@ always_comb begin
                 next_state = S0;
             end
         end
-        // Main computation state
+
         S1: begin
             if ($unsigned(i) < $unsigned(VECTOR_SIZE)) begin
                 sum_c = sum + $signed(x_dout) * $signed(y_dout);
                 if(j + 1'b1 > (MATRIX_SIZE-1)) begin
-                    // We've reached the end of the row/col, so we need to reset these trackers
+                    // We've reached the end of the row/col, so we need to reset these trackers, switch state to S2
                     j_c = 1'b0;
                     if (col + 1'b1 > (MATRIX_SIZE-1)) begin
                         // We've reached the last column for this row so reset col to 0 and increment row
                         col_c = 1'b0;
                         row_c = row + 1'b1;
+                        // Increment addresses
+                        x_addr = (8*(row + 1'b1));
+                        y_addr = 1'b0;
                     end else begin
                         // There are still columns for this row so only increment col
                         col_c = col + 1'b1;
+                        // Increment addresses
+                        x_addr = (8*row);
+                        y_addr = col + 1'b1;
                     end
                     // Since we've completed 1 full dot product, we can store it into the z matrix
                     z_din = sum_c;
+                    sum_c = '0;
                     z_addr = i;
                     z_wr_en = 1'b1;
-                    i_c = 1 + 1'b1;
+                    i_c = i + 1'b1;
                 end else begin
-                    // Increment j_c 
+                    // Increment index
                     j_c = j + 1'b1;
+                    // Increment addresses
+                    x_addr = (8*row) + (j + 1'b1);
+                    y_addr = (8*(j + 1'b1)) + col;
                 end
-
-                // Increment indices
-                j_c = j + 1'b1;
-                col_c = col + 1'b1;
-                // Increment addresses
-                x_addr = (8*row) + (j + 1'b1);
-                y_addr = (8*(j + 1'b1)) + (col + 1'b1);
                 next_state = S1;
-
             end else begin
                 done_c = 1'b1;
                 next_state = S0;
