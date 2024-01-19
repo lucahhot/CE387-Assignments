@@ -1,0 +1,38 @@
+Simulation cycle count: 581 (from the testbench calculation)
+Added an extra cycle per calculation of each MAC in order to pipeline the fetching of data
+from the x and y BRAMs with the MAC operation, and the storing of the dot product back into
+the z BRAM.
+
+LUTs for combinational functions (total_luts): 243
+I/O Pins: 120
+DSP Blocks (dsp_used): 3(15)
+Non I/O registers (non_io_reg): 215
+I/O Registers (total_io_reg): 0
+Memory Bits: 6144
+Max Frequency for Design: 101.2 MHz
+Total error count: 0 (from both Questa simulation and Synplify Pro synthesis)
+
+More resource utilization details:
+Total combinational functions 243 of 6272 ( 3%)
+Logic element usage by number of inputs
+          4 input functions      116
+          3 input functions      54
+          [=2 input functions    73
+Logic elements by mode
+          normal mode            183
+          arithmetic mode        60
+Total registers 215 of 6272 ( 3%)
+I/O pins 120 of 180 (67%), total I/O based on largest package of this part.
+
+Number of I/O registers
+            Input DDRs    :0
+            Output DDRs   :0
+
+DSP.Simple_Multipliers_18_bit: 3
+DSP Blocks:     3  (6 nine-bit DSP elements).
+DSP Utilization: 20.00% of available 15 blocks (30 nine-bit).
+ShiftTap:       0  (0 registers)
+Ena:             37
+Sload:           4
+Sclr:            78
+Total ESB:      6144 bits 
