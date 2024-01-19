@@ -3,9 +3,9 @@
 
 module matmul_tb ();
 
-    localparam string X_NAME = "/home/laa8390/Documents/CE387/CE387-Assignments/Programming_Assignment_2/source/x.txt";
-    localparam string Y_NAME = "/home/laa8390/Documents/CE387/CE387-Assignments/Programming_Assignment_2/source/y.txt";
-    localparam string Z_NAME = "/home/laa8390/Documents/CE387/CE387-Assignments/Programming_Assignment_2/source/z.txt";
+    localparam string X_NAME = "../source/x.txt";
+    localparam string Y_NAME = "../source/y.txt";
+    localparam string Z_NAME = "../source/z.txt";
     localparam DATA_WIDTH = 32;
     localparam ADDR_WIDTH = 10;
     localparam VECTOR_SIZE = 64;

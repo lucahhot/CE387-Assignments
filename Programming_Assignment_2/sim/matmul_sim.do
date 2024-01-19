@@ -2,10 +2,10 @@ setenv LMC_TIMEUNIT -9
 vlib work
 vmap work work
 
-vlog -work work "/home/laa8390/Documents/CE387/CE387-Assignments/Programming_Assignment_2/sv/bram.sv"
-vlog -work work "/home/laa8390/Documents/CE387/CE387-Assignments/Programming_Assignment_2/sv/matmul.sv"
-vlog -work work "/home/laa8390/Documents/CE387/CE387-Assignments/Programming_Assignment_2/sv/matmul_top.sv"
-vlog -work work "/home/laa8390/Documents/CE387/CE387-Assignments/Programming_Assignment_2/sv/matmul_tb.sv"
+vlog -work work "../sv/bram.sv"
+vlog -work work "../sv/matmul.sv"
+vlog -work work "../sv/matmul_top.sv"
+vlog -work work "../sv/matmul_tb.sv"
 
 vsim -classdebug -voptargs=+acc +notimingchecks -L work work.matmul_tb -wlf matmul.wlf
 
