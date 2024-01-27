@@ -1,0 +1,53 @@
+QuestaSim Simulation Results:
+# Loading sv_std.std
+# Loading work.motion_detect_tb(fast)
+# Loading work.motion_detect_top(fast)
+# Loading work.motion_detect(fast)
+# Loading work.fifo(fast)
+# @ 20: Loading file ../source/base.bmp...
+# @ 20: Loading file ../source/pedestrians.bmp...
+# @ 25: Comparing file ../source/output.bmp...
+# @ 30: Beginning simulation...
+# @ 8847425: Simulation completed.
+# Total simulation cycle count: 884739
+# Total error count: 0
+# ** Note: $finish    : ../sv/motion_detect_tb.sv(91)
+#    Time: 8847425 ns  Iteration: 2  Instance: /motion_detect_tb
+# End time: 17:08:12 on Jan 26,2024, Elapsed time: 0:00:10
+# Errors: 0, Warnings: 0
+
+Simulation Cycle Count: 884739
+Time Complexity: O(2N) == O(N)
+
+LUTs for combinational functions (total_luts): 297
+I/O Pins: 80
+DSP Blocks (dsp_used): 0(15)
+Non I/O registers (non_io_reg): 109
+I/O Registers (total_io_reg): 0
+Memory Bits: 18432
+Max Frequency for Design: 74.5 MHz
+Total error count: 0 (from both Questa simulation and Synplify Pro synthesis)
+
+More resource utilization details:
+Total combinational functions 297 of 6272 ( 4%)
+Logic element usage by number of inputs
+          4 input functions      65
+          3 input functions      42
+          [=2 input functions    190
+Logic elements by mode
+          normal mode            122
+          arithmetic mode        175
+Total registers 109 of 6272 ( 1%)
+I/O pins 80 of 180 (44%), total I/O based on largest package of this part.
+
+Number of I/O registers
+            Input DDRs    :0
+            Output DDRs   :0
+
+DSP Blocks:     0  (0 nine-bit DSP elements).
+DSP Utilization: 0.00% of available 15 blocks (30 nine-bit).
+ShiftTap:       0  (0 registers)
+Ena:             38
+Sload:           0
+Sclr:            0
+Total ESB:      18432 bits 
