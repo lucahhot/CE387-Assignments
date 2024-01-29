@@ -19,6 +19,9 @@ logic [23:0]    base_din = '0;
 logic           img_in_full;
 logic           img_in_wr_en = '0;
 logic [23:0]    img_in_din = '0;
+logic           original_full;
+logic           original_wr_en = '0;
+logic [23:0]    original_din = '0;
 logic           img_out_rd_en;
 logic           img_out_empty;
 logic [23:0]    img_out_dout;
@@ -26,18 +29,21 @@ logic [23:0]    img_out_dout;
 logic   hold_clock    = '0;
 logic   img_in_write_done = '0;
 logic   base_write_done = '0;
+logic   original_write_done = '0;
 logic   img_out_read_done = '0;
 integer out_errors    = '0;
 
 localparam WIDTH = 768;
 localparam HEIGHT = 576;
+localparam FIFO_BUFFER_SIZE = 8; // Change this 
 localparam BMP_HEADER_SIZE = 54;
 localparam BYTES_PER_PIXEL = 3;
 localparam BMP_DATA_SIZE = WIDTH*HEIGHT*BYTES_PER_PIXEL;
 
 motion_detect_top #(
     .WIDTH(WIDTH),
-    .HEIGHT(HEIGHT)
+    .HEIGHT(HEIGHT),
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
 ) motion_detect_top_inst (
     .clock(clock),
     .reset(reset),
@@ -47,6 +53,9 @@ motion_detect_top #(
     .img_in_full(img_in_full),
     .img_in_wr_en(img_in_wr_en),
     .img_in_din(img_in_din),
+    .original_full(original_full),
+    .original_wr_en(original_wr_en),
+    .original_din(original_din),
     .img_out_empty(img_out_empty),
     .img_out_rd_en(img_out_rd_en),
     .img_out_dout(img_out_dout)
@@ -95,12 +104,15 @@ initial begin : img_in_read_process
     int i, r;
     int in_file;
     logic [7:0] bmp_header [0:BMP_HEADER_SIZE-1];
+    logic [23:0] file_value;
+
 
     @(negedge reset);
     $display("@ %0t: Loading file %s...", $time, IMG_IN_NAME);
 
     in_file = $fopen(IMG_IN_NAME, "rb");
     img_in_wr_en = 1'b0;
+    original_wr_en = 1'b0;
 
     // Skip BMP header
     r = $fread(bmp_header, in_file, 0, BMP_HEADER_SIZE);
@@ -110,17 +122,23 @@ initial begin : img_in_read_process
     while ( i < BMP_DATA_SIZE ) begin
         @(negedge clock);
         img_in_wr_en = 1'b0;
-        if (img_in_full == 1'b0) begin
-            r = $fread(img_in_din, in_file, BMP_HEADER_SIZE+i, BYTES_PER_PIXEL);
+        original_wr_en = 1'b0;
+        if (img_in_full == 1'b0  && original_full == 1'b0) begin
+            r = $fread(file_value, in_file, BMP_HEADER_SIZE+i, BYTES_PER_PIXEL);
+            img_in_din = file_value;
+            original_din = file_value;
             img_in_wr_en = 1'b1;
+            original_wr_en = 1'b1;
             i += BYTES_PER_PIXEL;
         end
     end
 
     @(negedge clock);
     img_in_wr_en = 1'b0;
+    original_wr_en = 1'b0;
     $fclose(in_file);
     img_in_write_done = 1'b1;
+    original_write_done = 1'b1;
 end
 
 initial begin : base_read_process
@@ -153,6 +171,7 @@ initial begin : base_read_process
     base_wr_en = 1'b0;
     $fclose(in_file);
     base_write_done = 1'b1;
+    
 end
 
 initial begin : img_write_process
