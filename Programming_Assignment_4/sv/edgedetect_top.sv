@@ -20,7 +20,17 @@ logic [23:0]    image_dout;
 logic           image_empty;
 logic           image_rd_en;
 
-// Output wires from grayscale function to output FIFO
+// Output wires from grayscale function to sobel FIFO
+logic           sobel_wr_en;
+logic           sobel_full;
+logic [7:0]     sobel_din;
+
+// Input wires to sobel function
+logic [7:0]     sobel_dout;
+logic           sobel_empty;
+logic           sobel_rd_en;
+
+// Output wires from sobel function to output FIFO
 logic           img_out_wr_en;
 logic           img_out_full;
 logic [7:0]     img_out_din;
@@ -46,6 +56,32 @@ grayscale grayscale_inst(
     .in_rd_en(image_rd_en),
     .in_empty(image_empty),
     .in_dout(image_dout),
+    .out_wr_en(sobel_wr_en),
+    .out_full(sobel_full),
+    .out_din(sobel_din)
+);
+
+fifo #(
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE),
+    .FIFO_DATA_WIDTH(8)
+) fifo_sobel_inst (
+    .reset(reset),
+    .wr_clk(clock),
+    .wr_en(sobel_wr_en),
+    .din(sobel_din),
+    .full(sobel_full),
+    .rd_clk(clock),
+    .rd_en(sobel_rd_en),
+    .dout(sobel_dout),
+    .empty(sobel_empty)
+);
+
+sobel sobel_inst(
+    .clock(clock),
+    .reset(reset),
+    .in_rd_en(sobel_rd_en),
+    .in_empty(sobel_empty),
+    .in_dout(sobel_dout),
     .out_wr_en(img_out_wr_en),
     .out_full(img_out_full),
     .out_din(img_out_din)

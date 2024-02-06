@@ -1,0 +1,104 @@
+# ----------------------------------------------------------------------
+# Name                       Type                            Size  Value
+# ----------------------------------------------------------------------
+# uvm_test_top               edgedetect_uvm_test             -     @360 
+#   env                      edgedetect_uvm_env              -     @372 
+#     agent                  edgedetect_uvm_agent            -     @380 
+#       agent_ap_compare     uvm_analysis_port               -     @414 
+#       agent_ap_output      uvm_analysis_port               -     @405 
+#       drvr                 edgedetect_uvm_driver           -     @546 
+#         rsp_port           uvm_analysis_port               -     @563 
+#         seq_item_port      uvm_seq_item_pull_port          -     @554 
+#       mon_cmp              edgedetect_uvm_monitor_compare  -     @580 
+#         mon_ap_compare     uvm_analysis_port               -     @590 
+#       mon_out              edgedetect_uvm_monitor_output   -     @572 
+#         mon_ap_output      uvm_analysis_port               -     @604 
+#       seqr                 uvm_sequencer                   -     @423 
+#         rsp_export         uvm_analysis_export             -     @431 
+#         seq_item_export    uvm_seq_item_pull_imp           -     @537 
+#         arbitration_queue  array                           0     -    
+#         lock_queue         array                           0     -    
+#         num_last_reqs      integral                        32    'd1  
+#         num_last_rsps      integral                        32    'd1  
+#     sb                     edgedetect_uvm_scoreboard       -     @388 
+#       compare_fifo         uvm_tlm_analysis_fifo #(T)      -     @689 
+#         analysis_export    uvm_analysis_imp                -     @733 
+#         get_ap             uvm_analysis_port               -     @724 
+#         get_peek_export    uvm_get_peek_imp                -     @706 
+#         put_ap             uvm_analysis_port               -     @715 
+#         put_export         uvm_put_imp                     -     @697 
+#       output_fifo          uvm_tlm_analysis_fifo #(T)      -     @636 
+#         analysis_export    uvm_analysis_imp                -     @680 
+#         get_ap             uvm_analysis_port               -     @671 
+#         get_peek_export    uvm_get_peek_imp                -     @653 
+#         put_ap             uvm_analysis_port               -     @662 
+#         put_export         uvm_put_imp                     -     @644 
+#       sb_export_compare    uvm_analysis_export             -     @627 
+#       sb_export_output     uvm_analysis_export             -     @618 
+# ----------------------------------------------------------------------
+# 
+# UVM_INFO ../uvm/edgedetect_uvm_sequence.sv(30) @ 0: uvm_test_top.env.agent.seqr@@seq [SEQ_RUN] Loading file ../images/copper_720_540.bmp...
+# UVM_INFO ../uvm/edgedetect_uvm_sequence.sv(53) @ 7775865: uvm_test_top.env.agent.seqr@@seq [SEQ_RUN] Closing file ../images/copper_720_540.bmp...
+# UVM_INFO /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src/base/uvm_objection.svh(1270) @ 7790715: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO ../uvm/edgedetect_uvm_monitor.sv(141) @ 7790715: uvm_test_top.env.agent.mon_cmp [MON_CMP_FINAL] Closing file ../images/copper_sobel.bmp...
+# UVM_INFO ../uvm/edgedetect_uvm_monitor.sv(69) @ 7790715: uvm_test_top.env.agent.mon_out [MON_OUT_FINAL] Closing file ../images/output.bmp...
+# UVM_INFO /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 7790715: reporter [UVM/REPORT/SERVER] 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   10
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [MON_CMP_FINAL]     1
+# [MON_OUT_FINAL]     1
+# [Questa UVM]     2
+# [RNTST]     1
+# [SEQ_RUN]     2
+# [TEST_DONE]     1
+# [UVM/RELNOTES]     1
+# [UVMTOP]     1
+# 
+# ** Note: $finish    : /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(517)
+#    Time: 7790715 ns  Iteration: 70  Instance: /edgedetect_uvm_tb
+# End time: 22:15:43 on Feb 05,2024, Elapsed time: 0:00:24
+# Errors: 0, Warnings: 0
+
+Simulation Cycle Count = 779,071 cycles
+Time Complexity = O(2N) == O(N)
+FIFO Buffer Size = 8
+FPS = 128 FPS (1 frame / 7790715 ns or 0.007790715 s)
+
+LUTs for combinational functions (total_luts): 638
+I/O Pins: 38
+DSP Blocks (dsp_used): 1(15)
+Non I/O registers (non_io_reg): 534
+I/O Registers (total_io_reg): 0
+Memory Bits: 11456
+Max Frequency for Design: 92.4 MHz
+
+More resource utilization details:
+Total combinational functions 638 of 6272 (10%)
+Logic element usage by number of inputs
+          4 input functions      170
+          3 input functions      140
+          [=2 input functions    328
+Logic elements by mode
+          normal mode            363
+          arithmetic mode        275
+Total registers 534 of 6272 ( 8%)
+I/O pins 38 of 180 (21%), total I/O based on largest package of this part.
+
+Number of I/O registers
+            Input DDRs    :0
+            Output DDRs   :0
+
+DSP.Simple_Multipliers_18_bit: 1
+DSP Blocks:     1  (2 nine-bit DSP elements).
+DSP Utilization: 6.67% of available 15 blocks (30 nine-bit).
+ShiftTap:       0  (0 registers)
+Ena:             451
+Sload:           64
+Sclr:            26
+Total ESB:      11456 bits
