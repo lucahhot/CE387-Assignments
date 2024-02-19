@@ -3,17 +3,17 @@ import uvm_pkg::*;
 `uvm_analysis_imp_decl(_output)
 `uvm_analysis_imp_decl(_compare)
 
-class edgedetect_uvm_scoreboard extends uvm_scoreboard;
-    `uvm_component_utils(edgedetect_uvm_scoreboard)
+class udp_reader_uvm_scoreboard extends uvm_scoreboard;
+    `uvm_component_utils(udp_reader_uvm_scoreboard)
 
-    uvm_analysis_export #(edgedetect_uvm_transaction) sb_export_output;
-    uvm_analysis_export #(edgedetect_uvm_transaction) sb_export_compare;
+    uvm_analysis_export #(udp_reader_uvm_transaction) sb_export_output;
+    uvm_analysis_export #(udp_reader_uvm_transaction) sb_export_compare;
 
-    uvm_tlm_analysis_fifo #(edgedetect_uvm_transaction) output_fifo;
-    uvm_tlm_analysis_fifo #(edgedetect_uvm_transaction) compare_fifo;
+    uvm_tlm_analysis_fifo #(udp_reader_uvm_transaction) output_fifo;
+    uvm_tlm_analysis_fifo #(udp_reader_uvm_transaction) compare_fifo;
 
-    edgedetect_uvm_transaction tx_out;
-    edgedetect_uvm_transaction tx_cmp;
+    udp_reader_uvm_transaction tx_out;
+    udp_reader_uvm_transaction tx_cmp;
 
     function new(string name, uvm_component parent);
         super.new(name, parent);
@@ -45,12 +45,12 @@ class edgedetect_uvm_scoreboard extends uvm_scoreboard;
     endtask: run
 
     virtual function void comparison();
-        if (tx_out.image_pixel != tx_cmp.image_pixel) begin
+        if (tx_out.packet_byte != tx_cmp.packet_byte) begin
             // use uvm_error to report errors and continue
             // use uvm_fatal to halt the simulation on error
             `uvm_info("SB_CMP", tx_out.sprint(), UVM_LOW);
             `uvm_info("SB_CMP", tx_cmp.sprint(), UVM_LOW);
-            `uvm_fatal("SB_CMP", $sformatf("Test: Failed! Expecting: %08x, Received: %08x", tx_cmp.image_pixel, tx_out.image_pixel))
+            `uvm_fatal("SB_CMP", $sformatf("Test: Failed! Expecting: %08x, Received: %08x", tx_cmp.packet_byte, tx_out.packet_byte))
         end
     endfunction: comparison
-endclass: edgedetect_uvm_scoreboard
+endclass: udp_reader_uvm_scoreboard

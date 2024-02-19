@@ -1,36 +1,38 @@
 
 import uvm_pkg::*;
-import edgedetect_uvm_package::*;
+import udp_reader_uvm_package::*;
 
-`include "edgedetect_uvm_if.sv"
+`include "udp_reader_uvm_if.sv"
 
 `timescale 1 ns / 1 ns
 
-module edgedetect_uvm_tb;
+module udp_reader_uvm_tb;
 
-    edgedetect_uvm_if vif();
+    udp_reader_uvm_if vif();
 
-    edgedetect_top #(
-        .WIDTH(IMG_WIDTH),
-        .HEIGHT(IMG_HEIGHT)
-    ) edgedetect_inst (
+    udp_reader_top #(
+    .FIFO_DATA_WIDTH(FIFO_DATA_WIDTH),
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
+    ) udp_reader_top_inst (
         .clock(vif.clock),
         .reset(vif.reset),
-        .image_full(vif.in_full),
-        .image_wr_en(vif.in_wr_en),
-        .image_din(vif.in_din),
-        .img_out_empty(vif.out_empty),
-        .img_out_rd_en(vif.out_rd_en),
-        .img_out_dout(vif.out_dout)
+        .in_full(vif.in_full),
+        .in_wr_en(vif.in_wr_en),
+        .in_sof(vif.in_sof),
+        .in_eof(vif.in_eof),
+        .in_din(vif.in_din),
+        .out_dout(vif.out_dout),
+        .out_empty(vif.out_empty),
+        .out_rd_en(vif.out_rd_en)
     );
 
     initial begin
         // store the vif so it can be retrieved by the driver & monitor
-        uvm_resource_db#(virtual edgedetect_uvm_if)::set
+        uvm_resource_db#(virtual udp_reader_uvm_if)::set
             (.scope("ifs"), .name("vif"), .val(vif));
 
         // run the test
-        run_test("edgedetect_uvm_test");        
+        run_test("udp_reader_uvm_test");        
     end
 
     // reset

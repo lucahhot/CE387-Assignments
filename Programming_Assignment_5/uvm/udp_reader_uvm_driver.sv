@@ -27,20 +27,27 @@ class udp_reader_uvm_driver extends uvm_driver#(udp_reader_uvm_transaction);
         @(posedge vif.reset)
         @(negedge vif.reset)
 
-        vif.in_din = 24'b0;
+        vif.in_din = 8'b0;
         vif.in_wr_en = 1'b0;
+        vif.in_sof = 1'b0;
+        vif.in_eof = 1'b0;
+    
 
         forever begin
             @(negedge vif.clock) 
             begin                
                 if (vif.in_full == 1'b0) begin
                     seq_item_port.get_next_item(tx);
-                    vif.in_din = tx.image_pixel;
+                    vif.in_din = tx.packet_byte;
                     vif.in_wr_en = 1'b1;
+                    vif.in_sof = tx.tx_in_sof;
+                    vif.in_eof = tx.tx_in_eof;
                     seq_item_port.item_done();
                 end else begin
                     vif.in_wr_en = 1'b0;
-                    vif.in_din = 24'b0;
+                    vif.in_din = 8'b0;
+                    vif.in_sof = 1'b0;
+                    vif.in_eof = 1'b0;
                 end
             end
         end
