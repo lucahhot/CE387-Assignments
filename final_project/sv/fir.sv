@@ -35,6 +35,7 @@ always_ff @(posedge clk or posedge reset) begin
         state <= S0;    
         counter <= '0;
         taps_counter <= '0;
+
     end else begin
         shift_reg <= shift_reg_c;
         state <= next_state;
@@ -70,6 +71,31 @@ always_comb begin
             // multiplying stage
             in_rd_en = 1'b0;
             out_wr_en = 1'b0;
+            y_out += x_in[taps_counter] * COEFFICIENT[taps_counter];
+            taps_counter_c++;
+            if (taps_counter == TAPS - 1) begin
+                next_state = S2;
+            end else begin
+                next_state = S1;
+            end
+        end
+
+        S2: begin
+            out_wr_en = 1'b1;
+            shift_reg_c = '{default: '{default: 0}};
+            taps_counter_c = '0;
+            counter_c = '0;
+            next_state = S0;
+        end
+
+        default: begin
+            next_state = S0;
+            in_rd_en = 1'b0;
+            out_wr_en = 1'b0;
+            y_out = '0;
+            counter_c = 'X;
+            taps_counter_c = 'X;
+            shift_reg_c = '{default: '{default : 0}};
         end
     endcase
 end
