@@ -53,7 +53,8 @@ fir #(
     .NUM_TAPS(NUM_TAPS),
     .DECIMATION(10),
     .QUANTIZATION_BITS(QUANTIZATION_BITS),
-    .COEFFICIENTS(COEFFICIENTS)
+    .COEFFICIENTS(COEFFICIENTS),
+    .UNROLL_FACTOR(1)
 ) fir_inst (
     .clock(clock),
     .reset(reset),
