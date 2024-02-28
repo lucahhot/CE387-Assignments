@@ -1,7 +1,8 @@
 module fir #(
     parameter NUM_TAPS = 32,
     parameter DECIMATION = 10,
-    parameter QUANTIZATION_BITS = 32
+    parameter QUANTIZATION_BITS = 32,
+    parameter logic [QUANTIZATION_BITS-1:0] [0:NUM_TAPS-1] COEFFICIENTS = '{default: '{default: 0}}
 ) (
     input logic clock,
     input logic reset,
@@ -12,14 +13,6 @@ module fir #(
     input logic y_out_full,
     output logic [QUANTIZATION_BITS-1:0] y_out_din  // Quantized output
 );
-
-// Test 32-bit paramater values
-parameter logic signed [QUANTIZATION_BITS-1:0] [0:NUM_TAPS-1] COEFFICIENTS = '{
-    'hfffffffd, 'hfffffffa, 'hfffffff4, 'hffffffed, 'hffffffe5, 'hffffffdf, 'hffffffe2, 'hfffffff3, 
-    'h00000015, 'h0000004e, 'h0000009b, 'h000000f9, 'h0000015d, 'h000001be, 'h0000020e, 'h00000243, 
-    'h00000243, 'h0000020e, 'h000001be, 'h0000015d, 'h000000f9, 'h0000009b, 'h0000004e, 'h00000015, 
-    'hfffffff3, 'hffffffe2, 'hffffffdf, 'hffffffe5, 'hffffffed, 'hfffffff4, 'hfffffffa, 'hfffffffd
-};
 
 typedef enum logic [1:0] {S0, S1, S2, S3} state_types;
 state_types state, next_state;

@@ -14,6 +14,14 @@ module fir_top #(
     output  logic [QUANTIZATION_BITS-1:0]   y_out_dout
 );
 
+// Test 32-bit paramater values
+parameter logic signed [QUANTIZATION_BITS-1:0] [0:NUM_TAPS-1] COEFFICIENTS = '{
+    'hfffffffd, 'hfffffffa, 'hfffffff4, 'hffffffed, 'hffffffe5, 'hffffffdf, 'hffffffe2, 'hfffffff3, 
+    'h00000015, 'h0000004e, 'h0000009b, 'h000000f9, 'h0000015d, 'h000001be, 'h0000020e, 'h00000243, 
+    'h00000243, 'h0000020e, 'h000001be, 'h0000015d, 'h000000f9, 'h0000009b, 'h0000004e, 'h00000015, 
+    'hfffffff3, 'hffffffe2, 'hffffffdf, 'hffffffe5, 'hffffffed, 'hfffffff4, 'hfffffffa, 'hfffffffd
+};
+
 // Wires from input FIFO to fir module
 logic x_in_rd_en;
 logic x_in_empty;
@@ -44,7 +52,8 @@ logic [QUANTIZATION_BITS-1:0] y_out_din;
 fir #(
     .NUM_TAPS(NUM_TAPS),
     .DECIMATION(10),
-    .QUANTIZATION_BITS(QUANTIZATION_BITS)
+    .QUANTIZATION_BITS(QUANTIZATION_BITS),
+    .COEFFICIENTS(COEFFICIENTS)
 ) fir_inst (
     .clock(clock),
     .reset(reset),
