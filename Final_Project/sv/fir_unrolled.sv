@@ -21,7 +21,7 @@ parameter logic signed [QUANTIZATION_BITS-1:0] [0:NUM_TAPS-1] COEFFICIENTS = '{
     'hfffffff3, 'hffffffe2, 'hffffffdf, 'hffffffe5, 'hffffffed, 'hfffffff4, 'hfffffffa, 'hfffffffd
 };
 
-typedef enum logic [1:0] {S0, S1, S2} state_types;
+typedef enum logic [1:0] {S0, S1, S2, S3} state_types;
 state_types state, next_state;
 
 logic [QUANTIZATION_BITS-1:0] [0:NUM_TAPS-1] shift_reg;
@@ -30,6 +30,11 @@ logic [$clog2(DECIMATION)-1:0] decimation_counter, decimation_counter_c;
 logic [$clog2(NUM_TAPS)-1:0] taps_counter, taps_counter_c;
 logic [QUANTIZATION_BITS-1:0] y_sum, y_sum_c; 
 
+// Register to hold all the products of x_in and coefficients so they can be calculated in parallel
+logic [QUANTIZATION_BITS-1:0] [0:NUM_TAPS-1] products ;
+logic [QUANTIZATION_BITS-1:0] [0:NUM_TAPS-1] products_c ;
+
+
 always_ff @(posedge clock or posedge reset) begin
     if (reset == 1'b1) begin
         state <= S0; 
@@ -37,12 +42,14 @@ always_ff @(posedge clock or posedge reset) begin
         decimation_counter <= '0;
         taps_counter <= '0;
         y_sum <= '0;
+        products <= '{default: '{default: 0}};
     end else begin
         state <= next_state;
         shift_reg <= shift_reg_c;
         decimation_counter <= decimation_counter_c;
         taps_counter <= taps_counter_c;
         y_sum <= y_sum_c;
+        products <= products_c;
     end
 end
 
@@ -54,6 +61,7 @@ always_comb begin
     shift_reg_c = shift_reg;
     taps_counter_c = taps_counter;
     y_sum_c = y_sum;
+    products_c = products;
 
     case(state)
 
@@ -77,17 +85,22 @@ always_comb begin
         S1: begin
             x_in_rd_en = 1'b0;
             y_out_wr_en = 1'b0;
-            // Multiply and accumulate state
-            y_sum_c = y_sum + shift_reg[taps_counter] * COEFFICIENTS[taps_counter];
-            taps_counter_c++;
-            if (taps_counter == NUM_TAPS - 1) begin
-                next_state = S2;
-            end else begin
-                next_state = S1;
-            end
+            // Multiply in parallel
+            for (int i = 0; i < NUM_TAPS; i++)
+                products_c[i] = shift_reg[i] * COEFFICIENTS[i];
+            next_state = S2;
         end
 
         S2: begin
+            x_in_rd_en = 1'b0;
+            y_out_wr_en = 1'b0;
+            // Accumulate state
+            for (int i = 0; i < NUM_TAPS; i++)
+                y_sum_c = y_sum + products[i];
+            next_state = S3;
+        end
+
+        S3: begin
             x_in_rd_en = 1'b0;
             y_out_wr_en = 1'b0;
             if (y_out_full == 1'b0) begin
@@ -98,6 +111,7 @@ always_comb begin
                 taps_counter_c = '0;
                 decimation_counter_c = '0;
                 y_sum_c = '0;
+                products_c = '{default: '{default : 0}};
                 next_state = S0;
             end
         end
@@ -111,6 +125,7 @@ always_comb begin
             taps_counter_c = 'X;
             y_sum_c = 'X;
             shift_reg_c = '{default: '{default : 0}};
+            products_c = '{default: '{default : 0}};
         end
     endcase
 end
