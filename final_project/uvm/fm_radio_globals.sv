@@ -19,6 +19,10 @@ function shortreal DEQUANTIZE_F(int i);
     DEQUANTIZE_F = shortreal'(shortreal'(i) / shortreal'(QUANT_VAL));
 endfunction
 
+function int multiply_int(int x, int y);
+    
+endfunction
+
 localparam K = 1.646760258121066;
 localparam logic signed [31:0] CORDIC_1K = QUANTIZE_F(1/K);
 localparam logic signed [31:0] PI = QUANTIZE_F(M_PI);
@@ -27,3 +31,4 @@ localparam logic signed [31:0] TWO_PI = QUANTIZE_F(M_PI*2);
 
 
 `endif
+                        
