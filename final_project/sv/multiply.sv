@@ -22,6 +22,8 @@ logic [DATA_SIZE - 1:0] mult_out, mult_out_c;
 logic [DATA_SIZE - 1:0] q_x, q_y;
 logic [DATA_SIZE_2 - 1:0] temp;
 
+localparam BITS = 10;
+
 function int QUANTIZE(int i);
     QUANTIZE = i <<< BITS;
 endfunction
@@ -49,7 +51,7 @@ end
 
 always_comb begin
 
-    if (x_in_empty == 1'b0 && y_in_empty == 1'b0 && fifo_out_full == 1'b0) begin
+    if (x_in_empty == 1'b0 && y_in_empty == 1'b0 && out_full == 1'b0) begin
         q_x = QUANTIZE(x);
         q_y = QUANTIZE(y);
         mult_out_c = MULTIPLY_FIXED(q_x, q_y);

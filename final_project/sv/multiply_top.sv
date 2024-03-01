@@ -15,7 +15,7 @@ module multiply_top #(
 );
 
 // Wires from input fifo to multiply module
-logic x_in_rd_en;
+logic x_in_rd_en, y_in_rd_en;
 logic x_in_empty;
 logic [DATA_SIZE-1:0] x_in_dout;
 
@@ -48,7 +48,7 @@ multiply #(
     .clock(clock),
     .reset(reset),
     .x_in_rd_en(x_in_rd_en),
-    .y_in_rd_en(x_in_rd_en),
+    .y_in_rd_en(y_in_rd_en),
     .x_in_empty(x_in_empty),
     .y_in_empty(x_in_empty),
     .out_wr_en(mult_out_wr_en),
@@ -61,7 +61,7 @@ multiply #(
 fifo #(
     .FIFO_DATA_WIDTH(DATA_SIZE),
     .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
-) fifo_x_in_inst (
+) fifo_out_inst (
     .reset(reset),
     .wr_clk(clock),
     .wr_en(mult_out_wr_en),

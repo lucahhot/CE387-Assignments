@@ -3,7 +3,7 @@
 module multiply_tb;
 
 localparam string IN_FILE = "../fm_radio/src/txt_files/bp_pilot_out.txt";
-localparam string OUT_FILE = "../sim/multiply_sim_out.txt"
+localparam string OUT_FILE = "../sim/multiply_sim_out.txt";
 
 localparam CLOCK_PERIOD = 10;
 
@@ -21,6 +21,10 @@ logic x_in_wr_en = '0;
 
 logic z_out_empty;
 logic z_out_rd_en = '0;
+
+logic out_read_done = 1'b0;
+
+logic x_write_done = 1'b0;
 
 logic signed [DATA_SIZE-1:0] x_in_din;
 logic signed [DATA_SIZE-1:0] z_out_dout;
@@ -74,32 +78,34 @@ initial begin : tb_process
     // report metrics
     $display("@ %0t: Simulation completed.", end_time);
     $display("Total simulation cycle count: %0d", (end_time-start_time)/CLOCK_PERIOD);
-    $display("Total error count: %0d", out_errors);
+    // $display("Total error count: %0d", out_errors);
 
     // end the simulation
     $finish;
 end
 
 initial begin : x_write
-    logic signed [QUANTIZATION_BITS-1:0] in;
+    logic signed [DATA_SIZE-1:0] in;
     int i = 0;
-    x_wr_addr = '0;
-    x_wr_en = 1'b0;
+    int j = 0;
+    int fd;
+    x_in_wr_en = 1'b0;
 
     @(negedge reset);
     $display("@ %0t: Loading file %s...", $time, IN_FILE);
     
     fd = $fopen(IN_FILE, "rb");
 
-    while( !$feof(fd) ) begin
+    while( j < 72 ) begin
         if (x_in_full == 1'b0) begin
             i += $fread(x_in_din, fd, i, 4);
             x_in_wr_en = 1'b1;
+            j++;
         end
     end
 
     @(posedge clock);
-    x_wr_en = 1'b0;
+    x_in_wr_en = 1'b0;
     $fclose(fd);
     x_write_done = 1'b1;
 end
@@ -108,6 +114,7 @@ initial begin : data_write_process
     
     logic signed [DATA_SIZE-1:0] out;
     int i;
+    int result_fd;
 
     @(negedge reset);
     $display("@ %0t: Loading file %s...", $time, OUT_FILE);
@@ -130,7 +137,7 @@ initial begin : data_write_process
     end
 
     @(negedge clock);
-    y_out_rd_en = 1'b0;
+    z_out_rd_en = 1'b0;
     out_read_done = 1'b1;
 end
 
