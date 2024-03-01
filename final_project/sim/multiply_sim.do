@@ -7,6 +7,6 @@ vlog -work work "../sv/multiply.sv"
 vlog -work work "../sv/multiply_top.sv"
 vlog -work work "../sv/multiply_tb.sv"
 
-vsim -classdebug -voptargs=+acc +notimingchecks -L work work.matmul_tb -wlf matmul.wlf
+vsim -classdebug -voptargs=+acc +notimingchecks -L work work.multiply_tb -wlf multiply.wlf
 
 run -all
