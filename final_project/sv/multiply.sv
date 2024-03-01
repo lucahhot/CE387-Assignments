@@ -4,8 +4,10 @@ module multiply #(
 )(
     input logic clock,
     input logic reset,
-    output logic in_rd_en,
-    input logic in_empty,
+    output logic x_in_rd_en,
+    output logic y_in_rd_en,
+    input logic x_in_empty,
+    input logic y_in_empty,
     output logic out_wr_en,
     input logic out_full,
     input logic [DATA_SIZE - 1:0] x,
@@ -47,16 +49,18 @@ end
 
 always_comb begin
 
-    if (in_empty == 1'b0) begin
+    if (x_in_empty == 1'b0 && y_in_empty == 1'b0 && fifo_out_full == 1'b0) begin
         q_x = QUANTIZE(x);
         q_y = QUANTIZE(y);
         mult_out_c = MULTIPLY_FIXED(q_x, q_y);
         out_wr_en = 1'b1;
-        in_rd_en = 1'b1;
+        x_in_rd_en = 1'b1;
+        y_in_rd_en = 1'b1;
         dout = mult_out;
     end else begin
         out_wr_en = 1'b0;
-        in_rd_en = 1'b0;
+        x_in_rd_en = 1'b0;
+        y_in_rd_en = 1'b0;
         mult_out_c = '0;
         dout = '0;
     end
