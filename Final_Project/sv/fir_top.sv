@@ -54,7 +54,7 @@ fir #(
     .DECIMATION(10),
     .QUANTIZATION_BITS(QUANTIZATION_BITS),
     .COEFFICIENTS(COEFFICIENTS),
-    .UNROLL_FACTOR(1)
+    .UNROLL_FACTOR(4)
 ) fir_inst (
     .clock(clock),
     .reset(reset),
