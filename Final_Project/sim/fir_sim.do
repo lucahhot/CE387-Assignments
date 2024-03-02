@@ -5,10 +5,9 @@ vmap work work
 
 # udp_reader architecture
 vlog -work work "../sv/fifo.sv"
-# vlog -work work "../sv/fir.sv"
+vlog -work work "../sv/fir.sv"
 vlog -work work "../sv/fir_top.sv"
 vlog -work work "../sv/fir_tb.sv"
-vlog -work work "../sv/fir_unrolled.sv"
 
 # uvm library
 vlog -work work +incdir+$env(UVM_HOME)/src $env(UVM_HOME)/src/uvm.sv

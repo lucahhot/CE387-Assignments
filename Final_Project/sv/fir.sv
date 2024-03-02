@@ -1,33 +1,34 @@
+`include "globals.sv" 
+
 module fir #(
     parameter NUM_TAPS = 32,
     parameter DECIMATION = 10,
-    parameter QUANTIZATION_BITS = 32,
-    parameter logic [QUANTIZATION_BITS-1:0] [0:NUM_TAPS-1] COEFFICIENTS = '{default: '{default: 0}},
+    parameter logic [DATA_SIZE-1:0] [0:NUM_TAPS-1] COEFFICIENTS = '{default: '{default: 0}},
     parameter UNROLL_FACTOR = 32
 ) (
-    input logic clock,
-    input logic reset,
-    input logic [QUANTIZATION_BITS-1:0] x_in_dout,   // Quantized input 
-    input logic x_in_empty,
-    output logic x_in_rd_en,
-    output logic y_out_wr_en,
-    input logic y_out_full,
-    output logic [QUANTIZATION_BITS-1:0] y_out_din  // Quantized output
+    input   logic clock,
+    input   logic reset,
+    input   logic [DATA_SIZE-1:0] x_in_dout,   // Quantized input 
+    input   logic x_in_empty,
+    output  logic x_in_rd_en,
+    output  logic y_out_wr_en,
+    input   logic y_out_full,
+    output  logic [DATA_SIZE-1:0] y_out_din  // Quantized output
 );
 
 typedef enum logic [1:0] {S0, S1, S2, S3} state_types;
 state_types state, next_state;
 
-logic [QUANTIZATION_BITS-1:0] [0:NUM_TAPS-1] shift_reg;
-logic [QUANTIZATION_BITS-1:0] [0:NUM_TAPS-1] shift_reg_c;
+logic [DATA_SIZE-1:0] [0:NUM_TAPS-1] shift_reg;
+logic [DATA_SIZE-1:0] [0:NUM_TAPS-1] shift_reg_c;
 logic [$clog2(DECIMATION)-1:0] decimation_counter, decimation_counter_c;
 logic [$clog2(NUM_TAPS)-1:0] taps_counter, taps_counter_c;
-logic [QUANTIZATION_BITS-1:0] y_sum, y_sum_c; 
+logic [DATA_SIZE-1:0] y_sum, y_sum_c; 
 logic [$clog2(NUM_TAPS)-1:0] unroll_counter, unroll_counter_c;
 
 // Register to hold all the products of x_in and coefficients so they can be calculated in parallel
-logic [QUANTIZATION_BITS-1:0] [0:NUM_TAPS-1] products ;
-logic [QUANTIZATION_BITS-1:0] [0:NUM_TAPS-1] products_c ;
+logic [DATA_SIZE-1:0] [0:NUM_TAPS-1] products ;
+logic [DATA_SIZE-1:0] [0:NUM_TAPS-1] products_c ;
 
 
 always_ff @(posedge clock or posedge reset) begin
@@ -64,10 +65,8 @@ always_comb begin
     case(state)
 
         S0: begin
-            x_in_rd_en = 1'b0;
-            y_out_wr_en = 1'b0;
             if (x_in_empty == 1'b0) begin
-                // Shift in data into shift register and adjust for decimation (take 1 sample in DECIMATION samples)
+                // Shift in data into shift register and downsample according to DECIMATION constant
                 x_in_rd_en = 1'b1;
                 shift_reg_c[NUM_TAPS-1:1] = shift_reg[NUM_TAPS-2:0];
                 shift_reg_c[0] = x_in_dout;
@@ -80,12 +79,11 @@ always_comb begin
         end
 
         S1: begin
-            x_in_rd_en = 1'b0;
-            y_out_wr_en = 1'b0;
             // Multiply in parallel according to UNROLL_FACTOR
             // Eg: If UNROLL_FACTOR == 2, then if NUM_TAPS == 32, we would do 2 multiplications in parallel at once over 16 cycles
             for (int i = unroll_counter; i < (unroll_counter + UNROLL_FACTOR); i++)
-                products_c[i] = shift_reg[i] * COEFFICIENTS[i];
+                // C code uses inverted indexing for the coefficients
+                products_c[i] = MULTIPLY_ROUNDING(shift_reg[i],COEFFICIENTS[NUM_TAPS-i-1]);
             unroll_counter_c = unroll_counter + UNROLL_FACTOR;
             if (unroll_counter == NUM_TAPS - UNROLL_FACTOR)
                 next_state = S2;
@@ -94,8 +92,6 @@ always_comb begin
         end
 
         S2: begin
-            x_in_rd_en = 1'b0;
-            y_out_wr_en = 1'b0;
             // Accumulate state: Do all the additions in 1 cycle
             for (int i = 0; i < NUM_TAPS; i++)
                 y_sum_c = y_sum_c + products[i];
@@ -103,8 +99,6 @@ always_comb begin
         end
 
         S3: begin
-            x_in_rd_en = 1'b0;
-            y_out_wr_en = 1'b0;
             if (y_out_full == 1'b0) begin
                 // Write y_out value to FIFO
                 y_out_wr_en = 1'b1;

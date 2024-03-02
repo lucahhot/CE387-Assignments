@@ -1,6 +1,11 @@
 `timescale 1 ns / 1 ns
+`include "globals.sv" 
 
 module fir_tb;
+
+localparam string FILE_IN_NAME = "../source/text_files/demodulate_out.txt";
+localparam string FILE_OUT_NAME = "../source/output_files/fir_sim_out.txt";
+localparam string FILE_CMP_NAME = "../source/text_files/audio_lpr_out.txt";
 
 localparam CLOCK_PERIOD = 10;
 
@@ -9,16 +14,25 @@ logic reset = '0;
 logic start = '0;
 logic done  = '0;
 
-localparam QUANTIZATION_BITS = 32;
 localparam NUM_TAPS = 32;
 localparam FIFO_BUFFER_SIZE = 1024;
+localparam DECIMATION = 8;
+localparam UNROLL_FACTOR = 1;
+
+// Test 32-bit paramater values
+parameter logic signed [DATA_SIZE-1:0] [0:NUM_TAPS-1] AUDIO_LPR_COEFFS = '{
+	32'hfffffffd, 32'hfffffffa, 32'hfffffff4, 32'hffffffed, 32'hffffffe5, 32'hffffffdf, 32'hffffffe2, 32'hfffffff3, 
+	32'h00000015, 32'h0000004e, 32'h0000009b, 32'h000000f9, 32'h0000015d, 32'h000001be, 32'h0000020e, 32'h00000243, 
+	32'h00000243, 32'h0000020e, 32'h000001be, 32'h0000015d, 32'h000000f9, 32'h0000009b, 32'h0000004e, 32'h00000015, 
+	32'hfffffff3, 32'hffffffe2, 32'hffffffdf, 32'hffffffe5, 32'hffffffed, 32'hfffffff4, 32'hfffffffa, 32'hfffffffd
+};
 
 logic x_in_full;
 logic x_in_wr_en = '0;
-logic signed [QUANTIZATION_BITS-1:0] x_in_din = '0;
+logic signed [DATA_SIZE-1:0] x_in_din = '0;
 logic y_out_empty;
 logic y_out_rd_en = '0;
-logic signed [QUANTIZATION_BITS-1:0] y_out_dout;
+logic signed [DATA_SIZE-1:0] y_out_dout;
 
 logic   hold_clock    = '0;
 logic   in_write_done = '0;
@@ -27,7 +41,9 @@ integer out_errors    = '0;
 
 fir_top #(
     .NUM_TAPS(NUM_TAPS),
-    .QUANTIZATION_BITS(QUANTIZATION_BITS),
+    .DECIMATION(DECIMATION),
+    .COEFFICIENTS(AUDIO_LPR_COEFFS),
+    .UNROLL_FACTOR(UNROLL_FACTOR),
     .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
 ) fir_top_inst (
     .clock(clock),
@@ -79,53 +95,71 @@ initial begin : tb_process
     $finish;
 end
 
-initial begin : generate_random_input
+initial begin : data_read_process
 
-    logic signed [QUANTIZATION_BITS-1:0] in;
+    int in_file;
+    int i, j;
 
     @(negedge reset);
-    @(negedge clock);
-    x_in_wr_en = 1'b0;
+    $display("@ %0t: Loading file %s...", $time, FILE_IN_NAME);
+    in_file = $fopen(FILE_IN_NAME, "rb");
 
-    for (int i = -360; i <= 360; i++) begin
+    x_in_wr_en = 1'b0;
+    @(negedge clock);
+
+    // Only read the first 100 values of data
+    for (int i = 0; i < 100; i++) begin
  
         @(negedge clock);
         if (x_in_full == 1'b0) begin
             x_in_wr_en = 1'b1;
-            x_in_din = i;
+            j = $fscanf(in_file, "%h", x_in_din);
+            // $display("(%0d) Input value %x",i,x_in_din);
         end else
             x_in_wr_en = 1'b0;
     end
 
     @(negedge clock);
     x_in_wr_en = 1'b0;
+    $fclose(in_file);
     in_write_done = 1'b1;
 end
 
 initial begin : data_write_process
     
-    logic signed [QUANTIZATION_BITS-1:0] out;
-    int i;
+    logic signed [DATA_SIZE-1:0] cmp_out;
+    int i, j;
+    int out_file;
+    int cmp_file;
 
     @(negedge reset);
     @(negedge clock);
 
+    $display("@ %0t: Comparing file %s...", $time, FILE_OUT_NAME);
+    out_file = $fopen(FILE_OUT_NAME, "wb");
+    cmp_file = $fopen(FILE_CMP_NAME, "rb");
     y_out_rd_en = 1'b0;
 
     i = 0;
-    while (i < 72) begin
+    while (i < 100/DECIMATION) begin
         @(negedge clock);
         y_out_rd_en = 1'b0;
         if (y_out_empty == 1'b0) begin
             y_out_rd_en = 1'b1;
-            $display("y_out value = %8.4f", y_out_dout);
-            $display("i index = %0d\n", i);
+            j = $fscanf(cmp_file, "%h", cmp_out);
+            $fwrite(out_file, "%08x\n", y_out_dout);
+            if (cmp_out != y_out_dout) begin
+                out_errors += 1;
+                $write("@ %0t: (%0d): ERROR: %x != %x.\n", $time, i+1, y_out_dout, cmp_out);
+            end
             i++;
         end
     end
 
     @(negedge clock);
     y_out_rd_en = 1'b0;
+    $fclose(out_file);
+    $fclose(cmp_file);
     out_read_done = 1'b1;
 end
 

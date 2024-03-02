@@ -1,30 +1,46 @@
+`ifndef __GLOBALS__
+`define __GLOBALS__
+
 localparam BITS = 10;
 localparam QUANT_VAL = (1 << BITS);
 localparam DATA_SIZE = 32;
 localparam DATA_SIZE_2 = 64;
-
-// QUANTIZE_F function
-function int QUANTIZE_F(shortreal i);
-    QUANTIZE_F = int'(shortreal'(i) * shortreal'(QUANT_VAL));
-endfunction
-
-// DEQUANTIZE_F function
-function shortreal DEQUANTIZE_F(int i);
-    DEQUANTIZE_F = shortreal'(shortreal'(i) / shortreal'(QUANT_VAL));
-endfunction
+localparam MAX_VALUE = '1 >> 1;
+localparam MIN_VALUE = 1 << (DATA_SIZE-1);
 
 // DEQUANTIZE function
-function logic signed [DATA_SIZE-1:0] DEQUANTIZE(logic signed [DATA_SIZE-1:0] i);
+function logic signed [DATA_SIZE_2-1:0] DEQUANTIZE(logic signed [DATA_SIZE_2-1:0] i);
     DEQUANTIZE = i >>> BITS;
 endfunction
 
-// MULTIPLY_FIXED function (assumed quantized inputs)
-function logic signed [DATA_SIZE - 1:0] MULTIPLY_FIXED(logic signed [DATA_SIZE - 1:0] x, logic signed [DATA_SIZE - 1:0] y);
+// Multiply function using trucation (assumed quantized inputs)
+function logic signed [DATA_SIZE-1:0] MULTIPLY_TRUNCATION(logic signed [DATA_SIZE-1:0] x, logic signed [DATA_SIZE-1:0] y);
 
     // Perform truncation multiplication
-    logic signed [DATA_SIZE_2 - 1:0] intermediate;
-    intermediate = DATA_SIZE_2'(x) * DATA_SIZE_2'(y);
+    logic signed [DATA_SIZE_2-1:0] temp;
+    temp = DATA_SIZE_2'(x) * DATA_SIZE_2'(y);
     // Shift the fixed point back and truncate the output
-    MULTIPLY_FIXED = DATA_SIZE'(DEQUANTIZE(intermediate));   
+    MULTIPLY_TRUNCATION = DATA_SIZE'(DEQUANTIZE(temp));   
 
 endfunction
+
+// Multiply function using rounding & saturation (assumed quantized inputs)
+function logic signed [DATA_SIZE-1:0] MULTIPLY_ROUNDING(logic signed [DATA_SIZE-1:0] x, logic signed [DATA_SIZE-1:0] y);
+
+    logic signed [DATA_SIZE_2-1:0] temp;
+    temp = DATA_SIZE_2'(x) * y;
+    // Add 1/2 to give correct rounding 
+    temp = temp + (1 << BITS - 1);
+    // Dequantize
+    temp = DEQUANTIZE(temp);
+    // Saturate result
+    if (temp > $signed(MAX_VALUE))
+        MULTIPLY_ROUNDING = MAX_VALUE;
+    else if (temp < $signed(MIN_VALUE))
+        MULTIPLY_ROUNDING = MIN_VALUE;
+    // Shift the fixed point back and truncate the output
+    MULTIPLY_ROUNDING = DATA_SIZE'(temp);   
+
+endfunction
+
+`endif
