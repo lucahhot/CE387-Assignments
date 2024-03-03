@@ -13,6 +13,10 @@ function logic signed [DATA_SIZE_2-1:0] DEQUANTIZE(logic signed [DATA_SIZE_2-1:0
     DEQUANTIZE = i >>> BITS;
 endfunction
 
+function logic signed [DATA_SIZE_2-1:0] QUANTIZE(logic signed [DATA_SIZE_2-1:0] i);
+    QUANTIZE = i <<< BITS;
+endfunction
+
 // Multiply function using trucation (assumed quantized inputs)
 function logic signed [DATA_SIZE-1:0] MULTIPLY_TRUNCATION(logic signed [DATA_SIZE-1:0] x, logic signed [DATA_SIZE-1:0] y);
 

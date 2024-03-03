@@ -1,5 +1,5 @@
 `timescale 1 ns / 1 ns
-`include "globlas.sv"
+`include "globals.sv"
 
 module divide_tb;
 
@@ -49,7 +49,7 @@ initial begin
     #10 wait (fin == 1'b1)          // wait for division to finish
 
     $display ("Dividend: %08x\n Divisor: %08x\n", dividend, divisor);
-    $display ("Result: %08x\n", quoteint);
+    $display ("Result: %08x\n", quotient);
 
     $stop;
 end
