@@ -10,7 +10,10 @@ module divide #(
     output  logic                           fin,
     input   logic signed [DATA_SIZE-1:0]    dividend,
     input   logic signed [DATA_SIZE-1:0]    divisor,
-    output  logic signed [DATA_SIZE-1:0]    quotient
+    output  logic signed [DATA_SIZE-1:0]    quotient,
+    output  logic                           in_rd_en,
+    input   logic                           in_empty,
+    output  logic                           out_wr_en
 );
 
 logic sign;
@@ -19,6 +22,14 @@ logic [DATA_SIZE_2-1:0] a_c, b_c
 logic [DATA_SIZE_2-1:0] q, q_c;
 logic [DATA_SIZE_2-1:0] r, r_c;
 logic [DATA_SIZE-1:0] x, y;
+logic [DATA_SIZE_2-1:0] quotient_temp;      // need to reduce size of quotient_temp before outputting to quotient
+
+logic [DATA_SIZE_2:0] [DATA_SIZE_2-1:0] dinl_temp;
+logic [DATA_SIZE_2-1:0] [DATA_SIZE_2-1:0] dinr_temp;
+logic [DATA_SIZE_2-1:0] [DATA_SIZE_2-1:0] dout_temp;
+
+typedef enum logic[1:0] {IDLE, START, CALC, OUTPUT} state_types;
+state_types state, next_state;
 
 
 always_ff @( posedge clock or posedge reset ) begin
@@ -65,11 +76,41 @@ always_comb begin
         end
 
         CALC: begin
-            
+            for (i = 0; i < DATA_SIZE_2; i++) begin
+                if (i == DATA_SIZE_2-1) begin
+                    dinl_temp[i] = {{DATA_SIZE_2-i{1'b0}}, a[i]};
+                    dinr_temp[i] = b;           // dividend width and divisor width is the same (one bit added to dividend)
+                end else if (i > 0 && i < DATA_SIZE_2-1) begin
+                    dinl_temp[i] = dout_temp[i+1] & b[i];
+                    dinr_temp[i] = b;
+                end else if (i == 0) begin
+                    dinl_temp[i] = dout_temp[i+1] & b[i];
+                    dinr_temp[i] = b;
+                end
+            end
+
+            next_state = OUTPUT;
+        end
+
+        OUTPUT: begin
+            quotient = (sign == 1'b1) ? -[DATA_SIZE-1:0]quotient_temp : [DATA_SIZE-1:0]quotient_temp;
+            next_state = IDLE;
         end
         
     endcase
 end
+
+genvar i;
+    generate
+        comparator #(
+            .DATA_SIZE_2(DATA_SIZE_2)
+        ) comparator_inst (
+            .divisor(dinr_temp[i]),
+            .dividend(dinl_temp[i]),
+            .d_out(dout_temp[i]),
+            .isGreaterEq(quotient_temp[i])
+        );
+    endgenerate
 
 
 
