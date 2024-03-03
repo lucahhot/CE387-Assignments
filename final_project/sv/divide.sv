@@ -14,10 +14,8 @@ module divide #(
 );
 
 logic sign;
-logic [DATA_SIZE_2-1:0] a, b;
-logic [DATA_SIZE_2-1:0] a_c, b_c
-logic [DATA_SIZE_2-1:0] q, q_c;
-logic [DATA_SIZE_2-1:0] r, r_c;
+logic [DATA_SIZE_2:0] a, a_c;
+logic [DATA_SIZE_2-1:0] b, b_c
 logic [DATA_SIZE-1:0] x, y;
 logic [DATA_SIZE_2-1:0] quotient_temp;      // need to reduce size of quotient_temp before outputting to quotient
 
@@ -70,7 +68,7 @@ always_comb begin
             y = (divisor < 0) -divisor : divisor;
 
             // quantize inputs? I think we need this, inputs do not seem to be quantized
-            a_c = DATA_SIZE_2'(QUANTIZE(x));
+            a_c = (DATA_SIZE_2+1)'(QUANTIZE(x));
             b_c = DATA_SIZE_2'(QUANTIZE(y));
 
             // adding b/2 to give correct rounding (look at quantization division example slides)
