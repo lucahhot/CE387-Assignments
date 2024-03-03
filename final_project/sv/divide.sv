@@ -10,10 +10,7 @@ module divide #(
     output  logic                           fin,
     input   logic signed [DATA_SIZE-1:0]    dividend,
     input   logic signed [DATA_SIZE-1:0]    divisor,
-    output  logic signed [DATA_SIZE-1:0]    quotient,
-    output  logic                           in_rd_en,
-    input   logic                           in_empty,
-    output  logic                           out_wr_en
+    output  logic signed [DATA_SIZE-1:0]    quotient
 );
 
 logic sign;
@@ -49,6 +46,10 @@ end
 always_comb begin
     q_c = q;
     r_c = r;
+    a_c = a;
+    b_c = b;
+    busy = 1'b0;
+    fin = 1'b0;
 
     case (state)
         IDLE: begin
@@ -57,6 +58,9 @@ always_comb begin
             end else begin
                 next_state = IDLE;
             end
+
+            busy = 1'b0;
+            fin = 1'b0;
         end
 
         START: begin
@@ -73,6 +77,9 @@ always_comb begin
             a_c += b_c >> 1;
 
             next_state = CALC;
+
+            busy = 1'b1;
+            fin = 1'b0;
         end
 
         CALC: begin
@@ -90,11 +97,28 @@ always_comb begin
             end
 
             next_state = OUTPUT;
+            busy = 1'b1;
+            fin = 1'b0;
         end
 
         OUTPUT: begin
             quotient = (sign == 1'b1) ? -[DATA_SIZE-1:0]quotient_temp : [DATA_SIZE-1:0]quotient_temp;
             next_state = IDLE;
+
+            busy = 1'b0;
+            fin = 1'b1;
+        end
+
+        default: begin
+            busy = 1'b0;
+            fin = 1'b0;
+            a_c = '0;
+            b_c = '0;
+            x = '0;
+            y = '0;
+            dinl_temp = '{default: '{default: 0}};
+            dinr_temp = '{default: '{default: 0}};
+            dout_temp = '{default: '{default: 0}};
         end
         
     endcase
