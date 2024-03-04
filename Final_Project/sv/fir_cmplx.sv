@@ -119,10 +119,10 @@ always_comb begin
             // Multiply in parallel according to UNROLL_FACTOR
             // Eg: If UNROLL_FACTOR == 2, then if NUM_TAPS == 32, we would do 2 multiplications in parallel at once over 16 cycles
             for (int i = unroll_counter; i < (unroll_counter + UNROLL_FACTOR); i++) begin
-                real_products_c[i] = MULTIPLY_FIXED(realshift_reg[i],CHANNEL_COEFFS_REAL[i]);
-                imag_products_c[i] = MULTIPLY_FIXED(imagshift_reg[i],CHANNEL_COEFFS_IMAG[i]);
-                realimag_products_c[i] = MULTIPLY_FIXED(CHANNEL_COEFFS_REAL[i],imagshift_reg[i]);
-                imagreal_products_c[i] = MULTIPLY_FIXED(CHANNEL_COEFFS_IMAG[i],realshift_reg[i]);
+                real_products_c[i] = MULTIPLY_ROUNDING(realshift_reg[i],CHANNEL_COEFFS_REAL[i]);
+                imag_products_c[i] = MULTIPLY_ROUNDING(imagshift_reg[i],CHANNEL_COEFFS_IMAG[i]);
+                realimag_products_c[i] = MULTIPLY_ROUNDING(CHANNEL_COEFFS_REAL[i],imagshift_reg[i]);
+                imagreal_products_c[i] = MULTIPLY_ROUNDING(CHANNEL_COEFFS_IMAG[i],realshift_reg[i]);
             end
             unroll_counter_c = unroll_counter + UNROLL_FACTOR;
             if (unroll_counter == NUM_TAPS - UNROLL_FACTOR)
