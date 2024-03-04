@@ -3,6 +3,8 @@
 
 localparam BITS = 10;
 localparam QUANT_VAL = (1 << BITS);
+localparam BYTE_SIZE = 8;
+localparam CHAR_SIZE = 16;
 localparam DATA_SIZE = 32;
 localparam DATA_SIZE_2 = 64;
 localparam MAX_VALUE = '1 >> 1;
