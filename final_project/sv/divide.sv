@@ -1,141 +1,115 @@
-`include "globals.sv"
-
 module divide #(
     parameter DATA_SIZE,
     parameter DATA_SIZE_2,
     parameter BITS
 ) (
-    input   logic                           clock,
-    input   logic                           reset,
-    input   logic                           start,
-    output  logic                           busy,
-    output  logic                           fin,
-    input   logic signed [DATA_SIZE-1:0]    dividend,
-    input   logic signed [DATA_SIZE-1:0]    divisor,
-    output  logic signed [DATA_SIZE-1:0]    quotient
+    input   logic                   clock,
+    input   logic                   reset,
+    input   logic                   start,
+    output  logic                   busy,
+    output  logic                   done,
+    input   logic [DATA_SIZE-1:0]   dividend,
+    input   logic [DATA_SIZE-1:0]   divisor,
+    output  logic [DATA_SIZE-1:0]   d_out
 );
 
+logic [DATA_SIZE-1:0] au;
+logic [DATA_SIZE_2-1:0] au_quant;
+logic [DATA_SIZE-1:0] bu;
+logic [DATA_SIZE_2-1:0] bu_sub;
+logic [DATA_SIZE_2:0] acc, acc_next;
+logic [DATA_SIZE_2-1:0] quo, quo_next;
+logic [$clog2(DATA_SIZE_2):0] count, count_c;
 logic sign;
-logic [DATA_SIZE_2:0] a, a_c;
-logic [DATA_SIZE_2-1:0] b, b_c;
-logic [DATA_SIZE-1:0] x, y;
-logic [DATA_SIZE_2-1:0] quotient_temp;      // need to reduce size of quotient_temp before outputting to quotient
 
-logic [DATA_SIZE_2:0] [0:DATA_SIZE_2-1] dinl_temp;
-logic [DATA_SIZE_2-1:0] [0:DATA_SIZE_2-1] dinr_temp;
-logic [DATA_SIZE_2-1:0] [0:DATA_SIZE_2-1] dout_temp;
+localparam ITER = DATA_SIZE_2;
 
-logic [6:0] count;
-
-typedef enum logic[1:0] {IDLE, START, CALC, OUTPUT} state_types;
+typedef enum logic[1:0] {IDLE, INIT, CALC, OUT} state_types;
 state_types state, next_state;
 
-
-always_ff @( posedge clock or posedge reset ) begin
+always_ff @( posedge clock or posedge reset ) begin 
     if (reset == 1'b1) begin
-        a <= '0;
-        b <= '0;
+        acc <= '0;
+        quo <= '0;
+        count <= '0;
+        state <= IDLE;
     end else begin
-        a <= a_c;
-        b <= b_c;
+        acc <= acc_next;
+        quo <= quo_next;
+        count <= count_c;
+        state <= next_state;
     end
+    
 end
 
 always_comb begin
-    a_c = a;
-    b_c = b;
-    busy = 1'b0;
-    fin = 1'b0;
-    count = '0;
+    acc_next = acc;
+    quo_next = quo;
+    count_c = count;
 
-    case (state)
+    case(state) 
         IDLE: begin
             if (start == 1'b1) begin
-                next_state = START;
+                next_state = INIT;
             end else begin
                 next_state = IDLE;
             end
 
             busy = 1'b0;
-            fin = 1'b0;
+            done = 1'b0;
         end
 
-        START: begin
-            // Get MSB and perform XOR to find the sign
-            sign = (dividend >> DATA_SIZE-1) ^ (divisor >> DATA_SIZE-1); 
-            x = (dividend < 0) ? -dividend : dividend;
-            y = (divisor < 0) ?  -divisor : divisor;
-
-            // quantize inputs? I think we need this, inputs do not seem to be quantized
-            a_c = (DATA_SIZE_2+1)'(QUANTIZE(x));
-            b_c = DATA_SIZE_2'(QUANTIZE(y));
-
-            // adding b/2 to give correct rounding (look at quantization division example slides)
-            a_c += b_c >> 1;
-
-            next_state = CALC;
-
+        INIT: begin
+            sign = dividend[DATA_SIZE-1] ^ divisor[DATA_SIZE-1];
+            au = (dividend[DATA_SIZE-1] == 1'b1) ? -dividend : dividend;    // getting unsigned value, au gets shifted before input? check c code
+            bu = (divisor[DATA_SIZE-1] == 1'b1) ? -divisor : divisor;
+            bu_sub = {{DATA_SIZE{1'b0}}, bu};
+            au_quant = {{DATA_SIZE{1'b0}}, au};    // quantize au
+            au_quant = au_quant << BITS;
+            au_quant += bu >> 1;            // for rounding
             busy = 1'b1;
-            fin = 1'b0;
+            done = 1'b0;
+            next_state = CALC;
+            count_c = 0;
+            {acc_next, quo_next} = {{DATA_SIZE_2{1'b0}}, au_quant, 1'b0};
         end
 
         CALC: begin
-            while (count < DATA_SIZE_2) begin
-                if (count == DATA_SIZE_2-1) begin
-                    dinl_temp[count] = {{1'b0}, a[count]};
-                    dinr_temp[count] = b;           // dividend width and divisor width is the same (one bit added to dividend)
-                end else if (count > 0 && count < DATA_SIZE_2-1) begin
-                    dinl_temp[count] = dout_temp[count+1] & b[count];
-                    dinr_temp[count] = b;
-                end else if (count == 0) begin
-                    dinl_temp[count] = dout_temp[count+1] & b[count];
-                    dinr_temp[count] = b;
-                end
-                count++;
+            if (count == ITER - 1) begin
+                next_state = OUT;
+            end else begin
+                next_state = CALC;
             end
 
-            next_state = OUTPUT;
-            busy = 1'b1;
-            fin = 1'b0;
-        end
+            if (acc >= {1'b0, bu}) begin
+                acc_next = acc - bu_sub;
+                {acc_next, quo_next} = {acc_next[DATA_SIZE_2-1:0], quo, 1'b1};
+            end else begin
+                {acc_next, quo_next} = {acc, quo} << 1;
+            end
 
-        OUTPUT: begin
-            quotient = (sign == 1'b1) ? -quotient_temp[DATA_SIZE-1:0] : quotient_temp[DATA_SIZE-1:0];
-            next_state = IDLE;
+            count_c++;
+        end 
 
+        OUT: begin
             busy = 1'b0;
-            fin = 1'b1;
+            done = 1'b1;
+            next_state = IDLE;
+            d_out = (sign == 1'b1) ? -quo[DATA_SIZE-1:0] : quo[DATA_SIZE-1:0];
+            count_c = '0;
         end
 
         default: begin
+            acc_next = '0;
+            d_out = '0;
+            quo_next = '0;
+            count_c = '0;
             busy = 1'b0;
-            fin = 1'b0;
-            a_c = '0;
-            b_c = '0;
-            x = '0;
-            y = '0;
-            count = '0;
-            dinl_temp = '{default: '{default: 0}};
-            dinr_temp = '{default: '{default: 0}};
-            dout_temp = '{default: '{default: 0}};
+            done = 1'b0;
+            next_state = IDLE;
         end
-        
     endcase
 end
-
-genvar i;
-    generate
-        for (i = 0; i < DATA_SIZE_2; i++) begin
-            comparator #(
-                .DATA_SIZE_2(DATA_SIZE_2)
-            ) comparator_inst (
-                .dinr(dinr_temp[i]),
-                .dinl(dinl_temp[i]),
-                .d_out(dout_temp[i]),
-                .isGreaterEq(quotient_temp[i])
-            );
-        end
-    endgenerate
 
 
 

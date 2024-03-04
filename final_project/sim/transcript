@@ -5,39 +5,36 @@
 # vmap work work 
 # Modifying modelsim.ini
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 14:18:54 on Mar 03,2024
+# Start time: 23:08:59 on Mar 03,2024
 # vlog -work work ../sv/comparator.sv 
 # -- Compiling module comparator
 # 
 # Top level modules:
 # 	comparator
-# End time: 14:18:54 on Mar 03,2024, Elapsed time: 0:00:00
+# End time: 23:08:59 on Mar 03,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 14:18:54 on Mar 03,2024
+# Start time: 23:08:59 on Mar 03,2024
 # vlog -work work ../sv/divide.sv 
-# -- Compiling package divide_sv_unit
 # -- Compiling module divide
 # 
 # Top level modules:
 # 	divide
-# End time: 14:18:54 on Mar 03,2024, Elapsed time: 0:00:00
+# End time: 23:08:59 on Mar 03,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 14:18:54 on Mar 03,2024
+# Start time: 23:08:59 on Mar 03,2024
 # vlog -work work ../sv/divide_tb.sv 
 # -- Compiling package divide_tb_sv_unit
 # -- Compiling module divide_tb
 # 
 # Top level modules:
 # 	divide_tb
-# End time: 14:18:54 on Mar 03,2024, Elapsed time: 0:00:00
+# End time: 23:08:59 on Mar 03,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.divide_tb -wlf divide.wlf 
-# Start time: 14:18:54 on Mar 03,2024
+# Start time: 23:08:59 on Mar 03,2024
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: ../sv/divide.sv(88): (vopt-2182) 'dout_temp' might be read before written in always_comb or always @* block.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
 # //  ModelSim SE-64 2020.1 Jan 28 2020 Linux 4.18.0-513.18.1.el8_9.x86_64
 # //
 # //  Copyright 1991-2020 Mentor Graphics Corporation
@@ -54,11 +51,33 @@
 # Loading sv_std.std
 # Loading work.divide_tb_sv_unit(fast)
 # Loading work.divide_tb(fast)
-# Loading work.divide_sv_unit(fast)
 # Loading work.divide(fast)
-# Loading work.comparator(fast)
-# ** Error (suppressible): (vsim-3839) Variable '/divide_tb/divide_inst/dout_temp', driven via a port connection, is multiply driven. See ../sv/divide.sv(131).
-#    Time: 0 ns  Iteration: 0  Instance: /divide_tb/divide_inst File: ../sv/divide.sv Line: 120
-# Error loading design
-# End time: 14:18:54 on Mar 03,2024, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 1
+# Unable to lock WLF file "divide.wlf". Retrying 1 times, errno 11
+# Unable to lock WLF file "divide.wlf". Retrying 2 times, errno 11
+# Unable to lock WLF file "divide.wlf". Retrying 3 times, errno 11
+# Cannot lock WLF file: "divide.wlf"
+#           errno 11: Resource temporarily unavailable.
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: divide.wlf
+#           File in use by: mwp8699  Hostname: joker.ece.northwestern.edu  ProcessID: 1684533
+#           Attempting to use alternate WLF file "./wlftENhBcB".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: divide.wlf
+#           Using alternate file: ./wlftENhBcB
+# Dividend: 00001000
+# Divisor: 00000800
+# 
+# Result: 00000800
+# 
+# Dividend: 000076c0
+# Divisor: 00001300
+# 
+# Result: 00001900
+# 
+# Dividend: ffff8940
+# Divisor: 00001300
+# 
+# Result: ffffe700
+# 
+# ** Note: $stop    : ../sv/divide_tb.sv(72)
+#    Time: 2040 ns  Iteration: 3  Instance: /divide_tb
+# Break in Module divide_tb at ../sv/divide_tb.sv line 72
+# Stopped at ../sv/divide_tb.sv line 72

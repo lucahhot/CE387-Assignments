@@ -10,4 +10,9 @@ vlog -work work "../sv/divide_tb.sv"
 
 vsim -classdebug -voptargs=+acc +notimingchecks -L work work.divide_tb -wlf divide.wlf
 
+add wave -noupdate -group divide_tb
+add wave -noupdate -group divide_tb -radix unsigned /divide_tb/*
+add wave -noupdate -group divide_tb/divide_inst
+add wave -noupdate -group divide_tb/divide_inst -radix hexadecimal /divide_inst/*
+
 run -all 

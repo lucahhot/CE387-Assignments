@@ -11,7 +11,7 @@ logic start = '0;
 logic done  = '0;
 
 logic busy;
-logic fin;
+logic div_done;
 
 logic [DATA_SIZE-1:0] dividend, divisor, quotient;
 
@@ -24,10 +24,10 @@ divide #(
     .reset(reset),
     .start(start),
     .busy(busy),
-    .fin(fin),
+    .done(div_done),
     .dividend(dividend),
     .divisor(divisor),
-    .quotient(quotient)
+    .d_out(quotient)
 );
 
 always begin
@@ -46,9 +46,27 @@ initial begin
     dividend = 32'd4 << 10;         // 4 in fixed point
     divisor = 32'd2 << 10;          // 2 in fixed point
     #10 start = 1'b1;               // start signal
-    #10 wait (fin == 1'b1)          // wait for division to finish
+    #10 wait (div_done == 1'b1)          // wait for division to doneish
 
-    $display ("Dividend: %08x\n Divisor: %08x\n", dividend, divisor);
+    $display ("Dividend: %08x\nDivisor: %08x\n", dividend, divisor);
+    $display ("Result: %08x\n", quotient);
+
+    #10;
+    dividend = 32'h000076c0;         // 29.6875
+    divisor = 32'h00001300;          // 4.75
+    #10 start = 1'b1;               // start signal
+    #10 wait (div_done == 1'b1)          // wait for division to doneish
+
+    $display ("Dividend: %08x\nDivisor: %08x\n", dividend, divisor);
+    $display ("Result: %08x\n", quotient);
+
+    #10;
+    dividend = 32'hffff8940;         // -29.6875
+    divisor = 32'h00001300;          // 4.75
+    #10 start = 1'b1;               // start signal
+    #10 wait (div_done == 1'b1)          // wait for division to doneish
+
+    $display ("Dividend: %08x\nDivisor: %08x\n", dividend, divisor);
     $display ("Result: %08x\n", quotient);
 
     $stop;
