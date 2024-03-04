@@ -25,6 +25,8 @@ logic in_rd_en;
 logic [BYTE-1:0] read_in;
 logic in_empty;
 
+localparam int FIFO_BUFFER_SIZE = 32;
+
 fifo #(
     .FIFO_DATA_WIDTH(BYTE),
     .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
@@ -66,16 +68,9 @@ read_iq #(
 fifo #(
     .FIFO_DATA_WIDTH(DATA_SIZE),
     .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
-) fifo_i_out_inst(
-
-);
-
-fifo #(
-    .FIFO_DATA_WIDTH(DATA_SIZE),
-    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
 ) fifo_q_out_inst(
     .reset(reset),
-    .wr_clk(clocl),
+    .wr_clk(clock),
     .wr_en(out_wr_en),
     .din(q_out),
     .full(q_out_full),

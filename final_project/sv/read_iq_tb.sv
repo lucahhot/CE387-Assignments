@@ -1,11 +1,13 @@
 `timescale 1 ns / 1 ns
 `include "globals.sv" 
 
-module fir_tb;
+module read_iq_tb;
 
-localparam string FILE_IN_NAME = "../fm_radio/src/test/usrp.dat";
-localparam string FILE_OUT_NAME = "../source/output_files/fir_sim_out.txt";
-localparam string FILE_CMP_NAME = "../source/text_files/audio_lpr_out.txt";
+localparam string FILE_IN_NAME = "../fm_radio/test/usrp.dat";
+localparam string FILE_I_OUT_NAME = "../fm_radio/src/out_files/read_iq_i_out.txt";
+localparam string FILE_Q_OUT_NAME = "../fm_radio/src/out_files/read_iq_q_out.txt";
+localparam string FILE_I_CMP_NAME = "../fm_radio/src/txt_files/read_iq_i.txt";
+localparam string FILE_Q_CMP_NAME = "../fm_radio/src/txt_files/read_iq_q.txt";
 
 localparam CLOCK_PERIOD = 10;
 
@@ -13,6 +15,10 @@ logic clock = 1'b1;
 logic reset = '0;
 logic start = '0;
 logic done  = '0;
+
+logic out_read_done = '0;
+logic in_write_done = '0;
+integer out_errors = '0;
 
 // read_iq_top signals
 logic in_full;
@@ -90,62 +96,79 @@ initial begin : data_read_process
     $display("@ %0t: Loading file %s...", $time, FILE_IN_NAME);
     in_file = $fopen(FILE_IN_NAME, "rb");
 
-    x_in_wr_en = 1'b0;
+    in_wr_en = 1'b0;
     @(negedge clock);
 
     // Only read the first 100 values of data
     for (int i = 0; i < 100; i++) begin
  
         @(negedge clock);
-        if (x_in_full == 1'b0) begin
-            x_in_wr_en = 1'b1;
-            j = $fscanf(in_file, "%h", x_in_din);
+        if (in_full == 1'b0) begin
+            in_wr_en = 1'b1;
+            j = $fscanf(in_file, "%c", in_din);
             // $display("(%0d) Input value %x",i,x_in_din);
         end else
-            x_in_wr_en = 1'b0;
+            in_wr_en = 1'b0;
     end
 
     @(negedge clock);
-    x_in_wr_en = 1'b0;
+    in_wr_en = 1'b0;
     $fclose(in_file);
     in_write_done = 1'b1;
 end
 
 initial begin : data_write_process
     
-    logic signed [DATA_SIZE-1:0] cmp_out;
-    int i, j;
-    int out_file;
-    int cmp_file;
+    logic signed [DATA_SIZE-1:0] i_cmp_out, q_cmp_out;
+    int i, j, k;
+    int i_out_file, q_out_file;
+    int i_cmp_file, q_cmp_file;
 
     @(negedge reset);
     @(negedge clock);
 
-    $display("@ %0t: Comparing file %s...", $time, FILE_OUT_NAME);
-    out_file = $fopen(FILE_OUT_NAME, "wb");
-    cmp_file = $fopen(FILE_CMP_NAME, "rb");
-    y_out_rd_en = 1'b0;
+    $display("@ %0t: Comparing I %s...", $time, FILE_I_OUT_NAME);
+    $display("@ %0t: Comparing Q %s...", $time, FILE_Q_OUT_NAME);
+    i_out_file = $fopen(FILE_I_OUT_NAME, "wb");
+    q_out_file = $fopen(FILE_Q_OUT_NAME, "wb");
+    i_cmp_file = $fopen(FILE_I_CMP_NAME, "rb");
+    q_cmp_file = $fopen(FILE_Q_CMP_NAME, "rb");
+    i_out_rd_en = 1'b0;
+    q_out_rd_en = 1'b0;
 
     i = 0;
-    while (i < 100/DECIMATION) begin
+    while (i < 100/4) begin
         @(negedge clock);
-        y_out_rd_en = 1'b0;
-        if (y_out_empty == 1'b0) begin
-            y_out_rd_en = 1'b1;
-            j = $fscanf(cmp_file, "%h", cmp_out);
-            $fwrite(out_file, "%08x\n", y_out_dout);
-            if (cmp_out != y_out_dout) begin
+        i_out_rd_en = 1'b0;
+        q_out_rd_en = 1'b0;
+        if (i_out_empty == 1'b0 && q_out_empty == 1'b0) begin
+            i_out_rd_en = 1'b1;
+            q_out_rd_en = 1'b1;
+            j = $fscanf(i_cmp_file, "%h", i_cmp_out);
+            k = $fscanf(q_cmp_file, "%h", q_cmp_out);
+            $fwrite(i_out_file, "%08x\n", i_out_dout);
+            $fwrite(q_out_file, "%08x\n", q_out_dout);
+
+            if (i_cmp_out != i_out_dout) begin
                 out_errors += 1;
-                $write("@ %0t: (%0d): ERROR: %x != %x.\n", $time, i+1, y_out_dout, cmp_out);
+                $write("@ %0t: (%0d): ERROR: %x != %x.\n", $time, i+1, i_out_dout, i_cmp_out);
+            end
+
+            if (q_cmp_out != q_out_dout) begin
+                out_errors += 1;
+                $write("@ %0t: (%0d): ERROR: %x != %x.\n", $time, i+1, q_out_dout, q_cmp_out);
             end
             i++;
         end
     end
 
     @(negedge clock);
-    y_out_rd_en = 1'b0;
-    $fclose(out_file);
-    $fclose(cmp_file);
+    i_out_rd_en = 1'b0;
+    q_out_rd_en = 1'b0;
+    $fclose(i_out_file);
+    $fclose(q_out_file);
+    $fclose(i_cmp_file);
+    $fclose(q_cmp_file);
     out_read_done = 1'b1;
 end
 
