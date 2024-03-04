@@ -86,66 +86,67 @@ initial begin : x_write
 end
 
 initial begin : data_write_process
-    shortreal x, y;
-    logic signed [0:7] [DATA_SIZE-1:0]  x_fixed; 
-    logic signed [0:7] [DATA_SIZE-1:0]  y_fixed;
-    logic signed [0:7] [DATA_SIZE-1:0]  product;
-    logic signed [DATA_SIZE-1:0] sum;
-    logic signed [DATA_SIZE-1:0] intmax;
-    logic signed [DATA_SIZE-1:0] intmin;
+    // shortreal x, y;
+    // logic signed [0:7] [DATA_SIZE-1:0]  x_fixed; 
+    // logic signed [0:7] [DATA_SIZE-1:0]  y_fixed;
+    // logic signed [0:7] [DATA_SIZE-1:0]  product;
+    // logic signed [DATA_SIZE-1:0] sum;
+    // logic signed [DATA_SIZE-1:0] intmax;
+    // logic signed [DATA_SIZE-1:0] intmin;
 
-    // int x_fixed [0:7];
-    // int y_fixed [0:7];
-    // int product [0:7];
-    // int sum;
+    int x_fixed_int [0:7];
+    int y_fixed_int [0:7];
+    logic signed [0:7] [DATA_SIZE-1:0] x_fixed; 
+    logic signed [0:7] [DATA_SIZE-1:0] y_fixed; 
+    logic signed [0:7] [DATA_SIZE-1:0] product;
+    int sum_int;
+    logic signed [DATA_SIZE-1:0] sum;
     
     @(negedge reset);
     @(negedge clock);
 
     
-    x = 6.25;
-    y= 4.75;
+    // x = 6.25;
+    // y= 4.75;
 
-    $display("x = %8.4f", x);
-    $display("y = %8.4f", y);
+    // $display("x = %8.4f", x);
+    // $display("y = %8.4f", y);
 
-    x_fixed = QUANTIZE_F(x);
-    y_fixed = QUANTIZE_F(y);
+    // x_fixed = QUANTIZE_F(x);
+    // y_fixed = QUANTIZE_F(y);
 
-    $display("x_fixed = %0d", x_fixed);
-    $display("y_fixed = %0d", y_fixed);
-    // $display("x_fixed = %b", x_fixed);
-    // $display("y_fixed = %b", y_fixed);
+    // $display("x_fixed = %0d", x_fixed);
+    // $display("y_fixed = %0d", y_fixed);
+    // // $display("x_fixed = %b", x_fixed);
+    // // $display("y_fixed = %b", y_fixed);
 
-    // Multiply and print the results
-    product = MULTIPLY_ROUNDING(x_fixed,y_fixed);
-    $display("Product (quantized/fixed-point) = %0d", product);
+    // // Multiply and print the results
+    // product = MULTIPLY_ROUNDING(x_fixed,y_fixed);
+    // $display("Product (quantized/fixed-point) = %0d", product);
 
-    // Print multiply results in floating-point
-    $display("Product (floating-point) = %8.4f", DEQUANTIZE_F(product));
+    // // Print multiply results in floating-point
+    // $display("Product (floating-point) = %8.4f", DEQUANTIZE_F(product));
 
     // Testing multiplication for fir.sv
-    // x_fixed = '{32'h0000073e,32'h00000900,32'h000007d8,32'hfffffc84,32'hfffffb5a,32'h00000696,32'h000004a6, 32'h000004a6};
-    // y_fixed = '{32'hfffffffd, 32'hfffffffa, 32'hfffffff4, 32'hffffffed, 32'hffffffe5, 32'hffffffdf, 32'hffffffe2, 32'hfffffff3};
-    // sum = 0;
+    x_fixed_int = '{32'h0000073e,32'h00000900,32'h000007d8,32'hfffffc84,32'hfffffb5a,32'h00000696,32'h000004a6, 32'h000004a6};
+    y_fixed_int = '{32'hfffffffd, 32'hfffffffa, 32'hfffffff4, 32'hffffffed, 32'hffffffe5, 32'hffffffdf, 32'hffffffe2, 32'hfffffff3};
+    x_fixed = '{32'h0000073e,32'h00000900,32'h000007d8,32'hfffffc84,32'hfffffb5a,32'h00000696,32'h000004a6, 32'h000004a6};
+    y_fixed = '{32'hfffffffd, 32'hfffffffa, 32'hfffffff4, 32'hffffffed, 32'hffffffe5, 32'hffffffdf, 32'hffffffe2, 32'hfffffff3};
+    sum = 0;
+    sum_int = 0;
 
-    // for (int i = 0; i < 8; i++) begin
-    //     product[i] = MULTIPLY_ROUNDING(x_fixed[i],y_fixed[i]);
-    //     // $display("Product (fixed-point) = %b", product[i]);
-    //     // $display("Product (fixed-point) = %d", product[i]);
-    //     $display("Product (fixed-point) = %x", product[i]);
-    //     $display("Real product (fixed-point) = %x", $signed(x_fixed[i] * y_fixed[i]) / 1024);
-    //     sum += (product[i]);
-    // end
+    for (int i = 0; i < 8; i++) begin
+        product[i] = MULTIPLY_ROUNDING(x_fixed[i],y_fixed[i]);
+        // $display("Product (fixed-point) = %b", product[i]);
+        // $display("Product (fixed-point) = %d", product[i]);
+        $display("Product (fixed-point) = %x", product[i]);
+        $display("Real product (fixed-point) = %x", $signed(x_fixed_int[i] * y_fixed_int[i]) / 1024);
+        sum += (product[i]);
+        sum_int += $signed(x_fixed_int[i] * y_fixed_int[i]) / 1024;
+    end
 
-    // $display("Sum (fixed-point) = %x",sum);
-
-    // intmax = '1 >> 1;
-
-    // intmin = 1 << (DATA_SIZE-1);
-
-    // $display("%d",intmax);
-    // $display("%d",intmin);
+    $display("Sum (fixed-point) = %x",sum);
+    $display("Real sum (fixed-point) = %x",sum_int);
 
     // QUANTIZED:
     // # Product (fixed-point) = ffffea46

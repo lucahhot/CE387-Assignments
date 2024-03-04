@@ -1,19 +1,19 @@
 #--  Synopsys, Inc.
 #--  Version O-2018.09-SP1
-#--  Project file /home/laa8390/Documents/CE387/CE387-Assignments/Final_Project/syn/fir.prj
-#--  Written on Mon Mar  4 16:14:08 2024
+#--  Project file /home/laa8390/Documents/CE387/CE387-Assignments/Final_Project/syn/fir_cmplx.prj
+#--  Written on Mon Mar  4 17:28:17 2024
 
 
 #project files
 add_file -verilog -vlog_std sysv "../sv/fifo.sv"
-add_file -verilog -vlog_std sysv "../sv/fir.sv"
-add_file -verilog -vlog_std sysv "../sv/fir_top.sv"
+add_file -verilog -vlog_std sysv "../sv/fir_cmplx.sv"
+add_file -verilog -vlog_std sysv "../sv/fir_cmplx_top.sv"
 add_file -verilog -vlog_std sysv "../sv/globals.sv"
 
 
 
-#implementation: "rev_1"
-impl -add rev_1 -type fpga
+#implementation: "rev_2"
+impl -add rev_2 -type fpga
 
 #
 #implementation attributes
@@ -32,18 +32,17 @@ set_option -speed_grade -7
 set_option -part_companion ""
 
 #compilation/mapping options
-set_option -use_fsm_explorer 1
-set_option -top_module "fir_top"
+set_option -use_fsm_explorer 0
+set_option -top_module "fir_cmplx_top"
 
 # hdl_compiler_options
 set_option -distributed_compile 1
 
 # altera_options
-set_option -automatic_compile_point 1
 set_option -rw_check_on_ram 1
 
 # mapper_without_write_options
-set_option -frequency 100.000000
+set_option -frequency auto
 set_option -srs_instrumentation 1
 
 # mapper_options
@@ -56,7 +55,7 @@ set_option -maxfan 30
 set_option -disable_io_insertion 0
 set_option -pipe 1
 set_option -update_models_cp 0
-set_option -retiming 1
+set_option -retiming 0
 set_option -no_sequential_opt 0
 set_option -fix_gated_and_generated_clocks 1
 
@@ -75,5 +74,7 @@ set_option -auto_infer_blackbox 0
 set_option -write_apr_constraint 1
 
 #set result format/file last
-project -result_file "rev_1/proj_1.vqm"
-impl -active "rev_1"
+project -result_file "rev_2/proj_1.vqm"
+
+#design plan options
+impl -active "rev_2"

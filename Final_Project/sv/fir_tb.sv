@@ -17,10 +17,9 @@ logic done  = '0;
 localparam NUM_TAPS = 32;
 localparam FIFO_BUFFER_SIZE = 1024;
 localparam DECIMATION = 8;
-localparam UNROLL_FACTOR = 1;
 
 // Test 32-bit paramater values
-parameter logic signed [DATA_SIZE-1:0] [0:NUM_TAPS-1] AUDIO_LPR_COEFFS = '{
+parameter logic signed  [0:NUM_TAPS-1] [DATA_SIZE-1:0] AUDIO_LPR_COEFFS = '{
 	32'hfffffffd, 32'hfffffffa, 32'hfffffff4, 32'hffffffed, 32'hffffffe5, 32'hffffffdf, 32'hffffffe2, 32'hfffffff3, 
 	32'h00000015, 32'h0000004e, 32'h0000009b, 32'h000000f9, 32'h0000015d, 32'h000001be, 32'h0000020e, 32'h00000243, 
 	32'h00000243, 32'h0000020e, 32'h000001be, 32'h0000015d, 32'h000000f9, 32'h0000009b, 32'h0000004e, 32'h00000015, 
@@ -43,7 +42,6 @@ fir_top #(
     .NUM_TAPS(NUM_TAPS),
     .DECIMATION(DECIMATION),
     .COEFFICIENTS(AUDIO_LPR_COEFFS),
-    .UNROLL_FACTOR(UNROLL_FACTOR),
     .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
 ) fir_top_inst (
     .clock(clock),
