@@ -18,17 +18,6 @@ function logic signed [DATA_SIZE_2-1:0] QUANTIZE(logic signed [DATA_SIZE_2-1:0] 
     QUANTIZE = i << BITS;
 endfunction
 
-// Multiply function using trucation (assumed quantized inputs)
-// function logic signed [DATA_SIZE-1:0] MULTIPLY_TRUNCATION(logic signed [DATA_SIZE-1:0] x, logic signed [DATA_SIZE-1:0] y);
-
-//     // Perform truncation multiplication
-//     logic signed [DATA_SIZE_2-1:0] temp;
-//     temp = DATA_SIZE_2'(x) * DATA_SIZE_2'(y);
-//     // Shift the fixed point back and truncate the output
-//     MULTIPLY_TRUNCATION = DATA_SIZE'(DEQUANTIZE(temp));   
-
-// endfunction
-
 // Multiply function using rounding & saturation (assumed quantized inputs)
 function logic signed [DATA_SIZE-1:0] MULTIPLY_ROUNDING(logic signed [DATA_SIZE-1:0] x, logic signed [DATA_SIZE-1:0] y);
 
@@ -67,3 +56,4 @@ endfunction
 
 
 `endif
+

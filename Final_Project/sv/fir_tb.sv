@@ -105,8 +105,8 @@ initial begin : data_read_process
     x_in_wr_en = 1'b0;
     @(negedge clock);
 
-    // Only read the first 100 values of data
-    for (int i = 0; i < 100; i++) begin
+    // Only read the first 200 values of data
+    for (int i = 0; i < 200; i++) begin
  
         @(negedge clock);
         if (x_in_full == 1'b0) begin
@@ -139,7 +139,7 @@ initial begin : data_write_process
     y_out_rd_en = 1'b0;
 
     i = 0;
-    while (i < 100/DECIMATION) begin
+    while (i < 200/DECIMATION) begin
         @(negedge clock);
         y_out_rd_en = 1'b0;
         if (y_out_empty == 1'b0) begin

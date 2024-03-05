@@ -3,7 +3,7 @@
 module fir #(
     parameter NUM_TAPS = 32,
     parameter DECIMATION = 8,
-    parameter logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] COEFFICIENTS = {NUM_TAPS{DATA_SIZE{1'b0}}}
+    parameter logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] COEFFICIENTS = '{default: '{default: 0}}
 ) (
     input   logic clock,
     input   logic reset,
@@ -31,7 +31,7 @@ logic [DATA_SIZE-1:0] tap_value, tap_value_c;
 always_ff @(posedge clock or posedge reset) begin
     if (reset == 1'b1) begin
         state <= S0; 
-        shift_reg <= {NUM_TAPS{DATA_SIZE{1'b0}}};
+        shift_reg <= '{default: '{default: 0}};
         decimation_counter <= '0;
         taps_counter <= '0;
         y_sum <= '0;
@@ -70,17 +70,25 @@ always_comb begin
                 next_state = S1;
                 // Assign first tap value to pipeline fetching of shift_reg value and MAC operation
                 tap_value_c = x_in_dout;
+                // Increment taps_counter_c starting here so we always get the right value in S1
+                taps_counter_c = taps_counter + 1'b1;
             end
             else
                 next_state = S0;
         end
 
         S1: begin
-            // Perform MAC operation
-            y_sum_c = $signed(y_sum) + MULTIPLY_ROUNDING(shift_reg[taps_counter],COEFFICIENTS[NUM_TAPS-taps_counter-1]);
+            // Perform MAC operation (more accurate using MULTIPLY_ROUNDING vs. normal *)
+            // If taps_counter == 0, it means it overflowed (should be 32 if NUM_TAPS == 32) and this is our last calculation but we need to use 32 for the COEFFICIENTS index instead of 0
+            if (taps_counter == 0)
+                y_sum_c = $signed(y_sum) + MULTIPLY_ROUNDING(tap_value,COEFFICIENTS[NUM_TAPS-NUM_TAPS]);
+            else 
+                y_sum_c = $signed(y_sum) + MULTIPLY_ROUNDING(tap_value,COEFFICIENTS[NUM_TAPS-taps_counter]);
+            // y_sum_c = $signed(y_sum) + DEQUANTIZE($signed(shift_reg[taps_counter]) * $signed(COEFFICIENTS[NUM_TAPS-taps_counter-1]));
             taps_counter_c = taps_counter + 1'b1;
-            tap_value_c = shift_reg[taps_counter_c];
-            if (taps_counter == NUM_TAPS - 1)
+            tap_value_c = shift_reg[taps_counter];
+            // Change state when taps_counter has overflowed or is equal to NUM_TAPS
+            if (taps_counter == NUM_TAPS || taps_counter == 0)
                 next_state = S2;
             else
                 next_state = S1;
@@ -107,7 +115,8 @@ always_comb begin
             decimation_counter_c = 'X;
             taps_counter_c = 'X;
             y_sum_c = 'X;
-            shift_reg_c = {NUM_TAPS{DATA_SIZE{1'b0}}};
+            shift_reg_c = '{default: '{default: 0}};
+            tap_value = 'X;
         end
     endcase
 end

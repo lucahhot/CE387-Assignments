@@ -99,26 +99,43 @@ always_comb begin
             end
             if (decimation_counter_c == DECIMATION) begin
                 next_state = S1;
-                realtap_value_c = realshift_reg_c[0];
-                imagtap_value_c = imagshift_reg_c[0];
+                // Assign first tap value to pipeline fetching of shift_reg value and MAC operation
+                realtap_value_c = xreal_in_dout;
+                imagtap_value_c = ximag_in_dout;
+                // Increment taps_counter_c starting here so we always get the right value in S1
+                taps_counter_c = taps_counter + 1'b1;
             end
             else
                 next_state = S0;
         end
 
         S1: begin
-            // Perform multiplications
-            real_product = MULTIPLY_ROUNDING_NODEQUANTIZE(realtap_value,COEFFICIENTS_REAL[taps_counter]);
-            imag_product = MULTIPLY_ROUNDING_NODEQUANTIZE(imagtap_value,COEFFICIENTS_IMAG[taps_counter]);
-            realimag_product = MULTIPLY_ROUNDING_NODEQUANTIZE(COEFFICIENTS_REAL[taps_counter],imagtap_value);
-            imagreal_product = MULTIPLY_ROUNDING_NODEQUANTIZE(COEFFICIENTS_IMAG[taps_counter],realtap_value);
+            // Perform multiplications (using MULTIPLY_ROUNDING)
+            // real_product = MULTIPLY_ROUNDING_NODEQUANTIZE(realtap_value,COEFFICIENTS_REAL[taps_counter]);
+            // imag_product = MULTIPLY_ROUNDING_NODEQUANTIZE(imagtap_value,COEFFICIENTS_IMAG[taps_counter]);
+            // realimag_product = MULTIPLY_ROUNDING_NODEQUANTIZE(COEFFICIENTS_REAL[taps_counter],imagtap_value);
+            // imagreal_product = MULTIPLY_ROUNDING_NODEQUANTIZE(COEFFICIENTS_IMAG[taps_counter],realtap_value);
+            // Using normal * since it's error free
+            // Need to account for taps_value potentially overflowing depending on the value of NUM_TAPS (necessary to be able to pipeline fetching of values from the shift registers)
+            if (taps_counter == 0) begin
+                real_product = $signed(realtap_value) * $signed(COEFFICIENTS_REAL[NUM_TAPS-1]);
+                imag_product = $signed(imagtap_value) * $signed(COEFFICIENTS_IMAG[NUM_TAPS-1]);
+                realimag_product = $signed(COEFFICIENTS_REAL[NUM_TAPS-1]) * $signed(imagtap_value);
+                imagreal_product = $signed(COEFFICIENTS_IMAG[NUM_TAPS-1]) * $signed(realtap_value);
+            end else begin
+                real_product = $signed(realtap_value) * $signed(COEFFICIENTS_REAL[taps_counter-1]);
+                imag_product = $signed(imagtap_value) * $signed(COEFFICIENTS_IMAG[taps_counter-1]);
+                realimag_product = $signed(COEFFICIENTS_REAL[taps_counter-1]) * $signed(imagtap_value);
+                imagreal_product = $signed(COEFFICIENTS_IMAG[taps_counter-1]) * $signed(realtap_value);
+            end
             // Perform accumulation operation (including the subtraction)
-            yreal_sum_c = yreal_sum + DEQUANTIZE(real_product - imag_product);
-            yimag_sum_c = yimag_sum + DEQUANTIZE(realimag_product - imagreal_product);
+            yreal_sum_c = $signed(yreal_sum) + DEQUANTIZE($signed(real_product) - $signed(imag_product));
+            yimag_sum_c = $signed(yimag_sum) + DEQUANTIZE($signed(realimag_product) - $signed(imagreal_product));
             taps_counter_c = taps_counter + 1'b1;
-            realtap_value_c = realshift_reg[taps_counter_c];
-            imagtap_value_c = imagshift_reg[taps_counter_c];
-            if (taps_counter == NUM_TAPS - 1)
+            realtap_value_c = realshift_reg[taps_counter];
+            imagtap_value_c = imagshift_reg[taps_counter];
+            // Change state when taps_counter has overflowed or is equal to NUM_TAPS
+            if (taps_counter == NUM_TAPS || taps_counter == 0)
                 next_state = S2;
             else
                 next_state = S1;
@@ -152,6 +169,8 @@ always_comb begin
             taps_counter_c = 'X;
             yreal_sum_c = 'X;
             yimag_sum_c = 'X;
+            realtap_value_c = 'X;
+            imagtap_value_c = 'X;
         end
     endcase
 end
