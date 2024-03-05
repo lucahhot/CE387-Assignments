@@ -3,8 +3,8 @@
 module fir_cmplx #(
     parameter NUM_TAPS = 20,
     parameter DECIMATION = 1,
-    parameter logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] COEFFICIENTS_REAL = '{default: '{default: 0}},
-    parameter logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] COEFFICIENTS_IMAG = '{default: '{default: 0}}
+    parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] COEFFICIENTS_REAL = '{default: '{default: 0}},
+    parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] COEFFICIENTS_IMAG = '{default: '{default: 0}}
 ) (
     input   logic clock,
     input   logic reset,
@@ -13,7 +13,7 @@ module fir_cmplx #(
     output  logic xreal_in_rd_en,
     input   logic [DATA_SIZE-1:0] ximag_in_dout,
     input   logic ximag_in_empty,
-    output   logic ximag_in_rd_en,
+    output  logic ximag_in_rd_en,
 
     output  logic yreal_out_wr_en,
     input   logic yreal_out_full,

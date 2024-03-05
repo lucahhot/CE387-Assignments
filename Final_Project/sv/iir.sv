@@ -1,9 +1,10 @@
 `include "globals.sv" 
 
-module fir #(
-    parameter NUM_TAPS = 32,
-    parameter DECIMATION = 8,
-    parameter logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] COEFFICIENTS = {NUM_TAPS{DATA_SIZE{1'b0}}}
+module iir #(
+    parameter NUM_TAPS = 2,
+    parameter DECIMATION = 1,
+    parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] IIR_Y_COEFFS = '{default: '{default: 0}},
+    parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] IIR_X_COEFFS = '{default: '{default: 0}}
 ) (
     input   logic clock,
     input   logic reset,
@@ -22,7 +23,8 @@ logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] shift_reg ;
 logic [0:NUM_TAPS-1][DATA_SIZE-1:0] shift_reg_c ;
 logic [$clog2(DECIMATION)-1:0] decimation_counter, decimation_counter_c;
 logic [$clog2(NUM_TAPS)-1:0] taps_counter, taps_counter_c;
-logic [DATA_SIZE-1:0] y_sum, y_sum_c; 
+logic [DATA_SIZE-1:0] y1_sum, y1_sum_c; 
+logic [DATA_SIZE-1:0] y2_sum, y2_sum_c;
 
 // Register to hold shift_reg value to be used in MAC since reading from shift_reg takes forever
 logic [DATA_SIZE-1:0] tap_value, tap_value_c;
@@ -31,7 +33,7 @@ logic [DATA_SIZE-1:0] tap_value, tap_value_c;
 always_ff @(posedge clock or posedge reset) begin
     if (reset == 1'b1) begin
         state <= S0; 
-        shift_reg <= {NUM_TAPS{DATA_SIZE{1'b0}}};
+        shift_reg <= '{default: '{default: 0}};
         decimation_counter <= '0;
         taps_counter <= '0;
         y_sum <= '0;
@@ -77,7 +79,7 @@ always_comb begin
 
         S1: begin
             // Perform MAC operation
-            y_sum_c = $signed(y_sum) + MULTIPLY_ROUNDING(shift_reg[taps_counter],COEFFICIENTS[NUM_TAPS-taps_counter-1]);
+            y_sum_c = y_sum + MULTIPLY_ROUNDING(tap_value,COEFFICIENTS[NUM_TAPS-taps_counter-1]);
             taps_counter_c = taps_counter + 1'b1;
             tap_value_c = shift_reg[taps_counter_c];
             if (taps_counter == NUM_TAPS - 1)
@@ -107,7 +109,7 @@ always_comb begin
             decimation_counter_c = 'X;
             taps_counter_c = 'X;
             y_sum_c = 'X;
-            shift_reg_c = {NUM_TAPS{DATA_SIZE{1'b0}}};
+            shift_reg_c = '{default: '{default: 0}};
         end
     endcase
 end
