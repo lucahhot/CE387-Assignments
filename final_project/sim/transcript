@@ -11,1807 +11,404 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
-# do read_iq_sim.do
+# do gain_sim.do
 # -9
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
 # vmap work work 
 # Modifying modelsim.ini
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:12:39 on Mar 04,2024
+# Start time: 23:19:59 on Mar 04,2024
 # vlog -reportprogress 300 -work work ../sv/fifo.sv 
 # -- Compiling module fifo
 # 
 # Top level modules:
 # 	fifo
-# End time: 13:12:39 on Mar 04,2024, Elapsed time: 0:00:00
+# End time: 23:19:59 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:12:39 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
-# -- Compiling package read_iq_sv_unit
-# -- Compiling module read_iq
+# Start time: 23:19:59 on Mar 04,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
 # 
 # Top level modules:
-# 	read_iq
-# End time: 13:12:39 on Mar 04,2024, Elapsed time: 0:00:00
+# 	gain
+# End time: 23:20:00 on Mar 04,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:12:39 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_top.sv 
-# -- Compiling module read_iq_top
+# Start time: 23:20:00 on Mar 04,2024
+# vlog -reportprogress 300 -work work ../sv/gain_top.sv 
+# -- Compiling package gain_top_sv_unit
+# -- Compiling module gain_top
 # 
 # Top level modules:
-# 	read_iq_top
-# End time: 13:12:39 on Mar 04,2024, Elapsed time: 0:00:00
+# 	gain_top
+# End time: 23:20:00 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:12:39 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_tb.sv 
-# -- Compiling package read_iq_tb_sv_unit
-# -- Compiling module read_iq_tb
+# Start time: 23:20:00 on Mar 04,2024
+# vlog -reportprogress 300 -work work ../sv/gain_tb.sv 
+# -- Compiling package gain_tb_sv_unit
+# -- Compiling module gain_tb
 # 
 # Top level modules:
-# 	read_iq_tb
-# End time: 13:12:39 on Mar 04,2024, Elapsed time: 0:00:00
+# 	gain_tb
+# End time: 23:20:00 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.read_iq_tb -wlf read_iq.wlf 
-# Start time: 13:12:39 on Mar 04,2024
-# ** Note: (vsim-8009) Loading existing optimized design _opt2
+# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.gain_tb -wlf gain.wlf 
+# Start time: 23:20:00 on Mar 04,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
 # Loading sv_std.std
-# Loading work.read_iq_tb_sv_unit(fast)
-# Loading work.read_iq_tb(fast)
-# Loading work.read_iq_top(fast)
+# Loading work.gain_tb_sv_unit(fast)
+# Loading work.gain_tb(fast)
+# Loading work.gain_top_sv_unit(fast)
+# Loading work.gain_top(fast)
 # Loading work.fifo(fast)
-# Loading work.read_iq_sv_unit(fast)
-# Loading work.read_iq(fast)
-# Loading work.fifo(fast__1)
-# @ 20: Loading file ../fm_radio/test/usrp.dat...
-# @ 25: Comparing I ../fm_radio/src/out_files/read_iq_i_out.txt...
-# @ 25: Comparing Q ../fm_radio/src/out_files/read_iq_q_out.txt...
+# Loading work.gain_sv_unit(fast)
+# Loading work.gain(fast)
+# @ 20: Loading file ../fm_radio/src/txt_files/iir_left.txt...
+# @ 25: Comparing I ../fm_radio/src/out_files/gain_left_test.txt...
 # @ 30: Beginning simulation...
-# @ 115: (1): ERROR: 00000400 != ffffd800.
-# @ 115: (1): ERROR: 00000400 != ffffec00.
-# @ 165: (2): ERROR: 00000400 != ffffe800.
-# @ 165: (2): ERROR: 00000400 != ffffd800.
-# @ 215: (3): ERROR: 00000400 != 00000000.
-# @ 215: (3): ERROR: 00000000 != ffffd000.
-# @ 265: (4): ERROR: 00000400 != 00001000.
-# @ 265: (4): ERROR: 00000400 != ffffd400.
-# @ 315: (5): ERROR: 00000400 != 00002000.
-# @ 315: (5): ERROR: 00000400 != ffffe000.
-# @ 365: (6): ERROR: 00000400 != 00002800.
-# @ 365: (6): ERROR: 00000400 != fffff000.
-# @ 415: (7): ERROR: 00000000 != 00002c00.
-# @ 415: (7): ERROR: 00000000 != fffffc00.
-# @ 465: (8): ERROR: 00000000 != 00002800.
-# @ 465: (8): ERROR: 00000000 != 00000c00.
-# @ 515: (9): ERROR: 00000400 != 00002000.
-# @ 515: (9): ERROR: 00000400 != 00001800.
-# @ 565: (10): ERROR: 00000400 != 00001400.
-# @ 565: (10): ERROR: 00000400 != 00002400.
-# @ 615: (11): ERROR: 00000400 != 00000000.
-# @ 615: (11): ERROR: 00000000 != 00002c00.
-# @ 665: (12): ERROR: 00000400 != ffffe400.
-# @ 665: (12): ERROR: 00000400 != 00002000.
-# @ 715: (13): ERROR: 00000400 != ffffd400.
-# @ 715: (13): ERROR: 00000400 != 00000c00.
-# @ 765: (14): ERROR: 00000400 != ffffd400.
-# @ 765: (14): ERROR: 00000400 != fffff400.
-# @ 815: (15): ERROR: 00000000 != ffffe000.
-# @ 815: (15): ERROR: 00000000 != ffffdc00.
-# @ 865: (16): ERROR: 00000000 != fffffc00.
-# @ 865: (16): ERROR: 00000000 != ffffd000.
-# @ 915: (17): ERROR: 00000400 != 00001400.
-# @ 915: (17): ERROR: 00000400 != ffffd800.
-# @ 965: (18): ERROR: 00000400 != 00002000.
-# @ 965: (18): ERROR: 00000400 != ffffe000.
-# @ 1015: (19): ERROR: 00000400 != 00002c00.
-# @ 1015: (19): ERROR: 00000400 != fffff400.
-# @ 1065: (20): ERROR: 00000000 != 00002c00.
-# @ 1065: (20): ERROR: 00000400 != 00000000.
-# @ 1115: (21): ERROR: 00000400 != 00002800.
-# @ 1115: (21): ERROR: 00000400 != 00000c00.
-# @ 1165: (22): ERROR: 00000400 != 00002400.
-# @ 1165: (22): ERROR: 00000400 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00002000.
-# @ 1265: (24): ERROR: 00000000 != 00000800.
-# @ 1265: (24): ERROR: 00000000 != 00002800.
-# @ 1315: (25): ERROR: 00000000 != fffff000.
-# @ 1315: (25): ERROR: 00000000 != 00002400.
-# @ 1325: Simulation completed.
-# Total simulation cycle count: 129
-# Total error count: 50
-# ** Note: $finish    : ../sv/read_iq_tb.sv(87)
-#    Time: 1325 ns  Iteration: 2  Instance: /read_iq_tb
+# @ 1695: (82): ERROR: ffffe520 != ffffe820.
+# @ 1705: (83): ERROR: ffffe520 != ffffeee0.
+# @ 1715: (84): ERROR: ffffe520 != fffff690.
+# @ 1725: (85): ERROR: ffffe520 != fffff5b0.
+# @ 1735: (86): ERROR: ffffe520 != fffffcf0.
+# @ 1745: (87): ERROR: ffffe520 != fffffd10.
+# @ 1755: (88): ERROR: ffffe520 != fffff520.
+# @ 1765: (89): ERROR: ffffe520 != fffff240.
+# @ 1775: (90): ERROR: ffffe520 != ffffead0.
+# @ 1785: (91): ERROR: ffffe520 != ffffed00.
+# @ 1795: (92): ERROR: ffffe520 != fffff130.
+# @ 1805: (93): ERROR: ffffe520 != fffff850.
+# @ 1815: (94): ERROR: ffffe520 != fffff580.
+# @ 1825: (95): ERROR: ffffe520 != ffffec70.
+# @ 1835: (96): ERROR: ffffe520 != fffff5f0.
+# @ 1845: (97): ERROR: ffffe520 != fffff640.
+# @ 1855: (98): ERROR: ffffe520 != fffff0f0.
+# @ 1865: (99): ERROR: ffffe520 != ffffec30.
+# @ 1875: (100): ERROR: ffffe520 != ffffee60.
+# @ 1885: Simulation completed.
+# Total simulation cycle count: 185
+# Total error count: 19
+# ** Note: $finish    : ../sv/gain_tb.sv(80)
+#    Time: 1885 ns  Iteration: 2  Instance: /gain_tb
 # 1
-# Break in NamedBeginStat tb_process at ../sv/read_iq_tb.sv line 87
-do read_iq_sim.do
+# Break in NamedBeginStat tb_process at ../sv/gain_tb.sv line 80
+do gain_sim.do
 # -9
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
 # vmap work work 
 # Modifying modelsim.ini
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:18:49 on Mar 04,2024
+# Start time: 23:24:27 on Mar 04,2024
 # vlog -reportprogress 300 -work work ../sv/fifo.sv 
 # -- Compiling module fifo
 # 
 # Top level modules:
 # 	fifo
-# End time: 13:18:49 on Mar 04,2024, Elapsed time: 0:00:00
+# End time: 23:24:27 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:18:49 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
-# -- Compiling package read_iq_sv_unit
-# -- Compiling module read_iq
+# Start time: 23:24:27 on Mar 04,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
 # 
 # Top level modules:
-# 	read_iq
-# End time: 13:18:49 on Mar 04,2024, Elapsed time: 0:00:00
+# 	gain
+# End time: 23:24:27 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:18:49 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_top.sv 
-# -- Compiling module read_iq_top
+# Start time: 23:24:27 on Mar 04,2024
+# vlog -reportprogress 300 -work work ../sv/gain_top.sv 
+# -- Compiling package gain_top_sv_unit
+# -- Compiling module gain_top
 # 
 # Top level modules:
-# 	read_iq_top
-# End time: 13:18:49 on Mar 04,2024, Elapsed time: 0:00:00
+# 	gain_top
+# End time: 23:24:27 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:18:49 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_tb.sv 
-# -- Compiling package read_iq_tb_sv_unit
-# -- Compiling module read_iq_tb
+# Start time: 23:24:27 on Mar 04,2024
+# vlog -reportprogress 300 -work work ../sv/gain_tb.sv 
+# -- Compiling package gain_tb_sv_unit
+# -- Compiling module gain_tb
 # 
 # Top level modules:
-# 	read_iq_tb
-# End time: 13:18:49 on Mar 04,2024, Elapsed time: 0:00:00
+# 	gain_tb
+# End time: 23:24:27 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 13:18:49 on Mar 04,2024, Elapsed time: 0:06:10
+# End time: 23:24:28 on Mar 04,2024, Elapsed time: 0:04:28
 # Errors: 0, Warnings: 0
-# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.read_iq_tb -wlf read_iq.wlf 
-# Start time: 13:18:49 on Mar 04,2024
+# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.gain_tb -wlf gain.wlf 
+# Start time: 23:24:28 on Mar 04,2024
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # Loading sv_std.std
-# Loading work.read_iq_tb_sv_unit(fast)
-# Loading work.read_iq_tb(fast)
-# Loading work.read_iq_top(fast)
+# Loading work.gain_tb_sv_unit(fast)
+# Loading work.gain_tb(fast)
+# Loading work.gain_top_sv_unit(fast)
+# Loading work.gain_top(fast)
 # Loading work.fifo(fast)
-# Loading work.read_iq_sv_unit(fast)
-# Loading work.read_iq(fast)
-# Loading work.fifo(fast__1)
-# @ 20: Loading file ../fm_radio/test/usrp.dat...
-# @ 25: Comparing I ../fm_radio/src/out_files/read_iq_i_out.txt...
-# @ 25: Comparing Q ../fm_radio/src/out_files/read_iq_q_out.txt...
+# Loading work.gain_sv_unit(fast)
+# Loading work.gain(fast)
+# @ 20: Loading file ../fm_radio/src/txt_files/iir_left.txt...
+# @ 25: Comparing I ../fm_radio/src/out_files/gain_left_test.txt...
 # @ 30: Beginning simulation...
-# @ 115: (1): ERROR: 03e80000 != ffffd800.
-# @ 115: (1): ERROR: 03d40000 != ffffec00.
-# @ 165: (2): ERROR: 03d40000 != ffffe800.
-# @ 165: (2): ERROR: 03e40000 != ffffd800.
-# @ 215: (3): ERROR: 03cc0000 != 00000000.
-# @ 215: (3): ERROR: 00000000 != ffffd000.
-# @ 265: (4): ERROR: 03d00000 != 00001000.
-# @ 265: (4): ERROR: 00100000 != ffffd400.
-# @ 315: (5): ERROR: 03dc0000 != 00002000.
-# @ 315: (5): ERROR: 00200000 != ffffe000.
-# @ 365: (6): ERROR: 03ec0000 != 00002800.
-# @ 365: (6): ERROR: 00280000 != fffff000.
-# @ 415: (7): ERROR: 00000000 != 00002c00.
-# @ 415: (7): ERROR: 00000000 != fffffc00.
-# @ 465: (8): ERROR: 00000000 != 00002800.
-# @ 465: (8): ERROR: 00000000 != 00000c00.
-# @ 515: (9): ERROR: 00180000 != 00002000.
-# @ 515: (9): ERROR: 00200000 != 00001800.
-# @ 565: (10): ERROR: 00240000 != 00001400.
-# @ 565: (10): ERROR: 00140000 != 00002400.
-# @ 615: (11): ERROR: 002c0000 != 00000000.
-# @ 615: (11): ERROR: 00000000 != 00002c00.
-# @ 665: (12): ERROR: 00200000 != ffffe400.
-# @ 665: (12): ERROR: 03e00000 != 00002000.
-# @ 715: (13): ERROR: 000c0000 != ffffd400.
-# @ 715: (13): ERROR: 03d00000 != 00000c00.
-# @ 765: (14): ERROR: 03f00000 != ffffd400.
-# @ 765: (14): ERROR: 03d00000 != fffff400.
-# @ 815: (15): ERROR: 00000000 != ffffe000.
-# @ 815: (15): ERROR: 00000000 != ffffdc00.
-# @ 865: (16): ERROR: 00000000 != fffffc00.
-# @ 865: (16): ERROR: 00000000 != ffffd000.
-# @ 915: (17): ERROR: 03d40000 != 00001400.
-# @ 915: (17): ERROR: 00140000 != ffffd800.
-# @ 965: (18): ERROR: 03dc0000 != 00002000.
-# @ 965: (18): ERROR: 00200000 != ffffe000.
-# @ 1015: (19): ERROR: 03f00000 != 00002c00.
-# @ 1015: (19): ERROR: 002c0000 != fffff400.
-# @ 1065: (20): ERROR: 00000000 != 00002c00.
-# @ 1065: (20): ERROR: 002c0000 != 00000000.
-# @ 1115: (21): ERROR: 000c0000 != 00002800.
-# @ 1115: (21): ERROR: 00280000 != 00000c00.
-# @ 1165: (22): ERROR: 00180000 != 00002400.
-# @ 1165: (22): ERROR: 00240000 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00002000.
-# @ 1265: (24): ERROR: 00000000 != 00000800.
-# @ 1265: (24): ERROR: 00000000 != 00002800.
-# @ 1315: (25): ERROR: 00000000 != fffff000.
-# @ 1315: (25): ERROR: 00000000 != 00002400.
-# @ 1325: Simulation completed.
-# Total simulation cycle count: 129
-# Total error count: 50
-# ** Note: $finish    : ../sv/read_iq_tb.sv(87)
-#    Time: 1325 ns  Iteration: 2  Instance: /read_iq_tb
-# 1
-# Break in NamedBeginStat tb_process at ../sv/read_iq_tb.sv line 87
-do read_iq_sim.do
+do gain_sim.do
 # -9
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
 # vmap work work 
 # Modifying modelsim.ini
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:22:23 on Mar 04,2024
+# Start time: 23:29:53 on Mar 04,2024
 # vlog -reportprogress 300 -work work ../sv/fifo.sv 
 # -- Compiling module fifo
 # 
 # Top level modules:
 # 	fifo
-# End time: 13:22:23 on Mar 04,2024, Elapsed time: 0:00:00
+# End time: 23:29:53 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:22:23 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
-# -- Compiling package read_iq_sv_unit
-# -- Compiling module read_iq
+# Start time: 23:29:53 on Mar 04,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
 # 
 # Top level modules:
-# 	read_iq
-# End time: 13:22:23 on Mar 04,2024, Elapsed time: 0:00:00
+# 	gain
+# End time: 23:29:53 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:22:23 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_top.sv 
-# -- Compiling module read_iq_top
+# Start time: 23:29:53 on Mar 04,2024
+# vlog -reportprogress 300 -work work ../sv/gain_top.sv 
+# -- Compiling package gain_top_sv_unit
+# -- Compiling module gain_top
 # 
 # Top level modules:
-# 	read_iq_top
-# End time: 13:22:23 on Mar 04,2024, Elapsed time: 0:00:00
+# 	gain_top
+# End time: 23:29:53 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:22:23 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_tb.sv 
-# -- Compiling package read_iq_tb_sv_unit
-# -- Compiling module read_iq_tb
+# Start time: 23:29:53 on Mar 04,2024
+# vlog -reportprogress 300 -work work ../sv/gain_tb.sv 
+# -- Compiling package gain_tb_sv_unit
+# -- Compiling module gain_tb
 # 
 # Top level modules:
-# 	read_iq_tb
-# End time: 13:22:24 on Mar 04,2024, Elapsed time: 0:00:01
+# 	gain_tb
+# End time: 23:29:53 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 13:22:24 on Mar 04,2024, Elapsed time: 0:03:35
+# End time: 23:29:53 on Mar 04,2024, Elapsed time: 0:05:25
 # Errors: 0, Warnings: 0
-# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.read_iq_tb -wlf read_iq.wlf 
-# Start time: 13:22:24 on Mar 04,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.gain_tb -wlf gain.wlf 
+# Start time: 23:29:53 on Mar 04,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
 # Loading sv_std.std
-# Loading work.read_iq_tb_sv_unit(fast)
-# Loading work.read_iq_tb(fast)
-# Loading work.read_iq_top(fast)
+# Loading work.gain_tb_sv_unit(fast)
+# Loading work.gain_tb(fast)
+# Loading work.gain_top_sv_unit(fast)
+# Loading work.gain_top(fast)
 # Loading work.fifo(fast)
-# Loading work.read_iq_sv_unit(fast)
-# Loading work.read_iq(fast)
-# Loading work.fifo(fast__1)
-# @ 20: Loading file ../fm_radio/test/usrp.dat...
-# @ 25: Comparing I ../fm_radio/src/out_files/read_iq_i_out.txt...
-# @ 25: Comparing Q ../fm_radio/src/out_files/read_iq_q_out.txt...
-# @ 30: Beginning simulation...
-# @ 115: (1): ERROR: 00000400 != ffffd800.
-# @ 115: (1): ERROR: 00000400 != ffffec00.
-# @ 165: (2): ERROR: 00000400 != ffffe800.
-# @ 165: (2): ERROR: 00000400 != ffffd800.
-# @ 215: (3): ERROR: 00000400 != ffffd000.
-# @ 265: (4): ERROR: 00000400 != 00001000.
-# @ 265: (4): ERROR: 00000400 != ffffd400.
-# @ 315: (5): ERROR: 00000400 != 00002000.
-# @ 315: (5): ERROR: 00000400 != ffffe000.
-# @ 365: (6): ERROR: 00000400 != 00002800.
-# @ 365: (6): ERROR: 00000400 != fffff000.
-# @ 415: (7): ERROR: 00000000 != 00002c00.
-# @ 415: (7): ERROR: 00000000 != fffffc00.
-# @ 465: (8): ERROR: 00000000 != 00002800.
-# @ 465: (8): ERROR: 00000000 != 00000c00.
-# @ 515: (9): ERROR: 00000400 != 00002000.
-# @ 515: (9): ERROR: 00000400 != 00001800.
-# @ 565: (10): ERROR: 00000400 != 00001400.
-# @ 565: (10): ERROR: 00000400 != 00002400.
-# @ 615: (11): ERROR: 00000400 != 00002c00.
-# @ 665: (12): ERROR: 00000400 != ffffe400.
-# @ 665: (12): ERROR: 00000400 != 00002000.
-# @ 715: (13): ERROR: 00000400 != ffffd400.
-# @ 715: (13): ERROR: 00000400 != 00000c00.
-# @ 765: (14): ERROR: 00000400 != ffffd400.
-# @ 765: (14): ERROR: 00000400 != fffff400.
-# @ 815: (15): ERROR: 00000000 != ffffe000.
-# @ 815: (15): ERROR: 00000000 != ffffdc00.
-# @ 865: (16): ERROR: 00000000 != fffffc00.
-# @ 865: (16): ERROR: 00000000 != ffffd000.
-# @ 915: (17): ERROR: 00000400 != 00001400.
-# @ 915: (17): ERROR: 00000400 != ffffd800.
-# @ 965: (18): ERROR: 00000400 != 00002000.
-# @ 965: (18): ERROR: 00000400 != ffffe000.
-# @ 1015: (19): ERROR: 00000400 != 00002c00.
-# @ 1015: (19): ERROR: 00000400 != fffff400.
-# @ 1065: (20): ERROR: 00000400 != 00002c00.
-# @ 1115: (21): ERROR: 00000400 != 00002800.
-# @ 1115: (21): ERROR: 00000400 != 00000c00.
-# @ 1165: (22): ERROR: 00000400 != 00002400.
-# @ 1165: (22): ERROR: 00000400 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00002000.
-# @ 1265: (24): ERROR: 00000000 != 00000800.
-# @ 1265: (24): ERROR: 00000000 != 00002800.
-# @ 1315: (25): ERROR: 00000000 != fffff000.
-# @ 1315: (25): ERROR: 00000000 != 00002400.
-# @ 1325: Simulation completed.
-# Total simulation cycle count: 129
-# Total error count: 47
-# ** Note: $finish    : ../sv/read_iq_tb.sv(87)
-#    Time: 1325 ns  Iteration: 2  Instance: /read_iq_tb
-# 1
-# Break in NamedBeginStat tb_process at ../sv/read_iq_tb.sv line 87
-do read_iq_sim.do
-# -9
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
-# vmap work work 
-# Modifying modelsim.ini
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:22:48 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/fifo.sv 
-# -- Compiling module fifo
-# 
-# Top level modules:
-# 	fifo
-# End time: 13:22:48 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:22:48 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
-# -- Compiling package read_iq_sv_unit
-# -- Compiling module read_iq
-# 
-# Top level modules:
-# 	read_iq
-# End time: 13:22:48 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:22:48 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_top.sv 
-# -- Compiling module read_iq_top
-# 
-# Top level modules:
-# 	read_iq_top
-# End time: 13:22:48 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:22:48 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_tb.sv 
-# -- Compiling package read_iq_tb_sv_unit
-# -- Compiling module read_iq_tb
-# 
-# Top level modules:
-# 	read_iq_tb
-# End time: 13:22:48 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 13:22:49 on Mar 04,2024, Elapsed time: 0:00:25
-# Errors: 0, Warnings: 0
-# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.read_iq_tb -wlf read_iq.wlf 
-# Start time: 13:22:49 on Mar 04,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading sv_std.std
-# Loading work.read_iq_tb_sv_unit(fast)
-# Loading work.read_iq_tb(fast)
-# Loading work.read_iq_top(fast)
-# Loading work.fifo(fast)
-# Loading work.read_iq_sv_unit(fast)
-# Loading work.read_iq(fast)
-# Loading work.fifo(fast__1)
-# @ 20: Loading file ../fm_radio/test/usrp.dat...
-# @ 25: Comparing I ../fm_radio/src/out_files/read_iq_i_out.txt...
-# @ 25: Comparing Q ../fm_radio/src/out_files/read_iq_q_out.txt...
-# @ 30: Beginning simulation...
-# @ 115: (1): ERROR: 03d40000 != ffffd800.
-# @ 115: (1): ERROR: 03e80000 != ffffec00.
-# @ 165: (2): ERROR: 03e40000 != ffffe800.
-# @ 165: (2): ERROR: 03d40000 != ffffd800.
-# @ 215: (3): ERROR: 03cc0000 != ffffd000.
-# @ 265: (4): ERROR: 00100000 != 00001000.
-# @ 265: (4): ERROR: 03d00000 != ffffd400.
-# @ 315: (5): ERROR: 00200000 != 00002000.
-# @ 315: (5): ERROR: 03dc0000 != ffffe000.
-# @ 365: (6): ERROR: 00280000 != 00002800.
-# @ 365: (6): ERROR: 03ec0000 != fffff000.
-# @ 415: (7): ERROR: 00000000 != 00002c00.
-# @ 415: (7): ERROR: 00000000 != fffffc00.
-# @ 465: (8): ERROR: 00000000 != 00002800.
-# @ 465: (8): ERROR: 00000000 != 00000c00.
-# @ 515: (9): ERROR: 00200000 != 00002000.
-# @ 515: (9): ERROR: 00180000 != 00001800.
-# @ 565: (10): ERROR: 00140000 != 00001400.
-# @ 565: (10): ERROR: 00240000 != 00002400.
-# @ 615: (11): ERROR: 002c0000 != 00002c00.
-# @ 665: (12): ERROR: 03e00000 != ffffe400.
-# @ 665: (12): ERROR: 00200000 != 00002000.
-# @ 715: (13): ERROR: 03d00000 != ffffd400.
-# @ 715: (13): ERROR: 000c0000 != 00000c00.
-# @ 765: (14): ERROR: 03d00000 != ffffd400.
-# @ 765: (14): ERROR: 03f00000 != fffff400.
-# @ 815: (15): ERROR: 00000000 != ffffe000.
-# @ 815: (15): ERROR: 00000000 != ffffdc00.
-# @ 865: (16): ERROR: 00000000 != fffffc00.
-# @ 865: (16): ERROR: 00000000 != ffffd000.
-# @ 915: (17): ERROR: 00140000 != 00001400.
-# @ 915: (17): ERROR: 03d40000 != ffffd800.
-# @ 965: (18): ERROR: 00200000 != 00002000.
-# @ 965: (18): ERROR: 03dc0000 != ffffe000.
-# @ 1015: (19): ERROR: 002c0000 != 00002c00.
-# @ 1015: (19): ERROR: 03f00000 != fffff400.
-# @ 1065: (20): ERROR: 002c0000 != 00002c00.
-# @ 1115: (21): ERROR: 00280000 != 00002800.
-# @ 1115: (21): ERROR: 000c0000 != 00000c00.
-# @ 1165: (22): ERROR: 00240000 != 00002400.
-# @ 1165: (22): ERROR: 00180000 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00002000.
-# @ 1265: (24): ERROR: 00000000 != 00000800.
-# @ 1265: (24): ERROR: 00000000 != 00002800.
-# @ 1315: (25): ERROR: 00000000 != fffff000.
-# @ 1315: (25): ERROR: 00000000 != 00002400.
-# @ 1325: Simulation completed.
-# Total simulation cycle count: 129
-# Total error count: 47
-# ** Note: $finish    : ../sv/read_iq_tb.sv(87)
-#    Time: 1325 ns  Iteration: 2  Instance: /read_iq_tb
-# 1
-# Break in NamedBeginStat tb_process at ../sv/read_iq_tb.sv line 87
-do read_iq_sim.do
-# -9
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
-# vmap work work 
-# Modifying modelsim.ini
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:30:55 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/fifo.sv 
-# -- Compiling module fifo
-# 
-# Top level modules:
-# 	fifo
-# End time: 13:30:55 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:30:55 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
-# -- Compiling package read_iq_sv_unit
-# -- Compiling module read_iq
-# 
-# Top level modules:
-# 	read_iq
-# End time: 13:30:55 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:30:55 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_top.sv 
-# -- Compiling module read_iq_top
-# 
-# Top level modules:
-# 	read_iq_top
-# End time: 13:30:56 on Mar 04,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:30:56 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_tb.sv 
-# -- Compiling package read_iq_tb_sv_unit
-# -- Compiling module read_iq_tb
-# 
-# Top level modules:
-# 	read_iq_tb
-# End time: 13:30:56 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 13:30:56 on Mar 04,2024, Elapsed time: 0:08:07
-# Errors: 0, Warnings: 0
-# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.read_iq_tb -wlf read_iq.wlf 
-# Start time: 13:30:56 on Mar 04,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading sv_std.std
-# Loading work.read_iq_tb_sv_unit(fast)
-# Loading work.read_iq_tb(fast)
-# Loading work.read_iq_top(fast)
-# Loading work.fifo(fast)
-# Loading work.read_iq_sv_unit(fast)
-# Loading work.read_iq(fast)
-# Loading work.fifo(fast__1)
-# @ 20: Loading file ../fm_radio/test/usrp.dat...
-# @ 25: Comparing I ../fm_radio/src/out_files/read_iq_i_out.txt...
-# @ 25: Comparing Q ../fm_radio/src/out_files/read_iq_q_out.txt...
-# @ 30: Beginning simulation...
-# @ 115: (1): ERROR: 0003d800 != ffffd800.
-# @ 115: (1): ERROR: 0003ec00 != ffffec00.
-# @ 165: (2): ERROR: 0003e800 != ffffe800.
-# @ 165: (2): ERROR: 0003d800 != ffffd800.
-# @ 215: (3): ERROR: 0003d000 != ffffd000.
-# @ 265: (4): ERROR: 0003d400 != ffffd400.
-# @ 315: (5): ERROR: 0003e000 != ffffe000.
-# @ 365: (6): ERROR: 0003f000 != fffff000.
-# @ 415: (7): ERROR: 00000000 != 00002c00.
-# @ 415: (7): ERROR: 00000000 != fffffc00.
-# @ 465: (8): ERROR: 00000000 != 00002800.
-# @ 465: (8): ERROR: 00000000 != 00000c00.
-# @ 665: (12): ERROR: 0003e400 != ffffe400.
-# @ 715: (13): ERROR: 0003d400 != ffffd400.
-# @ 765: (14): ERROR: 0003d400 != ffffd400.
-# @ 765: (14): ERROR: 0003f400 != fffff400.
-# @ 815: (15): ERROR: 00000000 != ffffe000.
-# @ 815: (15): ERROR: 00000000 != ffffdc00.
-# @ 865: (16): ERROR: 00000000 != fffffc00.
-# @ 865: (16): ERROR: 00000000 != ffffd000.
-# @ 915: (17): ERROR: 0003d800 != ffffd800.
-# @ 965: (18): ERROR: 0003e000 != ffffe000.
-# @ 1015: (19): ERROR: 0003f400 != fffff400.
-# @ 1215: (23): ERROR: 00000000 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00002000.
-# @ 1265: (24): ERROR: 00000000 != 00000800.
-# @ 1265: (24): ERROR: 00000000 != 00002800.
-# @ 1315: (25): ERROR: 00000000 != fffff000.
-# @ 1315: (25): ERROR: 00000000 != 00002400.
-# @ 1325: Simulation completed.
-# Total simulation cycle count: 129
-# Total error count: 29
-# ** Note: $finish    : ../sv/read_iq_tb.sv(87)
-#    Time: 1325 ns  Iteration: 2  Instance: /read_iq_tb
-# 1
-# Break in NamedBeginStat tb_process at ../sv/read_iq_tb.sv line 87
-do read_iq_sim.do
-# -9
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
-# vmap work work 
-# Modifying modelsim.ini
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:31:19 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/fifo.sv 
-# -- Compiling module fifo
-# 
-# Top level modules:
-# 	fifo
-# End time: 13:31:19 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:31:19 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
-# -- Compiling package read_iq_sv_unit
-# -- Compiling module read_iq
-# 
-# Top level modules:
-# 	read_iq
-# End time: 13:31:19 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:31:19 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_top.sv 
-# -- Compiling module read_iq_top
-# 
-# Top level modules:
-# 	read_iq_top
-# End time: 13:31:20 on Mar 04,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:31:20 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_tb.sv 
-# -- Compiling package read_iq_tb_sv_unit
-# -- Compiling module read_iq_tb
-# 
-# Top level modules:
-# 	read_iq_tb
-# End time: 13:31:20 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 13:31:20 on Mar 04,2024, Elapsed time: 0:00:24
-# Errors: 0, Warnings: 0
-# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.read_iq_tb -wlf read_iq.wlf 
-# Start time: 13:31:20 on Mar 04,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading sv_std.std
-# Loading work.read_iq_tb_sv_unit(fast)
-# Loading work.read_iq_tb(fast)
-# Loading work.read_iq_top(fast)
-# Loading work.fifo(fast)
-# Loading work.read_iq_sv_unit(fast)
-# Loading work.read_iq(fast)
-# Loading work.fifo(fast__1)
-# @ 20: Loading file ../fm_radio/test/usrp.dat...
-# @ 25: Comparing I ../fm_radio/src/out_files/read_iq_i_out.txt...
-# @ 25: Comparing Q ../fm_radio/src/out_files/read_iq_q_out.txt...
-# @ 30: Beginning simulation...
-# @ 115: (1): ERROR: 00000400 != ffffd800.
-# @ 115: (1): ERROR: 00000400 != ffffec00.
-# @ 165: (2): ERROR: 00000400 != ffffe800.
-# @ 165: (2): ERROR: 00000400 != ffffd800.
-# @ 215: (3): ERROR: 00000400 != ffffd000.
-# @ 265: (4): ERROR: 00000400 != 00001000.
-# @ 265: (4): ERROR: 00000400 != ffffd400.
-# @ 315: (5): ERROR: 00000400 != 00002000.
-# @ 315: (5): ERROR: 00000400 != ffffe000.
-# @ 365: (6): ERROR: 00000400 != 00002800.
-# @ 365: (6): ERROR: 00000400 != fffff000.
-# @ 415: (7): ERROR: 00000000 != 00002c00.
-# @ 415: (7): ERROR: 00000000 != fffffc00.
-# @ 465: (8): ERROR: 00000000 != 00002800.
-# @ 465: (8): ERROR: 00000000 != 00000c00.
-# @ 515: (9): ERROR: 00000400 != 00002000.
-# @ 515: (9): ERROR: 00000400 != 00001800.
-# @ 565: (10): ERROR: 00000400 != 00001400.
-# @ 565: (10): ERROR: 00000400 != 00002400.
-# @ 615: (11): ERROR: 00000400 != 00002c00.
-# @ 665: (12): ERROR: 00000400 != ffffe400.
-# @ 665: (12): ERROR: 00000400 != 00002000.
-# @ 715: (13): ERROR: 00000400 != ffffd400.
-# @ 715: (13): ERROR: 00000400 != 00000c00.
-# @ 765: (14): ERROR: 00000400 != ffffd400.
-# @ 765: (14): ERROR: 00000400 != fffff400.
-# @ 815: (15): ERROR: 00000000 != ffffe000.
-# @ 815: (15): ERROR: 00000000 != ffffdc00.
-# @ 865: (16): ERROR: 00000000 != fffffc00.
-# @ 865: (16): ERROR: 00000000 != ffffd000.
-# @ 915: (17): ERROR: 00000400 != 00001400.
-# @ 915: (17): ERROR: 00000400 != ffffd800.
-# @ 965: (18): ERROR: 00000400 != 00002000.
-# @ 965: (18): ERROR: 00000400 != ffffe000.
-# @ 1015: (19): ERROR: 00000400 != 00002c00.
-# @ 1015: (19): ERROR: 00000400 != fffff400.
-# @ 1065: (20): ERROR: 00000400 != 00002c00.
-# @ 1115: (21): ERROR: 00000400 != 00002800.
-# @ 1115: (21): ERROR: 00000400 != 00000c00.
-# @ 1165: (22): ERROR: 00000400 != 00002400.
-# @ 1165: (22): ERROR: 00000400 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00002000.
-# @ 1265: (24): ERROR: 00000000 != 00000800.
-# @ 1265: (24): ERROR: 00000000 != 00002800.
-# @ 1315: (25): ERROR: 00000000 != fffff000.
-# @ 1315: (25): ERROR: 00000000 != 00002400.
-# @ 1325: Simulation completed.
-# Total simulation cycle count: 129
-# Total error count: 47
-# ** Note: $finish    : ../sv/read_iq_tb.sv(87)
-#    Time: 1325 ns  Iteration: 2  Instance: /read_iq_tb
-# 1
-# Break in NamedBeginStat tb_process at ../sv/read_iq_tb.sv line 87
-do read_iq_sim.do
-# -9
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
-# vmap work work 
-# Modifying modelsim.ini
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:31:51 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/fifo.sv 
-# -- Compiling module fifo
-# 
-# Top level modules:
-# 	fifo
-# End time: 13:31:51 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:31:51 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
-# ** Error: ../sv/read_iq.sv(58): Incorrect number of arguments in $unsigned function.
-# ../sv/read_iq.sv(58): Verilog Compiler exiting
-# End time: 13:31:51 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-# ** Error: /vol/mentor/modelsim-2020.1/modeltech/linux_x86_64/vlog failed.
-# Error in macro ./read_iq_sim.do line 7
-# /vol/mentor/modelsim-2020.1/modeltech/linux_x86_64/vlog failed.
+# Loading work.gain_sv_unit(fast)
+# Loading work.gain(fast)
+# ** UI-Msg: (vish-4014) No objects found matching '/gain_top/gain_inst/fifo_in_inst*'.
+# Error in macro ./gain_sim.do line 22
+# ** UI-Msg: (vish-4014) No objects found matching '/gain_top/gain_inst/fifo_in_inst*'.
 #     while executing
-# "vlog -work work "../sv/read_iq.sv""
-do read_iq_sim.do
+# "add wave -noupdate -group gain_tb/gain_top/gain_inst/fifo_in_inst"
+do gain_sim.do
 # -9
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
 # vmap work work 
 # Modifying modelsim.ini
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:32:11 on Mar 04,2024
+# Start time: 23:30:20 on Mar 04,2024
 # vlog -reportprogress 300 -work work ../sv/fifo.sv 
 # -- Compiling module fifo
 # 
 # Top level modules:
 # 	fifo
-# End time: 13:32:11 on Mar 04,2024, Elapsed time: 0:00:00
+# End time: 23:30:20 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:32:11 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
-# -- Compiling package read_iq_sv_unit
-# -- Compiling module read_iq
+# Start time: 23:30:20 on Mar 04,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
 # 
 # Top level modules:
-# 	read_iq
-# End time: 13:32:11 on Mar 04,2024, Elapsed time: 0:00:00
+# 	gain
+# End time: 23:30:21 on Mar 04,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:32:11 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_top.sv 
-# -- Compiling module read_iq_top
+# Start time: 23:30:21 on Mar 04,2024
+# vlog -reportprogress 300 -work work ../sv/gain_top.sv 
+# -- Compiling package gain_top_sv_unit
+# -- Compiling module gain_top
 # 
 # Top level modules:
-# 	read_iq_top
-# End time: 13:32:11 on Mar 04,2024, Elapsed time: 0:00:00
+# 	gain_top
+# End time: 23:30:21 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:32:11 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_tb.sv 
-# -- Compiling package read_iq_tb_sv_unit
-# -- Compiling module read_iq_tb
+# Start time: 23:30:21 on Mar 04,2024
+# vlog -reportprogress 300 -work work ../sv/gain_tb.sv 
+# -- Compiling package gain_tb_sv_unit
+# -- Compiling module gain_tb
 # 
 # Top level modules:
-# 	read_iq_tb
-# End time: 13:32:11 on Mar 04,2024, Elapsed time: 0:00:00
+# 	gain_tb
+# End time: 23:30:21 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 13:32:12 on Mar 04,2024, Elapsed time: 0:00:52
-# Errors: 1, Warnings: 0
-# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.read_iq_tb -wlf read_iq.wlf 
-# Start time: 13:32:12 on Mar 04,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# End time: 23:30:21 on Mar 04,2024, Elapsed time: 0:00:28
+# Errors: 0, Warnings: 0
+# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.gain_tb -wlf gain.wlf 
+# Start time: 23:30:21 on Mar 04,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
 # Loading sv_std.std
-# Loading work.read_iq_tb_sv_unit(fast)
-# Loading work.read_iq_tb(fast)
-# Loading work.read_iq_top(fast)
+# Loading work.gain_tb_sv_unit(fast)
+# Loading work.gain_tb(fast)
+# Loading work.gain_top_sv_unit(fast)
+# Loading work.gain_top(fast)
 # Loading work.fifo(fast)
-# Loading work.read_iq_sv_unit(fast)
-# Loading work.read_iq(fast)
-# Loading work.fifo(fast__1)
-# @ 20: Loading file ../fm_radio/test/usrp.dat...
-# @ 25: Comparing I ../fm_radio/src/out_files/read_iq_i_out.txt...
-# @ 25: Comparing Q ../fm_radio/src/out_files/read_iq_q_out.txt...
-# @ 30: Beginning simulation...
-# @ 115: (1): ERROR: 0003d800 != ffffd800.
-# @ 115: (1): ERROR: 0003ec00 != ffffec00.
-# @ 165: (2): ERROR: 0003e800 != ffffe800.
-# @ 165: (2): ERROR: 0003d800 != ffffd800.
-# @ 215: (3): ERROR: 0003d000 != ffffd000.
-# @ 265: (4): ERROR: 0003d400 != ffffd400.
-# @ 315: (5): ERROR: 0003e000 != ffffe000.
-# @ 365: (6): ERROR: 0003f000 != fffff000.
-# @ 415: (7): ERROR: 00000000 != 00002c00.
-# @ 415: (7): ERROR: 00000000 != fffffc00.
-# @ 465: (8): ERROR: 00000000 != 00002800.
-# @ 465: (8): ERROR: 00000000 != 00000c00.
-# @ 665: (12): ERROR: 0003e400 != ffffe400.
-# @ 715: (13): ERROR: 0003d400 != ffffd400.
-# @ 765: (14): ERROR: 0003d400 != ffffd400.
-# @ 765: (14): ERROR: 0003f400 != fffff400.
-# @ 815: (15): ERROR: 00000000 != ffffe000.
-# @ 815: (15): ERROR: 00000000 != ffffdc00.
-# @ 865: (16): ERROR: 00000000 != fffffc00.
-# @ 865: (16): ERROR: 00000000 != ffffd000.
-# @ 915: (17): ERROR: 0003d800 != ffffd800.
-# @ 965: (18): ERROR: 0003e000 != ffffe000.
-# @ 1015: (19): ERROR: 0003f400 != fffff400.
-# @ 1215: (23): ERROR: 00000000 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00002000.
-# @ 1265: (24): ERROR: 00000000 != 00000800.
-# @ 1265: (24): ERROR: 00000000 != 00002800.
-# @ 1315: (25): ERROR: 00000000 != fffff000.
-# @ 1315: (25): ERROR: 00000000 != 00002400.
-# @ 1325: Simulation completed.
-# Total simulation cycle count: 129
-# Total error count: 29
-# ** Note: $finish    : ../sv/read_iq_tb.sv(87)
-#    Time: 1325 ns  Iteration: 2  Instance: /read_iq_tb
-# 1
-# Break in NamedBeginStat tb_process at ../sv/read_iq_tb.sv line 87
-do read_iq_sim.do
-# -9
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
-# vmap work work 
-# Modifying modelsim.ini
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:33:31 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/fifo.sv 
-# -- Compiling module fifo
-# 
-# Top level modules:
-# 	fifo
-# End time: 13:33:31 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:33:31 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
-# -- Compiling package read_iq_sv_unit
-# -- Compiling module read_iq
-# 
-# Top level modules:
-# 	read_iq
-# End time: 13:33:31 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:33:31 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_top.sv 
-# -- Compiling module read_iq_top
-# 
-# Top level modules:
-# 	read_iq_top
-# End time: 13:33:31 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:33:31 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_tb.sv 
-# -- Compiling package read_iq_tb_sv_unit
-# -- Compiling module read_iq_tb
-# 
-# Top level modules:
-# 	read_iq_tb
-# End time: 13:33:31 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 13:33:31 on Mar 04,2024, Elapsed time: 0:01:19
-# Errors: 0, Warnings: 0
-# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.read_iq_tb -wlf read_iq.wlf 
-# Start time: 13:33:31 on Mar 04,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading sv_std.std
-# Loading work.read_iq_tb_sv_unit(fast)
-# Loading work.read_iq_tb(fast)
-# Loading work.read_iq_top(fast)
-# Loading work.fifo(fast)
-# Loading work.read_iq_sv_unit(fast)
-# Loading work.read_iq(fast)
-# Loading work.fifo(fast__1)
-# @ 20: Loading file ../fm_radio/test/usrp.dat...
-# @ 25: Comparing I ../fm_radio/src/out_files/read_iq_i_out.txt...
-# @ 25: Comparing Q ../fm_radio/src/out_files/read_iq_q_out.txt...
-# @ 30: Beginning simulation...
-# @ 115: (1): ERROR: 00000400 != ffffd800.
-# @ 115: (1): ERROR: 00000400 != ffffec00.
-# @ 165: (2): ERROR: 00000400 != ffffe800.
-# @ 165: (2): ERROR: 00000400 != ffffd800.
-# @ 215: (3): ERROR: 00000400 != ffffd000.
-# @ 265: (4): ERROR: 00000400 != 00001000.
-# @ 265: (4): ERROR: 00000400 != ffffd400.
-# @ 315: (5): ERROR: 00000400 != 00002000.
-# @ 315: (5): ERROR: 00000400 != ffffe000.
-# @ 365: (6): ERROR: 00000400 != 00002800.
-# @ 365: (6): ERROR: 00000400 != fffff000.
-# @ 415: (7): ERROR: 00000000 != 00002c00.
-# @ 415: (7): ERROR: 00000000 != fffffc00.
-# @ 465: (8): ERROR: 00000000 != 00002800.
-# @ 465: (8): ERROR: 00000000 != 00000c00.
-# @ 515: (9): ERROR: 00000400 != 00002000.
-# @ 515: (9): ERROR: 00000400 != 00001800.
-# @ 565: (10): ERROR: 00000400 != 00001400.
-# @ 565: (10): ERROR: 00000400 != 00002400.
-# @ 615: (11): ERROR: 00000400 != 00002c00.
-# @ 665: (12): ERROR: 00000400 != ffffe400.
-# @ 665: (12): ERROR: 00000400 != 00002000.
-# @ 715: (13): ERROR: 00000400 != ffffd400.
-# @ 715: (13): ERROR: 00000400 != 00000c00.
-# @ 765: (14): ERROR: 00000400 != ffffd400.
-# @ 765: (14): ERROR: 00000400 != fffff400.
-# @ 815: (15): ERROR: 00000000 != ffffe000.
-# @ 815: (15): ERROR: 00000000 != ffffdc00.
-# @ 865: (16): ERROR: 00000000 != fffffc00.
-# @ 865: (16): ERROR: 00000000 != ffffd000.
-# @ 915: (17): ERROR: 00000400 != 00001400.
-# @ 915: (17): ERROR: 00000400 != ffffd800.
-# @ 965: (18): ERROR: 00000400 != 00002000.
-# @ 965: (18): ERROR: 00000400 != ffffe000.
-# @ 1015: (19): ERROR: 00000400 != 00002c00.
-# @ 1015: (19): ERROR: 00000400 != fffff400.
-# @ 1065: (20): ERROR: 00000400 != 00002c00.
-# @ 1115: (21): ERROR: 00000400 != 00002800.
-# @ 1115: (21): ERROR: 00000400 != 00000c00.
-# @ 1165: (22): ERROR: 00000400 != 00002400.
-# @ 1165: (22): ERROR: 00000400 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00002000.
-# @ 1265: (24): ERROR: 00000000 != 00000800.
-# @ 1265: (24): ERROR: 00000000 != 00002800.
-# @ 1315: (25): ERROR: 00000000 != fffff000.
-# @ 1315: (25): ERROR: 00000000 != 00002400.
-# @ 1325: Simulation completed.
-# Total simulation cycle count: 129
-# Total error count: 47
-# ** Note: $finish    : ../sv/read_iq_tb.sv(87)
-#    Time: 1325 ns  Iteration: 2  Instance: /read_iq_tb
-# 1
-# Break in NamedBeginStat tb_process at ../sv/read_iq_tb.sv line 87
-do read_iq_sim.do
-# -9
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
-# vmap work work 
-# Modifying modelsim.ini
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:34:54 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/fifo.sv 
-# -- Compiling module fifo
-# 
-# Top level modules:
-# 	fifo
-# End time: 13:34:54 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:34:54 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
-# -- Compiling package read_iq_sv_unit
-# -- Compiling module read_iq
-# 
-# Top level modules:
-# 	read_iq
-# End time: 13:34:55 on Mar 04,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:34:55 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_top.sv 
-# -- Compiling module read_iq_top
-# 
-# Top level modules:
-# 	read_iq_top
-# End time: 13:34:55 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:34:55 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_tb.sv 
-# -- Compiling package read_iq_tb_sv_unit
-# -- Compiling module read_iq_tb
-# 
-# Top level modules:
-# 	read_iq_tb
-# End time: 13:34:55 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 13:34:55 on Mar 04,2024, Elapsed time: 0:01:24
-# Errors: 0, Warnings: 0
-# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.read_iq_tb -wlf read_iq.wlf 
-# Start time: 13:34:55 on Mar 04,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading sv_std.std
-# Loading work.read_iq_tb_sv_unit(fast)
-# Loading work.read_iq_tb(fast)
-# Loading work.read_iq_top(fast)
-# Loading work.fifo(fast)
-# Loading work.read_iq_sv_unit(fast)
-# Loading work.read_iq(fast)
-# Loading work.fifo(fast__1)
-# @ 20: Loading file ../fm_radio/test/usrp.dat...
-# @ 25: Comparing I ../fm_radio/src/out_files/read_iq_i_out.txt...
-# @ 25: Comparing Q ../fm_radio/src/out_files/read_iq_q_out.txt...
-# @ 30: Beginning simulation...
-# @ 115: (1): ERROR: 00000400 != ffffd800.
-# @ 115: (1): ERROR: 00000400 != ffffec00.
-# @ 165: (2): ERROR: 00000400 != ffffe800.
-# @ 165: (2): ERROR: 00000400 != ffffd800.
-# @ 215: (3): ERROR: 00000400 != 00000000.
-# @ 215: (3): ERROR: 00000000 != ffffd000.
-# @ 265: (4): ERROR: 00000400 != 00001000.
-# @ 265: (4): ERROR: 00000400 != ffffd400.
-# @ 315: (5): ERROR: 00000400 != 00002000.
-# @ 315: (5): ERROR: 00000400 != ffffe000.
-# @ 365: (6): ERROR: 00000400 != 00002800.
-# @ 365: (6): ERROR: 00000400 != fffff000.
-# @ 415: (7): ERROR: 00000000 != 00002c00.
-# @ 415: (7): ERROR: 00000000 != fffffc00.
-# @ 465: (8): ERROR: 00000000 != 00002800.
-# @ 465: (8): ERROR: 00000000 != 00000c00.
-# @ 515: (9): ERROR: 00000400 != 00002000.
-# @ 515: (9): ERROR: 00000400 != 00001800.
-# @ 565: (10): ERROR: 00000400 != 00001400.
-# @ 565: (10): ERROR: 00000400 != 00002400.
-# @ 615: (11): ERROR: 00000400 != 00000000.
-# @ 615: (11): ERROR: 00000000 != 00002c00.
-# @ 665: (12): ERROR: 00000400 != ffffe400.
-# @ 665: (12): ERROR: 00000400 != 00002000.
-# @ 715: (13): ERROR: 00000400 != ffffd400.
-# @ 715: (13): ERROR: 00000400 != 00000c00.
-# @ 765: (14): ERROR: 00000400 != ffffd400.
-# @ 765: (14): ERROR: 00000400 != fffff400.
-# @ 815: (15): ERROR: 00000000 != ffffe000.
-# @ 815: (15): ERROR: 00000000 != ffffdc00.
-# @ 865: (16): ERROR: 00000000 != fffffc00.
-# @ 865: (16): ERROR: 00000000 != ffffd000.
-# @ 915: (17): ERROR: 00000400 != 00001400.
-# @ 915: (17): ERROR: 00000400 != ffffd800.
-# @ 965: (18): ERROR: 00000400 != 00002000.
-# @ 965: (18): ERROR: 00000400 != ffffe000.
-# @ 1015: (19): ERROR: 00000400 != 00002c00.
-# @ 1015: (19): ERROR: 00000400 != fffff400.
-# @ 1065: (20): ERROR: 00000000 != 00002c00.
-# @ 1065: (20): ERROR: 00000400 != 00000000.
-# @ 1115: (21): ERROR: 00000400 != 00002800.
-# @ 1115: (21): ERROR: 00000400 != 00000c00.
-# @ 1165: (22): ERROR: 00000400 != 00002400.
-# @ 1165: (22): ERROR: 00000400 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00002000.
-# @ 1265: (24): ERROR: 00000000 != 00000800.
-# @ 1265: (24): ERROR: 00000000 != 00002800.
-# @ 1315: (25): ERROR: 00000000 != fffff000.
-# @ 1315: (25): ERROR: 00000000 != 00002400.
-# @ 1325: Simulation completed.
-# Total simulation cycle count: 129
-# Total error count: 50
-# ** Note: $finish    : ../sv/read_iq_tb.sv(87)
-#    Time: 1325 ns  Iteration: 2  Instance: /read_iq_tb
-# 1
-# Break in NamedBeginStat tb_process at ../sv/read_iq_tb.sv line 87
-do read_iq_sim.do
-# -9
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
-# vmap work work 
-# Modifying modelsim.ini
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:36:48 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/fifo.sv 
-# -- Compiling module fifo
-# 
-# Top level modules:
-# 	fifo
-# End time: 13:36:48 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:36:48 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
-# -- Compiling package read_iq_sv_unit
-# -- Compiling module read_iq
-# 
-# Top level modules:
-# 	read_iq
-# End time: 13:36:49 on Mar 04,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:36:49 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_top.sv 
-# -- Compiling module read_iq_top
-# 
-# Top level modules:
-# 	read_iq_top
-# End time: 13:36:49 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:36:49 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_tb.sv 
-# -- Compiling package read_iq_tb_sv_unit
-# -- Compiling module read_iq_tb
-# 
-# Top level modules:
-# 	read_iq_tb
-# End time: 13:36:49 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 13:36:49 on Mar 04,2024, Elapsed time: 0:01:54
-# Errors: 0, Warnings: 0
-# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.read_iq_tb -wlf read_iq.wlf 
-# Start time: 13:36:49 on Mar 04,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading sv_std.std
-# Loading work.read_iq_tb_sv_unit(fast)
-# Loading work.read_iq_tb(fast)
-# Loading work.read_iq_top(fast)
-# Loading work.fifo(fast)
-# Loading work.read_iq_sv_unit(fast)
-# Loading work.read_iq(fast)
-# Loading work.fifo(fast__1)
-# @ 20: Loading file ../fm_radio/test/usrp.dat...
-# @ 25: Comparing I ../fm_radio/src/out_files/read_iq_i_out.txt...
-# @ 25: Comparing Q ../fm_radio/src/out_files/read_iq_q_out.txt...
-# @ 30: Beginning simulation...
-# @ 115: (1): ERROR: 0003ec00 != ffffd800.
-# @ 115: (1): ERROR: 0003d800 != ffffec00.
-# @ 165: (2): ERROR: 0003d800 != ffffe800.
-# @ 165: (2): ERROR: 0003e800 != ffffd800.
-# @ 215: (3): ERROR: 0003d000 != 00000000.
-# @ 215: (3): ERROR: 00000000 != ffffd000.
-# @ 265: (4): ERROR: 0003d400 != 00001000.
-# @ 265: (4): ERROR: 00001000 != ffffd400.
-# @ 315: (5): ERROR: 0003e000 != 00002000.
-# @ 315: (5): ERROR: 00002000 != ffffe000.
-# @ 365: (6): ERROR: 0003f000 != 00002800.
-# @ 365: (6): ERROR: 00002800 != fffff000.
-# @ 415: (7): ERROR: 00000000 != 00002c00.
-# @ 415: (7): ERROR: 00000000 != fffffc00.
-# @ 465: (8): ERROR: 00000000 != 00002800.
-# @ 465: (8): ERROR: 00000000 != 00000c00.
-# @ 515: (9): ERROR: 00001800 != 00002000.
-# @ 515: (9): ERROR: 00002000 != 00001800.
-# @ 565: (10): ERROR: 00002400 != 00001400.
-# @ 565: (10): ERROR: 00001400 != 00002400.
-# @ 615: (11): ERROR: 00002c00 != 00000000.
-# @ 615: (11): ERROR: 00000000 != 00002c00.
-# @ 665: (12): ERROR: 00002000 != ffffe400.
-# @ 665: (12): ERROR: 0003e400 != 00002000.
-# @ 715: (13): ERROR: 00000c00 != ffffd400.
-# @ 715: (13): ERROR: 0003d400 != 00000c00.
-# @ 765: (14): ERROR: 0003f400 != ffffd400.
-# @ 765: (14): ERROR: 0003d400 != fffff400.
-# @ 815: (15): ERROR: 00000000 != ffffe000.
-# @ 815: (15): ERROR: 00000000 != ffffdc00.
-# @ 865: (16): ERROR: 00000000 != fffffc00.
-# @ 865: (16): ERROR: 00000000 != ffffd000.
-# @ 915: (17): ERROR: 0003d800 != 00001400.
-# @ 915: (17): ERROR: 00001400 != ffffd800.
-# @ 965: (18): ERROR: 0003e000 != 00002000.
-# @ 965: (18): ERROR: 00002000 != ffffe000.
-# @ 1015: (19): ERROR: 0003f400 != 00002c00.
-# @ 1015: (19): ERROR: 00002c00 != fffff400.
-# @ 1065: (20): ERROR: 00000000 != 00002c00.
-# @ 1065: (20): ERROR: 00002c00 != 00000000.
-# @ 1115: (21): ERROR: 00000c00 != 00002800.
-# @ 1115: (21): ERROR: 00002800 != 00000c00.
-# @ 1165: (22): ERROR: 00001800 != 00002400.
-# @ 1165: (22): ERROR: 00002400 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00002000.
-# @ 1265: (24): ERROR: 00000000 != 00000800.
-# @ 1265: (24): ERROR: 00000000 != 00002800.
-# @ 1315: (25): ERROR: 00000000 != fffff000.
-# @ 1315: (25): ERROR: 00000000 != 00002400.
-# @ 1325: Simulation completed.
-# Total simulation cycle count: 129
-# Total error count: 50
-# ** Note: $finish    : ../sv/read_iq_tb.sv(87)
-#    Time: 1325 ns  Iteration: 2  Instance: /read_iq_tb
-# 1
-# Break in NamedBeginStat tb_process at ../sv/read_iq_tb.sv line 87
-do read_iq_sim.do
-# -9
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
-# vmap work work 
-# Modifying modelsim.ini
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:39:19 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/fifo.sv 
-# -- Compiling module fifo
-# 
-# Top level modules:
-# 	fifo
-# End time: 13:39:19 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:39:19 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
-# -- Compiling package read_iq_sv_unit
-# -- Compiling module read_iq
-# 
-# Top level modules:
-# 	read_iq
-# End time: 13:39:20 on Mar 04,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:39:20 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_top.sv 
-# -- Compiling module read_iq_top
-# 
-# Top level modules:
-# 	read_iq_top
-# End time: 13:39:20 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:39:20 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_tb.sv 
-# -- Compiling package read_iq_tb_sv_unit
-# -- Compiling module read_iq_tb
-# 
-# Top level modules:
-# 	read_iq_tb
-# End time: 13:39:20 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 13:39:20 on Mar 04,2024, Elapsed time: 0:02:31
-# Errors: 0, Warnings: 0
-# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.read_iq_tb -wlf read_iq.wlf 
-# Start time: 13:39:20 on Mar 04,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading sv_std.std
-# Loading work.read_iq_tb_sv_unit(fast)
-# Loading work.read_iq_tb(fast)
-# Loading work.read_iq_top(fast)
-# Loading work.fifo(fast)
-# Loading work.read_iq_sv_unit(fast)
-# Loading work.read_iq(fast)
-# Loading work.fifo(fast__1)
-# @ 20: Loading file ../fm_radio/test/usrp.dat...
-# @ 25: Comparing I ../fm_radio/src/out_files/read_iq_i_out.txt...
-# @ 25: Comparing Q ../fm_radio/src/out_files/read_iq_q_out.txt...
-# @ 30: Beginning simulation...
-# @ 115: (1): ERROR: 03e80000 != ffffd800.
-# @ 115: (1): ERROR: 03d40000 != ffffec00.
-# @ 165: (2): ERROR: 03d40000 != ffffe800.
-# @ 165: (2): ERROR: 03e40000 != ffffd800.
-# @ 215: (3): ERROR: 03cc0000 != 00000000.
-# @ 215: (3): ERROR: 00000000 != ffffd000.
-# @ 265: (4): ERROR: 03d00000 != 00001000.
-# @ 265: (4): ERROR: 00100000 != ffffd400.
-# @ 315: (5): ERROR: 03dc0000 != 00002000.
-# @ 315: (5): ERROR: 00200000 != ffffe000.
-# @ 365: (6): ERROR: 03ec0000 != 00002800.
-# @ 365: (6): ERROR: 00280000 != fffff000.
-# @ 415: (7): ERROR: 00000000 != 00002c00.
-# @ 415: (7): ERROR: 00000000 != fffffc00.
-# @ 465: (8): ERROR: 00000000 != 00002800.
-# @ 465: (8): ERROR: 00000000 != 00000c00.
-# @ 515: (9): ERROR: 00180000 != 00002000.
-# @ 515: (9): ERROR: 00200000 != 00001800.
-# @ 565: (10): ERROR: 00240000 != 00001400.
-# @ 565: (10): ERROR: 00140000 != 00002400.
-# @ 615: (11): ERROR: 002c0000 != 00000000.
-# @ 615: (11): ERROR: 00000000 != 00002c00.
-# @ 665: (12): ERROR: 00200000 != ffffe400.
-# @ 665: (12): ERROR: 03e00000 != 00002000.
-# @ 715: (13): ERROR: 000c0000 != ffffd400.
-# @ 715: (13): ERROR: 03d00000 != 00000c00.
-# @ 765: (14): ERROR: 03f00000 != ffffd400.
-# @ 765: (14): ERROR: 03d00000 != fffff400.
-# @ 815: (15): ERROR: 00000000 != ffffe000.
-# @ 815: (15): ERROR: 00000000 != ffffdc00.
-# @ 865: (16): ERROR: 00000000 != fffffc00.
-# @ 865: (16): ERROR: 00000000 != ffffd000.
-# @ 915: (17): ERROR: 03d40000 != 00001400.
-# @ 915: (17): ERROR: 00140000 != ffffd800.
-# @ 965: (18): ERROR: 03dc0000 != 00002000.
-# @ 965: (18): ERROR: 00200000 != ffffe000.
-# @ 1015: (19): ERROR: 03f00000 != 00002c00.
-# @ 1015: (19): ERROR: 002c0000 != fffff400.
-# @ 1065: (20): ERROR: 00000000 != 00002c00.
-# @ 1065: (20): ERROR: 002c0000 != 00000000.
-# @ 1115: (21): ERROR: 000c0000 != 00002800.
-# @ 1115: (21): ERROR: 00280000 != 00000c00.
-# @ 1165: (22): ERROR: 00180000 != 00002400.
-# @ 1165: (22): ERROR: 00240000 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00002000.
-# @ 1265: (24): ERROR: 00000000 != 00000800.
-# @ 1265: (24): ERROR: 00000000 != 00002800.
-# @ 1315: (25): ERROR: 00000000 != fffff000.
-# @ 1315: (25): ERROR: 00000000 != 00002400.
-# @ 1325: Simulation completed.
-# Total simulation cycle count: 129
-# Total error count: 50
-# ** Note: $finish    : ../sv/read_iq_tb.sv(87)
-#    Time: 1325 ns  Iteration: 2  Instance: /read_iq_tb
-# 1
-# Break in NamedBeginStat tb_process at ../sv/read_iq_tb.sv line 87
-do read_iq_sim.do
-# -9
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
-# vmap work work 
-# Modifying modelsim.ini
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:42:13 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/fifo.sv 
-# -- Compiling module fifo
-# 
-# Top level modules:
-# 	fifo
-# End time: 13:42:13 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:42:13 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
-# ** Error: (vlog-13069) ../sv/read_iq.sv(54): near ",": syntax error, unexpected ',', expecting '}'.
-# ** Error: (vlog-13069) ../sv/read_iq.sv(62): near ",": syntax error, unexpected ',', expecting '}'.
-# End time: 13:42:13 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 2, Warnings: 0
-# ** Error: /vol/mentor/modelsim-2020.1/modeltech/linux_x86_64/vlog failed.
-# Error in macro ./read_iq_sim.do line 7
-# /vol/mentor/modelsim-2020.1/modeltech/linux_x86_64/vlog failed.
+# Loading work.gain_sv_unit(fast)
+# Loading work.gain(fast)
+# ** UI-Msg: (vish-4014) No objects found matching '/gain_top/fifo_in_inst*'.
+# Error in macro ./gain_sim.do line 22
+# ** UI-Msg: (vish-4014) No objects found matching '/gain_top/fifo_in_inst*'.
 #     while executing
-# "vlog -work work "../sv/read_iq.sv""
-do read_iq_sim.do
+# "add wave -noupdate -group gain_tb/gain_top/fifo_in_inst"
+do gain_sim.do
 # -9
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
 # vmap work work 
 # Modifying modelsim.ini
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:42:53 on Mar 04,2024
+# Start time: 23:30:33 on Mar 04,2024
 # vlog -reportprogress 300 -work work ../sv/fifo.sv 
 # -- Compiling module fifo
 # 
 # Top level modules:
 # 	fifo
-# End time: 13:42:53 on Mar 04,2024, Elapsed time: 0:00:00
+# End time: 23:30:33 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:42:53 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
-# -- Compiling package read_iq_sv_unit
-# -- Compiling module read_iq
+# Start time: 23:30:33 on Mar 04,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
 # 
 # Top level modules:
-# 	read_iq
-# End time: 13:42:54 on Mar 04,2024, Elapsed time: 0:00:01
+# 	gain
+# End time: 23:30:34 on Mar 04,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:42:54 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_top.sv 
-# -- Compiling module read_iq_top
+# Start time: 23:30:34 on Mar 04,2024
+# vlog -reportprogress 300 -work work ../sv/gain_top.sv 
+# -- Compiling package gain_top_sv_unit
+# -- Compiling module gain_top
 # 
 # Top level modules:
-# 	read_iq_top
-# End time: 13:42:54 on Mar 04,2024, Elapsed time: 0:00:00
+# 	gain_top
+# End time: 23:30:34 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:42:54 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_tb.sv 
-# -- Compiling package read_iq_tb_sv_unit
-# -- Compiling module read_iq_tb
+# Start time: 23:30:34 on Mar 04,2024
+# vlog -reportprogress 300 -work work ../sv/gain_tb.sv 
+# -- Compiling package gain_tb_sv_unit
+# -- Compiling module gain_tb
 # 
 # Top level modules:
-# 	read_iq_tb
-# End time: 13:42:54 on Mar 04,2024, Elapsed time: 0:00:00
+# 	gain_tb
+# End time: 23:30:34 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 13:42:54 on Mar 04,2024, Elapsed time: 0:03:34
-# Errors: 1, Warnings: 0
-# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.read_iq_tb -wlf read_iq.wlf 
-# Start time: 13:42:54 on Mar 04,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# End time: 23:30:34 on Mar 04,2024, Elapsed time: 0:00:13
+# Errors: 0, Warnings: 0
+# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.gain_tb -wlf gain.wlf 
+# Start time: 23:30:34 on Mar 04,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
 # Loading sv_std.std
-# Loading work.read_iq_tb_sv_unit(fast)
-# Loading work.read_iq_tb(fast)
-# Loading work.read_iq_top(fast)
+# Loading work.gain_tb_sv_unit(fast)
+# Loading work.gain_tb(fast)
+# Loading work.gain_top_sv_unit(fast)
+# Loading work.gain_top(fast)
 # Loading work.fifo(fast)
-# Loading work.read_iq_sv_unit(fast)
-# Loading work.read_iq(fast)
-# Loading work.fifo(fast__1)
-# @ 20: Loading file ../fm_radio/test/usrp.dat...
-# @ 25: Comparing I ../fm_radio/src/out_files/read_iq_i_out.txt...
-# @ 25: Comparing Q ../fm_radio/src/out_files/read_iq_q_out.txt...
+# Loading work.gain_sv_unit(fast)
+# Loading work.gain(fast)
+# @ 20: Loading file ../fm_radio/src/txt_files/iir_left.txt...
+# @ 25: Comparing I ../fm_radio/src/out_files/gain_left_test.txt...
 # @ 30: Beginning simulation...
-# @ 115: (1): ERROR: 03e80000 != ffffd800.
-# @ 115: (1): ERROR: 03d40000 != ffffec00.
-# @ 165: (2): ERROR: 03d40000 != ffffe800.
-# @ 165: (2): ERROR: 03e40000 != ffffd800.
-# @ 215: (3): ERROR: 03cc0000 != 00000000.
-# @ 215: (3): ERROR: 00000000 != ffffd000.
-# @ 265: (4): ERROR: 03d00000 != 00001000.
-# @ 265: (4): ERROR: 00100000 != ffffd400.
-# @ 315: (5): ERROR: 03dc0000 != 00002000.
-# @ 315: (5): ERROR: 00200000 != ffffe000.
-# @ 365: (6): ERROR: 03ec0000 != 00002800.
-# @ 365: (6): ERROR: 00280000 != fffff000.
-# @ 415: (7): ERROR: 00000000 != 00002c00.
-# @ 415: (7): ERROR: 00000000 != fffffc00.
-# @ 465: (8): ERROR: 00000000 != 00002800.
-# @ 465: (8): ERROR: 00000000 != 00000c00.
-# @ 515: (9): ERROR: 00180000 != 00002000.
-# @ 515: (9): ERROR: 00200000 != 00001800.
-# @ 565: (10): ERROR: 00240000 != 00001400.
-# @ 565: (10): ERROR: 00140000 != 00002400.
-# @ 615: (11): ERROR: 002c0000 != 00000000.
-# @ 615: (11): ERROR: 00000000 != 00002c00.
-# @ 665: (12): ERROR: 00200000 != ffffe400.
-# @ 665: (12): ERROR: 03e00000 != 00002000.
-# @ 715: (13): ERROR: 000c0000 != ffffd400.
-# @ 715: (13): ERROR: 03d00000 != 00000c00.
-# @ 765: (14): ERROR: 03f00000 != ffffd400.
-# @ 765: (14): ERROR: 03d00000 != fffff400.
-# @ 815: (15): ERROR: 00000000 != ffffe000.
-# @ 815: (15): ERROR: 00000000 != ffffdc00.
-# @ 865: (16): ERROR: 00000000 != fffffc00.
-# @ 865: (16): ERROR: 00000000 != ffffd000.
-# @ 915: (17): ERROR: 03d40000 != 00001400.
-# @ 915: (17): ERROR: 00140000 != ffffd800.
-# @ 965: (18): ERROR: 03dc0000 != 00002000.
-# @ 965: (18): ERROR: 00200000 != ffffe000.
-# @ 1015: (19): ERROR: 03f00000 != 00002c00.
-# @ 1015: (19): ERROR: 002c0000 != fffff400.
-# @ 1065: (20): ERROR: 00000000 != 00002c00.
-# @ 1065: (20): ERROR: 002c0000 != 00000000.
-# @ 1115: (21): ERROR: 000c0000 != 00002800.
-# @ 1115: (21): ERROR: 00280000 != 00000c00.
-# @ 1165: (22): ERROR: 00180000 != 00002400.
-# @ 1165: (22): ERROR: 00240000 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00002000.
-# @ 1265: (24): ERROR: 00000000 != 00000800.
-# @ 1265: (24): ERROR: 00000000 != 00002800.
-# @ 1315: (25): ERROR: 00000000 != fffff000.
-# @ 1315: (25): ERROR: 00000000 != 00002400.
-# @ 1325: Simulation completed.
-# Total simulation cycle count: 129
-# Total error count: 50
-# ** Note: $finish    : ../sv/read_iq_tb.sv(87)
-#    Time: 1325 ns  Iteration: 2  Instance: /read_iq_tb
-# 1
-# Break in NamedBeginStat tb_process at ../sv/read_iq_tb.sv line 87
-do read_iq_sim.do
+do gain_sim.do
 # -9
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
 # vmap work work 
 # Modifying modelsim.ini
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:45:47 on Mar 04,2024
+# Start time: 23:31:35 on Mar 04,2024
 # vlog -reportprogress 300 -work work ../sv/fifo.sv 
 # -- Compiling module fifo
 # 
 # Top level modules:
 # 	fifo
-# End time: 13:46:01 on Mar 04,2024, Elapsed time: 0:00:14
+# End time: 23:31:35 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:46:01 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
-# -- Compiling package read_iq_sv_unit
-# -- Compiling module read_iq
+# Start time: 23:31:35 on Mar 04,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
 # 
 # Top level modules:
-# 	read_iq
-# End time: 13:46:01 on Mar 04,2024, Elapsed time: 0:00:00
+# 	gain
+# End time: 23:31:35 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:46:01 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_top.sv 
-# -- Compiling module read_iq_top
+# Start time: 23:31:35 on Mar 04,2024
+# vlog -reportprogress 300 -work work ../sv/gain_top.sv 
+# -- Compiling package gain_top_sv_unit
+# -- Compiling module gain_top
 # 
 # Top level modules:
-# 	read_iq_top
-# End time: 13:46:01 on Mar 04,2024, Elapsed time: 0:00:00
+# 	gain_top
+# End time: 23:31:35 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:46:03 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_tb.sv 
-# -- Compiling package read_iq_tb_sv_unit
-# -- Compiling module read_iq_tb
+# Start time: 23:31:35 on Mar 04,2024
+# vlog -reportprogress 300 -work work ../sv/gain_tb.sv 
+# -- Compiling package gain_tb_sv_unit
+# -- Compiling module gain_tb
 # 
 # Top level modules:
-# 	read_iq_tb
-# End time: 13:46:03 on Mar 04,2024, Elapsed time: 0:00:00
+# 	gain_tb
+# End time: 23:31:35 on Mar 04,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 13:46:04 on Mar 04,2024, Elapsed time: 0:03:10
+# End time: 23:31:35 on Mar 04,2024, Elapsed time: 0:01:01
 # Errors: 0, Warnings: 0
-# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.read_iq_tb -wlf read_iq.wlf 
-# Start time: 13:46:04 on Mar 04,2024
+# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.gain_tb -wlf gain.wlf 
+# Start time: 23:31:35 on Mar 04,2024
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # Loading sv_std.std
-# Loading work.read_iq_tb_sv_unit(fast)
-# Loading work.read_iq_tb(fast)
-# Loading work.read_iq_top(fast)
+# Loading work.gain_tb_sv_unit(fast)
+# Loading work.gain_tb(fast)
+# Loading work.gain_top_sv_unit(fast)
+# Loading work.gain_top(fast)
 # Loading work.fifo(fast)
-# Loading work.read_iq_sv_unit(fast)
-# Loading work.read_iq(fast)
-# Loading work.fifo(fast__1)
-# @ 20: Loading file ../fm_radio/test/usrp.dat...
-# @ 25: Comparing I ../fm_radio/src/out_files/read_iq_i_out.txt...
-# @ 25: Comparing Q ../fm_radio/src/out_files/read_iq_q_out.txt...
+# Loading work.gain_sv_unit(fast)
+# Loading work.gain(fast)
+# @ 20: Loading file ../fm_radio/src/txt_files/iir_left.txt...
+# @ 25: Comparing I ../fm_radio/src/out_files/gain_left_test.txt...
 # @ 30: Beginning simulation...
-# @ 115: (1): ERROR: 03ffec00 != ffffd800.
-# @ 115: (1): ERROR: 03ffd800 != ffffec00.
-# @ 165: (2): ERROR: 03ffd800 != ffffe800.
-# @ 165: (2): ERROR: 03ffe800 != ffffd800.
-# @ 215: (3): ERROR: 03ffd000 != 00000000.
-# @ 215: (3): ERROR: 00000000 != ffffd000.
-# @ 265: (4): ERROR: 03ffd400 != 00001000.
-# @ 265: (4): ERROR: 00001000 != ffffd400.
-# @ 315: (5): ERROR: 03ffe000 != 00002000.
-# @ 315: (5): ERROR: 00002000 != ffffe000.
-# @ 365: (6): ERROR: 03fff000 != 00002800.
-# @ 365: (6): ERROR: 00002800 != fffff000.
-# @ 415: (7): ERROR: 00000000 != 00002c00.
-# @ 415: (7): ERROR: 00000000 != fffffc00.
-# @ 465: (8): ERROR: 00000000 != 00002800.
-# @ 465: (8): ERROR: 00000000 != 00000c00.
-# @ 515: (9): ERROR: 00001800 != 00002000.
-# @ 515: (9): ERROR: 00002000 != 00001800.
-# @ 565: (10): ERROR: 00002400 != 00001400.
-# @ 565: (10): ERROR: 00001400 != 00002400.
-# @ 615: (11): ERROR: 00002c00 != 00000000.
-# @ 615: (11): ERROR: 00000000 != 00002c00.
-# @ 665: (12): ERROR: 00002000 != ffffe400.
-# @ 665: (12): ERROR: 03ffe400 != 00002000.
-# @ 715: (13): ERROR: 00000c00 != ffffd400.
-# @ 715: (13): ERROR: 03ffd400 != 00000c00.
-# @ 765: (14): ERROR: 03fff400 != ffffd400.
-# @ 765: (14): ERROR: 03ffd400 != fffff400.
-# @ 815: (15): ERROR: 00000000 != ffffe000.
-# @ 815: (15): ERROR: 00000000 != ffffdc00.
-# @ 865: (16): ERROR: 00000000 != fffffc00.
-# @ 865: (16): ERROR: 00000000 != ffffd000.
-# @ 915: (17): ERROR: 03ffd800 != 00001400.
-# @ 915: (17): ERROR: 00001400 != ffffd800.
-# @ 965: (18): ERROR: 03ffe000 != 00002000.
-# @ 965: (18): ERROR: 00002000 != ffffe000.
-# @ 1015: (19): ERROR: 03fff400 != 00002c00.
-# @ 1015: (19): ERROR: 00002c00 != fffff400.
-# @ 1065: (20): ERROR: 00000000 != 00002c00.
-# @ 1065: (20): ERROR: 00002c00 != 00000000.
-# @ 1115: (21): ERROR: 00000c00 != 00002800.
-# @ 1115: (21): ERROR: 00002800 != 00000c00.
-# @ 1165: (22): ERROR: 00001800 != 00002400.
-# @ 1165: (22): ERROR: 00002400 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00002000.
-# @ 1265: (24): ERROR: 00000000 != 00000800.
-# @ 1265: (24): ERROR: 00000000 != 00002800.
-# @ 1315: (25): ERROR: 00000000 != fffff000.
-# @ 1315: (25): ERROR: 00000000 != 00002400.
-# @ 1325: Simulation completed.
-# Total simulation cycle count: 129
-# Total error count: 50
-# ** Note: $finish    : ../sv/read_iq_tb.sv(87)
-#    Time: 1325 ns  Iteration: 2  Instance: /read_iq_tb
-# 1
-# Break in NamedBeginStat tb_process at ../sv/read_iq_tb.sv line 87
-
-
-
-
-do read_iq_sim.do
-# -9
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
-# vmap work work 
-# Modifying modelsim.ini
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:47:03 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/fifo.sv 
-# -- Compiling module fifo
-# 
-# Top level modules:
-# 	fifo
-# End time: 13:47:03 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:47:03 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
-# -- Compiling package read_iq_sv_unit
-# -- Compiling module read_iq
-# 
-# Top level modules:
-# 	read_iq
-# End time: 13:47:03 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:47:03 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_top.sv 
-# -- Compiling module read_iq_top
-# 
-# Top level modules:
-# 	read_iq_top
-# End time: 13:47:03 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:47:03 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_tb.sv 
-# -- Compiling package read_iq_tb_sv_unit
-# -- Compiling module read_iq_tb
-# 
-# Top level modules:
-# 	read_iq_tb
-# End time: 13:47:03 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 13:47:04 on Mar 04,2024, Elapsed time: 0:01:00
-# Errors: 0, Warnings: 0
-# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.read_iq_tb -wlf read_iq.wlf 
-# Start time: 13:47:04 on Mar 04,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading sv_std.std
-# Loading work.read_iq_tb_sv_unit(fast)
-# Loading work.read_iq_tb(fast)
-# Loading work.read_iq_top(fast)
-# Loading work.fifo(fast)
-# Loading work.read_iq_sv_unit(fast)
-# Loading work.read_iq(fast)
-# Loading work.fifo(fast__1)
-# @ 20: Loading file ../fm_radio/test/usrp.dat...
-# @ 25: Comparing I ../fm_radio/src/out_files/read_iq_i_out.txt...
-# @ 25: Comparing Q ../fm_radio/src/out_files/read_iq_q_out.txt...
-# @ 30: Beginning simulation...
-# @ 115: (1): ERROR: ffffec00 != ffffd800.
-# @ 115: (1): ERROR: ffffd800 != ffffec00.
-# @ 165: (2): ERROR: ffffd800 != ffffe800.
-# @ 165: (2): ERROR: ffffe800 != ffffd800.
-# @ 215: (3): ERROR: ffffd000 != 00000000.
-# @ 215: (3): ERROR: 00000000 != ffffd000.
-# @ 265: (4): ERROR: ffffd400 != 00001000.
-# @ 265: (4): ERROR: 00001000 != ffffd400.
-# @ 315: (5): ERROR: ffffe000 != 00002000.
-# @ 315: (5): ERROR: 00002000 != ffffe000.
-# @ 365: (6): ERROR: fffff000 != 00002800.
-# @ 365: (6): ERROR: 00002800 != fffff000.
-# @ 415: (7): ERROR: 00000000 != 00002c00.
-# @ 415: (7): ERROR: 00000000 != fffffc00.
-# @ 465: (8): ERROR: 00000000 != 00002800.
-# @ 465: (8): ERROR: 00000000 != 00000c00.
-# @ 515: (9): ERROR: 00001800 != 00002000.
-# @ 515: (9): ERROR: 00002000 != 00001800.
-# @ 565: (10): ERROR: 00002400 != 00001400.
-# @ 565: (10): ERROR: 00001400 != 00002400.
-# @ 615: (11): ERROR: 00002c00 != 00000000.
-# @ 615: (11): ERROR: 00000000 != 00002c00.
-# @ 665: (12): ERROR: 00002000 != ffffe400.
-# @ 665: (12): ERROR: ffffe400 != 00002000.
-# @ 715: (13): ERROR: 00000c00 != ffffd400.
-# @ 715: (13): ERROR: ffffd400 != 00000c00.
-# @ 765: (14): ERROR: fffff400 != ffffd400.
-# @ 765: (14): ERROR: ffffd400 != fffff400.
-# @ 815: (15): ERROR: 00000000 != ffffe000.
-# @ 815: (15): ERROR: 00000000 != ffffdc00.
-# @ 865: (16): ERROR: 00000000 != fffffc00.
-# @ 865: (16): ERROR: 00000000 != ffffd000.
-# @ 915: (17): ERROR: ffffd800 != 00001400.
-# @ 915: (17): ERROR: 00001400 != ffffd800.
-# @ 965: (18): ERROR: ffffe000 != 00002000.
-# @ 965: (18): ERROR: 00002000 != ffffe000.
-# @ 1015: (19): ERROR: fffff400 != 00002c00.
-# @ 1015: (19): ERROR: 00002c00 != fffff400.
-# @ 1065: (20): ERROR: 00000000 != 00002c00.
-# @ 1065: (20): ERROR: 00002c00 != 00000000.
-# @ 1115: (21): ERROR: 00000c00 != 00002800.
-# @ 1115: (21): ERROR: 00002800 != 00000c00.
-# @ 1165: (22): ERROR: 00001800 != 00002400.
-# @ 1165: (22): ERROR: 00002400 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00002000.
-# @ 1265: (24): ERROR: 00000000 != 00000800.
-# @ 1265: (24): ERROR: 00000000 != 00002800.
-# @ 1315: (25): ERROR: 00000000 != fffff000.
-# @ 1315: (25): ERROR: 00000000 != 00002400.
-# @ 1325: Simulation completed.
-# Total simulation cycle count: 129
-# Total error count: 50
-# ** Note: $finish    : ../sv/read_iq_tb.sv(87)
-#    Time: 1325 ns  Iteration: 2  Instance: /read_iq_tb
-# 1
-# Break in NamedBeginStat tb_process at ../sv/read_iq_tb.sv line 87
-do read_iq_sim.do
-# -9
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
-# vmap work work 
-# Modifying modelsim.ini
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:47:49 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/fifo.sv 
-# -- Compiling module fifo
-# 
-# Top level modules:
-# 	fifo
-# End time: 13:47:49 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:47:49 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
-# -- Compiling package read_iq_sv_unit
-# -- Compiling module read_iq
-# 
-# Top level modules:
-# 	read_iq
-# End time: 13:47:49 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:47:49 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_top.sv 
-# -- Compiling module read_iq_top
-# 
-# Top level modules:
-# 	read_iq_top
-# End time: 13:47:49 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:47:49 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_tb.sv 
-# -- Compiling package read_iq_tb_sv_unit
-# -- Compiling module read_iq_tb
-# 
-# Top level modules:
-# 	read_iq_tb
-# End time: 13:47:49 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 13:47:50 on Mar 04,2024, Elapsed time: 0:00:46
-# Errors: 0, Warnings: 0
-# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.read_iq_tb -wlf read_iq.wlf 
-# Start time: 13:47:50 on Mar 04,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading sv_std.std
-# Loading work.read_iq_tb_sv_unit(fast)
-# Loading work.read_iq_tb(fast)
-# Loading work.read_iq_top(fast)
-# Loading work.fifo(fast)
-# Loading work.read_iq_sv_unit(fast)
-# Loading work.read_iq(fast)
-# Loading work.fifo(fast__1)
-# @ 20: Loading file ../fm_radio/test/usrp.dat...
-# @ 25: Comparing I ../fm_radio/src/out_files/read_iq_i_out.txt...
-# @ 25: Comparing Q ../fm_radio/src/out_files/read_iq_q_out.txt...
-# @ 30: Beginning simulation...
-# @ 415: (7): ERROR: 00000000 != 00002c00.
-# @ 415: (7): ERROR: 00000000 != fffffc00.
-# @ 465: (8): ERROR: 00000000 != 00002800.
-# @ 465: (8): ERROR: 00000000 != 00000c00.
-# @ 815: (15): ERROR: 00000000 != ffffe000.
-# @ 815: (15): ERROR: 00000000 != ffffdc00.
-# @ 865: (16): ERROR: 00000000 != fffffc00.
-# @ 865: (16): ERROR: 00000000 != ffffd000.
-# @ 1215: (23): ERROR: 00000000 != 00001800.
-# @ 1215: (23): ERROR: 00000000 != 00002000.
-# @ 1265: (24): ERROR: 00000000 != 00000800.
-# @ 1265: (24): ERROR: 00000000 != 00002800.
-# @ 1315: (25): ERROR: 00000000 != fffff000.
-# @ 1315: (25): ERROR: 00000000 != 00002400.
-# @ 1325: Simulation completed.
-# Total simulation cycle count: 129
-# Total error count: 14
-# ** Note: $finish    : ../sv/read_iq_tb.sv(87)
-#    Time: 1325 ns  Iteration: 2  Instance: /read_iq_tb
-# 1
-# Break in NamedBeginStat tb_process at ../sv/read_iq_tb.sv line 87
-do read_iq_sim.do
-# -9
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
-# vmap work work 
-# Modifying modelsim.ini
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:53:09 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/fifo.sv 
-# -- Compiling module fifo
-# 
-# Top level modules:
-# 	fifo
-# End time: 13:53:09 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:53:09 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
-# -- Compiling package read_iq_sv_unit
-# -- Compiling module read_iq
-# 
-# Top level modules:
-# 	read_iq
-# End time: 13:53:09 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:53:09 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_top.sv 
-# -- Compiling module read_iq_top
-# 
-# Top level modules:
-# 	read_iq_top
-# End time: 13:53:09 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 13:53:09 on Mar 04,2024
-# vlog -reportprogress 300 -work work ../sv/read_iq_tb.sv 
-# -- Compiling package read_iq_tb_sv_unit
-# -- Compiling module read_iq_tb
-# 
-# Top level modules:
-# 	read_iq_tb
-# End time: 13:53:09 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 13:53:09 on Mar 04,2024, Elapsed time: 0:05:19
-# Errors: 0, Warnings: 0
-# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.read_iq_tb -wlf read_iq.wlf 
-# Start time: 13:53:09 on Mar 04,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading sv_std.std
-# Loading work.read_iq_tb_sv_unit(fast)
-# Loading work.read_iq_tb(fast)
-# Loading work.read_iq_top(fast)
-# Loading work.fifo(fast)
-# Loading work.read_iq_sv_unit(fast)
-# Loading work.read_iq(fast)
-# Loading work.fifo(fast__1)
-# @ 20: Loading file ../fm_radio/test/usrp.dat...
-# @ 25: Comparing I ../fm_radio/src/out_files/read_iq_i_out.txt...
-# @ 25: Comparing Q ../fm_radio/src/out_files/read_iq_q_out.txt...
-# @ 30: Beginning simulation...
-# @ 1325: Simulation completed.
-# Total simulation cycle count: 129
+# @ 2075: Simulation completed.
+# Total simulation cycle count: 204
 # Total error count: 0
-# ** Note: $finish    : ../sv/read_iq_tb.sv(87)
-#    Time: 1325 ns  Iteration: 2  Instance: /read_iq_tb
+# ** Note: $finish    : ../sv/gain_tb.sv(80)
+#    Time: 2075 ns  Iteration: 2  Instance: /gain_tb
 # 1
-# Break in NamedBeginStat tb_process at ../sv/read_iq_tb.sv line 87
+# Break in NamedBeginStat tb_process at ../sv/gain_tb.sv line 80

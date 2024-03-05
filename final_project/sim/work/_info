@@ -20,15 +20,14 @@ n@_opt
 Z4 OL;O;2020.1;71
 R0
 T_opt1
-!s110 1709528940
-VQW2afG=Ykc9nKdJ8]a5A93
-04 9 4 work divide_tb fast 0
-=1-a4bb6d3fef1e-65e5576b-da591-19e21a
+Z5 !s110 1709616695
+VfgFeX8<NaezbGm_mV3omn3
+04 7 4 work gain_tb fast 0
+=1-a4bb6d3fef1e-65e6ae37-c28da-166527
 R2
 R3
 n@_opt1
 R4
-R0
 T_opt2
 !s110 1709581990
 VPi]8fnBP6kiI[MLcA=lZi0
@@ -38,14 +37,15 @@ R2
 R3
 n@_opt2
 R4
+R0
 vcomparator
-Z5 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z6 !s110 1709528939
+Z6 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z7 !s110 1709528939
 !i10b 1
 !s100 WjEKDJeLnY[N_3nJ9b59`2
-Z7 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Z8 !s11b Dg1SIo80bB@j0V0VzS_@n1
 Ik]WQ`I_`1TH;EXhj?YkHQ3
-Z8 VDg1SIo80bB@j0V0VzS_@n1
+Z9 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
 w1709497126
@@ -53,43 +53,43 @@ w1709497126
 F../sv/comparator.sv
 !i122 127
 L0 1 20
-Z9 OL;L;2020.1;71
+Z10 OL;L;2020.1;71
 r1
 !s85 0
 31
-Z10 !s108 1709528939.000000
+Z11 !s108 1709528939.000000
 !s107 ../sv/comparator.sv|
 !s90 -work|work|../sv/comparator.sv|
 !i113 0
-Z11 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z12 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R3
 vdivide
-R5
 R6
+R7
 !i10b 1
 !s100 [_cK<d_ZcoUUPbGOdcLPI1
-R7
-I0[WLjEm0L4mWa^MHT?Qkc2
 R8
+I0[WLjEm0L4mWa^MHT?Qkc2
+R9
 S1
 R0
 w1709528307
-Z12 8../sv/divide.sv
-Z13 F../sv/divide.sv
+Z13 8../sv/divide.sv
+Z14 F../sv/divide.sv
 !i122 128
 L0 1 116
-R9
+R10
 r1
 !s85 0
 31
-R10
-!s107 ../sv/divide.sv|
-Z14 !s90 -work|work|../sv/divide.sv|
-!i113 0
 R11
+!s107 ../sv/divide.sv|
+Z15 !s90 -work|work|../sv/divide.sv|
+!i113 0
+R12
 R3
 Xdivide_sv_unit
-R5
+R6
 !s110 1709497134
 V;D68GF@d]_dThk7i[eFCk3
 r1
@@ -101,24 +101,24 @@ I;D68GF@d]_dThk7i[eFCk3
 S1
 R0
 w1709497098
-R12
 R13
-Z15 F../sv/globals.sv
+R14
+Z16 F../sv/globals.sv
 !i122 64
-Z16 L0 4 0
-R9
+Z17 L0 4 0
+R10
 31
 !s108 1709497134.000000
 !s107 ../sv/globals.sv|../sv/divide.sv|
-R14
+R15
 !i113 0
-R11
+R12
 R3
 vdivide_tb
-R5
-DXx4 work 17 divide_tb_sv_unit 0 22 `<EAdSo4GA6W5U51aI<H03
 R6
-R8
+DXx4 work 17 divide_tb_sv_unit 0 22 `<EAdSo4GA6W5U51aI<H03
+R7
+R9
 r1
 !s85 0
 !i10b 1
@@ -127,22 +127,22 @@ ID?TKO>iel<lJc@QB_Wmo93
 !s105 divide_tb_sv_unit
 S1
 R0
-Z17 w1709528933
-Z18 8../sv/divide_tb.sv
-Z19 F../sv/divide_tb.sv
+Z18 w1709528933
+Z19 8../sv/divide_tb.sv
+Z20 F../sv/divide_tb.sv
 !i122 129
 L0 4 74
-R9
-31
 R10
-Z20 !s107 ../sv/globals.sv|../sv/divide_tb.sv|
-Z21 !s90 -work|work|../sv/divide_tb.sv|
-!i113 0
+31
 R11
+Z21 !s107 ../sv/globals.sv|../sv/divide_tb.sv|
+Z22 !s90 -work|work|../sv/divide_tb.sv|
+!i113 0
+R12
 R3
 Xdivide_tb_sv_unit
-R5
 R6
+R7
 V`<EAdSo4GA6W5U51aI<H03
 r1
 !s85 0
@@ -152,79 +152,235 @@ I`<EAdSo4GA6W5U51aI<H03
 !i103 1
 S1
 R0
-R17
 R18
 R19
-R15
-!i122 129
-R16
-R9
-31
-R10
 R20
-R21
-!i113 0
+R16
+!i122 129
+R17
+R10
+31
 R11
+R21
+R22
+!i113 0
+R12
 R3
 vfifo
+R6
 R5
-Z22 !s110 1709581989
 !i10b 1
 !s100 JJ9WTn?^46FJn6Sib6ECo1
-R7
-Ij:[k:a4XRZ6Im<1oU4m=41
 R8
+Ij:[k:a4XRZ6Im<1oU4m=41
+R9
 S1
 R0
 w1709494391
 8../sv/fifo.sv
 F../sv/fifo.sv
-!i122 227
+!i122 271
 L0 2 77
-R9
+R10
 r1
 !s85 0
 31
-Z23 !s108 1709581989.000000
+Z23 !s108 1709616695.000000
 !s107 ../sv/fifo.sv|
 !s90 -reportprogress|300|-work|work|../sv/fifo.sv|
 !i113 0
-R11
+R12
 R3
 vfir_tb
-R5
-Z24 DXx4 work 18 read_iq_tb_sv_unit 0 22 [8:2HX33LlOTN<[2jRo]z3
+R6
+DXx4 work 18 read_iq_tb_sv_unit 0 22 [8:2HX33LlOTN<[2jRo]z3
 !s110 1709578961
-R8
+R9
 r1
 !s85 0
 !i10b 1
 !s100 @aR;O@Ye@E1onJYHj19g=0
 I?jEBSU]U:L[HPOXmzg2Ma0
-Z25 !s105 read_iq_tb_sv_unit
+!s105 read_iq_tb_sv_unit
 S1
 R0
 w1709578955
-Z26 8../sv/read_iq_tb.sv
-Z27 F../sv/read_iq_tb.sv
+Z24 8../sv/read_iq_tb.sv
+Z25 F../sv/read_iq_tb.sv
 !i122 144
-Z28 L0 4 172
-R9
+L0 4 172
+R10
 31
 !s108 1709578961.000000
-Z29 !s107 ../sv/globals.sv|../sv/read_iq_tb.sv|
+Z26 !s107 ../sv/globals.sv|../sv/read_iq_tb.sv|
 !s90 -work|work|../sv/read_iq_tb.sv|
 !i113 0
-R11
+R12
+R3
+vgain
+R6
+DXx4 work 12 gain_sv_unit 0 22 hiV;l4LbnDEWngmLjhFV?2
+R5
+R9
+r1
+!s85 0
+!i10b 1
+!s100 JofF5VXTa<QdKajYJF0kG3
+IeDU=]]m1F_S<_;:^3;CH[1
+!s105 gain_sv_unit
+S1
+R0
+Z27 w1709616260
+Z28 8../sv/gain.sv
+Z29 F../sv/gain.sv
+!i122 272
+L0 3 70
+R10
+31
+R23
+Z30 !s107 ../sv/globals.sv|../sv/gain.sv|
+Z31 !s90 -reportprogress|300|-work|work|../sv/gain.sv|
+!i113 0
+R12
+R3
+Xgain_sv_unit
+R6
+R5
+VhiV;l4LbnDEWngmLjhFV?2
+r1
+!s85 0
+!i10b 1
+!s100 iY?6a[KWgVg6cd2G0`gg]1
+IhiV;l4LbnDEWngmLjhFV?2
+!i103 1
+S1
+R0
+R27
+R28
+R29
+R16
+!i122 272
+R17
+R10
+31
+R23
+R30
+R31
+!i113 0
+R12
+R3
+vgain_tb
+R6
+Z32 DXx4 work 15 gain_tb_sv_unit 0 22 fEf]]J[DGDz2DO<<>lVVG2
+R5
+R9
+r1
+!s85 0
+!i10b 1
+!s100 nO^iZa4`loe96g9;b@nj72
+IERAekeE5BeRePZj[919620
+Z33 !s105 gain_tb_sv_unit
+S1
+R0
+Z34 w1709615829
+Z35 8../sv/gain_tb.sv
+Z36 F../sv/gain_tb.sv
+!i122 274
+Z37 L0 4 147
+R10
+31
+R23
+Z38 !s107 ../sv/globals.sv|../sv/gain_tb.sv|
+Z39 !s90 -reportprogress|300|-work|work|../sv/gain_tb.sv|
+!i113 0
+R12
+R3
+Xgain_tb_sv_unit
+R6
+R5
+VfEf]]J[DGDz2DO<<>lVVG2
+r1
+!s85 0
+!i10b 1
+!s100 GZ6RJWf`AjFNeGA]:b>iU3
+IfEf]]J[DGDz2DO<<>lVVG2
+!i103 1
+S1
+R0
+R34
+R35
+R36
+R16
+!i122 274
+R17
+R10
+31
+R23
+R38
+R39
+!i113 0
+R12
+R3
+vgain_top
+R6
+DXx4 work 16 gain_top_sv_unit 0 22 [GVjKDP7FP;[65BHXN6G43
+R5
+R9
+r1
+!s85 0
+!i10b 1
+!s100 FSKJEhD?iake10RX2WFk]2
+IKk0AML5jK731`zWl;SUeM1
+!s105 gain_top_sv_unit
+S1
+R0
+Z40 w1709616691
+Z41 8../sv/gain_top.sv
+Z42 F../sv/gain_top.sv
+!i122 273
+L0 3 74
+R10
+31
+R23
+Z43 !s107 ../sv/globals.sv|../sv/gain_top.sv|
+Z44 !s90 -reportprogress|300|-work|work|../sv/gain_top.sv|
+!i113 0
+R12
+R3
+Xgain_top_sv_unit
+R6
+R5
+V[GVjKDP7FP;[65BHXN6G43
+r1
+!s85 0
+!i10b 1
+!s100 9N9DgI6HWbSn0bO5[NWE72
+I[GVjKDP7FP;[65BHXN6G43
+!i103 1
+S1
+R0
+R40
+R41
+R42
+R16
+!i122 273
+R17
+R10
+31
+R23
+R43
+R44
+!i113 0
+R12
 R3
 vmultiply
-R5
+R6
 R1
 !i10b 1
 !s100 Ij=IJ_b]RQg3:P1T0hL`81
-R7
-IlXPlXL:>j1S25G1`=8CAX1
 R8
+IlXPlXL:>j1S25G1`=8CAX1
+R9
 S1
 R0
 w1709259478
@@ -232,24 +388,24 @@ w1709259478
 F../sv/multiply.sv
 !i122 25
 L0 1 72
-R9
+R10
 r1
 !s85 0
 31
-Z30 !s108 1709259923.000000
+Z45 !s108 1709259923.000000
 !s107 ../sv/multiply.sv|
 !s90 -reportprogress|300|-work|work|../sv/multiply.sv|
 !i113 0
-R11
+R12
 R3
 vmultiply_tb
-R5
+R6
 R1
 !i10b 1
 !s100 [nzXAZ]f6WmACSLIklEI90
-R7
-ICSaHI4]_hg:m7C0T?YRoQ1
 R8
+ICSaHI4]_hg:m7C0T?YRoQ1
+R9
 S1
 R0
 w1709259849
@@ -257,24 +413,24 @@ w1709259849
 F../sv/multiply_tb.sv
 !i122 27
 L0 3 142
-R9
+R10
 r1
 !s85 0
 31
-R30
+R45
 !s107 ../sv/multiply_tb.sv|
 !s90 -reportprogress|300|-work|work|../sv/multiply_tb.sv|
 !i113 0
-R11
+R12
 R3
 vmultiply_top
-R5
+R6
 R1
 !i10b 1
 !s100 5WZB[6HO;DlDJNA?YC`^e0
-R7
-IFRhTzAkbdAolkoJ6d=Q5l0
 R8
+IFRhTzAkbdAolkoJ6d=Q5l0
+R9
 S1
 R0
 w1709259908
@@ -282,21 +438,21 @@ w1709259908
 F../sv/multiply_top.sv
 !i122 26
 L0 1 76
-R9
+R10
 r1
 !s85 0
 31
-R30
+R45
 !s107 ../sv/multiply_top.sv|
 !s90 -reportprogress|300|-work|work|../sv/multiply_top.sv|
 !i113 0
-R11
+R12
 R3
 vread_iq
-R5
+R6
 DXx4 work 15 read_iq_sv_unit 0 22 OD7c9W5IBZYET6d3dQ5cS2
-R22
-R8
+Z46 !s110 1709581989
+R9
 r1
 !s85 0
 !i10b 1
@@ -305,22 +461,22 @@ Ie0^>>8SmejFR<]1z:R[0G3
 !s105 read_iq_sv_unit
 S1
 R0
-Z31 w1709581664
-Z32 8../sv/read_iq.sv
-Z33 F../sv/read_iq.sv
+Z47 w1709581664
+Z48 8../sv/read_iq.sv
+Z49 F../sv/read_iq.sv
 !i122 228
 L0 3 96
-R9
+R10
 31
-R23
-Z34 !s107 ../sv/globals.sv|../sv/read_iq.sv|
-Z35 !s90 -reportprogress|300|-work|work|../sv/read_iq.sv|
+Z50 !s108 1709581989.000000
+Z51 !s107 ../sv/globals.sv|../sv/read_iq.sv|
+Z52 !s90 -reportprogress|300|-work|work|../sv/read_iq.sv|
 !i113 0
-R11
+R12
 R3
 Xread_iq_sv_unit
-R5
-R22
+R6
+R46
 VOD7c9W5IBZYET6d3dQ5cS2
 r1
 !s85 0
@@ -330,49 +486,49 @@ IOD7c9W5IBZYET6d3dQ5cS2
 !i103 1
 S1
 R0
-R31
-R32
-R33
-R15
-!i122 228
+R47
+R48
+R49
 R16
-R9
+!i122 228
+R17
+R10
 31
-R23
-R34
-R35
+R50
+R51
+R52
 !i113 0
-R11
+R12
 R3
 vread_iq_tb
-R5
-R24
-R22
-R8
+R6
+R32
+!s110 1709615762
+R9
 r1
 !s85 0
 !i10b 1
-!s100 F4oCDhfBX5L`L5_mS[l851
-IK>3;[gS;cc6Z]318CnefO0
-R25
+!s100 ]LdVUcTEQ=9nG1BoK8Hf00
+IIm0Tc:8J4b9oPDd7FH;DI1
+R33
 S1
 R0
-Z36 w1709579129
-R26
-R27
-!i122 230
-R28
-R9
+w1709615758
+R35
+R36
+!i122 238
+R37
+R10
 31
-R23
-R29
-Z37 !s90 -reportprogress|300|-work|work|../sv/read_iq_tb.sv|
+!s108 1709615762.000000
+R38
+!s90 -work|work|../sv/gain_tb.sv|
 !i113 0
-R11
+R12
 R3
 Xread_iq_tb_sv_unit
-R5
-R22
+R6
+R46
 V[8:2HX33LlOTN<[2jRo]z3
 r1
 !s85 0
@@ -382,28 +538,28 @@ I[8:2HX33LlOTN<[2jRo]z3
 !i103 1
 S1
 R0
-R36
-R26
-R27
-R15
-!i122 230
+w1709579129
+R24
+R25
 R16
-R9
+!i122 230
+R17
+R10
 31
-R23
-R29
-R37
+R50
+R26
+!s90 -reportprogress|300|-work|work|../sv/read_iq_tb.sv|
 !i113 0
-R11
+R12
 R3
 vread_iq_top
-R5
-R22
+R6
+R46
 !i10b 1
 !s100 :8iN[FAUPZ7gBIPl6TgBi1
-R7
-IOR8WOn:Hg1KLoi6AYNOSD2
 R8
+IOR8WOn:Hg1KLoi6AYNOSD2
+R9
 S1
 R0
 w1709581984
@@ -411,13 +567,13 @@ w1709581984
 F../sv/read_iq_top.sv
 !i122 229
 L0 1 98
-R9
+R10
 r1
 !s85 0
 31
-R23
+R50
 !s107 ../sv/read_iq_top.sv|
 !s90 -reportprogress|300|-work|work|../sv/read_iq_top.sv|
 !i113 0
-R11
+R12
 R3
