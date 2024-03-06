@@ -82,10 +82,11 @@ always_comb begin
             // Perform MAC operation (more accurate using MULTIPLY_ROUNDING vs. normal *)
             // If taps_counter == 0, it means it overflowed (should be 32 if NUM_TAPS == 32) and this is our last calculation but we need to use 32 for the COEFFICIENTS index instead of 0
             if (taps_counter == 0)
-                y_sum_c = $signed(y_sum) + MULTIPLY_ROUNDING(tap_value,COEFFICIENTS[NUM_TAPS-NUM_TAPS]);
+                // y_sum_c = $signed(y_sum) + MULTIPLY_ROUNDING(tap_value,COEFFICIENTS[NUM_TAPS-NUM_TAPS]);
+                y_sum_c = $signed(y_sum) + DEQUANTIZE($signed(tap_value) * $signed(COEFFICIENTS[NUM_TAPS-NUM_TAPS]));
             else 
-                y_sum_c = $signed(y_sum) + MULTIPLY_ROUNDING(tap_value,COEFFICIENTS[NUM_TAPS-taps_counter]);
-            // y_sum_c = $signed(y_sum) + DEQUANTIZE($signed(shift_reg[taps_counter]) * $signed(COEFFICIENTS[NUM_TAPS-taps_counter-1]));
+                // y_sum_c = $signed(y_sum) + MULTIPLY_ROUNDING(tap_value,COEFFICIENTS[NUM_TAPS-taps_counter]);
+                y_sum_c = $signed(y_sum) + DEQUANTIZE($signed(tap_value) * $signed(COEFFICIENTS[NUM_TAPS-taps_counter]));
             taps_counter_c = taps_counter + 1'b1;
             tap_value_c = shift_reg[taps_counter];
             // Change state when taps_counter has overflowed or is equal to NUM_TAPS

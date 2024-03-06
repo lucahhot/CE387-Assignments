@@ -82,8 +82,8 @@ parameter logic signed [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] IIR_Y_COEFFS = '{32'
 parameter logic signed [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] IIR_X_COEFFS = '{32'h000000b2, 32'h000000b2};
 
 // DEQUANTIZE function
-function logic signed [DATA_SIZE-1:0] DEQUANTIZE(logic signed [DATA_SIZE-1:0] i);
-    DEQUANTIZE = DATA_SIZE'(i >>> BITS);
+function logic [DATA_SIZE-1:0] DEQUANTIZE(logic [DATA_SIZE-1:0] i);
+    DEQUANTIZE = DATA_SIZE'($signed(i) / 1024);
 endfunction
 
 // QUANTIZE function
