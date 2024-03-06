@@ -1,4 +1,6 @@
+`timescale 1ns/1ps
 
+// Include
 
 // Define
 //`define				FPGA_EMU
@@ -35,8 +37,8 @@ module fifo #(
 );
 	//=========================================================================
 	// The time unit and precision of the internal declaration
-	timeunit		1ns;
-	timeprecision	1ps;
+//	timeunit		1ns;
+//	timeprecision	1ps;
 
 	//=========================================================
 	// Parameter
