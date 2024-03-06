@@ -1,72 +1,82 @@
+`include "globals.sv"
+
 module multiply #(
-    parameter DATA_SIZE,
-    parameter DATA_SIZE_2
+    parameter DATA_SIZE
 )(
-    input logic clock,
-    input logic reset,
-    output logic x_in_rd_en,
-    output logic y_in_rd_en,
-    input logic x_in_empty,
-    input logic y_in_empty,
-    output logic out_wr_en,
-    input logic out_full,
-    input logic [DATA_SIZE - 1:0] x,
-    input logic [DATA_SIZE - 1:0] y,
-    output logic [DATA_SIZE - 1:0] dout
+    input   logic                           clock,
+    input   logic                           reset,
+    output  logic                           x_in_rd_en,
+    output  logic                           y_in_rd_en,
+    input   logic                           x_in_empty,
+    input   logic                           y_in_empty,
+    output  logic                           out_wr_en,
+    input   logic                           out_full,
+    input   logic signed [DATA_SIZE - 1:0]  x,
+    input   logic signed [DATA_SIZE - 1:0]  y,
+    output  logic signed [DATA_SIZE - 1:0]  dout
 );
 
-typedef enum logic [0:0] {S0, S1} state_types;
+typedef enum logic [0:0] {READ, WRITE} state_types;
 state_types state, next_state;
 
-logic [DATA_SIZE - 1:0] mult_out, mult_out_c;
-logic [DATA_SIZE - 1:0] q_x, q_y;
-logic [DATA_SIZE_2 - 1:0] temp;
-
-localparam BITS = 10;
-
-function int QUANTIZE(int i);
-    QUANTIZE = i <<< BITS;
-endfunction
-
-function int DEQUANTIZE(int i);
-    DEQUANTIZE = i >>> BITS;
-endfunction
-
-// ASSUME QUANTIZED VALUES, IF NOT QUANTIZED THEN ADD QUANTIZE FUNCTION INTO IT
-function int MULTIPLY_FIXED(int x, int y);
-    logic signed [DATA_SIZE_2 - 1:0] intermediate;
-
-    intermediate = x * y;
-
-    MULTIPLY_FIXED = DATA_SIZE'(DEQUANTIZE(intermediate));   
-endfunction
+logic signed [DATA_SIZE-1:0] in1, in1_c;
+logic signed [DATA_SIZE-1:0] in2, in2_c;
 
 always_ff @(posedge clock or posedge reset) begin
     if (reset == 1'b1) begin
-        mult_out <= '0;
+        state <= READ;
+        in1 <= '0;
+        in2 <= '0;
     end else begin
-        mult_out <= mult_out_c;
+        state <= next_state;
+        in1 <= in1_c;
+        in2 <= in2_c;
     end
 end
 
 always_comb begin
+    in1_c = in1;
+    in2_c = in2;
+    next_state = state;
 
-    if (x_in_empty == 1'b0 && y_in_empty == 1'b0 && out_full == 1'b0) begin
-        q_x = QUANTIZE(x);
-        q_y = QUANTIZE(y);
-        mult_out_c = MULTIPLY_FIXED(q_x, q_y);
-        out_wr_en = 1'b1;
-        x_in_rd_en = 1'b1;
-        y_in_rd_en = 1'b1;
-        dout = mult_out;
-    end else begin
-        out_wr_en = 1'b0;
-        x_in_rd_en = 1'b0;
-        y_in_rd_en = 1'b0;
-        mult_out_c = '0;
-        dout = '0;
-    end
+    case (state) 
+        READ: begin
+            out_wr_en = 1'b0;
+            if (x_in_empty == 1'b0 && y_in_empty == 1'b0) begin
+                next_state = WRITE;
+                x_in_rd_en = 1'b1;
+                y_in_rd_en = 1'b1;
+                in1_c = x;
+                in2_c = y;
+            end else begin
+                x_in_rd_en = 1'b0;
+                y_in_rd_en = 1'b0;
+                next_state = READ;
+            end
+        end
+
+        WRITE: begin
+            if (out_full == 1'b0) begin
+                dout = MULTIPLY_TRUNCATION(in1, in2);
+                out_wr_en = 1'b1;
+                next_state = READ;
+            end else begin
+                next_state = WRITE;
+                out_wr_en = 1'b0;
+            end
+        end
+
+        default: begin
+            dout = '0;
+            x_in_rd_en = 1'b0;
+            y_in_rd_en = 1'b0;
+            out_wr_en = 1'b0;
+            in1_c = '0;
+            in2_c = '0;
+        end
+    endcase
 
 end
+
 
 endmodule
