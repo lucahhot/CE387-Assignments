@@ -1,7 +1,7 @@
 module divide #(
-    parameter DATA_SIZE,
-    parameter DATA_SIZE_2,
-    parameter BITS
+    parameter DATA_SIZE = 32,
+    parameter DATA_SIZE_2 = 64,
+    parameter BITS = 10
 ) (
     input   logic                   clock,
     input   logic                   reset,

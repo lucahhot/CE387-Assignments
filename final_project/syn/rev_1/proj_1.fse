@@ -1,0 +1,12 @@
+
+fsm_encoding {10300301} sequential
+
+fsm_state_encoding {10300301} IDLE {00}
+
+fsm_state_encoding {10300301} INIT {01}
+
+fsm_state_encoding {10300301} CALC {10}
+
+fsm_state_encoding {10300301} OUT {11}
+
+fsm_registers {10300301} {state[1]}  {state[0]} 

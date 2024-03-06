@@ -1,0 +1,63 @@
+@N:: Applying property .distcompmodetop with value 1 on module divide in library work
+@N:: Applying property .distcompnoprune with value 1 on module divide in library work
+@N:: Applying property .noprune with value 1 on module divide in library work
+Selecting top level module divide
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":1:7:1:12|Synthesizing module divide in library work.
+Running optimization stage 1 on divide .......
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|Latch generated from always block for signal bu_sub[63:0]; possible missing assignment in an if or case statement.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 32 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 33 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 34 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 35 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 36 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 37 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 38 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 39 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 40 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 41 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 42 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 43 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 44 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 45 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 46 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 47 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 48 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 49 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 50 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 51 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 52 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 53 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 54 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 55 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 56 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 57 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 58 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 59 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 60 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 61 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 62 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 63 of bu_sub[63:0] assign 0, register removed by optimization.
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|Latch generated from always block for signal d_out[31:0]; possible missing assignment in an if or case statement.
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|Latch generated from always block for signal bu[31:0]; possible missing assignment in an if or case statement.
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|Latch generated from always block for signal done; possible missing assignment in an if or case statement.
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|Latch generated from always block for signal busy; possible missing assignment in an if or case statement.
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|Latch generated from always block for signal sign; possible missing assignment in an if or case statement.
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|always_comb does not infer combinatorial logic
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|always_comb does not infer combinatorial logic
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|always_comb does not infer combinatorial logic
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|always_comb does not infer combinatorial logic
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|always_comb does not infer combinatorial logic
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|always_comb does not infer combinatorial logic
+Running optimization stage 2 on divide .......
+@N: CL201 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":30:0:30:8|Trying to extract state machine for register state.
+Extracted state machine for register state
+State machine has 4 reachable states with original encodings of:
+   00
+   01
+   10
+   11
+
+For a summary of runtime and memory usage per design unit, please see file:
+==========================================================
+@L: /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork//distcomp/distcomp0/distcomp0.rt.csv
+

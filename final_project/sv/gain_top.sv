@@ -1,8 +1,8 @@
 `include "globals.sv"
 
 module gain_top #(
-    parameter DATA_SIZE,
-    parameter BITS
+    parameter DATA_SIZE = 32,
+    parameter BITS = 10
 ) (
     input   logic   clock,
     input   logic   reset,

@@ -1,0 +1,5 @@
+@E: CG1023 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq_top.sv":13:19:13:27|Unresolved expression has size 0.
+@E: MF420 |Netlist read from file /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork/layer0.srs failed
+@E:Cannot find top netlist, aborting.Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+@E::Error while linking, aborting.
+

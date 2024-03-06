@@ -1,0 +1,9 @@
+@N: MF284 |Setting synthesis effort to medium for the design
+@N: MF915 |Option synthesis_strategy=advanced is enabled. 
+@N: MF248 |Running in 64-bit mode.
+@N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
+@N: MF284 |Setting synthesis effort to medium for the design
+@N: MH105 |UMR3 is only supported for HAPS-80.
+@N: MH105 |UMR3 is only supported for HAPS-80.
+@N: BN225 |Writing default property annotation file /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.sap.
+@N: MO225 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":30:0:30:8|There are no possible illegal states for state machine state[3:0] (in view: work.divide(verilog)); safe FSM implementation is not required.

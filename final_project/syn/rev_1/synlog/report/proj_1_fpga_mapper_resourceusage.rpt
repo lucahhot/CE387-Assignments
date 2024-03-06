@@ -1,0 +1,28 @@
+##### START OF AREA REPORT #####[
+Design view:work.divide(verilog)
+Selecting part EP4CE6E22A7
+
+Total combinational functions 309 of 6272 ( 4%)
+Logic element usage by number of inputs
+		  4 input functions 	 14
+		  3 input functions 	 67
+		  <=2 input functions 	 228
+Logic elements by mode
+		  normal mode            108
+		  arithmetic mode        201
+Total registers 141 of 6272 ( 2%)
+I/O pins 101 of 180 (56%), total I/O based on largest package of this part.
+
+Number of I/O registers
+			Input DDRs    :0
+			Output DDRs   :0
+
+DSP Blocks:     0  (0 nine-bit DSP elements).
+DSP Utilization: 0.00% of available 15 blocks (30 nine-bit).
+ShiftTap:       0  (0 registers)
+Total ESB:      0 bits 
+
+LPM latches:    67
+
+##### END OF AREA REPORT #####]
+

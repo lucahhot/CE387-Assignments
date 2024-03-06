@@ -1,14 +1,16 @@
+`include "globals.sv"
+
 module read_iq_top #(
-    parameter DATA_SIZE,
-    parameter CHAR_SIZE,
-    parameter BYTE,
-    parameter BITS
+    parameter DATA_SIZE = 32,
+    parameter CHAR_SIZE = 16,
+    parameter BYTE_SIZE = 8,
+    parameter BITS = 10
 ) (
     input   logic                   clock,
     input   logic                   reset,
     output  logic                   in_full,
     input   logic                   in_wr_en,
-    input   logic [BYTE-1:0]        in_din,
+    input   logic [BYTE_SIZE-1:0]   in_din,
 
     output  logic [DATA_SIZE-1:0]   i_out_dout,
     output  logic                   i_out_empty,
@@ -22,13 +24,13 @@ module read_iq_top #(
 
 // Wires from input FIFO to read_iq module
 logic in_rd_en;
-logic [BYTE-1:0] read_in;
+logic [BYTE_SIZE-1:0] read_in;
 logic in_empty;
 
 localparam int FIFO_BUFFER_SIZE = 32;
 
 fifo #(
-    .FIFO_DATA_WIDTH(BYTE),
+    .FIFO_DATA_WIDTH(BYTE_SIZE),
     .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
 ) fifo_in_inst (
     .reset(reset),
@@ -50,7 +52,7 @@ logic [DATA_SIZE-1:0] i_out, q_out;
 read_iq #(
     .DATA_SIZE(DATA_SIZE),
     .CHAR_SIZE(CHAR_SIZE),
-    .BYTE(BYTE),
+    .BYTE(BYTE_SIZE),
     .BITS(BITS)
 ) read_iq_inst(
     .clock(clock),

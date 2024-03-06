@@ -1,0 +1,179 @@
+
+Copyright (C) 1994-2018 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify (R) Premier
+Build: O-2018.09-SP1
+Install: /vol/synopsys/fpga/O-2018.09-SP1
+OS: Red Hat Enterprise Linux 8.9 (Ootpa)
+Hostname: joker.ece.northwestern.edu
+max virtual memory: unlimited (bytes)
+max user processes: 126575
+max stack size: 8388608 (bytes)
+
+
+Implementation : rev_1
+
+# Written on Tue Mar  5 19:37:10 2024
+
+##### DESIGN INFO #######################################################
+
+Top View:                "divide"
+Constraint File(s):      (none)
+
+
+
+
+##### SUMMARY ############################################################
+
+Found 0 issues in 0 out of 0 constraints
+
+
+##### DETAILS ############################################################
+
+
+
+Clock Relationships
+*******************
+
+Starting                          Ending                            |     rise to rise     |     fall to fall     |     rise to fall     |     fall to rise                     
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+divide|clock                      divide|clock                      |     3.580            |     No paths         |     No paths         |     No paths                         
+divide|clock                      divide|state_derived_clock[3]     |     3.580            |     No paths         |     No paths         |     No paths                         
+divide|state_derived_clock[1]     divide|clock                      |     3.580            |     No paths         |     No paths         |     No paths                         
+divide|state_derived_clock[1]     divide|state_derived_clock[3]     |     3.580            |     No paths         |     No paths         |     No paths                         
+===============================================================================================================================================================================
+ Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
+       'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
+
+
+Unconstrained Start/End Points
+******************************
+
+p:busy
+p:d_out[0]
+p:d_out[1]
+p:d_out[2]
+p:d_out[3]
+p:d_out[4]
+p:d_out[5]
+p:d_out[6]
+p:d_out[7]
+p:d_out[8]
+p:d_out[9]
+p:d_out[10]
+p:d_out[11]
+p:d_out[12]
+p:d_out[13]
+p:d_out[14]
+p:d_out[15]
+p:d_out[16]
+p:d_out[17]
+p:d_out[18]
+p:d_out[19]
+p:d_out[20]
+p:d_out[21]
+p:d_out[22]
+p:d_out[23]
+p:d_out[24]
+p:d_out[25]
+p:d_out[26]
+p:d_out[27]
+p:d_out[28]
+p:d_out[29]
+p:d_out[30]
+p:d_out[31]
+p:dividend[0]
+p:dividend[1]
+p:dividend[2]
+p:dividend[3]
+p:dividend[4]
+p:dividend[5]
+p:dividend[6]
+p:dividend[7]
+p:dividend[8]
+p:dividend[9]
+p:dividend[10]
+p:dividend[11]
+p:dividend[12]
+p:dividend[13]
+p:dividend[14]
+p:dividend[15]
+p:dividend[16]
+p:dividend[17]
+p:dividend[18]
+p:dividend[19]
+p:dividend[20]
+p:dividend[21]
+p:dividend[22]
+p:dividend[23]
+p:dividend[24]
+p:dividend[25]
+p:dividend[26]
+p:dividend[27]
+p:dividend[28]
+p:dividend[29]
+p:dividend[30]
+p:dividend[31]
+p:divisor[0]
+p:divisor[1]
+p:divisor[2]
+p:divisor[3]
+p:divisor[4]
+p:divisor[5]
+p:divisor[6]
+p:divisor[7]
+p:divisor[8]
+p:divisor[9]
+p:divisor[10]
+p:divisor[11]
+p:divisor[12]
+p:divisor[13]
+p:divisor[14]
+p:divisor[15]
+p:divisor[16]
+p:divisor[17]
+p:divisor[18]
+p:divisor[19]
+p:divisor[20]
+p:divisor[21]
+p:divisor[22]
+p:divisor[23]
+p:divisor[24]
+p:divisor[25]
+p:divisor[26]
+p:divisor[27]
+p:divisor[28]
+p:divisor[29]
+p:divisor[30]
+p:divisor[31]
+p:done
+p:reset
+p:start
+
+
+Inapplicable constraints
+************************
+
+(none)
+
+
+Applicable constraints with issues
+**********************************
+
+(none)
+
+
+Constraints with matching wildcard expressions
+**********************************************
+
+(none)
+
+
+Library Report
+**************
+
+
+# End of Constraint Checker Report
