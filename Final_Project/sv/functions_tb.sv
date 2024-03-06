@@ -105,6 +105,13 @@ initial begin : data_write_process
     shortreal W_PP;
     logic signed [0:1] [DATA_SIZE-1:0] IIR_Y_COEFFS;
     logic signed [0:1] [DATA_SIZE-1:0] IIR_X_COEFFS;
+    logic signed [0:2] [DATA_SIZE-1:0] x_in;
+    logic signed [DATA_SIZE-1:0] y1;
+    logic signed [DATA_SIZE-1:0] y2;
+    logic signed [0:2] [DATA_SIZE-1:0] y_shift;
+
+    int x_coeffs [0:1];
+    int y_coeffs [0:1];
     
     @(negedge reset);
     @(negedge clock);
@@ -172,18 +179,31 @@ initial begin : data_write_process
     // # Product (fixed-point) = ffffffde
     // # Product (fixed-point) = fffffff1
 
-    W_PP = 0.21140067;
+    y1 = '0;
+    y2 = '0;
+    x_in = '0;
+    y_shift = '0;
+    x_in[0] = 32'hffffff9f;
+    y1 += ($signed(IIR_X_COEFFS[0]) * $signed(x_in[0])) / 1024;
 
-    IIR_Y_COEFFS[0] = QUANTIZE_F(1.0);
-    IIR_Y_COEFFS[1] = QUANTIZE_F((W_PP-1.0) / (W_PP + 1.0));
-    IIR_X_COEFFS[0] = QUANTIZE_F(W_PP / (1.0 + W_PP));
-    IIR_X_COEFFS[1] = QUANTIZE_F(W_PP / (1.0 + W_PP));
+    $display("y1 after 1st cycle = %x", y1); // ffffffef should be fffffff0
 
-    $display("IIR_Y_COEFFS = %x, %x", IIR_Y_COEFFS[0], IIR_Y_COEFFS[1]);
-    $display("IIR_X_COEFFS = %x, %x", IIR_X_COEFFS[0], IIR_X_COEFFS[1]);
+    x_in = {32'h0000070b,32'hfffffff9f};
+    y_shift = {y1,y1};
 
-    // IIR_Y_COEFFS = {32'h00000400, 32'hfffffd65}
-    // IIR_X_COEFFS = {32'h000000b3, 32'h000000b3}
+    y1 = $signed(($signed(IIR_X_COEFFS[0]) * $signed(x_in[0])) / 1024) + $signed(($signed(IIR_X_COEFFS[1]) * $signed(x_in[1])) / 1024);
+    y2 = $signed(($signed(IIR_Y_COEFFS[0]) * $signed(y_shift[0])) / 1024) + $signed(($signed(IIR_Y_COEFFS[1]) * $signed(y_shift[1])) / 1024);
+
+    $display("y1 after 2nd cycle = %x",y1); 
+    $display("y2 after 2nd cycle = %x",y2); 
+
+    y_shift[0] = $signed(y1) + $signed(y2);
+
+    $display("y_shift[1] after 2nd cycle = %x", y_shift[1]);
+    $display("y_shift[0] after 2nd cycle = %x", y_shift[0]);
+
+    // 0000070b
+    // 0000131b
 
     @(negedge clock);
     out_read_done = 1'b1;

@@ -1,12 +1,11 @@
 `timescale 1 ns / 1 ns
 `include "globals.sv" 
 
-module fir_tb;
+module iir_tb;
 
-localparam string FILE_IN_NAME = "../source/text_files/demodulate_out.txt";
-localparam string FILE_OUT_NAME = "../source/output_files/fir_sim_out.txt";
-// localparam string FILE_CMP_NAME = "../source/text_files/bp_lmr_out.txt";
-localparam string FILE_CMP_NAME = "../source/text_files/audio_lpr_out.txt";
+localparam string FILE_IN_NAME = "../source/text_files/sub_out.txt";
+localparam string FILE_OUT_NAME = "../source/output_files/iir_sim_out.txt";
+localparam string FILE_CMP_NAME = "../source/text_files/iir_right.txt";
 
 localparam CLOCK_PERIOD = 10;
 
@@ -15,25 +14,12 @@ logic reset = '0;
 logic start = '0;
 logic done  = '0;
 
-localparam NUM_TAPS = 32;
+localparam NUM_TAPS = 2;
 localparam FIFO_BUFFER_SIZE = 1024;
-localparam DECIMATION = 8;
+localparam DECIMATION = 1;
 
-// Test 32-bit paramater values
-parameter logic signed  [0:NUM_TAPS-1] [DATA_SIZE-1:0] AUDIO_LPR_COEFFS = '{
-	32'hfffffffd, 32'hfffffffa, 32'hfffffff4, 32'hffffffed, 32'hffffffe5, 32'hffffffdf, 32'hffffffe2, 32'hfffffff3, 
-	32'h00000015, 32'h0000004e, 32'h0000009b, 32'h000000f9, 32'h0000015d, 32'h000001be, 32'h0000020e, 32'h00000243, 
-	32'h00000243, 32'h0000020e, 32'h000001be, 32'h0000015d, 32'h000000f9, 32'h0000009b, 32'h0000004e, 32'h00000015, 
-	32'hfffffff3, 32'hffffffe2, 32'hffffffdf, 32'hffffffe5, 32'hffffffed, 32'hfffffff4, 32'hfffffffa, 32'hfffffffd
-};
-
-parameter logic signed  [0:NUM_TAPS-1] [DATA_SIZE-1:0] BP_LMR_COEFFS =
-'{
-	32'h00000000, 32'h00000000, 32'hfffffffc, 32'hfffffff9, 32'hfffffffe, 32'h00000008, 32'h0000000c, 32'h00000002, 
-	32'h00000003, 32'h0000001e, 32'h00000030, 32'hfffffffc, 32'hffffff8c, 32'hffffff58, 32'hffffffc3, 32'h0000008a, 
-	32'h0000008a, 32'hffffffc3, 32'hffffff58, 32'hffffff8c, 32'hfffffffc, 32'h00000030, 32'h0000001e, 32'h00000003, 
-	32'h00000002, 32'h0000000c, 32'h00000008, 32'hfffffffe, 32'hfffffff9, 32'hfffffffc, 32'h00000000, 32'h00000000
-};
+parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] IIR_Y_COEFFS = '{32'h00000000, 32'hfffffd66};
+parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] IIR_X_COEFFS = '{32'h000000b2, 32'h000000b2};
 
 logic x_in_full;
 logic x_in_wr_en = '0;
@@ -47,12 +33,13 @@ logic   in_write_done = '0;
 logic   out_read_done = '0;
 integer out_errors    = '0;
 
-fir_top #(
+iir_top #(
     .NUM_TAPS(NUM_TAPS),
     .DECIMATION(DECIMATION),
-    .COEFFICIENTS(AUDIO_LPR_COEFFS),
+    .IIR_X_COEFFS(IIR_X_COEFFS),
+    .IIR_Y_COEFFS(IIR_Y_COEFFS),
     .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
-) fir_top_inst (
+) iir_top_inst (
     .clock(clock),
     .reset(reset),
     .x_in_full(x_in_full),
@@ -158,6 +145,8 @@ initial begin : data_write_process
             if (cmp_out != y_out_dout) begin
                 out_errors += 1;
                 $write("@ %0t: (%0d): ERROR: %x != %x.\n", $time, i+1, y_out_dout, cmp_out);
+            end else begin
+                $write("@ %0t: (%0d): CORRECT CALCULATION: %x != %x.\n", $time, i+1, y_out_dout, cmp_out);
             end
             i++;
         end

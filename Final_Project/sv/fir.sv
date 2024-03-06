@@ -65,16 +65,17 @@ always_comb begin
                 shift_reg_c[1:NUM_TAPS-1] = shift_reg[0:NUM_TAPS-2];
                 shift_reg_c[0] = x_in_dout;
                 decimation_counter_c = decimation_counter + 1'b1;
+
+                if (decimation_counter == DECIMATION - 1) begin
+                    next_state = S1;
+                    // Assign first tap value to pipeline fetching of shift_reg value and MAC operation
+                    tap_value_c = x_in_dout;
+                    // Increment taps_counter_c starting here so we always get the right value in S1
+                    taps_counter_c = taps_counter + 1'b1;
+                end else
+                    next_state = S0;
             end
-            if (decimation_counter == DECIMATION - 1) begin
-                next_state = S1;
-                // Assign first tap value to pipeline fetching of shift_reg value and MAC operation
-                tap_value_c = x_in_dout;
-                // Increment taps_counter_c starting here so we always get the right value in S1
-                taps_counter_c = taps_counter + 1'b1;
-            end
-            else
-                next_state = S0;
+            
         end
 
         S1: begin
@@ -116,7 +117,7 @@ always_comb begin
             taps_counter_c = 'X;
             y_sum_c = 'X;
             shift_reg_c = '{default: '{default: 0}};
-            tap_value = 'X;
+            tap_value_c = 'X;
         end
     endcase
 end
