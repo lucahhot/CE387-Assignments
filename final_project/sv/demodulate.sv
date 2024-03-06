@@ -1,4 +1,6 @@
 //`include "macro.svh"
+`include "globals.sv"
+
 module demodulate (
     input   logic           clk,
     input   logic           reset,
