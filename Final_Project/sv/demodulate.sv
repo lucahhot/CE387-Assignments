@@ -68,6 +68,7 @@ always_comb begin
     demod_out = demod_temp;
     demod_data_valid_c = '0;
     case(state)
+    /*
         EDGE_1: begin
             demod_temp_c = 32'h4a6;
             wr_en_out = 1'b0;
@@ -104,6 +105,30 @@ always_comb begin
                 state_c = IDLE;
             end
         end
+        */
+
+        S1: begin
+            // read from fifo
+            if (input_fifos_empty == 1'b0) begin
+                state_c = S2;
+                input_rd_en = 1'b1;
+                real_curr_c = real_in;
+                imag_curr_c = imag_in;
+                real_prev_c = real_curr;
+                imag_prev_c = imag_curr;
+            end
+        
+        S2: begin
+            // start qarctan
+            start_c = '1;
+            next_state = s3
+
+        S3: begin
+            // wait for done
+            if ( done = '1) begin
+                
+
+
         WAITING: begin
             if (qarctan_done == 1'b1) begin
                 state_c = OUTPUT;

@@ -23,7 +23,7 @@ endfunction
 function logic[31:0] DEQUANTIZE; 
 input logic[31:0] i;
     begin
-        return 32'($signed(i) >>> $signed(QUANT_VAL));
+        return 32'($signed(i) / $signed(QUANT_VAL));
     end
 endfunction
 
