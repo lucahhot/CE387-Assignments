@@ -54,6 +54,10 @@ module fm_radio #(
         32'h0000000c, 32'h0000000b, 32'h00000008, 32'h00000004, 32'h00000002, 32'h00000000, 32'h00000000, 32'hffffffff
     },
 
+    parameter IIR_COEFF_TAPS = 2,
+    parameter logic signed [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] IIR_X_COEFFS = '{},
+    parameter logic signed [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] IIR_Y_COEFFS = '{},
+    
     parameter FIFO_BUFFER_SIZE = 1024,
     parameter AUDIO_DECIMATION = 8
 
@@ -67,7 +71,7 @@ module fm_radio #(
 
     output  logic [DATA_SIZE-1:0]   left_audio_out,
     output  logic                   left_audio_empty,
-    input   logic                   left_radio_rd_en,
+    input   logic                   left_audio_rd_en,
 
     output  logic [DATA_SIZE-1:0]   right_audio_out,
     output  logic                   right_audio_empty,
@@ -564,8 +568,238 @@ fifo #(
     .empty(lmr_empty)
 );
 
+// Wires from ADD_INST to ADD_FIFO
+logic left_wr_en;
+logic left_full;
+logic [DATA_SIZE-1:0] left_out_din;
+
+add #() add_inst (
+    .clock(clock),
+    .reset(reset),
+    .x_in_dout(lpr_out_dout),
+    .x_in_empty(lpr_empty),
+    .x_in_rd_en(lpr_rd_en),
+    .y_in_dout(lmr_out_dout),
+    .y_in_empty(lmr_empty),
+    .y_in_rd_en(lmr_rd_en),
+    .out_wr_en(left_wr_en),
+    .out_full(left_full),
+    .out_din(left_out_din)
+);
+
+// Wires from LEFT_FIFO to LEFT_DEEMPH
+logic left_rd_en;
+logic left_empty;
+logic [DATA_SIZE-1:0] left_out_dout;
+
+fifo #(
+    .FIFO_DATA_WIDTH(DATA_SIZE),
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
+) left_fifo_inst (
+    .reset(reset),
+    .wr_clk(clock),
+    .wr_en(left_wr_en),
+    .din(left_out_din),
+    .full(left_full),
+    .rd_clk(clock),
+    .rd_en(left_rd_en),
+    .dout(left_out_dout),
+    .empty(left_empty)
+);
+
+// Wires from SUB_INST to RIGHT_FIFO
+logic right_wr_en;
+logic right_full;
+logic [DATA_SIZE-1:0] right_out_din;
+
+sub #() sub_inst (
+    .clock(clock),
+    .reset(reset),
+    .x_in_dout(lpr_out_dout),
+    .x_in_empty(lpr_empty),
+    .x_in_rd_en(lpr_rd_en),
+    .y_in_dout(lmr_out_dout),
+    .y_in_empty(lmr_empty),
+    .y_in_rd_en(lmr_rd_en),
+    .out_wr_en(right_wr_en),
+    .out_full(right_full),
+    .out_din(right_out_din)
+);
+
+// Wires from RIGHT_FIFO to RIGHT_DEEMPH
+logic right_rd_en;
+logic right_empty;
+logic [DATA_SIZE-1:0] right_out_dout;
+
+fifo #(
+    .FIFO_DATA_WIDTH(DATA_SIZE),
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
+) right_fifo_inst (
+    .reset(reset),
+    .wr_clk(clock),
+    .wr_en(right_wr_en),
+    .din(right_out_din),
+    .full(right_full),
+    .rd_clk(clock),
+    .rd_en(right_rd_en),
+    .dout(right_out_dout),
+    .empty(right_empty)
+);
+
+// Wires from LEFT_DEEMPH to LEFT_DEEMPH_FIFO
+logic left_deemph_wr_en;
+logic left_deemph_full;
+logic [DATA_SIZE-1:0] left_deemph_out_din;
+
+iir #(
+    .NUM_TAPS(IIR_COEFF_TAPS)
+    .DECIMATION(1),
+    .IIR_X_COEFFS(IIR_X_COEFFS),
+    .IIR_Y_COEFFS(IIR_Y_COEFFS)
+) left_deemph_inst (
+    .clock(clock),
+    .reset(reset),
+    .x_in_dout(left_out_dout),
+    .x_in_empty(left_empty),
+    .x_in_rd_en(left_rd_en),
+    .y_out_wr_en(left_deemph_wr_en),
+    .y_out_full(left_deemph_full),
+    .y_out_din(left_deemph_out_din)
+);
+
+// Wires from LEFT_DEEMPH_FIFO to LEFT_GAIN
+logic left_deemph_rd_en;
+logic left_deemph_empty;
+logic [DATA_SIZE-1:0] left_deemph_out_dout;
+
+fifo #(
+    .FIFO_DATA_WIDTH(DATA_SIZE),
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
+) left_deemph_fifo_inst (
+    .reset(reset),
+    .wr_clk(clock),
+    .wr_en(left_deemph_wr_en),
+    .din(left_deemph_out_din),
+    .full(left_deemph_full),
+    .rd_clk(clock),
+    .rd_en(left_deemph_rd_en),
+    .dout(left_deemph_out_dout),
+    .empty(left_deemph_empty)
+);
+
+// Wires from RIGHT_DEEMPH to RIGHT_DEEMPH_FIFO
+logic right_deemph_wr_en;
+logic right_deemph_full;
+logic [DATA_SIZE-1:0] right_deemph_out_din;
+
+iir #(
+    .NUM_TAPS(IIR_COEFF_TAPS)
+    .DECIMATION(1),
+    .IIR_X_COEFFS(IIR_X_COEFFS),
+    .IIR_Y_COEFFS(IIR_Y_COEFFS)
+) right_deemph_inst (
+    .clock(clock),
+    .reset(reset),
+    .x_in_dout(right_out_dout),
+    .x_in_empty(right_empty),
+    .x_in_rd_en(right_rd_en),
+    .y_out_wr_en(right_deemph_wr_en),
+    .y_out_full(right_deemph_full),
+    .y_out_din(right_deemph_out_din)
+);
+
+// Wires from LEFT_DEEMPH_FIFO to LEFT_GAIN
+logic right_deemph_rd_en;
+logic right_deemph_empty;
+logic [DATA_SIZE-1:0] right_deemph_out_dout;
+
+fifo #(
+    .FIFO_DATA_WIDTH(DATA_SIZE),
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
+) right_deemph_fifo_inst (
+    .reset(reset),
+    .wr_clk(clock),
+    .wr_en(right_deemph_wr_en),
+    .din(right_deemph_out_din),
+    .full(right_deemph_full),
+    .rd_clk(clock),
+    .rd_en(right_deemph_rd_en),
+    .dout(right_deemph_out_dout),
+    .empty(right_deemph_empty)
+);
+
+logic [31:0] quant_gain = QUANTIZE_I(GAIN);
+
+// Wires from LEFT_GAIN to LEFT_GAIN_FIFO
+logic left_gain_full;
+logic left_gain_wr_en;
+logic [DATA_SIZE-1:0] left_gain_out_din;
+
+gain #(
+    .DATA_SIZE(DATA_SIZE),
+    .BITS(BITS)
+) left_gain_inst (
+    .clock(clock),
+    .reset(reset),
+    .in_rd_en(left_deemph_rd_en), 
+    .in_empty(left_deemph_empty),
+    .din(left_deemph_out_din),
+    .out_full(left_gain_full),
+    .out_wr_en(left_gain_wr_en),
+    .dout(left_gain_out_din),
+    .volume(quant_gain)
+);
+
+// Wires from RIGHT_GAIN to RIGHT_GAIN_FIFO
+logic right_gain_full;
+logic right_gain_wr_en;
+logic [DATA_SIZE-1:0] right_gain_out_din;
+
+gain #(
+    .DATA_SIZE(DATA_SIZE),
+    .BITS(BITS)
+) right_gain_inst (
+    .clock(clock),
+    .reset(reset),
+    .in_rd_en(right_deemph_rd_en), 
+    .in_empty(right_deemph_empty),
+    .din(right_deemph_out_din),
+    .out_full(right_gain_full),
+    .out_wr_en(right_gain_wr_en),
+    .dout(right_gain_out_din),
+    .volume(quant_gain)
+);
 
 
+fifo #(
+    .FIFO_DATA_WIDTH(DATA_SIZE),
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
+) left_gain_fifo_inst (
+    .reset(reset),
+    .wr_clk(clock),
+    .wr_en(left_gain_wr_en),
+    .din(left_gain_out_din),
+    .full(left_gain_full),
+    .rd_clk(clock),
+    .rd_en(left_audio_rd_en),
+    .dout(left_audio_out),
+    .empty(left_audio_empty)
+);
 
+
+fifo #(
+    .FIFO_DATA_WIDTH(DATA_SIZE),
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
+) right_gain_fifo_inst (
+    .reset(reset),
+    .wr_clk(clock),
+    .wr_en(right_gain_wr_en),
+    .din(right_gain_out_din),
+    .full(right_gain_full),
+    .rd_clk(clock),
+    .rd_en(right_audio_rd_en),
+    .dout(right_audio_out),
+    .empty(right_audio_empty)
+);
 
 endmodule
