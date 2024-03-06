@@ -4,7 +4,16 @@ module fm_radio #(
     parameter DATA_SIZE = 32,
     parameter CHAR_SIZE = 16,
     parameter BYTE_SIZE = 8,
-    parameter BITS = 10
+    parameter BITS = 10, 
+    parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] COEFFICIENTS_REAL = '{
+	32'h00000001, 32'h00000008, 32'hfffffff3, 32'h00000009, 32'h0000000b, 32'hffffffd3, 32'h00000045, 32'hffffffd3, 
+	32'hffffffb1, 32'h00000257, 32'h00000257, 32'hffffffb1, 32'hffffffd3, 32'h00000045, 32'hffffffd3, 32'h0000000b, 
+	32'h00000009, 32'hfffffff3, 32'h00000008, 32'h00000001},
+    parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0]  COEFFICIENTS_IMAG = '{
+	32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 
+	32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 
+	32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000},
+    parameter FIFO_BUFFER_SIZE = 1024
 
 ) (
     input   logic                   clock,
@@ -30,7 +39,7 @@ logic read_iq_in_empty;
 
 fifo #(
     .FIFO_DATA_WIDTH(BYTE_SIZE),
-    .FIFO_BUFFER_SIZE()
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
 ) read_iq_fifo_in_inst (
     .reset(reset),
     .wr_clk(clock),
@@ -78,7 +87,7 @@ logic i_fifo_empty;
 
 fifo #(
     .FIFO_DATA_WIDTH(DATA_SIZE),
-    .FIFO_BUFFER_SIZE()
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
 ) i_fifo_inst (
     .reset(reset),
     .wr_clk(clock),
@@ -98,7 +107,7 @@ logic q_fifo_empty;
 
 fifo #(
     .FIFO_DATA_WIDTH(DATA_SIZE),
-    .FIFO_BUFFER_SIZE()
+    .FIFO_BUFFER_SIZE(.FIFO_BUFFER_SIZE)
 ) q_fifo_inst (
     .reset(reset),
     .wr_clk(clock),
@@ -109,6 +118,69 @@ fifo #(
     .rd_en(q_fifo_rd_en),
     .dout(q_fifo_out),
     .empty(q_fifo_empty)
+);
+
+// REAL == I, IMAG == Q
+// Wires from FIR_CMPLX to REAL_FIFO
+logic real_out_wr_en;
+logic real_out_full;
+logic [DATA_SIZE-1:0] real_out_din;
+
+// WIRES FROM FIR_CMPLX TO IMAG_FIFO
+logic imag_out_wr_en;
+logic imag_out_full;
+logic [DATA_SIZE-1:0] imag_out_din;
+
+fir_cmplx #(
+    .NUM_TAPS(NUM_TAPS),
+    .DECIMATION(DECIMATION),
+    .COEFFICIENTS_REAL(COEFFICIENTS_REAL),
+    .COEFFICIENTS_IMAG(COEFFICIENTS_IMAG)
+) fir_cmplx_inst (
+    .clock(clock),
+    .reset(reset),
+    .xreal_in_dout(i_fifo_out),
+    .xreal_in_empty(i_fifo_empty),
+    .xreal_in_rd_en(i_fifo_rd_en),
+    .ximag_in_dout(q_fifo_out),
+    .ximag_in_empty(q_fifo_empty),
+    .ximag_in_rd_en(q_fifo_rd_en),
+    .yreal_out_wr_en(real_out_wr_en),
+    .yreal_out_full(real_out_full),
+    .yreal_out_din(real_out_din),
+    .yimag_out_wr_en(imag_out_wr_en),
+    .yimag_out_full(imag_out_full),
+    .yimag_out_din(imag_out_din)
+);
+
+fifo #(
+    .FIFO_DATA_WIDTH(DATA_SIZE),
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
+) real_fifo_inst (
+    .reset(reset),
+    .wr_clk(clock),
+    .wr_en(real_out_wr_en),
+    .din(real_out_din),
+    .full(real_out_full),
+    .rd_clk(clock),
+    .rd_en(),
+    .dout(),
+    .empty()
+);
+
+fifo #(
+    .FIFO_DATA_WIDTH(DATA_SIZE),
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
+) imag_fifo_inst (
+    .reset(reset),
+    .wr_clk(clock),
+    .wr_en(imag_out_wr_en),
+    .din(imag_out_din),
+    .full(imag_out_full),
+    .rd_clk(clock),
+    .rd_en(),
+    .dout(),
+    .empty()
 );
 
 
