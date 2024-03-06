@@ -82,60 +82,19 @@ parameter logic signed [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] IIR_Y_COEFFS = '{32'
 parameter logic signed [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] IIR_X_COEFFS = '{32'h000000b2, 32'h000000b2};
 
 // DEQUANTIZE function
-function logic [DATA_SIZE-1:0] DEQUANTIZE(logic [DATA_SIZE-1:0] i);
-    DEQUANTIZE = DATA_SIZE'($signed(i) / 1024);
+function logic signed [DATA_SIZE-1:0] DEQUANTIZE(logic signed [DATA_SIZE-1:0] i);
+    // Arithmetic right shift doesn't work well with negative number rounding so switch the sign 
+    // to perform the right shift then apply the negative sign to the results
+    if (i < 0) 
+        DEQUANTIZE = DATA_SIZE'(-(-i >>> BITS));
+    else 
+        DEQUANTIZE = DATA_SIZE'(i >>> BITS);
 endfunction
 
 // QUANTIZE function
 function logic signed [DATA_SIZE_2-1:0] QUANTIZE(logic signed [DATA_SIZE_2-1:0] i);
     QUANTIZE = i << BITS;
 endfunction
-
-// Multiply function using trucation (assumed quantized inputs)
-function logic signed [DATA_SIZE-1:0] MULTIPLY_TRUNCATION(logic signed [DATA_SIZE-1:0] x, logic signed [DATA_SIZE-1:0] y);
-
-    // Perform truncation multiplication
-    logic signed [DATA_SIZE_2-1:0] temp;
-    temp = DATA_SIZE_2'(x) * DATA_SIZE_2'(y);
-    // Shift the fixed point back and truncate the output
-    MULTIPLY_TRUNCATION = DATA_SIZE'(DEQUANTIZE(temp));   
-
-endfunction
-
-// Multiply function using rounding & saturation (assumed quantized inputs)
-function logic signed [DATA_SIZE-1:0] MULTIPLY_ROUNDING(logic signed [DATA_SIZE-1:0] x, logic signed [DATA_SIZE-1:0] y);
-
-    logic signed [DATA_SIZE_2-1:0] temp;
-    temp = DATA_SIZE_2'(x) * DATA_SIZE_2'(y);
-    // Add 1/2 to give correct rounding 
-    temp = temp + (1 << BITS - 1);
-    // Saturate result
-    if (temp > $signed(MAX_VALUE))
-        MULTIPLY_ROUNDING = MAX_VALUE;
-    else if (temp < $signed(MIN_VALUE))
-        MULTIPLY_ROUNDING = MIN_VALUE;
-    // Dequantize temp
-    MULTIPLY_ROUNDING = DATA_SIZE'(DEQUANTIZE(temp));   
-
-endfunction
-
-// Multiply function using rounding & saturation (assumed quantized inputs) but no DEQUANTIZATION
-function logic signed [DATA_SIZE_2-1:0] MULTIPLY_ROUNDING_NODEQUANTIZE(logic signed [DATA_SIZE-1:0] x, logic signed [DATA_SIZE-1:0] y);
-
-    logic signed [DATA_SIZE_2-1:0] temp;
-    temp = DATA_SIZE_2'(x) * DATA_SIZE_2'(y);
-    // Add 1/2 to give correct rounding 
-    temp = temp + (1 << BITS - 1);
-    // Saturate result
-    if (temp > $signed(MAX_VALUE))
-        MULTIPLY_ROUNDING_NODEQUANTIZE = MAX_VALUE;
-    else if (temp < $signed(MIN_VALUE))
-        MULTIPLY_ROUNDING_NODEQUANTIZE = MIN_VALUE;
-    // Since we do not shift the fixed point back, we do not truncate output
-    MULTIPLY_ROUNDING_NODEQUANTIZE = temp;   
-
-endfunction
-
 
 `endif
 

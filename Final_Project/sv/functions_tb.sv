@@ -102,16 +102,32 @@ initial begin : data_write_process
     // int sum_int;
     // logic signed [DATA_SIZE-1:0] sum;
 
-    shortreal W_PP;
-    logic signed [0:1] [DATA_SIZE-1:0] IIR_Y_COEFFS;
-    logic signed [0:1] [DATA_SIZE-1:0] IIR_X_COEFFS;
-    logic signed [0:2] [DATA_SIZE-1:0] x_in;
-    logic signed [DATA_SIZE-1:0] y1;
-    logic signed [DATA_SIZE-1:0] y2;
-    logic signed [0:2] [DATA_SIZE-1:0] y_shift;
+    // shortreal W_PP;
+    // logic signed [0:1] [DATA_SIZE-1:0] IIR_Y_COEFFS;
+    // logic signed [0:1] [DATA_SIZE-1:0] IIR_X_COEFFS;
+    // logic signed [0:2] [DATA_SIZE-1:0] x_in;
+    // logic signed [DATA_SIZE-1:0] y1;
+    // logic signed [DATA_SIZE-1:0] y2;
+    // logic signed [0:2] [DATA_SIZE-1:0] y_shift;
 
-    int x_coeffs [0:1];
-    int y_coeffs [0:1];
+    // int x_coeffs [0:1];
+    // int y_coeffs [0:1];
+
+    logic signed [DATA_SIZE-1:0] x, y, temp, y_divide;
+
+    x = -2048;
+    // temp = x + (1 << BITS - 1);
+    $display("Initial value = %b", x);
+    $display("Temp value    = %b", temp);
+    $display("Temp value = %0d", temp);
+    y = DEQUANTIZE(x);
+    y_divide = x / 1024;
+
+    $display("Dequantized value = %b", y);
+    $display("Dequantized value = %0d", y);
+    $display("Divided     value = %b", y_divide);
+    $display("Divided     value = %0d", y_divide);
+
     
     @(negedge reset);
     @(negedge clock);
@@ -179,28 +195,28 @@ initial begin : data_write_process
     // # Product (fixed-point) = ffffffde
     // # Product (fixed-point) = fffffff1
 
-    y1 = '0;
-    y2 = '0;
-    x_in = '0;
-    y_shift = '0;
-    x_in[0] = 32'hffffff9f;
-    y1 += ($signed(IIR_X_COEFFS[0]) * $signed(x_in[0])) / 1024;
+    // y1 = '0;
+    // y2 = '0;
+    // x_in = '0;
+    // y_shift = '0;
+    // x_in[0] = 32'hffffff9f;
+    // y1 += ($signed(IIR_X_COEFFS[0]) * $signed(x_in[0])) / 1024;
 
-    $display("y1 after 1st cycle = %x", y1); // ffffffef should be fffffff0
+    // $display("y1 after 1st cycle = %x", y1); // ffffffef should be fffffff0
 
-    x_in = {32'h0000070b,32'hfffffff9f};
-    y_shift = {y1,y1};
+    // x_in = {32'h0000070b,32'hfffffff9f};
+    // y_shift = {y1,y1};
 
-    y1 = $signed(($signed(IIR_X_COEFFS[0]) * $signed(x_in[0])) / 1024) + $signed(($signed(IIR_X_COEFFS[1]) * $signed(x_in[1])) / 1024);
-    y2 = $signed(($signed(IIR_Y_COEFFS[0]) * $signed(y_shift[0])) / 1024) + $signed(($signed(IIR_Y_COEFFS[1]) * $signed(y_shift[1])) / 1024);
+    // y1 = $signed(($signed(IIR_X_COEFFS[0]) * $signed(x_in[0])) / 1024) + $signed(($signed(IIR_X_COEFFS[1]) * $signed(x_in[1])) / 1024);
+    // y2 = $signed(($signed(IIR_Y_COEFFS[0]) * $signed(y_shift[0])) / 1024) + $signed(($signed(IIR_Y_COEFFS[1]) * $signed(y_shift[1])) / 1024);
 
-    $display("y1 after 2nd cycle = %x",y1); 
-    $display("y2 after 2nd cycle = %x",y2); 
+    // $display("y1 after 2nd cycle = %x",y1); 
+    // $display("y2 after 2nd cycle = %x",y2); 
 
-    y_shift[0] = $signed(y1) + $signed(y2);
+    // y_shift[0] = $signed(y1) + $signed(y2);
 
-    $display("y_shift[1] after 2nd cycle = %x", y_shift[1]);
-    $display("y_shift[0] after 2nd cycle = %x", y_shift[0]);
+    // $display("y_shift[1] after 2nd cycle = %x", y_shift[1]);
+    // $display("y_shift[0] after 2nd cycle = %x", y_shift[0]);
 
     // 0000070b
     // 0000131b

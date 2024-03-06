@@ -19,7 +19,6 @@ logic done  = '0;
 
 localparam NUM_TAPS = 20;
 localparam FIFO_BUFFER_SIZE = 1024;
-localparam DECIMATION = 1;
 
 parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] CHANNEL_COEFFS_REAL = '{
 	32'h00000001, 32'h00000008, 32'hfffffff3, 32'h00000009, 32'h0000000b, 32'hffffffd3, 32'h00000045, 32'hffffffd3, 
@@ -53,7 +52,6 @@ integer out_errors    = '0;
 
 fir_cmplx_top #(
     .NUM_TAPS(NUM_TAPS),
-    .DECIMATION(DECIMATION),
     .COEFFICIENTS_REAL(CHANNEL_COEFFS_REAL),
     .COEFFICIENTS_IMAG(CHANNEL_COEFFS_IMAG),
     .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)

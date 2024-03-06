@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version O-2018.09-SP1
 #--  Project file /home/laa8390/Documents/CE387/CE387-Assignments/Final_Project/syn/fir.prj
-#--  Written on Mon Mar  4 16:14:08 2024
+#--  Written on Wed Mar  6 15:19:21 2024
 
 
 #project files
@@ -76,4 +76,6 @@ set_option -write_apr_constraint 1
 
 #set result format/file last
 project -result_file "rev_1/proj_1.vqm"
+
+#design plan options
 impl -active "rev_1"

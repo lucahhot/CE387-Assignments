@@ -2,7 +2,6 @@
 
 module fir_cmplx_top #(
     parameter NUM_TAPS = 20,
-    parameter DECIMATION = 1,
     parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] COEFFICIENTS_REAL = '{
 	32'h00000001, 32'h00000008, 32'hfffffff3, 32'h00000009, 32'h0000000b, 32'hffffffd3, 32'h00000045, 32'hffffffd3, 
 	32'hffffffb1, 32'h00000257, 32'h00000257, 32'hffffffb1, 32'hffffffd3, 32'h00000045, 32'hffffffd3, 32'h0000000b, 
@@ -81,7 +80,6 @@ logic [DATA_SIZE-1:0] yimag_out_din;
 // fir module
 fir_cmplx #(
     .NUM_TAPS(NUM_TAPS),
-    .DECIMATION(DECIMATION),
     .COEFFICIENTS_REAL(COEFFICIENTS_REAL),
     .COEFFICIENTS_IMAG(COEFFICIENTS_IMAG)
 ) fir_cmplx_inst (

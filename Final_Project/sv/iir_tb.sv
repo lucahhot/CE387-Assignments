@@ -16,7 +16,6 @@ logic done  = '0;
 
 localparam NUM_TAPS = 2;
 localparam FIFO_BUFFER_SIZE = 1024;
-localparam DECIMATION = 1;
 
 parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] IIR_Y_COEFFS = '{32'h00000000, 32'hfffffd66};
 parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] IIR_X_COEFFS = '{32'h000000b2, 32'h000000b2};
@@ -35,7 +34,6 @@ integer out_errors    = '0;
 
 iir_top #(
     .NUM_TAPS(NUM_TAPS),
-    .DECIMATION(DECIMATION),
     .IIR_X_COEFFS(IIR_X_COEFFS),
     .IIR_Y_COEFFS(IIR_Y_COEFFS),
     .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
@@ -135,7 +133,7 @@ initial begin : data_write_process
     y_out_rd_en = 1'b0;
 
     i = 0;
-    while (i < 200/DECIMATION) begin
+    while (i < 200) begin
         @(negedge clock);
         y_out_rd_en = 1'b0;
         if (y_out_empty == 1'b0) begin
@@ -145,9 +143,10 @@ initial begin : data_write_process
             if (cmp_out != y_out_dout) begin
                 out_errors += 1;
                 $write("@ %0t: (%0d): ERROR: %x != %x.\n", $time, i+1, y_out_dout, cmp_out);
-            end else begin
-                $write("@ %0t: (%0d): CORRECT CALCULATION: %x == %x.\n", $time, i+1, y_out_dout, cmp_out);
-            end
+            end 
+            // else begin
+            //     $write("@ %0t: (%0d): CORRECT CALCULATION: %x == %x.\n", $time, i+1, y_out_dout, cmp_out);
+            // end
             i++;
         end
     end
