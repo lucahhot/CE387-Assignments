@@ -1,7 +1,7 @@
 `timescale 1 ns / 1 ns
 `include "globals.sv" 
 
-module read_iq_tb;
+module fm_radio_tb;
 
 localparam string FILE_IN_NAME = "../fm_radio/test/usrp.dat";
 localparam string FILE_LEFT_OUT_NAME = "../fm_radio/src/out_files/fm_radio_left_out.txt";
@@ -24,10 +24,10 @@ integer out_errors = '0;
 logic in_full;
 logic in_wr_en;
 logic [BYTE_SIZE-1:0] in_din;
-logic signed [DATA_SIZE-1:0] i_out_dout, q_out_dout;
+logic signed [DATA_SIZE-1:0] right_audio_out, left_audio_out;
 
-logic i_out_empty, q_out_empty;
-logic i_out_rd_en, q_out_rd_en;
+logic right_audio_empty, left_audio_empty;
+logic right_audio_rd_en, left_audio_rd_en;
 
 fm_radio #(
     .DATA_SIZE(DATA_SIZE),
@@ -35,7 +35,17 @@ fm_radio #(
     .BYTE_SIZE(BYTE_SIZE),
     .BITS(BITS)
 ) fm_radio_inst (
-
+    .clock(clock),
+    .reset(reset),
+    .in_full(in_full),
+    .in_wr_en(in_wr_en),
+    .data_in(in_din),
+    .left_audio_out(left_audio_out),
+    .left_audio_empty(left_audio_empty),
+    .left_audio_rd_en(left_audio_rd_en),
+    .right_audio_out(right_audio_out),
+    .right_audio_empty(right_audio_empty),
+    .right_audio_rd_en(right_audio_rd_en)
 );
 
 always begin
@@ -109,56 +119,57 @@ end
 
 initial begin : data_write_process
     
-    logic signed [DATA_SIZE-1:0] i_cmp_out, q_cmp_out;
+    logic signed [DATA_SIZE-1:0] right_cmp_out, left_cmp_out;
     int i, j, k;
-    int i_out_file, q_out_file;
-    int i_cmp_file, q_cmp_file;
+    int right_out_file, left_out_file;
+    int right_cmp_file, left_cmp_file;
 
     @(negedge reset);
     @(negedge clock);
 
-    $display("@ %0t: Comparing I %s...", $time, FILE_I_OUT_NAME);
-    $display("@ %0t: Comparing Q %s...", $time, FILE_Q_OUT_NAME);
-    i_out_file = $fopen(FILE_I_OUT_NAME, "wb");
-    q_out_file = $fopen(FILE_Q_OUT_NAME, "wb");
-    i_cmp_file = $fopen(FILE_I_CMP_NAME, "rb");
-    q_cmp_file = $fopen(FILE_Q_CMP_NAME, "rb");
-    i_out_rd_en = 1'b0;
-    q_out_rd_en = 1'b0;
+    $display("@ %0t: Comparing I %s...", $time, FILE_RIGHT_OUT_NAME);
+    $display("@ %0t: Comparing Q %s...", $time, FILE_LEFT_OUT_NAME);
+     = $fopen(FILE_RIGHT_OUT_NAME, "wb");
+    right_out_file = $fopen(FILE_RIGHT_OUT_NAME, "wb");
+    left_out_file = $fopen(FILE_LEFT_OUT_NAME, "rb");
+    right_cmp_file = $fopen(FILE_RIGHT_CMP_NAME, "rb");
+    left_cmp_file = $fopen(FILE_LEFT_CMP_NAME, "rb");
+    right_audio_rd_en = 1'b0;
+    left_audio_rd_en = 1'b0;
 
     i = 0;
     while (i < 100/4) begin
         @(negedge clock);
-        i_out_rd_en = 1'b0;
-        q_out_rd_en = 1'b0;
-        if (i_out_empty == 1'b0 && q_out_empty == 1'b0) begin
-            i_out_rd_en = 1'b1;
-            q_out_rd_en = 1'b1;
-            j = $fscanf(i_cmp_file, "%h", i_cmp_out);
-            k = $fscanf(q_cmp_file, "%h", q_cmp_out);
-            $fwrite(i_out_file, "%08x\n", i_out_dout);
-            $fwrite(q_out_file, "%08x\n", q_out_dout);
+        right_audio_rd_en = 1'b0;
+        left_audio_rd_en = 1'b0;
+        if (right_audio_empty == 1'b0 && left_audio_empty == 1'b0) begin
+            right_audio_rd_en = 1'b1;
+            left_audio_rd_en = 1'b1;
+            j = $fscanf(right_cmp_file, "%h", right_cmp_out);
+            k = $fscanf(left_cmp_file, "%h", left_cmp_out);
+            $fwrite(right_out_file, "%08x\n", right_audio_out);
+            $fwrite(left_out_file, "%08x\n", left_audio_out);
 
-            if (i_cmp_out != i_out_dout) begin
+            if (right_cmp_out != right_audio_out) begin
                 out_errors += 1;
-                $write("@ %0t: (%0d): ERROR: %x != %x.\n", $time, i+1, i_out_dout, i_cmp_out);
+                $write("@ %0t: (%0d): RIGHT AUDIO ERROR: %x != %x.\n", $time, i+1, right_audio_out, right_cmp_out);
             end
 
-            if (q_cmp_out != q_out_dout) begin
+            if (left_cmp_out != left_audio_out) begin
                 out_errors += 1;
-                $write("@ %0t: (%0d): ERROR: %x != %x.\n", $time, i+1, q_out_dout, q_cmp_out);
+                $write("@ %0t: (%0d): LEFT AUDIO ERROR: %x != %x.\n", $time, i+1, left_audio_out, left_cmp_out);
             end
             i++;
         end
     end
 
     @(negedge clock);
-    i_out_rd_en = 1'b0;
-    q_out_rd_en = 1'b0;
-    $fclose(i_out_file);
-    $fclose(q_out_file);
-    $fclose(i_cmp_file);
-    $fclose(q_cmp_file);
+    right_audio_rd_en = 1'b0;
+    left_audio_rd_en = 1'b0;
+    $fclose(right_out_file);
+    $fclose(left_out_file);
+    $fclose(right_cmp_file);
+    $fclose(left_cmp_file);
     out_read_done = 1'b1;
 end
 
