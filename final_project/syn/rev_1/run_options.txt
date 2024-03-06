@@ -1,11 +1,24 @@
 #--  Synopsys, Inc.
 #--  Version O-2018.09-SP1
 #--  Project file /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/run_options.txt
-#--  Written on Tue Mar  5 19:37:06 2024
+#--  Written on Wed Mar  6 14:52:50 2024
 
 
 #project files
-add_file -verilog -vlog_std sysv "../sv/divide.sv"
+add_file -verilog -vlog_std sysv "../sv/fifo.sv"
+add_file -verilog -vlog_std sysv "../sv/add.sv"
+add_file -verilog -vlog_std sysv "../sv/sub.sv"
+add_file -verilog -vlog_std sysv "../sv/div.sv"
+add_file -verilog -vlog_std sysv "../sv/qarctan.sv"
+add_file -verilog -vlog_std sysv "../sv/multiply.sv"
+add_file -verilog -vlog_std sysv "../sv/fir.sv"
+add_file -verilog -vlog_std sysv "../sv/fir_cmplx.sv"
+add_file -verilog -vlog_std sysv "../sv/iir.sv"
+add_file -verilog -vlog_std sysv "../sv/gain.sv"
+add_file -verilog -vlog_std sysv "../sv/read_iq.sv"
+add_file -verilog -vlog_std sysv "../sv/demodulate.sv"
+add_file -verilog -vlog_std sysv "../sv/globals.sv"
+add_file -verilog -vlog_std sysv "../sv/fm_radio.sv"
 
 
 
@@ -29,12 +42,13 @@ set_option -speed_grade -7
 set_option -part_companion ""
 
 #compilation/mapping options
-set_option -use_fsm_explorer 0
+set_option -use_fsm_explorer 1
 
 # hdl_compiler_options
 set_option -distributed_compile 1
 
 # altera_options
+set_option -automatic_compile_point 1
 set_option -rw_check_on_ram 1
 
 # mapper_without_write_options
@@ -51,7 +65,7 @@ set_option -maxfan 30
 set_option -disable_io_insertion 0
 set_option -pipe 1
 set_option -update_models_cp 0
-set_option -retiming 0
+set_option -retiming 1
 set_option -no_sequential_opt 0
 set_option -fix_gated_and_generated_clocks 1
 

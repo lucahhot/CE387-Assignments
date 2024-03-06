@@ -33,7 +33,26 @@ fm_radio #(
     .DATA_SIZE(DATA_SIZE),
     .CHAR_SIZE(CHAR_SIZE),
     .BYTE_SIZE(BYTE_SIZE),
-    .BITS(BITS)
+    .BITS(BITS),
+    .GAIN(GAIN),
+    .CHANNEL_COEFF_TAPS(CHANNEL_COEFF_TAPS),
+    .CHANNEL_COEFFICIENTS_REAL(CHANNEL_COEFFICIENTS_REAL),
+    .CHANNEL_COEFFICIENTS_IMAG(CHANNEL_COEFFICIENTS_IMAG),
+    .AUDIO_LPR_COEFF_TAPS(AUDIO_LPR_COEFF_TAPS),
+    .AUDIO_LPR_COEFFS(AUDIO_LPR_COEFFS),
+    .AUDIO_LMR_COEFF_TAPS(AUDIO_LMR_COEFF_TAPS),
+    .AUDIO_LMR_COEFFS(AUDIO_LMR_COEFFS),
+    .BP_LMR_COEFF_TAPS(BP_LMR_COEFF_TAPS),
+    .BP_LMR_COEFFS(BP_LMR_COEFFS),
+    .BP_PILOT_COEFF_TAPS(BP_PILOT_COEFF_TAPS),
+    .BP_PILOT_COEFFS(BP_PILOT_COEFFS),
+    .HP_COEFF_TAPS(HP_COEFF_TAPS),
+    .HP_COEFFS(HP_COEFFS),
+    .IIR_COEFF_TAPS(IIR_COEFF_TAPS),
+    .IIR_X_COEFFS(IIR_X_COEFFS),
+    .IIR_Y_COEFFS(IIR_Y_COEFFS),
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE),
+    .AUDIO_DECIMATION(AUDIO_DECIMATION)
 ) fm_radio_inst (
     .clock(clock),
     .reset(reset),
@@ -129,9 +148,8 @@ initial begin : data_write_process
 
     $display("@ %0t: Comparing I %s...", $time, FILE_RIGHT_OUT_NAME);
     $display("@ %0t: Comparing Q %s...", $time, FILE_LEFT_OUT_NAME);
-     = $fopen(FILE_RIGHT_OUT_NAME, "wb");
     right_out_file = $fopen(FILE_RIGHT_OUT_NAME, "wb");
-    left_out_file = $fopen(FILE_LEFT_OUT_NAME, "rb");
+    left_out_file = $fopen(FILE_LEFT_OUT_NAME, "wb");
     right_cmp_file = $fopen(FILE_RIGHT_CMP_NAME, "rb");
     left_cmp_file = $fopen(FILE_LEFT_CMP_NAME, "rb");
     right_audio_rd_en = 1'b0;

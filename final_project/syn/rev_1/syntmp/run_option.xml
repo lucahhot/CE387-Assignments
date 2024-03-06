@@ -3,17 +3,17 @@
   Synopsys, Inc.
   Version O-2018.09-SP1
   Project file /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/syntmp/run_option.xml
-  Written on Tue Mar  5 19:37:06 2024
+  Written on Wed Mar  6 14:52:50 2024
 
 
 --> 
 <project_attribute_list name="Project Settings"> 
-     <option name="project_name" display_name="Project Name">divide</option>
+     <option name="project_name" display_name="Project Name">fm_radio</option>
      <option name="device_name" display_name="Device Name">rev_1: Intel CYCLONE IV E : EP4CE6</option>
      <option name="impl_name" display_name="Implementation Name">rev_1</option>
      <option name="top_module" display_name="Top Module"></option>
      <option name="pipe" display_name="Pipelining">1</option>
-     <option name="retiming" display_name="Retiming">0</option>
+     <option name="retiming" display_name="Retiming">1</option>
      <option name="resource_sharing" display_name="Resource Sharing">1</option>
      <option name="maxfan" display_name="Fanout Guide">30</option>
      <option name="disable_io_insertion" display_name="Disable I/O Insertion">0</option>

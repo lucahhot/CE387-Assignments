@@ -16,12 +16,12 @@ max stack size: 8388608 (bytes)
 
 Implementation : rev_1
 
-# Written on Tue Mar  5 19:37:10 2024
+# Written on Wed Mar  6 14:53:44 2024
 
 ##### DESIGN INFO #######################################################
 
-Top View:                "divide"
-Constraint File(s):      (none)
+Top View:                "fm_radio"
+Constraint File(s):      "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1_fsm.sdc"
 
 
 
@@ -38,13 +38,29 @@ Found 0 issues in 0 out of 0 constraints
 Clock Relationships
 *******************
 
-Starting                          Ending                            |     rise to rise     |     fall to fall     |     rise to fall     |     fall to rise                     
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-divide|clock                      divide|clock                      |     3.580            |     No paths         |     No paths         |     No paths                         
-divide|clock                      divide|state_derived_clock[3]     |     3.580            |     No paths         |     No paths         |     No paths                         
-divide|state_derived_clock[1]     divide|clock                      |     3.580            |     No paths         |     No paths         |     No paths                         
-divide|state_derived_clock[1]     divide|state_derived_clock[3]     |     3.580            |     No paths         |     No paths         |     No paths                         
-===============================================================================================================================================================================
+Starting                                          Ending                                            |     rise to rise     |     fall to fall     |     rise to fall     |     fall to rise                     
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+System                                            fm_radio|clock                                    |     1000.000         |     No paths         |     No paths         |     No paths                         
+fm_radio|clock                                    System                                            |     1000.000         |     No paths         |     No paths         |     No paths                         
+fm_radio|clock                                    fm_radio|clock                                    |     1000.000         |     No paths         |     No paths         |     No paths                         
+fm_radio|clock                                    gain_32s_10s_1|state_derived_clock[0]             |     1000.000         |     No paths         |     No paths         |     No paths                         
+fm_radio|clock                                    multiply_32s_0|state_derived_clock[0]             |     1000.000         |     No paths         |     500.000          |     No paths                         
+fm_radio|clock                                    read_iq_32s_16s_8s_10s|state_derived_clock[0]     |     1000.000         |     No paths         |     500.000          |     No paths                         
+fm_radio|clock                                    gain_32s_10s_0|state_derived_clock[0]             |     1000.000         |     No paths         |     No paths         |     No paths                         
+fm_radio|clock                                    multiply_32s_1|state_derived_clock[0]             |     1000.000         |     No paths         |     500.000          |     No paths                         
+fm_radio|clock                                    div_64s_32s|state_derived_clock[4]                |     1000.000         |     No paths         |     500.000          |     No paths                         
+gain_32s_10s_1|state_derived_clock[0]             fm_radio|clock                                    |     1000.000         |     No paths         |     No paths         |     No paths                         
+gain_32s_10s_1|state_derived_clock[0]             gain_32s_10s_1|state_derived_clock[0]             |     1000.000         |     No paths         |     No paths         |     No paths                         
+multiply_32s_0|state_derived_clock[0]             fm_radio|clock                                    |     1000.000         |     No paths         |     No paths         |     500.000                          
+multiply_32s_0|state_derived_clock[0]             multiply_32s_0|state_derived_clock[0]             |     1000.000         |     No paths         |     No paths         |     No paths                         
+read_iq_32s_16s_8s_10s|state_derived_clock[0]     fm_radio|clock                                    |     1000.000         |     No paths         |     No paths         |     500.000                          
+read_iq_32s_16s_8s_10s|state_derived_clock[0]     read_iq_32s_16s_8s_10s|state_derived_clock[0]     |     1000.000         |     No paths         |     No paths         |     No paths                         
+gain_32s_10s_0|state_derived_clock[0]             fm_radio|clock                                    |     1000.000         |     No paths         |     No paths         |     No paths                         
+gain_32s_10s_0|state_derived_clock[0]             gain_32s_10s_0|state_derived_clock[0]             |     1000.000         |     No paths         |     No paths         |     No paths                         
+multiply_32s_1|state_derived_clock[0]             fm_radio|clock                                    |     1000.000         |     No paths         |     No paths         |     500.000                          
+multiply_32s_1|state_derived_clock[0]             multiply_32s_1|state_derived_clock[0]             |     1000.000         |     No paths         |     No paths         |     No paths                         
+div_64s_32s|state_derived_clock[4]                fm_radio|clock                                    |     1000.000         |     No paths         |     No paths         |     500.000                          
+===============================================================================================================================================================================================================
  Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
        'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
 
@@ -52,106 +68,85 @@ divide|state_derived_clock[1]     divide|state_derived_clock[3]     |     3.580 
 Unconstrained Start/End Points
 ******************************
 
-p:busy
-p:d_out[0]
-p:d_out[1]
-p:d_out[2]
-p:d_out[3]
-p:d_out[4]
-p:d_out[5]
-p:d_out[6]
-p:d_out[7]
-p:d_out[8]
-p:d_out[9]
-p:d_out[10]
-p:d_out[11]
-p:d_out[12]
-p:d_out[13]
-p:d_out[14]
-p:d_out[15]
-p:d_out[16]
-p:d_out[17]
-p:d_out[18]
-p:d_out[19]
-p:d_out[20]
-p:d_out[21]
-p:d_out[22]
-p:d_out[23]
-p:d_out[24]
-p:d_out[25]
-p:d_out[26]
-p:d_out[27]
-p:d_out[28]
-p:d_out[29]
-p:d_out[30]
-p:d_out[31]
-p:dividend[0]
-p:dividend[1]
-p:dividend[2]
-p:dividend[3]
-p:dividend[4]
-p:dividend[5]
-p:dividend[6]
-p:dividend[7]
-p:dividend[8]
-p:dividend[9]
-p:dividend[10]
-p:dividend[11]
-p:dividend[12]
-p:dividend[13]
-p:dividend[14]
-p:dividend[15]
-p:dividend[16]
-p:dividend[17]
-p:dividend[18]
-p:dividend[19]
-p:dividend[20]
-p:dividend[21]
-p:dividend[22]
-p:dividend[23]
-p:dividend[24]
-p:dividend[25]
-p:dividend[26]
-p:dividend[27]
-p:dividend[28]
-p:dividend[29]
-p:dividend[30]
-p:dividend[31]
-p:divisor[0]
-p:divisor[1]
-p:divisor[2]
-p:divisor[3]
-p:divisor[4]
-p:divisor[5]
-p:divisor[6]
-p:divisor[7]
-p:divisor[8]
-p:divisor[9]
-p:divisor[10]
-p:divisor[11]
-p:divisor[12]
-p:divisor[13]
-p:divisor[14]
-p:divisor[15]
-p:divisor[16]
-p:divisor[17]
-p:divisor[18]
-p:divisor[19]
-p:divisor[20]
-p:divisor[21]
-p:divisor[22]
-p:divisor[23]
-p:divisor[24]
-p:divisor[25]
-p:divisor[26]
-p:divisor[27]
-p:divisor[28]
-p:divisor[29]
-p:divisor[30]
-p:divisor[31]
-p:done
+p:data_in[0]
+p:data_in[1]
+p:data_in[2]
+p:data_in[3]
+p:data_in[4]
+p:data_in[5]
+p:data_in[6]
+p:data_in[7]
+p:in_full
+p:in_wr_en
+p:left_audio_empty
+p:left_audio_out[0]
+p:left_audio_out[1]
+p:left_audio_out[2]
+p:left_audio_out[3]
+p:left_audio_out[4]
+p:left_audio_out[5]
+p:left_audio_out[6]
+p:left_audio_out[7]
+p:left_audio_out[8]
+p:left_audio_out[9]
+p:left_audio_out[10]
+p:left_audio_out[11]
+p:left_audio_out[12]
+p:left_audio_out[13]
+p:left_audio_out[14]
+p:left_audio_out[15]
+p:left_audio_out[16]
+p:left_audio_out[17]
+p:left_audio_out[18]
+p:left_audio_out[19]
+p:left_audio_out[20]
+p:left_audio_out[21]
+p:left_audio_out[22]
+p:left_audio_out[23]
+p:left_audio_out[24]
+p:left_audio_out[25]
+p:left_audio_out[26]
+p:left_audio_out[27]
+p:left_audio_out[28]
+p:left_audio_out[29]
+p:left_audio_out[30]
+p:left_audio_out[31]
+p:left_audio_rd_en
 p:reset
-p:start
+p:right_audio_empty
+p:right_audio_out[0]
+p:right_audio_out[1]
+p:right_audio_out[2]
+p:right_audio_out[3]
+p:right_audio_out[4]
+p:right_audio_out[5]
+p:right_audio_out[6]
+p:right_audio_out[7]
+p:right_audio_out[8]
+p:right_audio_out[9]
+p:right_audio_out[10]
+p:right_audio_out[11]
+p:right_audio_out[12]
+p:right_audio_out[13]
+p:right_audio_out[14]
+p:right_audio_out[15]
+p:right_audio_out[16]
+p:right_audio_out[17]
+p:right_audio_out[18]
+p:right_audio_out[19]
+p:right_audio_out[20]
+p:right_audio_out[21]
+p:right_audio_out[22]
+p:right_audio_out[23]
+p:right_audio_out[24]
+p:right_audio_out[25]
+p:right_audio_out[26]
+p:right_audio_out[27]
+p:right_audio_out[28]
+p:right_audio_out[29]
+p:right_audio_out[30]
+p:right_audio_out[31]
+p:right_audio_rd_en
 
 
 Inapplicable constraints

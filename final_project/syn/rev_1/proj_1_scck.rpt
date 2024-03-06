@@ -16,10 +16,10 @@ max stack size: 8388608 (bytes)
 
 Implementation : rev_1
 
-# Written on Tue Mar  5 19:37:10 2024
+# Written on Wed Mar  6 14:53:43 2024
 
 ##### FILES SYNTAX CHECKED ##############################################
-Constraint File(s):      (none)
+Constraint File(s):      "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1_fsm.sdc"
 
 #Run constraint checker to find more issues with constraints.
 #########################################################################
@@ -33,22 +33,34 @@ No issues found in constraint syntax.
 Clock Summary
 *************
 
-          Start                               Requested     Requested     Clock                           Clock                     Clock
-Level     Clock                               Frequency     Period        Type                            Group                     Load 
------------------------------------------------------------------------------------------------------------------------------------------
-0 -       divide|clock                        279.4 MHz     3.580         inferred                        Autoconstr_clkgroup_0     140  
-1 .         divide|state_derived_clock[1]     279.4 MHz     3.580         derived (from divide|clock)     Autoconstr_clkgroup_0     8354 
-1 .         divide|state_derived_clock[3]     279.4 MHz     3.580         derived (from divide|clock)     Autoconstr_clkgroup_0     161  
-=========================================================================================================================================
+          Start                                               Requested     Requested     Clock                             Clock                     Clock
+Level     Clock                                               Frequency     Period        Type                              Group                     Load 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+0 -       System                                              1.0 MHz       1000.000      system                            system_clkgroup           290  
+                                                                                                                                                           
+0 -       fm_radio|clock                                      1.0 MHz       1000.000      inferred                          Autoconstr_clkgroup_0     3410 
+1 .         div_64s_32s|state_derived_clock[4]                1.0 MHz       1000.000      derived (from fm_radio|clock)     Autoconstr_clkgroup_0     220  
+1 .         read_iq_32s_16s_8s_10s|state_derived_clock[0]     1.0 MHz       1000.000      derived (from fm_radio|clock)     Autoconstr_clkgroup_0     176  
+1 .         multiply_32s_0|state_derived_clock[0]             1.0 MHz       1000.000      derived (from fm_radio|clock)     Autoconstr_clkgroup_0     129  
+1 .         multiply_32s_1|state_derived_clock[0]             1.0 MHz       1000.000      derived (from fm_radio|clock)     Autoconstr_clkgroup_0     129  
+1 .         gain_32s_10s_0|state_derived_clock[0]             1.0 MHz       1000.000      derived (from fm_radio|clock)     Autoconstr_clkgroup_0     98   
+1 .         gain_32s_10s_1|state_derived_clock[0]             1.0 MHz       1000.000      derived (from fm_radio|clock)     Autoconstr_clkgroup_0     98   
+===========================================================================================================================================================
 
 
 Clock Load Summary
 ******************
 
-                                  Clock     Source                            Clock Pin         Non-clock Pin       Non-clock Pin          
-Clock                             Load      Pin                               Seq Example       Seq Example         Comb Example           
--------------------------------------------------------------------------------------------------------------------------------------------
-divide|clock                      140       clock(port)                       count[6:0].C      -                   -                      
-divide|state_derived_clock[1]     8354      state[3:0].Q[1](statemachine)     sign.C            acc[64:0].D[64]     quo_next[63:0].SEL(mux)
-divide|state_derived_clock[3]     161       state[3:0].Q[3](statemachine)     d_out[31:0].C     acc[64:0].E         un1_state_2.I[0](inv)  
-===========================================================================================================================================
+                                                  Clock     Source                                                                      Clock Pin                                                      Non-clock Pin                                      Non-clock Pin                                                     
+Clock                                             Load      Pin                                                                         Seq Example                                                    Seq Example                                        Comb Example                                                      
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+System                                            290       -                                                                           right_gain_inst.out_wr_en.C                                    -                                                  -                                                                 
+                                                                                                                                                                                                                                                                                                                            
+fm_radio|clock                                    3410      clock(port)                                                                 right_gain_fifo_inst.fifo_buf[31:0].CLK                        -                                                  -                                                                 
+div_64s_32s|state_derived_clock[4]                220       demodulate_inst.qarctan_inst.divider_inst.state[4:0].Q[4](statemachine)     demodulate_inst.qarctan_inst.divider_inst.quotient[63:0].C     demodulate_inst.state[4:0].I[1]                    demodulate_inst.state_c13.I[0](inv)                               
+read_iq_32s_16s_8s_10s|state_derived_clock[0]     176       read_iq_inst.state[0].Q[0](dffr)                                            read_iq_inst.i_buff[7:0].C                                     q_fifo_inst.fifo_buf[31:0].WE[0]                   q_fifo_inst.p_write_buffer\.un11_wr_addr_t.I[1](and)              
+multiply_32s_0|state_derived_clock[0]             129       mult_demod_lmr_inst.state[0].Q[0](dffr)                                     mult_demod_lmr_inst.x_in_rd_en.C                               mult_demod_lmr_fifo.fifo_buf[31:0].WE[0]           mult_demod_lmr_fifo.p_write_buffer\.un11_wr_addr_t.I[1](and)      
+multiply_32s_1|state_derived_clock[0]             129       square_bp_pilot_inst.state[0].Q[0](dffr)                                    square_bp_pilot_inst.x_in_rd_en.C                              square_bp_pilot_fifo_inst.fifo_buf[31:0].WE[0]     square_bp_pilot_fifo_inst.p_write_buffer\.un11_wr_addr_t.I[1](and)
+gain_32s_10s_0|state_derived_clock[0]             98        right_gain_inst.state[0].Q[0](dffr)                                         right_gain_inst.dout[31:0].C                                   right_gain_inst.temp_in[31:0].E                    right_gain_inst.un1_state_1.I[0](inv)                             
+gain_32s_10s_1|state_derived_clock[0]             98        left_gain_inst.state[0].Q[0](dffr)                                          left_gain_inst.dout[31:0].C                                    left_gain_inst.temp_in[31:0].E                     left_gain_inst.un1_state_1.I[0](inv)                              
+============================================================================================================================================================================================================================================================================================================================

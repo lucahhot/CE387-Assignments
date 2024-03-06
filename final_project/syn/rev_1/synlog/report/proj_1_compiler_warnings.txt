@@ -1,2 +1,2 @@
-@W:: Distributed compilation : All files are passed to distribution points
+@W: CG450 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":103:32:103:44|Size is out of range for this type, truncating to 32 bits
 

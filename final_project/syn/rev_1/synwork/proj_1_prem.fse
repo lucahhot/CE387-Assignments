@@ -1,12 +1,112 @@
 
-fsm_encoding {10300301} sequential
+fsm_encoding {22480489} sequential
 
-fsm_state_encoding {10300301} IDLE {00}
+fsm_state_encoding {22480489} S0 {00}
 
-fsm_state_encoding {10300301} INIT {01}
+fsm_state_encoding {22480489} S1 {01}
 
-fsm_state_encoding {10300301} CALC {10}
+fsm_state_encoding {22480489} S2 {10}
 
-fsm_state_encoding {10300301} OUT {11}
+fsm_registers {22480489} {state[1]}  {state[0]} 
 
-fsm_registers {10300301} {state[1]}  {state[0]} 
+fsm_encoding {15324328} original
+
+fsm_state_encoding {15324328} INIT {000}
+
+fsm_state_encoding {15324328} IDLE {001}
+
+fsm_state_encoding {15324328} B_EQ_1 {010}
+
+fsm_state_encoding {15324328} LOOP {011}
+
+fsm_state_encoding {15324328} EPILOGUE {100}
+
+fsm_registers {15324328} {state[2]}  {state[1]}  {state[0]} 
+
+fsm_encoding {30410417} onehot
+
+fsm_state_encoding {30410417} EDGE_1 {00001}
+
+fsm_state_encoding {30410417} EDGE_2 {00010}
+
+fsm_state_encoding {30410417} IDLE {00100}
+
+fsm_state_encoding {30410417} WAITING {01000}
+
+fsm_state_encoding {30410417} OUTPUT {10000}
+
+fsm_registers {30410417} {state[4]}  {state[3]}  {state[2]}  {state[1]}  {state[0]} 
+
+fsm_encoding {20310316} sequential
+
+fsm_state_encoding {20310316} S0 {00}
+
+fsm_state_encoding {20310316} S1 {01}
+
+fsm_state_encoding {20310316} S2 {10}
+
+fsm_registers {20310316} {state[1]}  {state[0]} 
+
+fsm_encoding {20310315} sequential
+
+fsm_state_encoding {20310315} S0 {00}
+
+fsm_state_encoding {20310315} S1 {01}
+
+fsm_state_encoding {20310315} S2 {10}
+
+fsm_registers {20310315} {state[1]}  {state[0]} 
+
+fsm_encoding {20310314} sequential
+
+fsm_state_encoding {20310314} S0 {00}
+
+fsm_state_encoding {20310314} S1 {01}
+
+fsm_state_encoding {20310314} S2 {10}
+
+fsm_registers {20310314} {state[1]}  {state[0]} 
+
+fsm_encoding {20310313} sequential
+
+fsm_state_encoding {20310313} S0 {00}
+
+fsm_state_encoding {20310313} S1 {01}
+
+fsm_state_encoding {20310313} S2 {10}
+
+fsm_registers {20310313} {state[1]}  {state[0]} 
+
+fsm_encoding {20310312} sequential
+
+fsm_state_encoding {20310312} S0 {00}
+
+fsm_state_encoding {20310312} S1 {01}
+
+fsm_state_encoding {20310312} S2 {10}
+
+fsm_registers {20310312} {state[1]}  {state[0]} 
+
+fsm_encoding {24400401} sequential
+
+fsm_state_encoding {24400401} S0 {00}
+
+fsm_state_encoding {24400401} S1 {01}
+
+fsm_state_encoding {24400401} S2 {10}
+
+fsm_state_encoding {24400401} S3 {11}
+
+fsm_registers {24400401} {state[1]}  {state[0]} 
+
+fsm_encoding {24400401} sequential
+
+fsm_state_encoding {24400401} S0 {00}
+
+fsm_state_encoding {24400401} S1 {01}
+
+fsm_state_encoding {24400401} S2 {10}
+
+fsm_state_encoding {24400401} S3 {11}
+
+fsm_registers {24400401} {state[1]}  {state[0]} 

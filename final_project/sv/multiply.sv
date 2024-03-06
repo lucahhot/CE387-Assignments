@@ -56,6 +56,8 @@ always_comb begin
         end
 
         WRITE: begin
+            x_in_rd_en = 1'b0;
+            y_in_rd_en = 1'b0;
             if (out_full == 1'b0) begin
                 dout = MULTIPLY_TRUNCATION(in1, in2);
                 out_wr_en = 1'b1;

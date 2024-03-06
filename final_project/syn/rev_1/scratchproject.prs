@@ -3,7 +3,20 @@
 #--  Project file /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/scratchproject.prs
 
 #project files
-add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv"
+add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv"
+add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/add.sv"
+add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/sub.sv"
+add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/div.sv"
+add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv"
+add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv"
+add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv"
+add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv"
+add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv"
+add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv"
+add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv"
+add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv"
+add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv"
+add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv"
 
 
 
@@ -28,12 +41,13 @@ set_option -speed_grade -7
 set_option -part_companion ""
 
 #compilation/mapping options
-set_option -use_fsm_explorer 0
+set_option -use_fsm_explorer 1
 
 # hdl_compiler_options
 set_option -distributed_compile 1
 
 # altera_options
+set_option -automatic_compile_point 1
 set_option -rw_check_on_ram 1
 
 # mapper_without_write_options
@@ -50,7 +64,7 @@ set_option -maxfan 30
 set_option -disable_io_insertion 0
 set_option -pipe 1
 set_option -update_models_cp 0
-set_option -retiming 0
+set_option -retiming 1
 set_option -no_sequential_opt 0
 set_option -fix_gated_and_generated_clocks 1
 

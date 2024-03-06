@@ -17,7 +17,7 @@ module qarctan
 const logic [31:0] QUAD_ONE = 32'h00000324;
 const logic [31:0] QUAD_THREE = 32'h0000096c;
 
-import macros::*;
+// import macros::*;
 
 typedef enum logic {READY, WORKING} state_t;
 state_t state, state_c;

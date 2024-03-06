@@ -17,24 +17,85 @@ max stack size: 8388608 (bytes)
 Implementation : rev_1
 Synopsys HDL compiler and linker, Version comp2018q4p1, Build 004R, Built Nov 27 2018 21:19:49
 
-Modified Files: 5
+Modified Files: 16
 FID:  path (prevtimestamp, timestamp)
-17       /home/mwp8699/CE387-Assignments/final_project/sv/divide.sv (N/A, 2024-03-05 19:35:00)
-0        /home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv (2024-03-05 19:11:57, N/A)
-15       /home/mwp8699/CE387-Assignments/final_project/sv/gain.sv (2024-03-05 19:11:57, N/A)
-16       /home/mwp8699/CE387-Assignments/final_project/sv/gain_top.sv (2024-03-05 19:33:20, N/A)
-1        /home/mwp8699/CE387-Assignments/final_project/sv/globals.sv (2024-03-05 19:11:57, N/A)
+18       /home/mwp8699/CE387-Assignments/final_project/sv/add.sv (N/A, 2024-03-06 10:41:05)
+19       /home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv (N/A, 2024-03-06 10:51:52)
+20       /home/mwp8699/CE387-Assignments/final_project/sv/div.sv (N/A, 2024-03-06 11:08:14)
+17       /home/mwp8699/CE387-Assignments/final_project/sv/divide.sv (2024-03-05 19:35:00, N/A)
+0        /home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv (N/A, 2024-03-06 10:41:05)
+21       /home/mwp8699/CE387-Assignments/final_project/sv/fir.sv (N/A, 2024-03-06 10:41:05)
+22       /home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv (N/A, 2024-03-06 10:41:05)
+23       /home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv (N/A, 2024-03-06 11:26:14)
+15       /home/mwp8699/CE387-Assignments/final_project/sv/gain.sv (N/A, 2024-03-06 10:41:05)
+1        /home/mwp8699/CE387-Assignments/final_project/sv/globals.sv (N/A, 2024-03-06 11:11:42)
+24       /home/mwp8699/CE387-Assignments/final_project/sv/iir.sv (N/A, 2024-03-06 10:41:05)
+25       /home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv (N/A, 2024-03-06 10:41:05)
+26       /home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv (N/A, 2024-03-06 10:51:29)
+2        /home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv (N/A, 2024-03-06 10:41:05)
+27       /home/mwp8699/CE387-Assignments/final_project/sv/sub.sv (N/A, 2024-03-06 10:41:05)
+4        /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork//distcomp/distcomp0/distcomp0.xmr (2024-03-05 19:31:48, 2024-03-06 10:41:05)
 
 *******************************************************************
-Modules that may have changed as a result of file changes: 1
+Modules that may have changed as a result of file changes: 13
 MID:  lib.cell.view
-5        work.divide.verilog may have changed because the following files changed:
-                        /home/mwp8699/CE387-Assignments/final_project/sv/divide.sv (N/A, 2024-03-05 19:35:00) <-- (module definition)
+6        work.add.verilog may have changed because the following files changed:
+                        /home/mwp8699/CE387-Assignments/final_project/sv/add.sv (N/A, 2024-03-06 10:41:05) <-- (module definition)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv (N/A, 2024-03-06 10:51:52) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/div.sv (N/A, 2024-03-06 11:08:14) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv (N/A, 2024-03-06 10:41:05) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/fir.sv (N/A, 2024-03-06 10:41:05) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv (N/A, 2024-03-06 10:41:05) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv (N/A, 2024-03-06 11:26:14) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/gain.sv (N/A, 2024-03-06 10:41:05) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/globals.sv (N/A, 2024-03-06 11:11:42) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/iir.sv (N/A, 2024-03-06 10:41:05) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv (N/A, 2024-03-06 10:41:05) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv (N/A, 2024-03-06 10:51:29) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv (N/A, 2024-03-06 10:41:05) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/sub.sv (N/A, 2024-03-06 10:41:05) <-- (may instantiate this module)
+7        work.demodulate.verilog may have changed because the following files changed:
+                        /home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv (N/A, 2024-03-06 10:51:52) <-- (module definition)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv (N/A, 2024-03-06 11:26:14) <-- (may instantiate this module)
+8        work.div.verilog may have changed because the following files changed:
+                        /home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv (N/A, 2024-03-06 10:51:52) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/div.sv (N/A, 2024-03-06 11:08:14) <-- (module definition)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv (N/A, 2024-03-06 11:26:14) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv (N/A, 2024-03-06 10:51:29) <-- (may instantiate this module)
+0        work.fifo.verilog may have changed because the following files changed:
+                        /home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv (N/A, 2024-03-06 10:41:05) <-- (module definition)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv (N/A, 2024-03-06 11:26:14) <-- (may instantiate this module)
+9        work.fir.verilog may have changed because the following files changed:
+                        /home/mwp8699/CE387-Assignments/final_project/sv/fir.sv (N/A, 2024-03-06 10:41:05) <-- (module definition)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv (N/A, 2024-03-06 11:26:14) <-- (may instantiate this module)
+10       work.fir_cmplx.verilog may have changed because the following files changed:
+                        /home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv (N/A, 2024-03-06 10:41:05) <-- (module definition)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv (N/A, 2024-03-06 11:26:14) <-- (may instantiate this module)
+11       work.fm_radio.verilog may have changed because the following files changed:
+                        /home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv (N/A, 2024-03-06 11:26:14) <-- (module definition)
+3        work.gain.verilog may have changed because the following files changed:
+                        /home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv (N/A, 2024-03-06 11:26:14) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/gain.sv (N/A, 2024-03-06 10:41:05) <-- (module definition)
+12       work.iir.verilog may have changed because the following files changed:
+                        /home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv (N/A, 2024-03-06 11:26:14) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/iir.sv (N/A, 2024-03-06 10:41:05) <-- (module definition)
+13       work.multiply.verilog may have changed because the following files changed:
+                        /home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv (N/A, 2024-03-06 11:26:14) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv (N/A, 2024-03-06 10:41:05) <-- (module definition)
+14       work.qarctan.verilog may have changed because the following files changed:
+                        /home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv (N/A, 2024-03-06 10:51:52) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv (N/A, 2024-03-06 11:26:14) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv (N/A, 2024-03-06 10:51:29) <-- (module definition)
+1        work.read_iq.verilog may have changed because the following files changed:
+                        /home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv (N/A, 2024-03-06 11:26:14) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv (N/A, 2024-03-06 10:41:05) <-- (module definition)
+15       work.sub.verilog may have changed because the following files changed:
+                        /home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv (N/A, 2024-03-06 11:26:14) <-- (may instantiate this module)
+                        /home/mwp8699/CE387-Assignments/final_project/sv/sub.sv (N/A, 2024-03-06 10:41:05) <-- (module definition)
 
 *******************************************************************
-Unmodified files: 11
+Unmodified files: 10
 FID:  path (timestamp)
-4        /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork//distcomp/distcomp0/distcomp0.xmr (2024-03-05 19:31:48)
 5        /vol/synopsys/fpga/O-2018.09-SP1/lib/altera/altera.v (2018-11-27 23:10:11)
 6        /vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_lpm.v (2018-11-27 23:10:39)
 7        /vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v (2018-11-27 23:10:39)

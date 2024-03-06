@@ -1,61 +1,275 @@
-@N:: Applying property .distcompmodetop with value 1 on module divide in library work
-@N:: Applying property .distcompnoprune with value 1 on module divide in library work
-@N:: Applying property .noprune with value 1 on module divide in library work
-Selecting top level module divide
-@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":1:7:1:12|Synthesizing module divide in library work.
-Running optimization stage 1 on divide .......
-@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|Latch generated from always block for signal bu_sub[63:0]; possible missing assignment in an if or case statement.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 32 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 33 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 34 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 35 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 36 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 37 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 38 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 39 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 40 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 41 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 42 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 43 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 44 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 45 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 46 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 47 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 48 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 49 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 50 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 51 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 52 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 53 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 54 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 55 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 56 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 57 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 58 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 59 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 60 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 61 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 62 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL208 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|All reachable assignments to bit 63 of bu_sub[63:0] assign 0, register removed by optimization.
-@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|Latch generated from always block for signal d_out[31:0]; possible missing assignment in an if or case statement.
-@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|Latch generated from always block for signal bu[31:0]; possible missing assignment in an if or case statement.
-@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|Latch generated from always block for signal done; possible missing assignment in an if or case statement.
-@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|Latch generated from always block for signal busy; possible missing assignment in an if or case statement.
-@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|Latch generated from always block for signal sign; possible missing assignment in an if or case statement.
-@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|always_comb does not infer combinatorial logic
-@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|always_comb does not infer combinatorial logic
-@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|always_comb does not infer combinatorial logic
-@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|always_comb does not infer combinatorial logic
-@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|always_comb does not infer combinatorial logic
-@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":50:4:50:7|always_comb does not infer combinatorial logic
-Running optimization stage 2 on divide .......
-@N: CL201 :"/home/mwp8699/CE387-Assignments/final_project/sv/divide.sv":30:0:30:8|Trying to extract state machine for register state.
+@N:: Applying property .distcompmodetop with value 1 on module fm_radio in library work
+@N:: Applying property .distcompnoprune with value 1 on module fm_radio in library work
+@N:: Applying property .noprune with value 1 on module fm_radio in library work
+@N:: Applying property .distcompnoprune with value 1 on module fifo in library work
+@N:: Applying property .noprune with value 1 on module fifo in library work
+@N:: Applying property .distcompnoprune with value 1 on module gain in library work
+@N:: Applying property .noprune with value 1 on module gain in library work
+@N:: Applying property .distcompnoprune with value 1 on module iir in library work
+@N:: Applying property .noprune with value 1 on module iir in library work
+@N:: Applying property .distcompnoprune with value 1 on module sub in library work
+@N:: Applying property .noprune with value 1 on module sub in library work
+@N:: Applying property .distcompnoprune with value 1 on module add in library work
+@N:: Applying property .noprune with value 1 on module add in library work
+@N:: Applying property .distcompnoprune with value 1 on module fir in library work
+@N:: Applying property .noprune with value 1 on module fir in library work
+@N:: Applying property .distcompnoprune with value 1 on module multiply in library work
+@N:: Applying property .noprune with value 1 on module multiply in library work
+@N:: Applying property .distcompnoprune with value 1 on module demodulate in library work
+@N:: Applying property .noprune with value 1 on module demodulate in library work
+@N:: Applying property .distcompnoprune with value 1 on module qarctan in library work
+@N:: Applying property .noprune with value 1 on module qarctan in library work
+@N:: Applying property .distcompnoprune with value 1 on module div in library work
+@N:: Applying property .noprune with value 1 on module div in library work
+@N:: Applying property .distcompnoprune with value 1 on module fir_cmplx in library work
+@N:: Applying property .noprune with value 1 on module fir_cmplx in library work
+@N:: Applying property .distcompnoprune with value 1 on module read_iq in library work
+@N:: Applying property .noprune with value 1 on module read_iq in library work
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":4:0:4:9|Synthesizing module work_/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv_unit in library work.
+Selecting top level module fm_radio
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":2:7:2:10|Synthesizing module fifo in library work.
+
+	FIFO_DATA_WIDTH=32'b00000000000000000000000000001000
+	FIFO_BUFFER_SIZE=32'b00000000000000000000010000000000
+	FIFO_ADDR_WIDTH=32'b00000000000000000000000000001011
+   Generated name = fifo_8s_1024s_11s
+Running optimization stage 1 on fifo_8s_1024s_11s .......
+@N: CL134 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|Found RAM fifo_buf, depth=1024, width=8
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":3:7:3:13|Synthesizing module read_iq in library work.
+
+	DATA_SIZE=32'b00000000000000000000000000100000
+	CHAR_SIZE=32'b00000000000000000000000000010000
+	BYTE=32'b00000000000000000000000000001000
+	BITS=32'b00000000000000000000000000001010
+   Generated name = read_iq_32s_16s_8s_10s
+Running optimization stage 1 on read_iq_32s_16s_8s_10s .......
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Latch generated from always block for signal q_out[31:0]; possible missing assignment in an if or case statement.
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Latch generated from always block for signal i_out[31:0]; possible missing assignment in an if or case statement.
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Latch generated from always block for signal q_buff[7:0]; possible missing assignment in an if or case statement.
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Latch generated from always block for signal i_buff[7:0]; possible missing assignment in an if or case statement.
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|always_comb does not infer combinatorial logic
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|always_comb does not infer combinatorial logic
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":2:7:2:10|Synthesizing module fifo in library work.
+
+	FIFO_DATA_WIDTH=32'b00000000000000000000000000100000
+	FIFO_BUFFER_SIZE=32'b00000000000000000000010000000000
+	FIFO_ADDR_WIDTH=32'b00000000000000000000000000001011
+   Generated name = fifo_32s_1024s_11s
+Running optimization stage 1 on fifo_32s_1024s_11s .......
+@N: CL134 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|Found RAM fifo_buf, depth=1024, width=32
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":3:7:3:15|Synthesizing module fir_cmplx in library work.
+
+	NUM_TAPS=32'b00000000000000000000000000010100
+	DECIMATION=32'b00000000000000000000000000000001
+	COEFFICIENTS_REAL=640'b0000000000000000000000000000000100000000000000000000000000001000111111111111111111111111111100110000000000000000000000000000100100000000000000000000000000001011111111111111111111111111110100110000000000000000000000000100010111111111111111111111111111010011111111111111111111111111101100010000000000000000000000100101011100000000000000000000001001010111111111111111111111111111101100011111111111111111111111111101001100000000000000000000000001000101111111111111111111111111110100110000000000000000000000000000101100000000000000000000000000001001111111111111111111111111111100110000000000000000000000000000100000000000000000000000000000000001
+	COEFFICIENTS_IMAG=640'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+   Generated name = fir_cmplx_20s_1s_Z1
+Running optimization stage 1 on fir_cmplx_20s_1s_Z1 .......
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":87:4:87:7|Latch generated from always block for signal yreal_out_din[31:0]; possible missing assignment in an if or case statement.
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":87:4:87:7|Latch generated from always block for signal yimag_out_din[31:0]; possible missing assignment in an if or case statement.
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":87:4:87:7|always_comb does not infer combinatorial logic
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":87:4:87:7|always_comb does not infer combinatorial logic
+@W: CL279 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":48:0:48:8|Pruning register bits 63 to 32 of yimag_sum[63:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL279 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":48:0:48:8|Pruning register bits 63 to 32 of yreal_sum[63:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":1:7:1:9|Synthesizing module div in library work.
+
+	DIVIDEND_WIDTH=32'b00000000000000000000000001000000
+	DIVISOR_WIDTH=32'b00000000000000000000000000100000
+   Generated name = div_64s_32s
+@W: CG450 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":103:32:103:44|Size is out of range for this type, truncating to 32 bits
+Running optimization stage 1 on div_64s_32s .......
+@A: CL110 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":63:8:63:11|Too many clocks (> 8) for set/reset analysis of a_c, try moving enabling expressions outside always block
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":63:8:63:11|Latch generated from always block for signal a_c[63:0]; possible missing assignment in an if or case statement.
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":63:8:63:11|Latch generated from always block for signal quotient[63:0]; possible missing assignment in an if or case statement.
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":63:8:63:11|Latch generated from always block for signal remainder[31:0]; possible missing assignment in an if or case statement.
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":63:8:63:11|Latch generated from always block for signal overflow; possible missing assignment in an if or case statement.
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":63:8:63:11|always_comb does not infer combinatorial logic
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":63:8:63:11|always_comb does not infer combinatorial logic
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":63:8:63:11|always_comb does not infer combinatorial logic
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":63:8:63:11|always_comb does not infer combinatorial logic
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":4:7:4:13|Synthesizing module qarctan in library work.
+Running optimization stage 1 on qarctan .......
+@W: CL190 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":58:0:58:8|Optimizing register bit dividend[0] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":58:0:58:8|Optimizing register bit dividend[1] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":58:0:58:8|Optimizing register bit dividend[2] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":58:0:58:8|Optimizing register bit dividend[3] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":58:0:58:8|Optimizing register bit dividend[4] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":58:0:58:8|Optimizing register bit dividend[5] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":58:0:58:8|Optimizing register bit dividend[6] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":58:0:58:8|Optimizing register bit dividend[7] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":58:0:58:8|Optimizing register bit dividend[8] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":58:0:58:8|Optimizing register bit dividend[9] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL279 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":58:0:58:8|Pruning register bits 9 to 0 of dividend[63:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":4:7:4:16|Synthesizing module demodulate in library work.
+Running optimization stage 1 on demodulate .......
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":3:7:3:9|Synthesizing module fir in library work.
+
+	NUM_TAPS=32'b00000000000000000000000000100000
+	DECIMATION=32'b00000000000000000000000000001000
+	COEFFICIENTS=1024'b1111111111111111111111111111110111111111111111111111111111111010111111111111111111111111111101001111111111111111111111111110110111111111111111111111111111100101111111111111111111111111110111111111111111111111111111111110001011111111111111111111111111110011000000000000000000000000000101010000000000000000000000000100001100000000000000000000000010011011000000000000000000000000111110010000000000000000000000010101110100000000000000000000000110111110000000000000000000000010000011100000000000000000000000100100001100000000000000000000001001000011000000000000000000000010000011100000000000000000000000011011111000000000000000000000000101011101000000000000000000000000111110010000000000000000000000001001101100000000000000000000000001001110000000000000000000000000000101011111111111111111111111111111001111111111111111111111111111100010111111111111111111111111110111111111111111111111111111111110010111111111111111111111111111101101111111111111111111111111111101001111111111111111111111111111101011111111111111111111111111111101
+   Generated name = fir_32s_8s_Z2
+Running optimization stage 1 on fir_32s_8s_Z2 .......
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":59:4:59:7|Latch generated from always block for signal y_out_din[31:0]; possible missing assignment in an if or case statement.
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":59:4:59:7|always_comb does not infer combinatorial logic
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":3:7:3:9|Synthesizing module fir in library work.
+
+	NUM_TAPS=32'b00000000000000000000000000100000
+	DECIMATION=32'b00000000000000000000000000000001
+	COEFFICIENTS=1024'b0000000000000000000000000000000000000000000000000000000000000000111111111111111111111111111111001111111111111111111111111111100111111111111111111111111111111110000000000000000000000000000010000000000000000000000000000000110000000000000000000000000000000010000000000000000000000000000000110000000000000000000000000001111000000000000000000000000000110000111111111111111111111111111111001111111111111111111111111000110011111111111111111111111101011000111111111111111111111111110000110000000000000000000000001000101000000000000000000000000010001010111111111111111111111111110000111111111111111111111111110101100011111111111111111111111110001100111111111111111111111111111111000000000000000000000000000011000000000000000000000000000000011110000000000000000000000000000000110000000000000000000000000000001000000000000000000000000000001100000000000000000000000000000010001111111111111111111111111111111011111111111111111111111111111001111111111111111111111111111111000000000000000000000000000000000000000000000000000000000000000000
+   Generated name = fir_32s_1s_Z3
+Running optimization stage 1 on fir_32s_1s_Z3 .......
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":59:4:59:7|Latch generated from always block for signal y_out_din[31:0]; possible missing assignment in an if or case statement.
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":59:4:59:7|always_comb does not infer combinatorial logic
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":3:7:3:9|Synthesizing module fir in library work.
+
+	NUM_TAPS=32'b00000000000000000000000000100000
+	DECIMATION=32'b00000000000000000000000000000001
+	COEFFICIENTS=1024'b0000000000000000000000000000111000000000000000000000000000011111000000000000000000000000001101000000000000000000000000000100100000000000000000000000000001001110000000000000000000000000001101101111111111111111111111111111100011111111111111111111111110011000111111111111111111111111001011011111111111111111111111101101101011111111111111111111111011000011111111111111111111111110111111101111111111111111111111111000101000000000000000000000000001001010000000000000000000000001000011110000000000000000000000011010000100000000000000000000000110100001000000000000000000000001000011110000000000000000000000000100101011111111111111111111111110001010111111111111111111111110111111101111111111111111111111101100001111111111111111111111111011011010111111111111111111111111001011011111111111111111111111111001100011111111111111111111111111111000000000000000000000000000001101100000000000000000000000000100111000000000000000000000000001001000000000000000000000000000001101000000000000000000000000000001111100000000000000000000000000001110
+   Generated name = fir_32s_1s_Z4
+Running optimization stage 1 on fir_32s_1s_Z4 .......
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":59:4:59:7|Latch generated from always block for signal y_out_din[31:0]; possible missing assignment in an if or case statement.
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":59:4:59:7|always_comb does not infer combinatorial logic
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":3:7:3:14|Synthesizing module multiply in library work.
+
+	DATA_SIZE=32'b00000000000000000000000000100000
+   Generated name = multiply_32s
+Running optimization stage 1 on multiply_32s .......
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":42:4:42:7|Latch generated from always block for signal dout[31:0]; possible missing assignment in an if or case statement.
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":42:4:42:7|Latch generated from always block for signal y_in_rd_en; possible missing assignment in an if or case statement.
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":42:4:42:7|Latch generated from always block for signal x_in_rd_en; possible missing assignment in an if or case statement.
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":42:4:42:7|always_comb does not infer combinatorial logic
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":42:4:42:7|always_comb does not infer combinatorial logic
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":3:7:3:9|Synthesizing module fir in library work.
+
+	NUM_TAPS=32'b00000000000000000000000000100000
+	DECIMATION=32'b00000000000000000000000000000001
+	COEFFICIENTS=1024'b1111111111111111111111111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000100000000000000000000000000000010000000000000000000000000000000101100000000000000000000000000001100000000000000000000000000000010001111111111111111111111111111111111111111111111111111111111101110111111111111111111111111110101111111111111111111111111111011101111111111111111111111111110011111111111111111111111111111100001111111111111111111111111110111011011111111111111111111111101110110111111111111111111111111100001111111111111111111111111111001111111111111111111111111111110111011111111111111111111111111110101111111111111111111111111111110111011111111111111111111111111111111000000000000000000000000000010000000000000000000000000000000110000000000000000000000000000001011000000000000000000000000000010000000000000000000000000000000010000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000011111111111111111111111111111111
+   Generated name = fir_32s_1s_Z5
+Running optimization stage 1 on fir_32s_1s_Z5 .......
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":59:4:59:7|Latch generated from always block for signal y_out_din[31:0]; possible missing assignment in an if or case statement.
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":59:4:59:7|always_comb does not infer combinatorial logic
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":3:7:3:9|Synthesizing module fir in library work.
+
+	NUM_TAPS=32'b00000000000000000000000000100000
+	DECIMATION=32'b00000000000000000000000000001000
+	COEFFICIENTS=1024'b1111111111111111111111111111110111111111111111111111111111111010111111111111111111111111111101001111111111111111111111111110110111111111111111111111111111100101111111111111111111111111110111111111111111111111111111111110001011111111111111111111111111110011000000000000000000000000000101010000000000000000000000000100111000000000000000000000000010011011000000000000000000000000111110010000000000000000000000010101110100000000000000000000000110111110000000000000000000000010000011100000000000000000000000100100001100000000000000000000001001000011000000000000000000000010000011100000000000000000000000011011111000000000000000000000000101011101000000000000000000000000111110010000000000000000000000001001101100000000000000000000000001001110000000000000000000000000000101011111111111111111111111111111001111111111111111111111111111100010111111111111111111111111110111111111111111111111111111111110010111111111111111111111111111101101111111111111111111111111111101001111111111111111111111111111101011111111111111111111111111111101
+   Generated name = fir_32s_8s_Z6
+Running optimization stage 1 on fir_32s_8s_Z6 .......
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":59:4:59:7|Latch generated from always block for signal y_out_din[31:0]; possible missing assignment in an if or case statement.
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":59:4:59:7|always_comb does not infer combinatorial logic
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/add.sv":3:7:3:9|Synthesizing module add in library work.
+@E: CS153 :"/home/mwp8699/CE387-Assignments/final_project/sv/add.sv":45:18:45:18|Can't mix blocking and non-blocking assignments to a variable
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/sub.sv":3:7:3:9|Synthesizing module sub in library work.
+@E: CS153 :"/home/mwp8699/CE387-Assignments/final_project/sv/sub.sv":45:19:45:19|Can't mix blocking and non-blocking assignments to a variable
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":3:7:3:9|Synthesizing module iir in library work.
+
+	NUM_TAPS=32'b00000000000000000000000000000010
+	DECIMATION=32'b00000000000000000000000000000001
+	IIR_Y_COEFFS=64'b0000000000000000000000000000000011111111111111111111110101100110
+	IIR_X_COEFFS=64'b0000000000000000000000001011001000000000000000000000000010110010
+   Generated name = iir_2s_1s_Z7
+@W: CG133 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":37:24:37:33|Object y1_product is declared but not assigned. Either assign a value or remove the declaration.
+@W: CG133 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":38:24:38:33|Object y2_product is declared but not assigned. Either assign a value or remove the declaration.
+Running optimization stage 1 on iir_2s_1s_Z7 .......
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":80:4:80:7|Latch generated from always block for signal y_out_din[31:0]; possible missing assignment in an if or case statement.
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":80:4:80:7|always_comb does not infer combinatorial logic
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":3:7:3:10|Synthesizing module gain in library work.
+
+	DATA_SIZE=32'b00000000000000000000000000100000
+	BITS=32'b00000000000000000000000000001010
+   Generated name = gain_32s_10s
+Running optimization stage 1 on gain_32s_10s .......
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|Latch generated from always block for signal dout[31:0]; possible missing assignment in an if or case statement.
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|Latch generated from always block for signal in_rd_en; possible missing assignment in an if or case statement.
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|Latch generated from always block for signal out_wr_en; possible missing assignment in an if or case statement.
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|always_comb does not infer combinatorial logic
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|always_comb does not infer combinatorial logic
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv":3:7:3:14|Synthesizing module fm_radio in library work.
+Running optimization stage 1 on fm_radio .......
+Running optimization stage 2 on fm_radio .......
+Running optimization stage 2 on gain_32s_10s .......
+Running optimization stage 2 on iir_2s_1s_Z7 .......
+@N: CL201 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":40:0:40:8|Trying to extract state machine for register state.
 Extracted state machine for register state
 State machine has 4 reachable states with original encodings of:
    00
    01
    10
    11
+Running optimization stage 2 on fir_32s_8s_Z6 .......
+@N: CL201 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":31:0:31:8|Trying to extract state machine for register state.
+Extracted state machine for register state
+State machine has 3 reachable states with original encodings of:
+   00
+   01
+   10
+@N: CL135 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":90:26:90:49|Found sequential shift shift_reg with address depth of 32 words and data bit width of 32.
+Running optimization stage 2 on fir_32s_1s_Z5 .......
+@N: CL201 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":31:0:31:8|Trying to extract state machine for register state.
+Extracted state machine for register state
+State machine has 3 reachable states with original encodings of:
+   00
+   01
+   10
+@N: CL135 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":90:26:90:49|Found sequential shift shift_reg with address depth of 32 words and data bit width of 32.
+Running optimization stage 2 on multiply_32s .......
+Running optimization stage 2 on fir_32s_1s_Z4 .......
+@N: CL201 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":31:0:31:8|Trying to extract state machine for register state.
+Extracted state machine for register state
+State machine has 3 reachable states with original encodings of:
+   00
+   01
+   10
+@N: CL135 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":90:26:90:49|Found sequential shift shift_reg with address depth of 32 words and data bit width of 32.
+Running optimization stage 2 on fir_32s_1s_Z3 .......
+@N: CL201 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":31:0:31:8|Trying to extract state machine for register state.
+Extracted state machine for register state
+State machine has 3 reachable states with original encodings of:
+   00
+   01
+   10
+@N: CL135 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":90:26:90:49|Found sequential shift shift_reg with address depth of 32 words and data bit width of 32.
+Running optimization stage 2 on fir_32s_8s_Z2 .......
+@N: CL201 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":31:0:31:8|Trying to extract state machine for register state.
+Extracted state machine for register state
+State machine has 3 reachable states with original encodings of:
+   00
+   01
+   10
+@N: CL135 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":90:26:90:49|Found sequential shift shift_reg with address depth of 32 words and data bit width of 32.
+Running optimization stage 2 on demodulate .......
+@N: CL201 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":41:0:41:8|Trying to extract state machine for register state.
+Extracted state machine for register state
+State machine has 5 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+@W: CL279 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":41:0:41:8|Pruning register bits 31 to 22 of demod_temp[31:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+Running optimization stage 2 on qarctan .......
+@W: CL279 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":58:0:58:8|Pruning register bits 63 to 32 of dividend[63:10]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+Running optimization stage 2 on div_64s_32s .......
+@N: CL201 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":32:4:32:12|Trying to extract state machine for register state.
+Extracted state machine for register state
+State machine has 5 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+Running optimization stage 2 on fir_cmplx_20s_1s_Z1 .......
+@N: CL135 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":136:30:136:57|Found sequential shift realshift_reg with address depth of 20 words and data bit width of 32.
+@N: CL135 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":137:30:137:57|Found sequential shift imagshift_reg with address depth of 20 words and data bit width of 32.
+@N: CL201 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":48:0:48:8|Trying to extract state machine for register state.
+Extracted state machine for register state
+State machine has 3 reachable states with original encodings of:
+   00
+   01
+   10
+Running optimization stage 2 on fifo_32s_1024s_11s .......
+Running optimization stage 2 on read_iq_32s_16s_8s_10s .......
+Running optimization stage 2 on fifo_8s_1024s_11s .......
 
 For a summary of runtime and memory usage per design unit, please see file:
 ==========================================================

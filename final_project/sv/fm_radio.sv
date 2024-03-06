@@ -4,12 +4,15 @@ module fm_radio #(
     parameter DATA_SIZE = 32,
     parameter CHAR_SIZE = 16,
     parameter BYTE_SIZE = 8,
-    parameter BITS = 10, 
-    parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] COEFFICIENTS_REAL = '{
+    parameter BITS = 10,
+    parameter GAIN = 1,
+
+    parameter CHANNEL_COEFF_TAPS = 20,
+    parameter logic signed [0:CHANNEL_COEFF_TAPS-1] [DATA_SIZE-1:0] CHANNEL_COEFFICIENTS_REAL = '{
 	32'h00000001, 32'h00000008, 32'hfffffff3, 32'h00000009, 32'h0000000b, 32'hffffffd3, 32'h00000045, 32'hffffffd3, 
 	32'hffffffb1, 32'h00000257, 32'h00000257, 32'hffffffb1, 32'hffffffd3, 32'h00000045, 32'hffffffd3, 32'h0000000b, 
 	32'h00000009, 32'hfffffff3, 32'h00000008, 32'h00000001},
-    parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0]  COEFFICIENTS_IMAG = '{
+    parameter logic signed [0:CHANNEL_COEFF_TAPS-1] [DATA_SIZE-1:0]  CHANNEL_COEFFICIENTS_IMAG = '{
 	32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 
 	32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 
 	32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000},
@@ -23,7 +26,7 @@ module fm_radio #(
     }, 
 
     parameter AUDIO_LMR_COEFF_TAPS = 32,
-    parameter logic signed [0:AUDIO_LMR_COEFF_TAPS] [DATA_SIZE-1:0] AUDIO_LMR_COEFFS = '{
+    parameter logic signed [0:AUDIO_LMR_COEFF_TAPS-1] [DATA_SIZE-1:0] AUDIO_LMR_COEFFS = '{
         32'hfffffffd, 32'hfffffffa, 32'hfffffff4, 32'hffffffed, 32'hffffffe5, 32'hffffffdf, 32'hffffffe2, 32'hfffffff3, 
         32'h00000015, 32'h0000004e, 32'h0000009b, 32'h000000f9, 32'h0000015d, 32'h000001be, 32'h0000020e, 32'h00000243, 
         32'h00000243, 32'h0000020e, 32'h000001be, 32'h0000015d, 32'h000000f9, 32'h0000009b, 32'h0000004e, 32'h00000015, 
@@ -55,8 +58,8 @@ module fm_radio #(
     },
 
     parameter IIR_COEFF_TAPS = 2,
-    parameter logic signed [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] IIR_X_COEFFS = '{},
-    parameter logic signed [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] IIR_Y_COEFFS = '{},
+    parameter logic signed [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] IIR_X_COEFFS = '{32'h000000b2, 32'h000000b2},
+    parameter logic signed [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] IIR_Y_COEFFS = '{32'h00000000, 32'hfffffd66},
     
     parameter FIFO_BUFFER_SIZE = 1024,
     parameter AUDIO_DECIMATION = 8
@@ -153,7 +156,7 @@ logic q_fifo_empty;
 
 fifo #(
     .FIFO_DATA_WIDTH(DATA_SIZE),
-    .FIFO_BUFFER_SIZE(.FIFO_BUFFER_SIZE)
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
 ) q_fifo_inst (
     .reset(reset),
     .wr_clk(clock),
@@ -178,10 +181,10 @@ logic imag_out_full;
 logic [DATA_SIZE-1:0] imag_out_din;
 
 fir_cmplx #(
-    .NUM_TAPS(NUM_TAPS),
-    .DECIMATION(DECIMATION),
-    .COEFFICIENTS_REAL(COEFFICIENTS_REAL),
-    .COEFFICIENTS_IMAG(COEFFICIENTS_IMAG)
+    .NUM_TAPS(CHANNEL_COEFF_TAPS),
+    .DECIMATION(1),
+    .COEFFICIENTS_REAL(CHANNEL_COEFFICIENTS_REAL),
+    .COEFFICIENTS_IMAG(CHANNEL_COEFFICIENTS_IMAG)
 ) fir_cmplx_inst (
     .clock(clock),
     .reset(reset),
@@ -263,8 +266,15 @@ demodulate #(
     .out_fifo_full(demod_out_full)
 );
 
+logic bp_lmr_fir_demod_rd_en;
+
 // Wires from DEMOD_FIFO to FIRs
 logic demod_rd_en;
+logic lpr_fir_demod_rd_en;
+logic bp_pilot_demod_rd_en;
+
+assign demod_rd_en = lpr_fir_demod_rd_en && bp_lmr_fir_demod_rd_en && bp_pilot_demod_rd_en;
+
 logic [DATA_SIZE-1:0] demod_out_dout;
 logic demod_empty;
 
@@ -297,14 +307,17 @@ fir #(
     .reset(reset),
     .x_in_dout(demod_out_dout),
     .x_in_empty(demod_empty),
-    .x_in_rd_en(demod_rd_en),
+    .x_in_rd_en(lpr_fir_demod_rd_en),
     .y_out_wr_en(lpr_out_wr_en),
     .y_out_full(lpr_out_full),
     .y_out_din(lpr_out_din)
 );
 
 // Wires from LPR_FIFO to ADD or SUB
+logic add_lpr_rd_en;
+logic sub_lpr_rd_en;
 logic lpr_rd_en;
+assign lpr_rd_en = add_lpr_rd_en && sub_lpr_rd_en;
 logic lpr_empty;
 logic [DATA_SIZE-1:0] lpr_out_dout;
 
@@ -338,7 +351,7 @@ fir #(
     .reset(reset),
     .x_in_dout(demod_out_dout),
     .x_in_empty(demod_empty),
-    .x_in_rd_en(demod_rd_en),
+    .x_in_rd_en(bp_lmr_fir_demod_rd_en),
     .y_out_wr_en(bp_lmr_out_wr_en),
     .y_out_full(bp_lmr_out_full),
     .y_out_din(bp_lmr_out_din)
@@ -379,14 +392,18 @@ fir #(
     .reset(reset),
     .x_in_dout(demod_out_dout),
     .x_in_empty(demod_empty),
-    .x_in_rd_en(demod_rd_en),
+    .x_in_rd_en(bp_pilot_demod_rd_en),
     .y_out_wr_en(bp_pilot_wr_en),
     .y_out_full(bp_pilot_out_full),
     .y_out_din(bp_pilot_out_din)
 );
 
 // Wires from BP_PILOT_FIFO to MULTIPLY
+logic x_bp_pilot_rd_en;
+logic y_bp_pilot_rd_en;
+
 logic bp_pilot_rd_en;
+assign bp_pilot_rd_en = x_bp_pilot_rd_en && y_bp_pilot_rd_en;
 logic bp_pilot_empty;
 logic [DATA_SIZE-1:0] bp_pilot_out_dout;
 
@@ -415,8 +432,8 @@ multiply #(
 ) square_bp_pilot_inst (
     .clock(clock),
     .reset(reset),
-    .x_in_rd_en(bp_pilot_rd_en),
-    .y_in_rd_en(bp_pilot_rd_en),
+    .x_in_rd_en(x_bp_pilot_rd_en),
+    .y_in_rd_en(y_bp_pilot_rd_en),
     .x_in_empty(bp_pilot_empty),
     .y_in_empty(bp_pilot_empty),
     .out_wr_en(square_bp_pilot_wr_en),
@@ -542,14 +559,19 @@ fir #(
     .reset(reset),
     .x_in_dout(mult_demod_lmr_out_dout),
     .x_in_empty(mult_demod_lmr_empty),
-    .x_in_rd_en(mult_demod_lmr_empty),
+    .x_in_rd_en(mult_demod_lmr_rd_en),
     .y_out_wr_en(lmr_out_wr_en),
     .y_out_full(lmr_out_full),
     .y_out_din(lmr_out_din)
 );
 
 // Wires from LMR_FIFO to ADD_INST
+logic add_lmr_rd_en;
+logic sub_lmr_rd_en;
+
 logic lmr_rd_en;
+assign lmr_rd_en = add_lmr_rd_en && sub_lmr_rd_en;
+
 logic lmr_empty;
 logic [DATA_SIZE-1:0] lmr_out_dout;
 
@@ -578,10 +600,10 @@ add #() add_inst (
     .reset(reset),
     .x_in_dout(lpr_out_dout),
     .x_in_empty(lpr_empty),
-    .x_in_rd_en(lpr_rd_en),
+    .x_in_rd_en(add_lpr_rd_en),
     .y_in_dout(lmr_out_dout),
     .y_in_empty(lmr_empty),
-    .y_in_rd_en(lmr_rd_en),
+    .y_in_rd_en(add_lmr_rd_en),
     .out_wr_en(left_wr_en),
     .out_full(left_full),
     .out_din(left_out_din)
@@ -617,10 +639,10 @@ sub #() sub_inst (
     .reset(reset),
     .x_in_dout(lpr_out_dout),
     .x_in_empty(lpr_empty),
-    .x_in_rd_en(lpr_rd_en),
+    .x_in_rd_en(sub_lpr_rd_en),
     .y_in_dout(lmr_out_dout),
     .y_in_empty(lmr_empty),
-    .y_in_rd_en(lmr_rd_en),
+    .y_in_rd_en(sub_lmr_rd_en),
     .out_wr_en(right_wr_en),
     .out_full(right_full),
     .out_din(right_out_din)
@@ -652,7 +674,7 @@ logic left_deemph_full;
 logic [DATA_SIZE-1:0] left_deemph_out_din;
 
 iir #(
-    .NUM_TAPS(IIR_COEFF_TAPS)
+    .NUM_TAPS(IIR_COEFF_TAPS),
     .DECIMATION(1),
     .IIR_X_COEFFS(IIR_X_COEFFS),
     .IIR_Y_COEFFS(IIR_Y_COEFFS)
@@ -693,7 +715,7 @@ logic right_deemph_full;
 logic [DATA_SIZE-1:0] right_deemph_out_din;
 
 iir #(
-    .NUM_TAPS(IIR_COEFF_TAPS)
+    .NUM_TAPS(IIR_COEFF_TAPS),
     .DECIMATION(1),
     .IIR_X_COEFFS(IIR_X_COEFFS),
     .IIR_Y_COEFFS(IIR_Y_COEFFS)
