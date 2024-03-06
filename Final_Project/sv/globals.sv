@@ -9,13 +9,14 @@ localparam DATA_SIZE = 32;
 localparam DATA_SIZE_2 = 64;
 localparam MAX_VALUE = '1 >> 1;
 localparam MIN_VALUE = 1 << (DATA_SIZE-1);
-localparam string FILE_IN_FILE = "../test/usrp.dat";
-localparam string FILE_LEFT_OUT_FILE = "../source/output_files/fm_radio_left_sim_out.txt";
-localparam string FILE_RIGHT_OUT_FILE = "../source/output_files/fm_radio_right_sim_out.txt";
-localparam string FILE_LEFT_CMP_FILE = "../source/text_files/gain_left.txt";
-localparam string FILE_RIGHT_OUT_FILE = "../source/text_files/gain_right.txt";
+// localparam string FILE_IN_FILE = "../test/usrp.dat";
+// localparam string FILE_LEFT_OUT_FILE = "../source/output_files/fm_radio_left_sim_out.txt";
+// localparam string FILE_RIGHT_OUT_FILE = "../source/output_files/fm_radio_right_sim_out.txt";
+// localparam string FILE_LEFT_CMP_FILE = "../source/text_files/gain_left.txt";
+// localparam string FILE_RIGHT_OUT_FILE = "../source/text_files/gain_right.txt";
+localparam GAIN = 1;
 
-static const int CHANNEL_COEFF_TAPS = 20;
+parameter CHANNEL_COEFF_TAPS = 20;
 
 parameter logic signed [0:CHANNEL_COEFF_TAPS-1] [DATA_SIZE-1:0] CHANNEL_COEFFICIENTS_REAL = '{
     32'h00000001, 32'h00000008, 32'hfffffff3, 32'h00000009, 32'h0000000b, 32'hffffffd3, 32'h00000045, 32'hffffffd3, 
@@ -38,7 +39,7 @@ parameter logic signed [0:AUDIO_LPR_COEFF_TAPS-1] [DATA_SIZE-1:0] AUDIO_LPR_COEF
 
 parameter AUDIO_LMR_COEFF_TAPS = 32;
 
-parameter logic signed [0:AUDIO_LMR_COEFF_TAPS] [DATA_SIZE-1:0] AUDIO_LMR_COEFFS = '{
+parameter logic signed [0:AUDIO_LMR_COEFF_TAPS-1] [DATA_SIZE-1:0] AUDIO_LMR_COEFFS = '{
     32'hfffffffd, 32'hfffffffa, 32'hfffffff4, 32'hffffffed, 32'hffffffe5, 32'hffffffdf, 32'hffffffe2, 32'hfffffff3, 
     32'h00000015, 32'h0000004e, 32'h0000009b, 32'h000000f9, 32'h0000015d, 32'h000001be, 32'h0000020e, 32'h00000243, 
     32'h00000243, 32'h0000020e, 32'h000001be, 32'h0000015d, 32'h000000f9, 32'h0000009b, 32'h0000004e, 32'h00000015, 
