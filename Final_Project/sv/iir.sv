@@ -117,13 +117,13 @@ always_comb begin
             if (taps_counter == 0) begin
                 y1_sum_c = $signed(y1_sum) + MULTIPLY_ROUNDING(xtap_value,IIR_X_COEFFS[NUM_TAPS-1]);
                 y2_sum_c = $signed(y2_sum) + MULTIPLY_ROUNDING(ytap_value, IIR_Y_COEFFS[NUM_TAPS-1]);
-                // y1_product = MULTIPLY_ROUNDING_NODEQUANTIZE(xtap_value,IIR_X_COEFFS[NUM_TAPS-1]);
-                // y2_product = MULTIPLY_ROUNDING_NODEQUANTIZE(ytap_value,IIR_Y_COEFFS[NUM_TAPS-1]);
+                // y1_sum_c = $signed(y1_sum) + DEQUANTIZE($signed(xtap_value) * $signed(IIR_X_COEFFS[NUM_TAPS-1]));
+                // y2_sum_c = $signed(y2_sum) + DEQUANTIZE($signed(ytap_value) * $signed(IIR_Y_COEFFS[NUM_TAPS-1]));
             end else begin
                 y1_sum_c = $signed(y1_sum) + MULTIPLY_ROUNDING(xtap_value,IIR_X_COEFFS[taps_counter-1]);
                 y2_sum_c = $signed(y2_sum) + MULTIPLY_ROUNDING(ytap_value, IIR_Y_COEFFS[taps_counter-1]);
-                // y2_product = MULTIPLY_ROUNDING_NODEQUANTIZE(ytap_value,IIR_Y_COEFFS[taps_counter-1]);
-                // y1_product = MULTIPLY_ROUNDING_NODEQUANTIZE(xtap_value,IIR_X_COEFFS[taps_counter-1]);
+                // y1_sum_c = $signed(y1_sum) + DEQUANTIZE($signed(xtap_value) * $signed(IIR_X_COEFFS[taps_counter-1]));
+                // y2_sum_c = $signed(y2_sum) + DEQUANTIZE($signed(ytap_value) * $signed(IIR_Y_COEFFS[taps_counter-1]));
             end
             // y1_sum_c = $signed(y1_sum) + DEQUANTIZE(y1_product);
             // y2_sum_c = $signed(y2_sum) + DEQUANTIZE(y2_product);

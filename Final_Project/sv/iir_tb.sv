@@ -146,7 +146,7 @@ initial begin : data_write_process
                 out_errors += 1;
                 $write("@ %0t: (%0d): ERROR: %x != %x.\n", $time, i+1, y_out_dout, cmp_out);
             end else begin
-                $write("@ %0t: (%0d): CORRECT CALCULATION: %x != %x.\n", $time, i+1, y_out_dout, cmp_out);
+                $write("@ %0t: (%0d): CORRECT CALCULATION: %x == %x.\n", $time, i+1, y_out_dout, cmp_out);
             end
             i++;
         end

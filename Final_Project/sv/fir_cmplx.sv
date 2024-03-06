@@ -32,8 +32,8 @@ logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] imagshift_reg;
 logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] imagshift_reg_c;
 logic [$clog2(DECIMATION)-1:0] decimation_counter, decimation_counter_c;
 logic [$clog2(NUM_TAPS)-1:0] taps_counter, taps_counter_c;
-logic [DATA_SIZE_2-1:0] yreal_sum, yreal_sum_c; 
-logic [DATA_SIZE_2-1:0] yimag_sum, yimag_sum_c;
+logic [DATA_SIZE-1:0] yreal_sum, yreal_sum_c; 
+logic [DATA_SIZE-1:0] yimag_sum, yimag_sum_c;
 
 // Tap values
 logic [DATA_SIZE-1:0] realtap_value, realtap_value_c;
