@@ -153,6 +153,11 @@ fir_cmplx #(
     .yimag_out_din(imag_out_din)
 );
 
+// Wires from REAL_FIFO to DEMODULATE
+logic [DATA_SIZE-1:0] real_out_dout;
+logic real_rd_en;
+logic real_empty;
+
 fifo #(
     .FIFO_DATA_WIDTH(DATA_SIZE),
     .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
