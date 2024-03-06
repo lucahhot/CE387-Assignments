@@ -33,8 +33,8 @@ always_comb begin
     x_in_rd_en = 1'b0;
     y_in_rd_en = 1'b0;
     out_wr_en = 1'b0;
-    next_state <= state;
-    sum_c <= sum;
+    next_state = state;
+    sum_c = sum;
 
     case(state)
 
