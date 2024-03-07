@@ -30,7 +30,7 @@ logic signed [DATA_SIZE-1:0] right_audio_out, left_audio_out;
 // fm_radio_test signals
 logic mult_demod_lmr_full, demod_out_full;
 logic mult_demod_lmr_wr_en, demod_out_wr_en;
-logic [DATA_SIZE-1:0] mult_demod_lmr_out_din, demod_out_din;
+logic signed [DATA_SIZE-1:0] mult_demod_lmr_out_din, demod_out_din;
 
 fm_radio_test #(
     .DATA_SIZE(DATA_SIZE),
@@ -197,7 +197,7 @@ initial begin : data_write_process
     left_audio_rd_en = 1'b0;
 
     i = 0;
-    while (i < 100) begin
+    while (i < 100/AUDIO_DECIMATION) begin
         @(negedge clock);
         right_audio_rd_en = 1'b0;
         left_audio_rd_en = 1'b0;
@@ -212,12 +212,12 @@ initial begin : data_write_process
             if (right_cmp_out != right_audio_out) begin
                 out_errors += 1;
                 $write("@ %0t: (%0d): RIGHT AUDIO ERROR: %x != %x.\n", $time, i+1, right_audio_out, right_cmp_out);
-            end
+            end 
 
             if (left_cmp_out != left_audio_out) begin
                 out_errors += 1;
                 $write("@ %0t: (%0d): LEFT AUDIO ERROR: %x != %x.\n", $time, i+1, left_audio_out, left_cmp_out);
-            end
+            end 
             i++;
         end
     end
