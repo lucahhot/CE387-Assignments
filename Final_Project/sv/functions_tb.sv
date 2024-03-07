@@ -19,6 +19,29 @@ logic   in_write_done = '0;
 logic   out_read_done = '0;
 integer out_errors    = '0;
 
+logic start_div = '0;
+logic signed [DATA_SIZE-1:0] dividend;
+logic signed [DATA_SIZE-1:0] divisor;
+logic signed [DATA_SIZE-1:0] div_quotient_out;
+logic signed [DATA_SIZE-1:0] div_remainder_out;
+logic div_overflow_out;
+logic div_valid_out;
+
+div #(
+    .DIVIDEND_WIDTH(DATA_SIZE),
+    .DIVISOR_WIDTH(DATA_SIZE)
+) divider_inst (
+    .clk(clock),
+    .reset(reset),
+    .valid_in(start_div),
+    .dividend(dividend),
+    .divisor(divisor),
+    .quotient(div_quotient_out),
+    .remainder(div_remainder_out),
+    .overflow(div_overflow_out),
+    .valid_out(div_valid_out)
+);
+
 ////////////////////////////////////////////////////////
 // The following functions are NOT synthesizable      //
 ////////////////////////////////////////////////////////
@@ -86,22 +109,21 @@ initial begin : x_write
 end
 
 initial begin : data_write_process
-   
-    logic signed  [DATA_SIZE-1:0] x_in;
-    logic  [DATA_SIZE-1:0] sum;
-    logic  [DATA_SIZE_2-1:0] temp_sum;
     
     @(negedge reset);
     @(negedge clock);
 
-    x_in = 32'hffffbc8e;
-    // x_in = 32'hffffffff;
-    sum = DEQUANTIZE(x_in);
-    $display("Unquantized value = %x", x_in);
-    $display("Quantized value = %x", sum);
-    $display("Quantized value = %x", $signed(x_in) / 1024);
-    $display("Quantized value = %x", DATA_SIZE'($signed(x_in) >>> $signed(10)));
-   
+    start_div = 1'b1;
+    dividend = -9170000;
+    divisor = 10;
+    wait(div_valid_out);
+
+    $display("Dividend = %0d", dividend);
+    $display("Divisor = %0d", divisor);
+
+    $display("Quotient = %0d", div_quotient_out);
+    $display("Remainder = %0d", div_remainder_out);
+    $display("Overflow = %b", div_overflow_out);
 
     @(negedge clock);
     out_read_done = 1'b1;

@@ -92,8 +92,8 @@ function logic signed [DATA_SIZE-1:0] DEQUANTIZE(logic signed [DATA_SIZE-1:0] i)
 endfunction
 
 // QUANTIZE function
-function logic signed [DATA_SIZE_2-1:0] QUANTIZE(logic signed [DATA_SIZE_2-1:0] i);
-    QUANTIZE = i << BITS;
+function logic signed [DATA_SIZE-1:0] QUANTIZE(logic signed [DATA_SIZE-1:0] i);
+    QUANTIZE = DATA_SIZE'(i << BITS);
 endfunction
 
 `endif

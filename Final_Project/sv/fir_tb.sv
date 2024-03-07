@@ -125,7 +125,7 @@ initial begin : data_write_process
     @(negedge reset);
     @(negedge clock);
 
-    $display("@ %0t: Comparing file %s...", $time, FILE_OUT_NAME);
+    $display("@ %0t: Comparing file %s...", $time, FILE_CMP_NAME);
     out_file = $fopen(FILE_OUT_NAME, "wb");
     cmp_file = $fopen(FILE_CMP_NAME, "rb");
     y_out_rd_en = 1'b0;

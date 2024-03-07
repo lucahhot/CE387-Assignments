@@ -7,8 +7,10 @@ make -f Makefile.questa dpi_lib32 LIBDIR=lib
  
 # vsim -c -do functions_sim.do
 
-vsim -c -do fir_sim.do
+# vsim -c -do fir_sim.do
 
 # vsim -c -do fir_cmplx_sim.do
 
 # vsim -c -do iir_sim.do
+
+vsim -c -do demod_sim.do
