@@ -14,18 +14,8 @@ logic reset = '0;
 logic start = '0;
 logic done  = '0;
 
-localparam NUM_TAPS = 32;
-localparam FIFO_BUFFER_SIZE = 1024;
+localparam FIFO_BUFFER_SIZE = 16;
 localparam DECIMATION = 8;
-localparam UNROLL_FACTOR = 1;
-
-// Test 32-bit paramater values
-parameter logic signed [DATA_SIZE-1:0] [0:NUM_TAPS-1] AUDIO_LPR_COEFFS = '{
-	32'hfffffffd, 32'hfffffffa, 32'hfffffff4, 32'hffffffed, 32'hffffffe5, 32'hffffffdf, 32'hffffffe2, 32'hfffffff3, 
-	32'h00000015, 32'h0000004e, 32'h0000009b, 32'h000000f9, 32'h0000015d, 32'h000001be, 32'h0000020e, 32'h00000243, 
-	32'h00000243, 32'h0000020e, 32'h000001be, 32'h0000015d, 32'h000000f9, 32'h0000009b, 32'h0000004e, 32'h00000015, 
-	32'hfffffff3, 32'hffffffe2, 32'hffffffdf, 32'hffffffe5, 32'hffffffed, 32'hfffffff4, 32'hfffffffa, 32'hfffffffd
-};
 
 logic x_in_full;
 logic x_in_wr_en = '0;
@@ -40,10 +30,9 @@ logic   out_read_done = '0;
 integer out_errors    = '0;
 
 fir_top #(
-    .NUM_TAPS(NUM_TAPS),
+    .NUM_TAPS(AUDIO_LPR_COEFF_TAPS),
     .DECIMATION(DECIMATION),
     .COEFFICIENTS(AUDIO_LPR_COEFFS),
-    .UNROLL_FACTOR(UNROLL_FACTOR),
     .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
 ) fir_top_inst (
     .clock(clock),
@@ -98,7 +87,7 @@ end
 initial begin : data_read_process
 
     int in_file;
-    int i, j;
+    int i = 0, j;
 
     @(negedge reset);
     $display("@ %0t: Loading file %s...", $time, FILE_IN_NAME);
@@ -107,14 +96,15 @@ initial begin : data_read_process
     x_in_wr_en = 1'b0;
     @(negedge clock);
 
-    // Only read the first 100 values of data
-    for (int i = 0; i < 100; i++) begin
+    // Only read the first 200 values of data
+    while (i < 200) begin
  
         @(negedge clock);
         if (x_in_full == 1'b0) begin
             x_in_wr_en = 1'b1;
             j = $fscanf(in_file, "%h", x_in_din);
             // $display("(%0d) Input value %x",i,x_in_din);
+            i++;
         end else
             x_in_wr_en = 1'b0;
     end
@@ -141,7 +131,7 @@ initial begin : data_write_process
     y_out_rd_en = 1'b0;
 
     i = 0;
-    while (i < 100/DECIMATION) begin
+    while (i < 200/DECIMATION) begin
         @(negedge clock);
         y_out_rd_en = 1'b0;
         if (y_out_empty == 1'b0) begin
@@ -151,7 +141,8 @@ initial begin : data_write_process
             if (cmp_out != y_out_dout) begin
                 out_errors += 1;
                 $write("@ %0t: (%0d): ERROR: %x != %x.\n", $time, i+1, y_out_dout, cmp_out);
-            end
+            end else 
+                $write("@ %0t: (%0d): CORRECT RESULT: %x == %x.\n", $time, i+1, y_out_dout, cmp_out);
             i++;
         end
     end

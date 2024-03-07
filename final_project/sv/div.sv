@@ -1,6 +1,8 @@
+`include "globals.sv"
+
 module div #(
-    parameter DIVIDEND_WIDTH = 64,
-    parameter DIVISOR_WIDTH = 32
+    parameter DIVIDEND_WIDTH = DATA_SIZE,
+    parameter DIVISOR_WIDTH = DATA_SIZE
 ) (
     input  logic                        clk,
     input  logic                        reset,
@@ -15,96 +17,148 @@ module div #(
 
     // Define the state machine states
     typedef enum logic [2:0] {
-        INIT, IDLE, B_EQ_1, LOOP, EPILOGUE, DONE
+        INIT, B_EQ_1, GET_MSB, LOOP, LOOP2,  EPILOGUE, DONE
     } state_t;
-    state_t state, state_c;
+    state_t state, next_state;
 
     // Define internal signals
-    logic [DIVIDEND_WIDTH-1:0] a, a_c;
-    logic [DIVISOR_WIDTH-1:0] b, b_c;
-    logic [DIVIDEND_WIDTH-1:0] q, q_c;
+    logic signed [DIVIDEND_WIDTH-1:0] a, a_c;
+    logic signed [DIVISOR_WIDTH-1:0] b, b_c;
+    logic signed [DIVIDEND_WIDTH-1:0] q, q_c;
+    logic signed [DATA_SIZE-1:0] p, p_c, p_temp;
     logic internal_sign;
-    integer p;
-    integer a_minus_b;
-    integer remainder_condition;
+
+    // Registered values for msb(a) and msb_b
+    logic [$clog2(DATA_SIZE)-1:0] msb_a, msb_a_c;
+    logic [$clog2(DATA_SIZE)-1:0] msb_b, msb_b_c;
+
+    logic signed [DATA_SIZE-1:0] remainder_condition;
 
     // State machine and calculation logic
     always_ff @(posedge clk or posedge reset) begin
         if (reset == 1'b1) begin
-            state <= IDLE;
+            state <= INIT;
             a <= '0;
             b <= '0;
             q <= '0;
+            msb_a <= '0;
+            msb_b <= '0;
+            p <= '0;
         end else begin
-            state <= state_c;
+            state <= next_state;
             a <= a_c;
             b <= b_c;
             q <= q_c;
+            msb_a <= msb_a_c;
+            msb_b <= msb_b_c;
+            p <= p_c;
         end
     end
 
     // Calculate the most significant bit position of a non-negative number
-    function automatic int get_msb_pos(logic [DIVIDEND_WIDTH-1:0] num);
-        int pos;
-        for (pos = DIVIDEND_WIDTH-1; pos >= 0; pos--) begin
-            if (num[pos] == 1'b1) begin
-                return pos;
-            end
+    // function automatic int get_msb_pos(logic [DIVIDEND_WIDTH-1:0] num);
+    //     int pos;
+    //     for (pos = DIVIDEND_WIDTH-1; pos >= 0; pos--) begin
+    //         if (num[pos] == 1'b1) begin
+    //             return pos;
+    //         end
+    //     end
+    //     return -1; // Return -1 if the number is zero
+    // endfunction
+
+    // Recursive get_msb
+    function automatic logic [$clog2(DIVIDEND_WIDTH)-1:0] get_msb_pos(logic [DIVIDEND_WIDTH-1:0] input_vector, logic [$clog2(DIVIDEND_WIDTH)-1:0] index);
+    
+        logic [$clog2(DIVIDEND_WIDTH)-1:0] left_result;
+        logic [$clog2(DIVIDEND_WIDTH)-1:0] right_result;
+
+        if (input_vector[index] == 1'b1) 
+            return index;
+        else if (index == 1'b0) 
+            return '0;
+        else begin
+
+            left_result = get_msb_pos(input_vector, index - 1);
+            right_result = get_msb_pos(input_vector, (index - 1) / 2);
+
+            if (left_result >= '0) 
+                return left_result;
+            else if (right_result >= '0)  
+                return right_result;
+            else 
+                return '0;
+
         end
-        return -1; // Return -1 if the number is zero
     endfunction
 
     always_comb begin
+        next_state = state;
+        a_c = a;
         b_c = b;
         q_c = q;
         valid_out = '0;
-        state_c = state; // Default next state is the current state
+        msb_a_c = msb_a;
+        msb_b_c = msb_b;
+        p_c = p;
 
         case (state)
-            IDLE: begin
-                if (valid_in == 1'b1) begin
-                    state_c = INIT;
-                end
-            end
 
             INIT: begin
-                overflow = 1'b0;
-                a_c = (dividend[DIVIDEND_WIDTH-1] == 1'b0) ? dividend : -dividend;
-                b_c = (divisor[DIVISOR_WIDTH-1] == 1'b0) ? divisor : -divisor;
-                q_c = '0;
-                p = 0;
+                // Only assign stuff is valid_in is high
+                if (valid_in == 1'b1) begin
+                    overflow = 1'b0;
+                    a_c = (dividend[DIVIDEND_WIDTH-1] == 1'b0) ? dividend : -dividend;
+                    b_c = (divisor[DIVISOR_WIDTH-1] == 1'b0) ? divisor : -divisor;
+                    q_c = '0;
+                    p_c = '0;
 
-                if (divisor == 1) begin
-                    state_c = B_EQ_1;
-                end else if (divisor == 0) begin
-                    overflow = 1'b1;
-                    state_c = B_EQ_1;
-                end else begin
-                    state_c = LOOP;
-                end
+                    if (divisor == 1) begin
+                        next_state = B_EQ_1;
+                    end else if (divisor == 0) begin
+                        overflow = 1'b1;
+                        next_state = B_EQ_1;
+                    end else begin
+                        next_state = GET_MSB;
+                    end
+                    // Else stay in this state to wait for valid_in signal to be high
+                end else 
+                    next_state = INIT;
             end
 
             B_EQ_1: begin
                 q_c = dividend;
                 a_c = '0;
                 b_c = b;
-                state_c = EPILOGUE;
+                next_state = EPILOGUE;
+            end
+
+            // State dedicated to calculating MSBs because it's slow 
+            GET_MSB: begin
+                msb_a_c = get_msb_pos(a,(DIVIDEND_WIDTH-1));
+                msb_b_c = get_msb_pos(b,(DIVISOR_WIDTH-1));
+                next_state = LOOP;
             end
 
             LOOP: begin
-                p = get_msb_pos(a) - get_msb_pos(b);
-                if ((b << p) > a) begin
-                    p = p - 1;
-                end
+
+                p_temp = msb_a - msb_b;
+
+                p_c = ((b << p_temp) > a) ? p_temp - 1 : p_temp;
+                
+                next_state = LOOP2;
+            end
+
+            LOOP2: begin
 
                 q_c = q + (1 << p);
 
                 if ((b != '0) && (b <= a)) begin
-                    a_minus_b = a - (b << p);
-                    a_c = a_minus_b;
+                    a_c = a - (b << p);
+                    next_state = GET_MSB;
                 end else begin
-                    state_c = EPILOGUE;
+                    next_state = EPILOGUE;
                 end
+
             end
 
             EPILOGUE: begin
@@ -113,11 +167,7 @@ module div #(
                 remainder_condition = dividend[DIVIDEND_WIDTH-1];
                 remainder = (remainder_condition == 1'b0) ? a : -a;
                 valid_out = 1'b1;
-                state_c = IDLE;
-            end
-
-            default: begin
-                state_c = IDLE;
+                next_state = INIT;
             end
         endcase
     end

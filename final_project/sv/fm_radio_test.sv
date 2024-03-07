@@ -67,14 +67,10 @@ module fm_radio_test #(
 ) (
     input   logic                   clock,
     input   logic                   reset,
-    
-    output  logic                   square_bp_pilot_out_full,
-    input   logic                   square_bp_pilot_out_wr_en,
-    input   logic [DATA_SIZE-1:0]   square_bp_pilot_out_din,
 
-    output  logic                   demod_out_full,
-    input   logic                   demod_out_wr_en,
-    input   logic [DATA_SIZE-1:0]   demod_out_din,
+    output  logic                   in_full,
+    input   logic                   in_wr_en,
+    input   logic [BYTE_SIZE-1:0]   data_in,
 
     output  logic [DATA_SIZE-1:0]   left_audio_out,
     output  logic                   left_audio_empty,
@@ -85,13 +81,196 @@ module fm_radio_test #(
     input   logic                   right_audio_rd_en
 );
 
+logic read_iq_in_rd_en;
+logic [BYTE_SIZE-1:0] read_iq_in;
+logic read_iq_in_empty;
+
+fifo #(
+    .FIFO_DATA_WIDTH(BYTE_SIZE),
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
+) read_iq_fifo_in_inst (
+    .reset(reset),
+    .wr_clk(clock),
+    .wr_en(in_wr_en),
+    .din(data_in),
+    .full(in_full),
+    .rd_clk(clock),
+    .rd_en(read_iq_in_rd_en),
+    .dout(read_iq_in),
+    .empty(read_iq_in_empty)
+);
+
+// Wires from read_iq module to I FIFO
+logic i_out_full;
+logic [DATA_SIZE-1:0] i_out_din;
+
+// Wires from read_iq module to Q FIFO
+logic q_out_full;
+logic [DATA_SIZE-1:0] q_out_din;
+
+logic read_iq_out_wr_en;
+
+read_iq #(
+    .DATA_SIZE(DATA_SIZE),
+    .CHAR_SIZE(CHAR_SIZE),
+    .BYTE(BYTE_SIZE),
+    .BITS(BITS)
+) read_iq_inst (
+    .clock(clock),
+    .reset(reset),
+    .in_empty(read_iq_in_empty),
+    .in_rd_en(read_iq_in_rd_en),
+    .i_out_full(i_out_full),
+    .q_out_full(q_out_full),
+    .out_wr_en(read_iq_out_wr_en),
+    .data_in(read_iq_in),
+    .i_out(i_out_din),
+    .q_out(q_out_din)
+);
+
+// Wires from I FIFO to FIR CMPLX
+logic [DATA_SIZE-1:0] i_out_dout;
+logic i_rd_en;
+logic i_out_empty;
+
+fifo #(
+    .FIFO_DATA_WIDTH(DATA_SIZE),
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
+) i_fifo_inst (
+    .reset(reset),
+    .wr_clk(clock),
+    .wr_en(read_iq_out_wr_en),
+    .din(i_out_din),
+    .full(i_out_full),
+    .rd_clk(clock),
+    .rd_en(i_rd_en),
+    .dout(i_out_dout),
+    .empty(i_out_empty)
+);
+
+// Wires from Q FIFO to FIR CMPLX
+logic [DATA_SIZE-1:0] q_out_dout;
+logic q_rd_en;
+logic q_out_empty;
+
+fifo #(
+    .FIFO_DATA_WIDTH(DATA_SIZE),
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
+) q_fifo_inst (
+    .reset(reset),
+    .wr_clk(clock),
+    .wr_en(read_iq_out_wr_en),
+    .din(q_out_din),
+    .full(q_out_full),
+    .rd_clk(clock),
+    .rd_en(q_rd_en),
+    .dout(q_out_dout),
+    .empty(q_out_empty)
+);
+
+// REAL == I, IMAG == Q
+// Wires from FIR_CMPLX to REAL_FIFO
+logic real_out_wr_en;
+logic real_out_full;
+logic [DATA_SIZE-1:0] real_out_din;
+
+// WIRES FROM FIR_CMPLX TO IMAG_FIFO
+logic imag_out_wr_en;
+logic imag_out_full;
+logic [DATA_SIZE-1:0] imag_out_din;
+
+fir_cmplx #(
+    .NUM_TAPS(CHANNEL_COEFF_TAPS),
+    .COEFFICIENTS_REAL(CHANNEL_COEFFICIENTS_REAL),
+    .COEFFICIENTS_IMAG(CHANNEL_COEFFICIENTS_IMAG)
+) fir_cmplx_inst (
+    .clock(clock),
+    .reset(reset),
+    .xreal_in_dout(i_out_dout),
+    .xreal_in_empty(i_out_empty),
+    .xreal_in_rd_en(i_rd_en),
+    .ximag_in_dout(q_out_dout),
+    .ximag_in_empty(q_out_empty),
+    .ximag_in_rd_en(q_rd_en),
+    .yreal_out_wr_en(real_out_wr_en),
+    .yreal_out_full(real_out_full),
+    .yreal_out_din(real_out_din),
+    .yimag_out_wr_en(imag_out_wr_en),
+    .yimag_out_full(imag_out_full),
+    .yimag_out_din(imag_out_din)
+);
+
+// Wires from REAL_FIFO to DEMODULATE
+logic [DATA_SIZE-1:0] real_out_dout;
+logic real_out_empty;
+logic real_rd_en;
+
+fifo #(
+    .FIFO_DATA_WIDTH(DATA_SIZE),
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
+) real_fifo_inst (
+    .reset(reset),
+    .wr_clk(clock),
+    .wr_en(real_out_wr_en),
+    .din(real_out_din),
+    .full(real_out_full),
+    .rd_clk(clock),
+    .rd_en(real_rd_en),
+    .dout(real_out_dout),
+    .empty(real_out_empty)
+);
+
+// Wires from IMAG_FIFO to DEMODULATE
+logic [DATA_SIZE-1:0] imag_out_dout;
+logic imag_out_empty;
+logic imag_rd_en;
+
+
+fifo #(
+    .FIFO_DATA_WIDTH(DATA_SIZE),
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
+) imag_fifo_inst (
+    .reset(reset),
+    .wr_clk(clock),
+    .wr_en(imag_out_wr_en),
+    .din(imag_out_din),
+    .full(imag_out_full),
+    .rd_clk(clock),
+    .rd_en(imag_rd_en),
+    .dout(imag_out_dout),
+    .empty(imag_out_empty)
+);
+
+// Wires from DEMODULATE to DEMOD_FIFO
+logic [DATA_SIZE-1:0] demod_out_din;
+logic demod_wr_en_out;
+logic demod_out_full;
+
+demodulate #(
+
+) demodulate_inst (
+    .clk(clock),
+    .reset(reset),
+    .real_rd_en(real_rd_en),
+    .real_empty(real_out_empty),
+    .real_in(real_out_dout),
+    .imag_rd_en(imag_rd_en),
+    .imag_empty(imag_out_empty),
+    .imag_in(imag_out_dout),
+    .demod_out(demod_out_din),
+    .wr_en_out(demod_wr_en_out),
+    .out_fifo_full(demod_out_full)
+);
+
+// FIR sync wires
+logic bp_lmr_fir_ready, bp_pilot_fir_ready, lpr_fir_ready;
+
 // Wires from DEMOD_FIFO to FIRs
 logic demod_rd_en;
 logic bp_lmr_fir_rd_en;
 logic lpr_fir_rd_en;
-// logic bp_pilot_demod_rd_en;
-// assign demod_rd_en = lpr_fir_demod_rd_en && bp_lmr_fir_demod_rd_en && bp_pilot_demod_rd_en;
-assign demod_rd_en = bp_lmr_fir_rd_en && lpr_fir_rd_en;
+logic bp_pilot_fir_rd_en;
+assign demod_rd_en = bp_lmr_fir_rd_en && lpr_fir_rd_en && bp_pilot_fir_rd_en;
 
 logic [DATA_SIZE-1:0] demod_out_dout;
 logic demod_empty;
@@ -102,7 +281,7 @@ fifo #(
 ) demod_fifo_inst (
     .reset(reset),
     .wr_clk(clock),
-    .wr_en(demod_out_wr_en),
+    .wr_en(demod_wr_en_out),
     .din(demod_out_din),
     .full(demod_out_full),
     .rd_clk(clock),
@@ -111,12 +290,77 @@ fifo #(
     .empty(demod_empty)
 );
 
+logic bp_pilot_fir_out_wr_en;
+logic bp_pilot_fir_out_full;
+logic [DATA_SIZE-1:0] bp_pilot_fir_out_din;
+
+demod_fir #(
+    .NUM_TAPS(BP_PILOT_COEFF_TAPS),
+    .DECIMATION(1),
+    .COEFFICIENTS(BP_PILOT_COEFFS)
+) bp_pilot_fir_inst (
+    .clock(clock),
+    .reset(reset),
+    .x_in_dout(demod_out_dout),
+    .x_in_empty(demod_empty),
+    .x_in_rd_en(bp_pilot_fir_rd_en),
+    .y_out_wr_en(bp_pilot_fir_out_wr_en),
+    .y_out_full(bp_pilot_fir_out_full),
+    .y_out_din(bp_pilot_fir_out_din),
+    .fir_a_ready(bp_lmr_fir_ready),
+    .fir_b_ready(lpr_fir_ready),
+    .demod_fir_ready(bp_pilot_fir_ready)
+);
+
+// Wires from BP_PILOT_FIFO to SQUARE_BP_PILOT
+logic x_bp_pilot_fir_rd_en, y_bp_pilot_fir_rd_en;
+assign bp_pilot_fifo_rd_en = x_bp_pilot_fir_rd_en && y_bp_pilot_fir_rd_en;
+logic bp_pilot_fir_empty;
+logic [DATA_SIZE-1:0] bp_pilot_fir_out_dout;
+
+fifo #(
+    .FIFO_DATA_WIDTH(DATA_SIZE),
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
+) bp_pilot_fifo_inst (
+    .reset(reset),
+    .wr_clk(clock),
+    .wr_en(bp_pilot_fir_out_wr_en),
+    .din(bp_pilot_fir_out_din),
+    .full(bp_pilot_fir_out_full),
+    .rd_clk(clock),
+    .rd_en(bp_pilot_fifo_rd_en),
+    .dout(bp_pilot_fir_out_dout),
+    .empty(bp_pilot_fir_empty)
+);
+
+// Wires from SQUARE_BP_PILOT_INST to SQUARE_BP_PILOT_FIFO
+logic square_bp_pilot_out_wr_en;
+logic square_bp_pilot_out_full;
+logic [DATA_SIZE-1:0] square_bp_pilot_out_din;
+
+multiply #(
+    .DATA_SIZE(DATA_SIZE)
+) square_bp_pilot_inst (
+    .clock(clock),
+    .reset(reset),
+    .x_in_rd_en(x_bp_pilot_fir_rd_en),
+    .y_in_rd_en(y_bp_pilot_fir_rd_en),
+    .x_in_empty(bp_pilot_fir_empty),
+    .y_in_empty(bp_pilot_fir_empty),
+    .out_wr_en(square_bp_pilot_out_wr_en),
+    .out_full(square_bp_pilot_out_full),
+    .x(bp_pilot_fir_out_dout),
+    .y(bp_pilot_fir_out_dout),
+    .dout(square_bp_pilot_out_din)
+);  
+
+
 // Wires from BP_LMR_INST to BP_LMR_FIFO
 logic bp_lmr_out_wr_en;
 logic bp_lmr_out_full;
 logic [DATA_SIZE-1:0] bp_lmr_out_din;
 
-fir #(
+demod_fir #(
     .NUM_TAPS(BP_LMR_COEFF_TAPS),
     .DECIMATION(1),
     .COEFFICIENTS(BP_LMR_COEFFS)
@@ -128,7 +372,10 @@ fir #(
     .x_in_rd_en(bp_lmr_fir_rd_en),
     .y_out_wr_en(bp_lmr_out_wr_en),
     .y_out_full(bp_lmr_out_full),
-    .y_out_din(bp_lmr_out_din)
+    .y_out_din(bp_lmr_out_din),
+    .fir_a_ready(bp_pilot_fir_ready),
+    .fir_b_ready(lpr_fir_ready),
+    .demod_fir_ready(bp_lmr_fir_ready)
 );
 
 // Wires from SQUARE_BP_PILOT_FIFO to HP_FIR (high-pass FIR)
@@ -239,7 +486,7 @@ logic lpr_out_wr_en;
 logic lpr_out_full;
 logic [DATA_SIZE-1:0] lpr_out_din;
 
-fir #(
+demod_fir #(
     .NUM_TAPS(AUDIO_LPR_COEFF_TAPS),
     .DECIMATION(AUDIO_DECIMATION),
     .COEFFICIENTS(AUDIO_LPR_COEFFS)
@@ -248,10 +495,13 @@ fir #(
     .reset(reset),
     .x_in_dout(demod_out_dout),
     .x_in_empty(demod_empty),
-    .x_in_rd_en(lpr_fir_rd_en),   // CHANGE LATER
+    .x_in_rd_en(lpr_fir_rd_en),
     .y_out_wr_en(lpr_out_wr_en),
     .y_out_full(lpr_out_full),
-    .y_out_din(lpr_out_din)
+    .y_out_din(lpr_out_din),
+    .fir_a_ready(bp_lmr_fir_ready),
+    .fir_b_ready(bp_pilot_fir_ready),
+    .demod_fir_ready(lpr_fir_ready)
 );
 
 // Wires from LPR_FIFO to ADD or SUB
