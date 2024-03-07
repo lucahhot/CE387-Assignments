@@ -14,8 +14,7 @@ logic reset = '0;
 logic start = '0;
 logic done  = '0;
 
-localparam NUM_TAPS = 32;
-localparam FIFO_BUFFER_SIZE = 1024;
+localparam FIFO_BUFFER_SIZE = 16;
 localparam DECIMATION = 8;
 
 logic x_in_full;
@@ -31,8 +30,8 @@ logic   out_read_done = '0;
 integer out_errors    = '0;
 
 fir_top #(
-    .NUM_TAPS(32),
-    .DECIMATION(8),
+    .NUM_TAPS(AUDIO_LPR_COEFF_TAPS),
+    .DECIMATION(DECIMATION),
     .COEFFICIENTS(AUDIO_LPR_COEFFS),
     .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
 ) fir_top_inst (
@@ -88,7 +87,7 @@ end
 initial begin : data_read_process
 
     int in_file;
-    int i, j;
+    int i = 0, j;
 
     @(negedge reset);
     $display("@ %0t: Loading file %s...", $time, FILE_IN_NAME);
@@ -98,13 +97,14 @@ initial begin : data_read_process
     @(negedge clock);
 
     // Only read the first 200 values of data
-    for (int i = 0; i < 500; i++) begin
+    while (i < 200) begin
  
         @(negedge clock);
         if (x_in_full == 1'b0) begin
             x_in_wr_en = 1'b1;
             j = $fscanf(in_file, "%h", x_in_din);
             // $display("(%0d) Input value %x",i,x_in_din);
+            i++;
         end else
             x_in_wr_en = 1'b0;
     end
@@ -131,7 +131,7 @@ initial begin : data_write_process
     y_out_rd_en = 1'b0;
 
     i = 0;
-    while (i < 500/DECIMATION) begin
+    while (i < 200/DECIMATION) begin
         @(negedge clock);
         y_out_rd_en = 1'b0;
         if (y_out_empty == 1'b0) begin

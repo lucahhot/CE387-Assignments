@@ -9,7 +9,7 @@ module fir_top #(
 	32'h00000243, 32'h0000020e, 32'h000001be, 32'h0000015d, 32'h000000f9, 32'h0000009b, 32'h0000004e, 32'h00000015, 
 	32'hfffffff3, 32'hffffffe2, 32'hffffffdf, 32'hffffffe5, 32'hffffffed, 32'hfffffff4, 32'hfffffffa, 32'hfffffffd
     },
-    parameter FIFO_BUFFER_SIZE = 1024
+    parameter FIFO_BUFFER_SIZE = 16
 ) (
     input   logic                   clock,
     input   logic                   reset,

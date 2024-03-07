@@ -3,9 +3,9 @@
 
 module iir_tb;
 
-localparam string FILE_IN_NAME = "../source/text_files/sub_out.txt";
+localparam string FILE_IN_NAME = "../source/text_files/add_out.txt";
 localparam string FILE_OUT_NAME = "../source/output_files/iir_sim_out.txt";
-localparam string FILE_CMP_NAME = "../source/text_files/iir_right.txt";
+localparam string FILE_CMP_NAME = "../source/text_files/iir_left.txt";
 
 localparam CLOCK_PERIOD = 10;
 
@@ -15,7 +15,7 @@ logic start = '0;
 logic done  = '0;
 
 localparam NUM_TAPS = 2;
-localparam FIFO_BUFFER_SIZE = 1024;
+localparam FIFO_BUFFER_SIZE = 16;
 
 parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] IIR_Y_COEFFS = '{32'h00000000, 32'hfffffd66};
 parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] IIR_X_COEFFS = '{32'h000000b2, 32'h000000b2};
@@ -90,7 +90,7 @@ end
 initial begin : data_read_process
 
     int in_file;
-    int i, j;
+    int i = 0, j;
 
     @(negedge reset);
     $display("@ %0t: Loading file %s...", $time, FILE_IN_NAME);
@@ -100,13 +100,14 @@ initial begin : data_read_process
     @(negedge clock);
 
     // Only read the first 200 values of data
-    for (int i = 0; i < 200; i++) begin
+    while (i < 10) begin
  
         @(negedge clock);
         if (x_in_full == 1'b0) begin
             x_in_wr_en = 1'b1;
             j = $fscanf(in_file, "%h", x_in_din);
             // $display("(%0d) Input value %x",i,x_in_din);
+            i++;
         end else
             x_in_wr_en = 1'b0;
     end
@@ -133,7 +134,7 @@ initial begin : data_write_process
     y_out_rd_en = 1'b0;
 
     i = 0;
-    while (i < 200) begin
+    while (i < 10) begin
         @(negedge clock);
         y_out_rd_en = 1'b0;
         if (y_out_empty == 1'b0) begin
@@ -144,9 +145,9 @@ initial begin : data_write_process
                 out_errors += 1;
                 $write("@ %0t: (%0d): ERROR: %x != %x.\n", $time, i+1, y_out_dout, cmp_out);
             end 
-            // else begin
-            //     $write("@ %0t: (%0d): CORRECT CALCULATION: %x == %x.\n", $time, i+1, y_out_dout, cmp_out);
-            // end
+            else begin
+                $write("@ %0t: (%0d): CORRECT: %x == %x.\n", $time, i+1, y_out_dout, cmp_out);
+            end
             i++;
         end
     end

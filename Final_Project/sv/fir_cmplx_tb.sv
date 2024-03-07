@@ -18,7 +18,7 @@ logic start = '0;
 logic done  = '0;
 
 localparam NUM_TAPS = 20;
-localparam FIFO_BUFFER_SIZE = 1024;
+localparam FIFO_BUFFER_SIZE = 16;
 
 parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] CHANNEL_COEFFS_REAL = '{
 	32'h00000001, 32'h00000008, 32'hfffffff3, 32'h00000009, 32'h0000000b, 32'hffffffd3, 32'h00000045, 32'hffffffd3, 
@@ -114,7 +114,7 @@ end
 initial begin : data_read_process
 
     int in_file_real, in_file_imag;
-    int i, j_real, j_imag;
+    int i = 0, j_real, j_imag;
 
     @(negedge reset);
     $display("@ %0t: Loading file %s...", $time, FILE_IN_REAL_NAME);
@@ -127,7 +127,7 @@ initial begin : data_read_process
     @(negedge clock);
 
     // Only read the first 100 values of data
-    for (int i = 0; i < 100; i++) begin
+    while (i < 100) begin
  
         @(negedge clock);
         if (xreal_in_full == 1'b0 && ximag_in_full == 1'b0) begin
@@ -136,6 +136,7 @@ initial begin : data_read_process
             j_real = $fscanf(in_file_real, "%h", xreal_in_din);
             j_imag = $fscanf(in_file_imag, "%h", ximag_in_din);
             // $display("(%0d) Input value %x",i,x_in_din);
+            i++;
         end else begin
             xreal_in_wr_en = 1'b0;
             ximag_in_wr_en = 1'b0;
@@ -173,7 +174,7 @@ initial begin : data_write_process
     yimag_out_rd_en = 1'b0;
 
     i = 0;
-    while (i < 100/DECIMATION) begin
+    while (i < 100) begin
         @(negedge clock);
         yreal_out_rd_en = 1'b0;
         yimag_out_rd_en = 1'b0;

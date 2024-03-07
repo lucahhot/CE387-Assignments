@@ -4,7 +4,7 @@ module iir_top #(
     parameter NUM_TAPS = 2,
     parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] IIR_Y_COEFFS = '{32'h00000000, 32'hfffffd66},
     parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] IIR_X_COEFFS = '{32'h000000b2, 32'h000000b2},
-    parameter FIFO_BUFFER_SIZE = 1024
+    parameter FIFO_BUFFER_SIZE = 16
 ) (
     input   logic                   clock,
     input   logic                   reset,
