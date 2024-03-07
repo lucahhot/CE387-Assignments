@@ -3,10 +3,10 @@
 
 module fir_tb;
 
-localparam string FILE_IN_NAME = "../source/text_files/demodulate_out.txt";
+localparam string FILE_IN_NAME = "../source/text_files/hp_pilot_mult_out.txt";
 localparam string FILE_OUT_NAME = "../source/output_files/fir_sim_out.txt";
 // localparam string FILE_CMP_NAME = "../source/text_files/bp_lmr_out.txt";
-localparam string FILE_CMP_NAME = "../source/text_files/audio_lpr_out.txt";
+localparam string FILE_CMP_NAME = "../source/text_files/audio_lmr_out.txt";
 
 localparam CLOCK_PERIOD = 10;
 
@@ -18,22 +18,6 @@ logic done  = '0;
 localparam NUM_TAPS = 32;
 localparam FIFO_BUFFER_SIZE = 1024;
 localparam DECIMATION = 8;
-
-// Test 32-bit paramater values
-parameter logic signed  [0:NUM_TAPS-1] [DATA_SIZE-1:0] AUDIO_LPR_COEFFS = '{
-	32'hfffffffd, 32'hfffffffa, 32'hfffffff4, 32'hffffffed, 32'hffffffe5, 32'hffffffdf, 32'hffffffe2, 32'hfffffff3, 
-	32'h00000015, 32'h0000004e, 32'h0000009b, 32'h000000f9, 32'h0000015d, 32'h000001be, 32'h0000020e, 32'h00000243, 
-	32'h00000243, 32'h0000020e, 32'h000001be, 32'h0000015d, 32'h000000f9, 32'h0000009b, 32'h0000004e, 32'h00000015, 
-	32'hfffffff3, 32'hffffffe2, 32'hffffffdf, 32'hffffffe5, 32'hffffffed, 32'hfffffff4, 32'hfffffffa, 32'hfffffffd
-};
-
-parameter logic signed  [0:NUM_TAPS-1] [DATA_SIZE-1:0] BP_LMR_COEFFS =
-'{
-	32'h00000000, 32'h00000000, 32'hfffffffc, 32'hfffffff9, 32'hfffffffe, 32'h00000008, 32'h0000000c, 32'h00000002, 
-	32'h00000003, 32'h0000001e, 32'h00000030, 32'hfffffffc, 32'hffffff8c, 32'hffffff58, 32'hffffffc3, 32'h0000008a, 
-	32'h0000008a, 32'hffffffc3, 32'hffffff58, 32'hffffff8c, 32'hfffffffc, 32'h00000030, 32'h0000001e, 32'h00000003, 
-	32'h00000002, 32'h0000000c, 32'h00000008, 32'hfffffffe, 32'hfffffff9, 32'hfffffffc, 32'h00000000, 32'h00000000
-};
 
 logic x_in_full;
 logic x_in_wr_en = '0;
@@ -50,7 +34,7 @@ integer out_errors    = '0;
 fir_top #(
     .NUM_TAPS(NUM_TAPS),
     .DECIMATION(DECIMATION),
-    .COEFFICIENTS(AUDIO_LPR_COEFFS),
+    .COEFFICIENTS(AUDIO_LMR_COEFFS),
     .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
 ) fir_top_inst (
     .clock(clock),
@@ -115,7 +99,7 @@ initial begin : data_read_process
     @(negedge clock);
 
     // Only read the first 200 values of data
-    for (int i = 0; i < 200; i++) begin
+    for (int i = 0; i < 1000; i++) begin
  
         @(negedge clock);
         if (x_in_full == 1'b0) begin
@@ -148,7 +132,7 @@ initial begin : data_write_process
     y_out_rd_en = 1'b0;
 
     i = 0;
-    while (i < 200/DECIMATION) begin
+    while (i < 1000/DECIMATION) begin
         @(negedge clock);
         y_out_rd_en = 1'b0;
         if (y_out_empty == 1'b0) begin
@@ -158,7 +142,8 @@ initial begin : data_write_process
             if (cmp_out != y_out_dout) begin
                 out_errors += 1;
                 $write("@ %0t: (%0d): ERROR: %x != %x.\n", $time, i+1, y_out_dout, cmp_out);
-            end
+            end else 
+                $write("@ %0t: (%0d): CORRECT RESULT: %x == %x.\n", $time, i+1, y_out_dout, cmp_out);
             i++;
         end
     end

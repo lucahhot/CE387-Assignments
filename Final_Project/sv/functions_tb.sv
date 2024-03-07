@@ -86,140 +86,14 @@ initial begin : x_write
 end
 
 initial begin : data_write_process
-    // shortreal x, y;
-    // logic signed [0:7] [DATA_SIZE-1:0]  x_fixed; 
-    // logic signed [0:7] [DATA_SIZE-1:0]  y_fixed;
-    // logic signed [0:7] [DATA_SIZE-1:0]  product;
-    // logic signed [DATA_SIZE-1:0] sum;
-    // logic signed [DATA_SIZE-1:0] intmax;
-    // logic signed [DATA_SIZE-1:0] intmin;
-
-    // int x_fixed_int [0:7];
-    // int y_fixed_int [0:7];
-    // logic signed [0:7] [DATA_SIZE-1:0] x_fixed; 
-    // logic signed [0:7] [DATA_SIZE-1:0] y_fixed; 
-    // logic signed [0:7] [DATA_SIZE-1:0] product;
-    // int sum_int;
-    // logic signed [DATA_SIZE-1:0] sum;
-
-    // shortreal W_PP;
-    // logic signed [0:1] [DATA_SIZE-1:0] IIR_Y_COEFFS;
-    // logic signed [0:1] [DATA_SIZE-1:0] IIR_X_COEFFS;
-    // logic signed [0:2] [DATA_SIZE-1:0] x_in;
-    // logic signed [DATA_SIZE-1:0] y1;
-    // logic signed [DATA_SIZE-1:0] y2;
-    // logic signed [0:2] [DATA_SIZE-1:0] y_shift;
-
-    // int x_coeffs [0:1];
-    // int y_coeffs [0:1];
-
-    logic signed [DATA_SIZE-1:0] x, y, temp, y_divide;
-
-    x = -2048;
-    // temp = x + (1 << BITS - 1);
-    $display("Initial value = %b", x);
-    $display("Temp value    = %b", temp);
-    $display("Temp value = %0d", temp);
-    y = DEQUANTIZE(x);
-    y_divide = x / 1024;
-
-    $display("Dequantized value = %b", y);
-    $display("Dequantized value = %0d", y);
-    $display("Divided     value = %b", y_divide);
-    $display("Divided     value = %0d", y_divide);
-
+   
+    logic signed [0:7] [DATA_SIZE-1:0] x_in;
+    logic signed [0:7] [DATA_SIZE-1:0] coeffs;
+    logic signed [DATA_SIZE-1:0] sum;
     
     @(negedge reset);
     @(negedge clock);
-
-    
-    // x = 6.25;
-    // y= 4.75;
-
-    // $display("x = %8.4f", x);
-    // $display("y = %8.4f", y);
-
-    // x_fixed = QUANTIZE_F(x);
-    // y_fixed = QUANTIZE_F(y);
-
-    // $display("x_fixed = %0d", x_fixed);
-    // $display("y_fixed = %0d", y_fixed);
-    // // $display("x_fixed = %b", x_fixed);
-    // // $display("y_fixed = %b", y_fixed);
-
-    // // Multiply and print the results
-    // product = MULTIPLY_ROUNDING(x_fixed,y_fixed);
-    // $display("Product (quantized/fixed-point) = %0d", product);
-
-    // // Print multiply results in floating-point
-    // $display("Product (floating-point) = %8.4f", DEQUANTIZE_F(product));
-
-    // Testing multiplication for fir.sv
-    // x_fixed_int = '{32'h0000073e,32'h00000900,32'h000007d8,32'hfffffc84,32'hfffffb5a,32'h00000696,32'h000004a6, 32'h000004a6};
-    // y_fixed_int = '{32'hfffffffd, 32'hfffffffa, 32'hfffffff4, 32'hffffffed, 32'hffffffe5, 32'hffffffdf, 32'hffffffe2, 32'hfffffff3};
-    // x_fixed = '{32'h0000073e,32'h00000900,32'h000007d8,32'hfffffc84,32'hfffffb5a,32'h00000696,32'h000004a6, 32'h000004a6};
-    // y_fixed = '{32'hfffffffd, 32'hfffffffa, 32'hfffffff4, 32'hffffffed, 32'hffffffe5, 32'hffffffdf, 32'hffffffe2, 32'hfffffff3};
-    // sum = 0;
-    // sum_int = 0;
-
-    // for (int i = 0; i < 8; i++) begin
-    //     product[i] = MULTIPLY_ROUNDING(x_fixed[i],y_fixed[i]);
-    //     // $display("Product (fixed-point) = %b", product[i]);
-    //     // $display("Product (fixed-point) = %d", product[i]);
-    //     $display("Product (fixed-point) = %x", product[i]);
-    //     $display("Real product (fixed-point) = %x", $signed(x_fixed_int[i] * y_fixed_int[i]) / 1024);
-    //     sum += (product[i]);
-    //     sum_int += $signed(x_fixed_int[i] * y_fixed_int[i]) / 1024;
-    // end
-
-    // $display("Sum (fixed-point) = %x",sum);
-    // $display("Real sum (fixed-point) = %x",sum_int);
-
-    // QUANTIZED:
-    // # Product (fixed-point) = ffffea46
-    // # Product (fixed-point) = ffffca00
-    // # Product (fixed-point) = ffffa1e0
-    // # Product (fixed-point) = 00004234
-    // # Product (fixed-point) = 00007d82
-    // # Product (fixed-point) = ffff26aa
-    // # Product (fixed-point) = ffff748c
-    // # Product (fixed-point) = ffffc392
-
-    // DEQUANTIZED:
-    // # Product (fixed-point) = fffffffb
-    // # Product (fixed-point) = fffffff3
-    // # Product (fixed-point) = ffffffe9
-    // # Product (fixed-point) = 00000010
-    // # Product (fixed-point) = 0000001f
-    // # Product (fixed-point) = ffffffca
-    // # Product (fixed-point) = ffffffde
-    // # Product (fixed-point) = fffffff1
-
-    // y1 = '0;
-    // y2 = '0;
-    // x_in = '0;
-    // y_shift = '0;
-    // x_in[0] = 32'hffffff9f;
-    // y1 += ($signed(IIR_X_COEFFS[0]) * $signed(x_in[0])) / 1024;
-
-    // $display("y1 after 1st cycle = %x", y1); // ffffffef should be fffffff0
-
-    // x_in = {32'h0000070b,32'hfffffff9f};
-    // y_shift = {y1,y1};
-
-    // y1 = $signed(($signed(IIR_X_COEFFS[0]) * $signed(x_in[0])) / 1024) + $signed(($signed(IIR_X_COEFFS[1]) * $signed(x_in[1])) / 1024);
-    // y2 = $signed(($signed(IIR_Y_COEFFS[0]) * $signed(y_shift[0])) / 1024) + $signed(($signed(IIR_Y_COEFFS[1]) * $signed(y_shift[1])) / 1024);
-
-    // $display("y1 after 2nd cycle = %x",y1); 
-    // $display("y2 after 2nd cycle = %x",y2); 
-
-    // y_shift[0] = $signed(y1) + $signed(y2);
-
-    // $display("y_shift[1] after 2nd cycle = %x", y_shift[1]);
-    // $display("y_shift[0] after 2nd cycle = %x", y_shift[0]);
-
-    // 0000070b
-    // 0000131b
+   
 
     @(negedge clock);
     out_read_done = 1'b1;
