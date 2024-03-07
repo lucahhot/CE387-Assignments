@@ -1,0 +1,44 @@
+@P:  Part : ep4ce6ea22-7
+@P:  Worst Slack : -4.009
+@P:  div_64s_32s|state_derived_clock[4] - Estimated Frequency : 37.4 MHz
+@P:  div_64s_32s|state_derived_clock[4] - Requested Frequency : 44.0 MHz
+@P:  div_64s_32s|state_derived_clock[4] - Estimated Period : 26.724
+@P:  div_64s_32s|state_derived_clock[4] - Requested Period : 22.715
+@P:  div_64s_32s|state_derived_clock[4] - Slack : -0.651
+@P:  fm_radio|clock - Estimated Frequency : 32.5 MHz
+@P:  fm_radio|clock - Requested Frequency : 44.0 MHz
+@P:  fm_radio|clock - Estimated Period : 30.733
+@P:  fm_radio|clock - Requested Period : 22.715
+@P:  fm_radio|clock - Slack : -4.009
+@P:  gain_32s_10s_0|state_derived_clock[0] - Estimated Frequency : 3750.9 MHz
+@P:  gain_32s_10s_0|state_derived_clock[0] - Requested Frequency : 44.0 MHz
+@P:  gain_32s_10s_0|state_derived_clock[0] - Estimated Period : 0.267
+@P:  gain_32s_10s_0|state_derived_clock[0] - Requested Period : 22.715
+@P:  gain_32s_10s_0|state_derived_clock[0] - Slack : 22.449
+@P:  gain_32s_10s_1|state_derived_clock[0] - Estimated Frequency : 3750.9 MHz
+@P:  gain_32s_10s_1|state_derived_clock[0] - Requested Frequency : 44.0 MHz
+@P:  gain_32s_10s_1|state_derived_clock[0] - Estimated Period : 0.267
+@P:  gain_32s_10s_1|state_derived_clock[0] - Requested Period : 22.715
+@P:  gain_32s_10s_1|state_derived_clock[0] - Slack : 22.449
+@P:  multiply_32s_0|state_derived_clock[0] - Estimated Frequency : 78.8 MHz
+@P:  multiply_32s_0|state_derived_clock[0] - Requested Frequency : 44.0 MHz
+@P:  multiply_32s_0|state_derived_clock[0] - Estimated Period : 12.688
+@P:  multiply_32s_0|state_derived_clock[0] - Requested Period : 22.715
+@P:  multiply_32s_0|state_derived_clock[0] - Slack : 7.495
+@P:  multiply_32s_1|state_derived_clock[0] - Estimated Frequency : 83.9 MHz
+@P:  multiply_32s_1|state_derived_clock[0] - Requested Frequency : 44.0 MHz
+@P:  multiply_32s_1|state_derived_clock[0] - Estimated Period : 11.912
+@P:  multiply_32s_1|state_derived_clock[0] - Requested Period : 22.715
+@P:  multiply_32s_1|state_derived_clock[0] - Slack : 7.503
+@P:  System - Estimated Frequency : 609.6 MHz
+@P:  System - Requested Frequency : 717.1 MHz
+@P:  System - Estimated Period : 1.641
+@P:  System - Requested Period : 1.395
+@P:  System - Slack : -0.246
+@P: fm_radio Part : ep4ce6ea22-7
+@P: fm_radio I/O ATOMs : 11
+@P: fm_radio Total LUTs : 14609 
+@P: fm_radio Register bits : 9618
+@P: fm_radio .Simple_Multipliers_18_bit : 15
+@P: fm_radio DSP Blocks : 15 (30 nine-bit DSP elements)
+@P:  CPU Time : 0h:00m:54s

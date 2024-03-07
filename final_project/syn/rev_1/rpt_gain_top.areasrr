@@ -1,0 +1,160 @@
+
+Copyright (C) 1994-2018 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify (R) Premier
+Build: O-2018.09-SP1
+Install: /vol/synopsys/fpga/O-2018.09-SP1
+OS: Red Hat Enterprise Linux 8.9 (Ootpa)
+Hostname: joker.ece.northwestern.edu
+max virtual memory: unlimited (bytes)
+max user processes: 126575
+max stack size: 8388608 (bytes)
+
+
+Implementation : rev_1
+
+#### START OF AREA REPORT #####[
+
+Part:			EP4CE6EA22-7 (Altera)
+
+------------------------------------------------------------------------
+########   Utilization report for  Top level view:   gain_top   ########
+========================================================================
+
+SEQUENTIAL ATOMS
+Name          Total elements     Utilization     Notes
+------------------------------------------------------
+REGISTERS     48                 100 %                
+======================================================
+Total SEQUENTIAL ATOMS in the block gain_top:	48 (16.00 % Utilization)
+
+
+COMBINATIONAL ATOMS
+Name      Total elements     Utilization     Notes
+--------------------------------------------------
+ATOMS     78                 100 %                
+==================================================
+Total COMBINATIONAL ATOMS in the block gain_top:	78 (26.00 % Utilization)
+
+
+RAMS
+Name          Total elements     Number of bits     Utilization     Notes
+-------------------------------------------------------------------------
+SYNC RAMS     2                  65536              100 %                
+=========================================================================
+Total RAMS in the block gain_top:	2 (0.67 % Utilization)
+
+
+DSPs
+Name     Total elements     Utilization     Notes
+-------------------------------------------------
+MACs     4                  100 %                
+=================================================
+Total DSPs in the block gain_top:	4 (1.33 % Utilization)
+
+
+Black Boxes
+Name            Total elements     Utilization     Notes
+--------------------------------------------------------
+BLACK BOXES     2                  100 %                
+========================================================
+Total Black Boxes in the block gain_top:	2 (0.67 % Utilization)
+
+--------------------------------------------------------------------------
+########   Utilization report for  cell:   fifo_32s_1024s_11s_1   ########
+Instance path:   gain_top.fifo_32s_1024s_11s_1                            
+==========================================================================
+
+SEQUENTIAL ATOMS
+Name          Total elements     Utilization     Notes
+------------------------------------------------------
+REGISTERS     23                 47.9 %               
+======================================================
+Total SEQUENTIAL ATOMS in the block gain_top.fifo_32s_1024s_11s_1:	23 (7.67 % Utilization)
+
+
+COMBINATIONAL ATOMS
+Name      Total elements     Utilization     Notes
+--------------------------------------------------
+ATOMS     23                 29.5 %               
+==================================================
+Total COMBINATIONAL ATOMS in the block gain_top.fifo_32s_1024s_11s_1:	23 (7.67 % Utilization)
+
+
+RAMS
+Name          Total elements     Number of bits     Utilization     Notes
+-------------------------------------------------------------------------
+SYNC RAMS     1                  32768              50 %                 
+=========================================================================
+Total RAMS in the block gain_top.fifo_32s_1024s_11s_1:	1 (0.33 % Utilization)
+
+----------------------------------------------------------------------------
+########   Utilization report for  cell:   fifo_32s_1024s_11s_1_0   ########
+Instance path:   gain_top.fifo_32s_1024s_11s_1_0                            
+============================================================================
+
+SEQUENTIAL ATOMS
+Name          Total elements     Utilization     Notes
+------------------------------------------------------
+REGISTERS     23                 47.9 %               
+======================================================
+Total SEQUENTIAL ATOMS in the block gain_top.fifo_32s_1024s_11s_1_0:	23 (7.67 % Utilization)
+
+
+COMBINATIONAL ATOMS
+Name      Total elements     Utilization     Notes
+--------------------------------------------------
+ATOMS     21                 26.9 %               
+==================================================
+Total COMBINATIONAL ATOMS in the block gain_top.fifo_32s_1024s_11s_1_0:	21 (7.00 % Utilization)
+
+
+RAMS
+Name          Total elements     Number of bits     Utilization     Notes
+-------------------------------------------------------------------------
+SYNC RAMS     1                  32768              50 %                 
+=========================================================================
+Total RAMS in the block gain_top.fifo_32s_1024s_11s_1_0:	1 (0.33 % Utilization)
+
+------------------------------------------------------------------
+########   Utilization report for  cell:   gain_32s_10s   ########
+Instance path:   gain_top.gain_32s_10s                            
+==================================================================
+
+SEQUENTIAL ATOMS
+Name          Total elements     Utilization     Notes
+------------------------------------------------------
+REGISTERS     2                  4.17 %               
+======================================================
+Total SEQUENTIAL ATOMS in the block gain_top.gain_32s_10s:	2 (0.67 % Utilization)
+
+
+COMBINATIONAL ATOMS
+Name      Total elements     Utilization     Notes
+--------------------------------------------------
+ATOMS     34                 43.6 %               
+==================================================
+Total COMBINATIONAL ATOMS in the block gain_top.gain_32s_10s:	34 (11.33 % Utilization)
+
+
+DSPs
+Name     Total elements     Utilization     Notes
+-------------------------------------------------
+MACs     4                  100 %                
+=================================================
+Total DSPs in the block gain_top.gain_32s_10s:	4 (1.33 % Utilization)
+
+
+Black Boxes
+Name            Total elements     Utilization     Notes
+--------------------------------------------------------
+BLACK BOXES     2                  100 %                
+========================================================
+Total Black Boxes in the block gain_top.gain_32s_10s:	2 (0.67 % Utilization)
+
+
+##### END OF AREA REPORT #####]
+

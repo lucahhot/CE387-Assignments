@@ -1,0 +1,56 @@
+@N|Running in 64-bit mode
+@N|Running in 64-bit mode
+@N: CG1349 :	| Running Verilog Compiler in System Verilog mode
+@N: CG1350 :	| Running Verilog Compiler in Multiple File Compilation Unit mode
+@N: CG334 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53001:16:53001:28|Read directive translate_off.
+@N: CG333 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53051:16:53051:27|Read directive translate_on.
+@N: CG334 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53060:16:53060:28|Read directive translate_off.
+@N: CG333 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53074:16:53074:27|Read directive translate_on.
+@N: CG334 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53221:20:53221:32|Read directive translate_off.
+@N: CG333 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53226:20:53226:31|Read directive translate_on.
+@N: CG334 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53229:20:53229:32|Read directive translate_off.
+@N: CG333 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53232:20:53232:31|Read directive translate_on.
+@N: CG334 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53346:20:53346:32|Read directive translate_off.
+@N: CG333 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53351:20:53351:31|Read directive translate_on.
+@N: CG334 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53354:20:53354:32|Read directive translate_off.
+@N: CG333 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53357:20:53357:31|Read directive translate_on.
+@N: CG334 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53446:20:53446:32|Read directive translate_off.
+@N: CG333 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53451:20:53451:31|Read directive translate_on.
+@N: CG334 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53454:20:53454:32|Read directive translate_off.
+@N: CG333 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53457:20:53457:31|Read directive translate_on.
+@N: CG334 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53545:20:53545:32|Read directive translate_off.
+@N: CG333 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53550:20:53550:31|Read directive translate_on.
+@N: CG334 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53553:20:53553:32|Read directive translate_off.
+@N: CG333 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53556:20:53556:31|Read directive translate_on.
+@N: CG334 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53642:20:53642:32|Read directive translate_off.
+@N: CG333 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53647:20:53647:31|Read directive translate_on.
+@N: CG334 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53650:20:53650:32|Read directive translate_off.
+@N: CG333 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53653:20:53653:31|Read directive translate_on.
+@N: CG334 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53861:12:53861:24|Read directive translate_off.
+@N: CG333 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53875:12:53875:23|Read directive translate_on.
+@N: CG334 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":54140:12:54140:24|Read directive translate_off.
+@N: CG333 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":54154:12:54154:23|Read directive translate_on.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":4:0:4:9|Synthesizing module work_/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv_unit in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":2:7:2:10|Synthesizing module fifo in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":3:7:3:13|Synthesizing module read_iq in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":2:7:2:10|Synthesizing module fifo in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":3:7:3:15|Synthesizing module fir_cmplx in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":1:7:1:9|Synthesizing module div in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":4:7:4:13|Synthesizing module qarctan in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":4:7:4:16|Synthesizing module demodulate in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":3:7:3:9|Synthesizing module fir in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":3:7:3:9|Synthesizing module fir in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":3:7:3:9|Synthesizing module fir in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":3:7:3:14|Synthesizing module multiply in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":3:7:3:9|Synthesizing module fir in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":3:7:3:9|Synthesizing module fir in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/add.sv":3:7:3:9|Synthesizing module add in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/sub.sv":3:7:3:9|Synthesizing module sub in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":3:7:3:9|Synthesizing module iir in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":3:7:3:10|Synthesizing module gain in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv":3:7:3:14|Synthesizing module fm_radio in library work.
+@N|Running in 64-bit mode
+@N: NF107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv":3:7:3:14|Selected library: work cell: fm_radio view verilog as top level
+@N: NF107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv":3:7:3:14|Selected library: work cell: fm_radio view verilog as top level
+@N|Running in 64-bit mode
+

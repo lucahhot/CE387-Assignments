@@ -1,0 +1,98 @@
+#OPTIONS:"|-layerid|0|-orig_srs|/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork/proj_1_comp.srs|-prodtype|synplify_premier|-verification_mode|0|-infer_seqShift|-primux|-fixsmult|-dspmac|-nram|-divnmod|-continue_on_error|-nostructver|-I|/home/mwp8699/CE387-Assignments/final_project/syn/|-I|/vol/synopsys/fpga/O-2018.09-SP1/lib|-sysv|-devicelib|/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/altera.v|-devicelib|/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/cycloneive.v|-devicelib|/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v|-devicelib|/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_lpm.v|-devicelib|/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_primitives.v|-encrypt|-pro|-distcompmode|-noobf|-auto_infer_blackbox|0|-proto|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-D_MULTIPLE_FILE_COMPILATION_UNIT_|-fast_synthesis|0|-lib|work|-fsysv|-lib|work|-fsysv|-lib|work|-fsysv|-lib|work|-fsysv|-lib|work|-fsysv|-lib|work|-fsysv|-lib|work|-fsysv|-lib|work|-fsysv|-lib|work|-fsysv|-lib|work|-fsysv|-lib|work|-fsysv|-lib|work|-fsysv|-lib|work|-fsysv|-lib|work|-fsysv"
+#CUR:"/vol/synopsys/fpga/O-2018.09-SP1/linux_a_64/c_ver":1543382462
+#CUR:"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/altera.v":1543381811
+#CUR:"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/cycloneive.v":1543381840
+#CUR:"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":1543381839
+#CUR:"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_lpm.v":1543381839
+#CUR:"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_primitives.v":1543381839
+#CUR:"/vol/synopsys/fpga/O-2018.09-SP1/lib/vlog/hypermods.v":1543382268
+#CUR:"/vol/synopsys/fpga/O-2018.09-SP1/lib/vlog/umr_capim.v":1533714205
+#CUR:"/vol/synopsys/fpga/O-2018.09-SP1/lib/synip/hcei/zceistubs.v":1543381931
+#CUR:"/vol/synopsys/fpga/O-2018.09-SP1/lib/vlog/scemi_objects.v":1543382268
+#CUR:"/vol/synopsys/fpga/O-2018.09-SP1/lib/vlog/scemi_pipes.svh":1543382268
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":1709743265
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/add.sv":1709743265
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":1709745102
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/sub.sv":1709743265
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":1709745102
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":1709744894
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":1709743889
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":1709745102
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":1709743265
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":1709745102
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":1709743265
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":1709745102
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":1709743265
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":1709745102
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":1709743265
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":1709745102
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":1709743265
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":1709745102
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":1709743265
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":1709745102
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":1709743912
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":1709745102
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":1709745102
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv":1709745974
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":1709745102
+#numinternalfiles:10
+#defaultlanguage:verilog
+0			"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv" verilog
+1			"/home/mwp8699/CE387-Assignments/final_project/sv/add.sv" verilog
+2		*	"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv" verilog
+3			"/home/mwp8699/CE387-Assignments/final_project/sv/sub.sv" verilog
+4			"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv" verilog
+5			"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv" verilog
+6			"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv" verilog
+7			"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv" verilog
+8			"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv" verilog
+9			"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv" verilog
+10			"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv" verilog
+11			"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv" verilog
+12			"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv" verilog
+13			"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv" verilog
+#Dependency Lists(Uses List)
+0 1 2
+1 2 1
+2 1 2
+3 2 1
+4 1 2
+5 2 4 1
+6 2 1
+7 2 1
+8 2 1
+9 2 1
+10 2 1
+11 2 1
+12 2 5 1
+13 2 0 10 9 3 1 7 6 12 8 11
+#Dependency Lists(Users Of)
+0 13
+1 2 3 5 6 7 8 9 10 11 12 13 0 4
+2 1 2 3 5 6 7 8 9 10 11 12 13 0 4
+3 13
+4 5
+5 12
+6 13
+7 13
+8 13
+9 13
+10 13
+11 13
+12 13
+13 -1
+#Design Unit to File Association
+module work fifo 0
+package work work_/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv_unit 2
+module work add 1
+module work sub 3
+module work div 4
+module work qarctan 5
+module work multiply 6
+module work fir 7
+module work fir_cmplx 8
+module work iir 9
+module work gain 10
+module work read_iq 11
+module work demodulate 12
+module work fm_radio 13

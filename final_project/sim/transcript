@@ -1,0 +1,2541 @@
+# //  ModelSim SE-64 2020.1 Jan 28 2020 Linux 4.18.0-513.18.1.el8_9.x86_64
+# //
+# //  Copyright 1991-2020 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do fm_radio_test_sim.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:14 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fifo.sv 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 23:27:15 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:15 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/globals.sv 
+# -- Compiling package globals_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 23:27:15 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:15 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/add.sv 
+# -- Compiling package add_sv_unit
+# -- Compiling module add
+# 
+# Top level modules:
+# 	add
+# End time: 23:27:15 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:15 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/sub.sv 
+# -- Compiling package sub_sv_unit
+# -- Compiling module sub
+# 
+# Top level modules:
+# 	sub
+# End time: 23:27:16 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:16 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/div.sv 
+# -- Compiling module div
+# 
+# Top level modules:
+# 	div
+# End time: 23:27:16 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:16 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/qarctan.sv 
+# -- Compiling package qarctan_sv_unit
+# -- Compiling module qarctan
+# 
+# Top level modules:
+# 	qarctan
+# End time: 23:27:16 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:16 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/multiply.sv 
+# -- Compiling package multiply_sv_unit
+# -- Compiling module multiply
+# 
+# Top level modules:
+# 	multiply
+# End time: 23:27:17 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:17 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fir.sv 
+# -- Compiling package fir_sv_unit
+# -- Compiling module fir
+# 
+# Top level modules:
+# 	fir
+# End time: 23:27:17 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:17 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fir_cmplx.sv 
+# -- Compiling package fir_cmplx_sv_unit
+# -- Compiling module fir_cmplx
+# 
+# Top level modules:
+# 	fir_cmplx
+# End time: 23:27:17 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:17 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/iir.sv 
+# -- Compiling package iir_sv_unit
+# -- Compiling module iir
+# 
+# Top level modules:
+# 	iir
+# End time: 23:27:18 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:18 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
+# 
+# Top level modules:
+# 	gain
+# End time: 23:27:18 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:18 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
+# -- Compiling package read_iq_sv_unit
+# -- Compiling module read_iq
+# 
+# Top level modules:
+# 	read_iq
+# End time: 23:27:18 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:18 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/demodulate.sv 
+# -- Compiling package demodulate_sv_unit
+# -- Compiling module demodulate
+# 
+# Top level modules:
+# 	demodulate
+# End time: 23:27:19 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:19 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_test.sv 
+# -- Compiling package fm_radio_test_sv_unit
+# -- Compiling module fm_radio_test
+# 
+# Top level modules:
+# 	fm_radio_test
+# End time: 23:27:19 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:19 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_tb.sv 
+# -- Compiling package fm_radio_tb_sv_unit
+# -- Compiling module fm_radio_tb
+# 
+# Top level modules:
+# 	fm_radio_tb
+# End time: 23:27:19 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.fm_radio_tb -wlf fm_radio.wlf 
+# Start time: 23:27:19 on Mar 06,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Error (suppressible): ../sv/fm_radio_tb.sv(133): (vopt-7063) Failed to find 'left_in_file' in hierarchical name 'left_in_file'.
+#         Region: fm_radio_tb
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=0.
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./fm_radio_test_sim.do PAUSED at line 22
+do fm_radio_test_sim.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:52 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fifo.sv 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 23:27:53 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:53 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/globals.sv 
+# -- Compiling package globals_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 23:27:53 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:53 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/add.sv 
+# -- Compiling package add_sv_unit
+# -- Compiling module add
+# 
+# Top level modules:
+# 	add
+# End time: 23:27:53 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:53 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/sub.sv 
+# -- Compiling package sub_sv_unit
+# -- Compiling module sub
+# 
+# Top level modules:
+# 	sub
+# End time: 23:27:53 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:53 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/div.sv 
+# -- Compiling module div
+# 
+# Top level modules:
+# 	div
+# End time: 23:27:54 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:54 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/qarctan.sv 
+# -- Compiling package qarctan_sv_unit
+# -- Compiling module qarctan
+# 
+# Top level modules:
+# 	qarctan
+# End time: 23:27:54 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:54 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/multiply.sv 
+# -- Compiling package multiply_sv_unit
+# -- Compiling module multiply
+# 
+# Top level modules:
+# 	multiply
+# End time: 23:27:54 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:54 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fir.sv 
+# -- Compiling package fir_sv_unit
+# -- Compiling module fir
+# 
+# Top level modules:
+# 	fir
+# End time: 23:27:55 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:55 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fir_cmplx.sv 
+# -- Compiling package fir_cmplx_sv_unit
+# -- Compiling module fir_cmplx
+# 
+# Top level modules:
+# 	fir_cmplx
+# End time: 23:27:55 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:55 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/iir.sv 
+# -- Compiling package iir_sv_unit
+# -- Compiling module iir
+# 
+# Top level modules:
+# 	iir
+# End time: 23:27:55 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:55 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
+# 
+# Top level modules:
+# 	gain
+# End time: 23:27:56 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:56 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
+# -- Compiling package read_iq_sv_unit
+# -- Compiling module read_iq
+# 
+# Top level modules:
+# 	read_iq
+# End time: 23:27:56 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:56 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/demodulate.sv 
+# -- Compiling package demodulate_sv_unit
+# -- Compiling module demodulate
+# 
+# Top level modules:
+# 	demodulate
+# End time: 23:27:56 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:56 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_test.sv 
+# -- Compiling package fm_radio_test_sv_unit
+# -- Compiling module fm_radio_test
+# 
+# Top level modules:
+# 	fm_radio_test
+# End time: 23:27:57 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:27:57 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_tb.sv 
+# -- Compiling package fm_radio_tb_sv_unit
+# -- Compiling module fm_radio_tb
+# 
+# Top level modules:
+# 	fm_radio_tb
+# End time: 23:27:57 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.fm_radio_tb -wlf fm_radio.wlf 
+# Start time: 23:27:19 on Mar 06,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-143) Recognized 1 FSM in module "iir(fast)".
+# Loading sv_std.std
+# Loading work.fm_radio_tb_sv_unit(fast)
+# Loading work.fm_radio_tb(fast)
+# Loading work.fm_radio_test_sv_unit(fast)
+# Loading work.fm_radio_test(fast)
+# Loading work.fifo(fast)
+# Loading work.add_sv_unit(fast)
+# Loading work.add(fast)
+# Loading work.sub_sv_unit(fast)
+# Loading work.sub(fast)
+# Loading work.iir_sv_unit(fast)
+# Loading work.iir(fast)
+# Loading work.gain_sv_unit(fast)
+# Loading work.gain(fast)
+# @ 20: Loading file ../fm_radio/src/txt_files/audio_lpr_out.txt...
+# @ 20: Loading file ../fm_radio/src/txt_files/audio_lmr_out.txt...
+# @ 25: Comparing I ../fm_radio/src/out_files/fm_radio_right_out.txt...
+# @ 25: Comparing Q ../fm_radio/src/out_files/fm_radio_left_out.txt...
+# @ 30: Beginning simulation...
+# @ 7135: Simulation completed.
+# Total simulation cycle count: 710
+# Total error count: 0
+# ** Note: $finish    : ../sv/fm_radio_tb.sv(112)
+#    Time: 7135 ns  Iteration: 2  Instance: /fm_radio_tb
+# 1
+# Break in NamedBeginStat tb_process at ../sv/fm_radio_tb.sv line 112
+do fm_radio_test_sim.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:40:17 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fifo.sv 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 23:40:18 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:40:18 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/globals.sv 
+# -- Compiling package globals_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 23:40:18 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:40:18 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/add.sv 
+# -- Compiling package add_sv_unit
+# -- Compiling module add
+# 
+# Top level modules:
+# 	add
+# End time: 23:40:19 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:40:19 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/sub.sv 
+# -- Compiling package sub_sv_unit
+# -- Compiling module sub
+# 
+# Top level modules:
+# 	sub
+# End time: 23:40:19 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:40:19 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/div.sv 
+# -- Compiling module div
+# 
+# Top level modules:
+# 	div
+# End time: 23:40:20 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:40:20 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/qarctan.sv 
+# -- Compiling package qarctan_sv_unit
+# -- Compiling module qarctan
+# 
+# Top level modules:
+# 	qarctan
+# End time: 23:40:20 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:40:20 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/multiply.sv 
+# -- Compiling package multiply_sv_unit
+# -- Compiling module multiply
+# 
+# Top level modules:
+# 	multiply
+# End time: 23:40:20 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:40:20 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fir.sv 
+# -- Compiling package fir_sv_unit
+# -- Compiling module fir
+# 
+# Top level modules:
+# 	fir
+# End time: 23:40:21 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:40:21 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fir_cmplx.sv 
+# -- Compiling package fir_cmplx_sv_unit
+# -- Compiling module fir_cmplx
+# 
+# Top level modules:
+# 	fir_cmplx
+# End time: 23:40:21 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:40:21 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/iir.sv 
+# -- Compiling package iir_sv_unit
+# -- Compiling module iir
+# 
+# Top level modules:
+# 	iir
+# End time: 23:40:21 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:40:21 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
+# 
+# Top level modules:
+# 	gain
+# End time: 23:40:22 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:40:22 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
+# -- Compiling package read_iq_sv_unit
+# -- Compiling module read_iq
+# 
+# Top level modules:
+# 	read_iq
+# End time: 23:40:22 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:40:22 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/demodulate.sv 
+# -- Compiling package demodulate_sv_unit
+# -- Compiling module demodulate
+# 
+# Top level modules:
+# 	demodulate
+# End time: 23:40:22 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:40:22 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_test.sv 
+# ** Error (suppressible): ../sv/fm_radio_test.sv(221): (vlog-2388) 'add_lmr_rd_en' already declared in this scope (fm_radio_test) at ../sv/fm_radio_test.sv(196).
+# ** Error (suppressible): ../sv/fm_radio_test.sv(222): (vlog-2388) 'sub_lmr_rd_en' already declared in this scope (fm_radio_test) at ../sv/fm_radio_test.sv(197).
+# ** Error (suppressible): ../sv/fm_radio_test.sv(224): (vlog-2388) 'lmr_rd_en' already declared in this scope (fm_radio_test) at ../sv/fm_radio_test.sv(199).
+# ** Error (suppressible): ../sv/fm_radio_test.sv(227): (vlog-2388) 'lmr_empty' already declared in this scope (fm_radio_test) at ../sv/fm_radio_test.sv(202).
+# ** Error (suppressible): ../sv/fm_radio_test.sv(228): (vlog-2388) 'lmr_out_dout' already declared in this scope (fm_radio_test) at ../sv/fm_radio_test.sv(203).
+# ** Error: ../sv/fm_radio_test.sv(228): (vlog-13311) 'lmr_out_dout' already declared in this scope ('fm_radio_test') with a type.
+# ** Error: ../sv/fm_radio_test.sv(243): (vlog-13282) 'lmr_fifo_inst' already declared in this scope.
+# ** Error (suppressible): ../sv/fm_radio_test.sv(246): (vlog-2388) 'add_lpr_rd_en' already declared in this scope (fm_radio_test) at ../sv/fm_radio_test.sv(133).
+# ** Error (suppressible): ../sv/fm_radio_test.sv(247): (vlog-2388) 'sub_lpr_rd_en' already declared in this scope (fm_radio_test) at ../sv/fm_radio_test.sv(134).
+# ** Error (suppressible): ../sv/fm_radio_test.sv(248): (vlog-2388) 'lpr_rd_en' already declared in this scope (fm_radio_test) at ../sv/fm_radio_test.sv(135).
+# ** Error (suppressible): ../sv/fm_radio_test.sv(250): (vlog-2388) 'lpr_empty' already declared in this scope (fm_radio_test) at ../sv/fm_radio_test.sv(137).
+# ** Error (suppressible): ../sv/fm_radio_test.sv(251): (vlog-2388) 'lpr_out_dout' already declared in this scope (fm_radio_test) at ../sv/fm_radio_test.sv(138).
+# ** Error: ../sv/fm_radio_test.sv(251): (vlog-13311) 'lpr_out_dout' already declared in this scope ('fm_radio_test') with a type.
+# ** Error: ../sv/fm_radio_test.sv(266): (vlog-13282) 'lpr_fifo_inst' already declared in this scope.
+# End time: 23:40:23 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 14, Warnings: 0
+# ** Error: /vol/mentor/modelsim-2020.1/modeltech/linux_x86_64/vlog failed.
+# Error in macro ./fm_radio_test_sim.do line 19
+# /vol/mentor/modelsim-2020.1/modeltech/linux_x86_64/vlog failed.
+#     while executing
+# "vlog -work work "../sv/fm_radio_test.sv""
+do fm_radio_test_sim.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:41:50 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fifo.sv 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 23:41:50 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:41:50 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/globals.sv 
+# -- Compiling package globals_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 23:41:50 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:41:50 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/add.sv 
+# -- Compiling package add_sv_unit
+# -- Compiling module add
+# 
+# Top level modules:
+# 	add
+# End time: 23:41:51 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:41:51 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/sub.sv 
+# -- Compiling package sub_sv_unit
+# -- Compiling module sub
+# 
+# Top level modules:
+# 	sub
+# End time: 23:41:52 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:41:52 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/div.sv 
+# -- Compiling module div
+# 
+# Top level modules:
+# 	div
+# End time: 23:41:53 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:41:53 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/qarctan.sv 
+# -- Compiling package qarctan_sv_unit
+# -- Compiling module qarctan
+# 
+# Top level modules:
+# 	qarctan
+# End time: 23:41:53 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:41:53 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/multiply.sv 
+# -- Compiling package multiply_sv_unit
+# -- Compiling module multiply
+# 
+# Top level modules:
+# 	multiply
+# End time: 23:41:54 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:41:54 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fir.sv 
+# -- Compiling package fir_sv_unit
+# -- Compiling module fir
+# 
+# Top level modules:
+# 	fir
+# End time: 23:41:54 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:41:54 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fir_cmplx.sv 
+# -- Compiling package fir_cmplx_sv_unit
+# -- Compiling module fir_cmplx
+# 
+# Top level modules:
+# 	fir_cmplx
+# End time: 23:41:54 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:41:54 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/iir.sv 
+# -- Compiling package iir_sv_unit
+# -- Compiling module iir
+# 
+# Top level modules:
+# 	iir
+# End time: 23:41:55 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:41:55 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
+# 
+# Top level modules:
+# 	gain
+# End time: 23:41:55 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:41:55 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
+# -- Compiling package read_iq_sv_unit
+# -- Compiling module read_iq
+# 
+# Top level modules:
+# 	read_iq
+# End time: 23:41:55 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:41:55 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/demodulate.sv 
+# -- Compiling package demodulate_sv_unit
+# -- Compiling module demodulate
+# 
+# Top level modules:
+# 	demodulate
+# End time: 23:41:56 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:41:56 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_test.sv 
+# -- Compiling package fm_radio_test_sv_unit
+# -- Compiling module fm_radio_test
+# 
+# Top level modules:
+# 	fm_radio_test
+# End time: 23:41:56 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:41:56 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_tb.sv 
+# -- Compiling package fm_radio_tb_sv_unit
+# -- Compiling module fm_radio_tb
+# ** Error: ../sv/fm_radio_tb.sv(155): (vlog-2110) Illegal reference to net "demod_out_wr_en".
+# ** Error: ../sv/fm_radio_tb.sv(163): (vlog-2110) Illegal reference to net "demod_out_wr_en".
+# ** Error: ../sv/fm_radio_tb.sv(168): (vlog-2110) Illegal reference to net "demod_out_wr_en".
+# ** Error: ../sv/fm_radio_tb.sv(172): (vlog-2110) Illegal reference to net "demod_out_wr_en".
+# End time: 23:41:57 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 4, Warnings: 0
+# ** Error: /vol/mentor/modelsim-2020.1/modeltech/linux_x86_64/vlog failed.
+# Error in macro ./fm_radio_test_sim.do line 20
+# /vol/mentor/modelsim-2020.1/modeltech/linux_x86_64/vlog failed.
+#     while executing
+# "vlog -work work "../sv/fm_radio_tb.sv""
+do fm_radio_test_sim.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:42:47 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fifo.sv 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 23:42:47 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:42:47 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/globals.sv 
+# -- Compiling package globals_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 23:42:47 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:42:47 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/add.sv 
+# -- Compiling package add_sv_unit
+# -- Compiling module add
+# 
+# Top level modules:
+# 	add
+# End time: 23:42:48 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:42:48 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/sub.sv 
+# -- Compiling package sub_sv_unit
+# -- Compiling module sub
+# 
+# Top level modules:
+# 	sub
+# End time: 23:42:48 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:42:48 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/div.sv 
+# -- Compiling module div
+# 
+# Top level modules:
+# 	div
+# End time: 23:42:48 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:42:48 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/qarctan.sv 
+# -- Compiling package qarctan_sv_unit
+# -- Compiling module qarctan
+# 
+# Top level modules:
+# 	qarctan
+# End time: 23:42:49 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:42:49 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/multiply.sv 
+# -- Compiling package multiply_sv_unit
+# -- Compiling module multiply
+# 
+# Top level modules:
+# 	multiply
+# End time: 23:42:49 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:42:49 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fir.sv 
+# -- Compiling package fir_sv_unit
+# -- Compiling module fir
+# 
+# Top level modules:
+# 	fir
+# End time: 23:42:49 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:42:49 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fir_cmplx.sv 
+# -- Compiling package fir_cmplx_sv_unit
+# -- Compiling module fir_cmplx
+# 
+# Top level modules:
+# 	fir_cmplx
+# End time: 23:42:50 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:42:50 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/iir.sv 
+# -- Compiling package iir_sv_unit
+# -- Compiling module iir
+# 
+# Top level modules:
+# 	iir
+# End time: 23:42:50 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:42:50 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
+# 
+# Top level modules:
+# 	gain
+# End time: 23:42:50 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:42:50 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
+# -- Compiling package read_iq_sv_unit
+# -- Compiling module read_iq
+# 
+# Top level modules:
+# 	read_iq
+# End time: 23:42:51 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:42:51 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/demodulate.sv 
+# -- Compiling package demodulate_sv_unit
+# -- Compiling module demodulate
+# 
+# Top level modules:
+# 	demodulate
+# End time: 23:42:51 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:42:51 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_test.sv 
+# -- Compiling package fm_radio_test_sv_unit
+# -- Compiling module fm_radio_test
+# 
+# Top level modules:
+# 	fm_radio_test
+# End time: 23:42:51 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:42:51 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_tb.sv 
+# -- Compiling package fm_radio_tb_sv_unit
+# -- Compiling module fm_radio_tb
+# 
+# Top level modules:
+# 	fm_radio_tb
+# End time: 23:42:52 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 23:42:53 on Mar 06,2024, Elapsed time: 0:15:34
+# Errors: 3, Warnings: 0
+# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.fm_radio_tb -wlf fm_radio.wlf 
+# Start time: 23:42:53 on Mar 06,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Error (suppressible): ../sv/fm_radio_tb.sv(133): (vopt-7063) Failed to find 'mult_demod_lmr_out_din' in hierarchical name 'mult_demod_lmr_out_din'.
+#         Region: fm_radio_tb
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=0.
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./fm_radio_test_sim.do PAUSED at line 22
+do fm_radio_test_sim.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:43:21 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fifo.sv 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 23:43:21 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:43:21 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/globals.sv 
+# -- Compiling package globals_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 23:43:21 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:43:21 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/add.sv 
+# -- Compiling package add_sv_unit
+# -- Compiling module add
+# 
+# Top level modules:
+# 	add
+# End time: 23:43:22 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:43:22 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/sub.sv 
+# -- Compiling package sub_sv_unit
+# -- Compiling module sub
+# 
+# Top level modules:
+# 	sub
+# End time: 23:43:22 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:43:22 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/div.sv 
+# -- Compiling module div
+# 
+# Top level modules:
+# 	div
+# End time: 23:43:22 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:43:22 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/qarctan.sv 
+# -- Compiling package qarctan_sv_unit
+# -- Compiling module qarctan
+# 
+# Top level modules:
+# 	qarctan
+# End time: 23:43:23 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:43:23 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/multiply.sv 
+# -- Compiling package multiply_sv_unit
+# -- Compiling module multiply
+# 
+# Top level modules:
+# 	multiply
+# End time: 23:43:23 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:43:23 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fir.sv 
+# -- Compiling package fir_sv_unit
+# -- Compiling module fir
+# 
+# Top level modules:
+# 	fir
+# End time: 23:43:23 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:43:23 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fir_cmplx.sv 
+# -- Compiling package fir_cmplx_sv_unit
+# -- Compiling module fir_cmplx
+# 
+# Top level modules:
+# 	fir_cmplx
+# End time: 23:43:24 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:43:24 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/iir.sv 
+# -- Compiling package iir_sv_unit
+# -- Compiling module iir
+# 
+# Top level modules:
+# 	iir
+# End time: 23:43:24 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:43:24 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
+# 
+# Top level modules:
+# 	gain
+# End time: 23:43:24 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:43:24 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
+# -- Compiling package read_iq_sv_unit
+# -- Compiling module read_iq
+# 
+# Top level modules:
+# 	read_iq
+# End time: 23:43:25 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:43:25 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/demodulate.sv 
+# -- Compiling package demodulate_sv_unit
+# -- Compiling module demodulate
+# 
+# Top level modules:
+# 	demodulate
+# End time: 23:43:25 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:43:25 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_test.sv 
+# -- Compiling package fm_radio_test_sv_unit
+# -- Compiling module fm_radio_test
+# 
+# Top level modules:
+# 	fm_radio_test
+# End time: 23:43:26 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:43:26 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_tb.sv 
+# -- Compiling package fm_radio_tb_sv_unit
+# -- Compiling module fm_radio_tb
+# 
+# Top level modules:
+# 	fm_radio_tb
+# End time: 23:43:26 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.fm_radio_tb -wlf fm_radio.wlf 
+# Start time: 23:42:53 on Mar 06,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error (suppressible): ../sv/fm_radio_tb.sv(59): (vopt-2912) Port 'mult_demod_mult_demod_lmr_out_din' not found in module 'fm_radio_test' (5th connection).
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=2, Warnings=0.
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./fm_radio_test_sim.do PAUSED at line 22
+do fm_radio_test_sim.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:43:59 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fifo.sv 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 23:43:59 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:43:59 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/globals.sv 
+# -- Compiling package globals_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 23:43:59 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:43:59 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/add.sv 
+# -- Compiling package add_sv_unit
+# -- Compiling module add
+# 
+# Top level modules:
+# 	add
+# End time: 23:44:00 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:44:00 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/sub.sv 
+# -- Compiling package sub_sv_unit
+# -- Compiling module sub
+# 
+# Top level modules:
+# 	sub
+# End time: 23:44:00 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:44:00 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/div.sv 
+# -- Compiling module div
+# 
+# Top level modules:
+# 	div
+# End time: 23:44:00 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:44:00 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/qarctan.sv 
+# -- Compiling package qarctan_sv_unit
+# -- Compiling module qarctan
+# 
+# Top level modules:
+# 	qarctan
+# End time: 23:44:01 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:44:01 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/multiply.sv 
+# -- Compiling package multiply_sv_unit
+# -- Compiling module multiply
+# 
+# Top level modules:
+# 	multiply
+# End time: 23:44:01 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:44:01 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fir.sv 
+# -- Compiling package fir_sv_unit
+# -- Compiling module fir
+# 
+# Top level modules:
+# 	fir
+# End time: 23:44:01 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:44:01 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fir_cmplx.sv 
+# -- Compiling package fir_cmplx_sv_unit
+# -- Compiling module fir_cmplx
+# 
+# Top level modules:
+# 	fir_cmplx
+# End time: 23:44:01 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:44:02 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/iir.sv 
+# -- Compiling package iir_sv_unit
+# -- Compiling module iir
+# 
+# Top level modules:
+# 	iir
+# End time: 23:44:02 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:44:02 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
+# 
+# Top level modules:
+# 	gain
+# End time: 23:44:02 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:44:02 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
+# -- Compiling package read_iq_sv_unit
+# -- Compiling module read_iq
+# 
+# Top level modules:
+# 	read_iq
+# End time: 23:44:02 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:44:02 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/demodulate.sv 
+# -- Compiling package demodulate_sv_unit
+# -- Compiling module demodulate
+# 
+# Top level modules:
+# 	demodulate
+# End time: 23:44:03 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:44:03 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_test.sv 
+# -- Compiling package fm_radio_test_sv_unit
+# -- Compiling module fm_radio_test
+# 
+# Top level modules:
+# 	fm_radio_test
+# End time: 23:44:03 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:44:03 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_tb.sv 
+# -- Compiling package fm_radio_tb_sv_unit
+# -- Compiling module fm_radio_tb
+# 
+# Top level modules:
+# 	fm_radio_tb
+# End time: 23:44:04 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.fm_radio_tb -wlf fm_radio.wlf 
+# Start time: 23:42:53 on Mar 06,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-143) Recognized 1 FSM in module "iir(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "fir(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "fir(fast__1)".
+# Loading sv_std.std
+# Loading work.fm_radio_tb_sv_unit(fast)
+# Loading work.fm_radio_tb(fast)
+# Loading work.fm_radio_test_sv_unit(fast)
+# Loading work.fm_radio_test(fast)
+# Loading work.fifo(fast)
+# Loading work.fir_sv_unit(fast)
+# Loading work.fir(fast)
+# Loading work.fir(fast__1)
+# Loading work.add_sv_unit(fast)
+# Loading work.add(fast)
+# Loading work.sub_sv_unit(fast)
+# Loading work.sub(fast)
+# Loading work.iir_sv_unit(fast)
+# Loading work.iir(fast)
+# Loading work.gain_sv_unit(fast)
+# Loading work.gain(fast)
+# @ 20: Loading file ../fm_radio/src/txt_files/demodulate_out.txt...
+# @ 20: Loading file ../fm_radio/src/txt_files/hp_pilot_mult_out.txt...
+# @ 25: Comparing I ../fm_radio/src/out_files/fm_radio_right_out.txt...
+# @ 25: Comparing Q ../fm_radio/src/out_files/fm_radio_left_out.txt...
+# @ 30: Beginning simulation...
+# @ 1885: (4): RIGHT AUDIO ERROR: 00003c10 != 00003c40.
+# @ 1885: (4): LEFT AUDIO ERROR: 00003c10 != 00003c40.
+# @ 2305: (5): RIGHT AUDIO ERROR: 00001fa0 != 00002010.
+# @ 2305: (5): LEFT AUDIO ERROR: 00001fe0 != 00002050.
+# @ 2725: (6): RIGHT AUDIO ERROR: 00001180 != 00001190.
+# @ 2725: (6): LEFT AUDIO ERROR: 00001250 != 00001260.
+# @ 3145: (7): LEFT AUDIO ERROR: 00001c10 != 00001c20.
+# @ 3565: (8): RIGHT AUDIO ERROR: 00000d00 != 00000d10.
+# @ 3565: (8): LEFT AUDIO ERROR: 00001720 != 00001740.
+# @ 3985: (9): RIGHT AUDIO ERROR: 00001430 != 00001440.
+# @ 4405: (10): RIGHT AUDIO ERROR: 00001390 != 000013a0.
+# @ 4405: (10): LEFT AUDIO ERROR: 00001450 != 00001460.
+# @ 4825: (11): RIGHT AUDIO ERROR: 000018d0 != 000018e0.
+# @ 5245: (12): RIGHT AUDIO ERROR: 00001640 != 00001650.
+# @ 5245: (12): LEFT AUDIO ERROR: 00001740 != 00001750.
+do fm_radio_test_sim.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:46:07 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fifo.sv 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 23:46:08 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:46:08 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/globals.sv 
+# -- Compiling package globals_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 23:46:08 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:46:08 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/add.sv 
+# -- Compiling package add_sv_unit
+# -- Compiling module add
+# 
+# Top level modules:
+# 	add
+# End time: 23:46:08 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:46:08 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/sub.sv 
+# -- Compiling package sub_sv_unit
+# -- Compiling module sub
+# 
+# Top level modules:
+# 	sub
+# End time: 23:46:09 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:46:09 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/div.sv 
+# -- Compiling module div
+# 
+# Top level modules:
+# 	div
+# End time: 23:46:09 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:46:09 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/qarctan.sv 
+# -- Compiling package qarctan_sv_unit
+# -- Compiling module qarctan
+# 
+# Top level modules:
+# 	qarctan
+# End time: 23:46:09 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:46:09 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/multiply.sv 
+# -- Compiling package multiply_sv_unit
+# -- Compiling module multiply
+# 
+# Top level modules:
+# 	multiply
+# End time: 23:46:10 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:46:10 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fir.sv 
+# -- Compiling package fir_sv_unit
+# -- Compiling module fir
+# 
+# Top level modules:
+# 	fir
+# End time: 23:46:10 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:46:10 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fir_cmplx.sv 
+# -- Compiling package fir_cmplx_sv_unit
+# -- Compiling module fir_cmplx
+# 
+# Top level modules:
+# 	fir_cmplx
+# End time: 23:46:10 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:46:10 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/iir.sv 
+# -- Compiling package iir_sv_unit
+# -- Compiling module iir
+# 
+# Top level modules:
+# 	iir
+# End time: 23:46:11 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:46:11 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
+# 
+# Top level modules:
+# 	gain
+# End time: 23:46:11 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:46:11 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
+# -- Compiling package read_iq_sv_unit
+# -- Compiling module read_iq
+# 
+# Top level modules:
+# 	read_iq
+# End time: 23:46:11 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:46:11 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/demodulate.sv 
+# -- Compiling package demodulate_sv_unit
+# -- Compiling module demodulate
+# 
+# Top level modules:
+# 	demodulate
+# End time: 23:46:12 on Mar 06,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:46:12 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_test.sv 
+# -- Compiling package fm_radio_test_sv_unit
+# -- Compiling module fm_radio_test
+# 
+# Top level modules:
+# 	fm_radio_test
+# End time: 23:46:12 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 23:46:12 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_tb.sv 
+# -- Compiling package fm_radio_tb_sv_unit
+# -- Compiling module fm_radio_tb
+# 
+# Top level modules:
+# 	fm_radio_tb
+# End time: 23:46:12 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 23:46:12 on Mar 06,2024, Elapsed time: 0:03:19
+# Errors: 2, Warnings: 0
+# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.fm_radio_tb -wlf fm_radio.wlf 
+# Start time: 23:46:12 on Mar 06,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading sv_std.std
+# Loading work.fm_radio_tb_sv_unit(fast)
+# Loading work.fm_radio_tb(fast)
+# Loading work.fm_radio_test_sv_unit(fast)
+# Loading work.fm_radio_test(fast)
+# Loading work.fifo(fast)
+# Loading work.fir_sv_unit(fast)
+# Loading work.fir(fast)
+# Loading work.fir(fast__1)
+# Loading work.add_sv_unit(fast)
+# Loading work.add(fast)
+# Loading work.sub_sv_unit(fast)
+# Loading work.sub(fast)
+# Loading work.iir_sv_unit(fast)
+# Loading work.iir(fast)
+# Loading work.gain_sv_unit(fast)
+# Loading work.gain(fast)
+# @ 20: Loading file ../fm_radio/src/txt_files/demodulate_out.txt...
+# @ 20: Loading file ../fm_radio/src/txt_files/hp_pilot_mult_out.txt...
+# @ 25: Comparing I ../fm_radio/src/out_files/fm_radio_right_out.txt...
+# @ 25: Comparing Q ../fm_radio/src/out_files/fm_radio_left_out.txt...
+# @ 30: Beginning simulation...
+# @ 1885: (4): RIGHT AUDIO ERROR: 00003c10 != 00003c40.
+# @ 1885: (4): LEFT AUDIO ERROR: 00003c10 != 00003c40.
+# @ 2305: (5): RIGHT AUDIO ERROR: 00001fa0 != 00002010.
+# @ 2305: (5): LEFT AUDIO ERROR: 00001fe0 != 00002050.
+# @ 2725: (6): RIGHT AUDIO ERROR: 00001180 != 00001190.
+# @ 2725: (6): LEFT AUDIO ERROR: 00001250 != 00001260.
+# @ 3145: (7): LEFT AUDIO ERROR: 00001c10 != 00001c20.
+# @ 3565: (8): RIGHT AUDIO ERROR: 00000d00 != 00000d10.
+# @ 3565: (8): LEFT AUDIO ERROR: 00001720 != 00001740.
+# @ 3985: (9): RIGHT AUDIO ERROR: 00001430 != 00001440.
+# @ 4405: (10): RIGHT AUDIO ERROR: 00001390 != 000013a0.
+# @ 4405: (10): LEFT AUDIO ERROR: 00001450 != 00001460.
+# @ 4825: (11): RIGHT AUDIO ERROR: 000018d0 != 000018e0.
+# @ 5245: (12): RIGHT AUDIO ERROR: 00001640 != 00001650.
+# @ 5245: (12): LEFT AUDIO ERROR: 00001740 != 00001750.
+do fm_radio_test_sim.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:23:53 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fifo.sv 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 00:23:53 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:23:53 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/globals.sv 
+# ** Error: ../sv/globals.sv(106): Mismatched `endif compiler directive.
+# End time: 00:23:54 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# ** Error: /vol/mentor/modelsim-2020.1/modeltech/linux_x86_64/vlog failed.
+# Error in macro ./fm_radio_test_sim.do line 7
+# /vol/mentor/modelsim-2020.1/modeltech/linux_x86_64/vlog failed.
+#     while executing
+# "vlog -work work "../sv/globals.sv""
+do fm_radio_test_sim.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:24:05 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fifo.sv 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 00:24:06 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:24:06 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/globals.sv 
+# -- Compiling package globals_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 00:24:06 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:24:06 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/add.sv 
+# -- Compiling package add_sv_unit
+# -- Compiling module add
+# 
+# Top level modules:
+# 	add
+# End time: 00:24:07 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:24:07 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/sub.sv 
+# -- Compiling package sub_sv_unit
+# -- Compiling module sub
+# 
+# Top level modules:
+# 	sub
+# End time: 00:24:07 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:24:07 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/div.sv 
+# -- Compiling module div
+# 
+# Top level modules:
+# 	div
+# End time: 00:24:07 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:24:07 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/qarctan.sv 
+# -- Compiling package qarctan_sv_unit
+# -- Compiling module qarctan
+# 
+# Top level modules:
+# 	qarctan
+# End time: 00:24:08 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:24:08 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/multiply.sv 
+# -- Compiling package multiply_sv_unit
+# -- Compiling module multiply
+# 
+# Top level modules:
+# 	multiply
+# End time: 00:24:08 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:24:08 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fir.sv 
+# -- Compiling package fir_sv_unit
+# -- Compiling module fir
+# 
+# Top level modules:
+# 	fir
+# End time: 00:24:09 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:24:09 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fir_cmplx.sv 
+# -- Compiling package fir_cmplx_sv_unit
+# -- Compiling module fir_cmplx
+# 
+# Top level modules:
+# 	fir_cmplx
+# End time: 00:24:09 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:24:09 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/iir.sv 
+# -- Compiling package iir_sv_unit
+# -- Compiling module iir
+# 
+# Top level modules:
+# 	iir
+# End time: 00:24:09 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:24:09 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
+# 
+# Top level modules:
+# 	gain
+# End time: 00:24:10 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:24:10 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
+# -- Compiling package read_iq_sv_unit
+# -- Compiling module read_iq
+# 
+# Top level modules:
+# 	read_iq
+# End time: 00:24:10 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:24:10 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/demodulate.sv 
+# -- Compiling package demodulate_sv_unit
+# -- Compiling module demodulate
+# 
+# Top level modules:
+# 	demodulate
+# End time: 00:24:10 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:24:10 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_test.sv 
+# -- Compiling package fm_radio_test_sv_unit
+# -- Compiling module fm_radio_test
+# 
+# Top level modules:
+# 	fm_radio_test
+# End time: 00:24:11 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:24:11 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_tb.sv 
+# -- Compiling package fm_radio_tb_sv_unit
+# -- Compiling module fm_radio_tb
+# 
+# Top level modules:
+# 	fm_radio_tb
+# End time: 00:24:11 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 00:24:11 on Mar 07,2024, Elapsed time: 0:37:59
+# Errors: 1, Warnings: 0
+# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.fm_radio_tb -wlf fm_radio.wlf 
+# Start time: 00:24:11 on Mar 07,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading sv_std.std
+# Loading work.fm_radio_tb_sv_unit(fast)
+# Loading work.fm_radio_tb(fast)
+# Loading work.fm_radio_test_sv_unit(fast)
+# Loading work.fm_radio_test(fast)
+# Loading work.fifo(fast)
+# Loading work.fir_sv_unit(fast)
+# Loading work.fir(fast)
+# Loading work.fir(fast__1)
+# Loading work.add_sv_unit(fast)
+# Loading work.add(fast)
+# Loading work.sub_sv_unit(fast)
+# Loading work.sub(fast)
+# Loading work.iir_sv_unit(fast)
+# Loading work.iir(fast)
+# Loading work.gain_sv_unit(fast)
+# Loading work.gain(fast)
+# @ 20: Loading file ../fm_radio/src/txt_files/demodulate_out.txt...
+# @ 20: Loading file ../fm_radio/src/txt_files/hp_pilot_mult_out.txt...
+# @ 25: Comparing I ../fm_radio/src/out_files/fm_radio_right_out.txt...
+# @ 25: Comparing Q ../fm_radio/src/out_files/fm_radio_left_out.txt...
+# @ 30: Beginning simulation...
+# @ 1885: (4): RIGHT AUDIO ERROR: 00003c10 != 00003c40.
+# @ 1885: (4): LEFT AUDIO ERROR: 00003c10 != 00003c40.
+# @ 2305: (5): RIGHT AUDIO ERROR: 00001fa0 != 00002010.
+# @ 2305: (5): LEFT AUDIO ERROR: 00001fe0 != 00002050.
+# @ 2725: (6): RIGHT AUDIO ERROR: 00001180 != 00001190.
+# @ 2725: (6): LEFT AUDIO ERROR: 00001250 != 00001260.
+# @ 3145: (7): LEFT AUDIO ERROR: 00001c10 != 00001c20.
+# @ 3565: (8): RIGHT AUDIO ERROR: 00000d00 != 00000d10.
+# @ 3565: (8): LEFT AUDIO ERROR: 00001720 != 00001740.
+# @ 3985: (9): RIGHT AUDIO ERROR: 00001430 != 00001440.
+# @ 4405: (10): RIGHT AUDIO ERROR: 00001390 != 000013a0.
+# @ 4405: (10): LEFT AUDIO ERROR: 00001450 != 00001460.
+# @ 4825: (11): RIGHT AUDIO ERROR: 000018d0 != 000018e0.
+# @ 5245: (12): RIGHT AUDIO ERROR: 00001640 != 00001650.
+# @ 5245: (12): LEFT AUDIO ERROR: 00001740 != 00001750.
+do fm_radio_test_sim.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:26:26 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fifo.sv 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 00:26:26 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:26:26 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/globals.sv 
+# -- Compiling package globals_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 00:26:26 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:26:26 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/add.sv 
+# -- Compiling package add_sv_unit
+# -- Compiling module add
+# 
+# Top level modules:
+# 	add
+# End time: 00:26:27 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:26:27 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/sub.sv 
+# -- Compiling package sub_sv_unit
+# -- Compiling module sub
+# 
+# Top level modules:
+# 	sub
+# End time: 00:26:27 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:26:27 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/div.sv 
+# -- Compiling module div
+# 
+# Top level modules:
+# 	div
+# End time: 00:26:27 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:26:27 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/qarctan.sv 
+# -- Compiling package qarctan_sv_unit
+# -- Compiling module qarctan
+# 
+# Top level modules:
+# 	qarctan
+# End time: 00:26:28 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:26:28 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/multiply.sv 
+# -- Compiling package multiply_sv_unit
+# -- Compiling module multiply
+# 
+# Top level modules:
+# 	multiply
+# End time: 00:26:28 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:26:28 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fir.sv 
+# -- Compiling package fir_sv_unit
+# -- Compiling module fir
+# 
+# Top level modules:
+# 	fir
+# End time: 00:26:28 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:26:28 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fir_cmplx.sv 
+# -- Compiling package fir_cmplx_sv_unit
+# -- Compiling module fir_cmplx
+# 
+# Top level modules:
+# 	fir_cmplx
+# End time: 00:26:29 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:26:29 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/iir.sv 
+# -- Compiling package iir_sv_unit
+# -- Compiling module iir
+# 
+# Top level modules:
+# 	iir
+# End time: 00:26:29 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:26:29 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
+# 
+# Top level modules:
+# 	gain
+# End time: 00:26:30 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:26:30 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
+# -- Compiling package read_iq_sv_unit
+# -- Compiling module read_iq
+# 
+# Top level modules:
+# 	read_iq
+# End time: 00:26:31 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:26:31 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/demodulate.sv 
+# -- Compiling package demodulate_sv_unit
+# -- Compiling module demodulate
+# 
+# Top level modules:
+# 	demodulate
+# End time: 00:26:31 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:26:31 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_test.sv 
+# -- Compiling package fm_radio_test_sv_unit
+# -- Compiling module fm_radio_test
+# 
+# Top level modules:
+# 	fm_radio_test
+# End time: 00:26:32 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:26:32 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_tb.sv 
+# -- Compiling package fm_radio_tb_sv_unit
+# -- Compiling module fm_radio_tb
+# 
+# Top level modules:
+# 	fm_radio_tb
+# End time: 00:26:32 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 00:26:32 on Mar 07,2024, Elapsed time: 0:02:21
+# Errors: 0, Warnings: 0
+# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.fm_radio_tb -wlf fm_radio.wlf 
+# Start time: 00:26:32 on Mar 07,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.fm_radio_tb_sv_unit(fast)
+# Loading work.fm_radio_tb(fast)
+# Loading work.fm_radio_test_sv_unit(fast)
+# Loading work.fm_radio_test(fast)
+# Loading work.fifo(fast)
+# Loading work.fir_sv_unit(fast)
+# Loading work.fir(fast)
+# Loading work.fir(fast__1)
+# Loading work.add_sv_unit(fast)
+# Loading work.add(fast)
+# Loading work.sub_sv_unit(fast)
+# Loading work.sub(fast)
+# Loading work.iir_sv_unit(fast)
+# Loading work.iir(fast)
+# Loading work.gain_sv_unit(fast)
+# Loading work.gain(fast)
+# @ 20: Loading file ../fm_radio/src/txt_files/demodulate_out.txt...
+# @ 20: Loading file ../fm_radio/src/txt_files/hp_pilot_mult_out.txt...
+# @ 25: Comparing I ../fm_radio/src/out_files/fm_radio_right_out.txt...
+# @ 25: Comparing Q ../fm_radio/src/out_files/fm_radio_left_out.txt...
+# @ 30: Beginning simulation...
+# @ 1885: (4): RIGHT AUDIO ERROR: 00003c10 != 00003c40.
+# @ 1885: (4): LEFT AUDIO ERROR: 00003c10 != 00003c40.
+# @ 2305: (5): RIGHT AUDIO ERROR: 00001fa0 != 00002010.
+# @ 2305: (5): LEFT AUDIO ERROR: 00001fe0 != 00002050.
+# @ 2725: (6): RIGHT AUDIO ERROR: 00001180 != 00001190.
+# @ 2725: (6): LEFT AUDIO ERROR: 00001250 != 00001260.
+# @ 3145: (7): LEFT AUDIO ERROR: 00001c10 != 00001c20.
+# @ 3565: (8): RIGHT AUDIO ERROR: 00000d00 != 00000d10.
+# @ 3565: (8): LEFT AUDIO ERROR: 00001720 != 00001740.
+# @ 3985: (9): RIGHT AUDIO ERROR: 00001430 != 00001440.
+# @ 4405: (10): RIGHT AUDIO ERROR: 00001390 != 000013a0.
+# @ 4405: (10): LEFT AUDIO ERROR: 00001450 != 00001460.
+# @ 4825: (11): RIGHT AUDIO ERROR: 000018d0 != 000018e0.
+# @ 5245: (12): RIGHT AUDIO ERROR: 00001640 != 00001650.
+# @ 5245: (12): LEFT AUDIO ERROR: 00001740 != 00001750.
+do fm_radio_test_sim.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:01 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fifo.sv 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 00:39:02 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:02 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/globals.sv 
+# -- Compiling package globals_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 00:39:02 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:02 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/add.sv 
+# -- Compiling package add_sv_unit
+# -- Compiling module add
+# 
+# Top level modules:
+# 	add
+# End time: 00:39:02 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:02 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/sub.sv 
+# -- Compiling package sub_sv_unit
+# -- Compiling module sub
+# 
+# Top level modules:
+# 	sub
+# End time: 00:39:03 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:03 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/div.sv 
+# -- Compiling module div
+# 
+# Top level modules:
+# 	div
+# End time: 00:39:03 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:03 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/qarctan.sv 
+# -- Compiling package qarctan_sv_unit
+# -- Compiling module qarctan
+# 
+# Top level modules:
+# 	qarctan
+# End time: 00:39:04 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:04 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/multiply.sv 
+# -- Compiling package multiply_sv_unit
+# -- Compiling module multiply
+# 
+# Top level modules:
+# 	multiply
+# End time: 00:39:04 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:04 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fir.sv 
+# -- Compiling package fir_sv_unit
+# -- Compiling module fir
+# 
+# Top level modules:
+# 	fir
+# End time: 00:39:04 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:04 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fir_cmplx.sv 
+# -- Compiling package fir_cmplx_sv_unit
+# -- Compiling module fir_cmplx
+# 
+# Top level modules:
+# 	fir_cmplx
+# End time: 00:39:05 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:05 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/iir.sv 
+# -- Compiling package iir_sv_unit
+# -- Compiling module iir
+# 
+# Top level modules:
+# 	iir
+# End time: 00:39:05 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:05 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
+# 
+# Top level modules:
+# 	gain
+# End time: 00:39:06 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:06 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
+# -- Compiling package read_iq_sv_unit
+# -- Compiling module read_iq
+# 
+# Top level modules:
+# 	read_iq
+# End time: 00:39:06 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:06 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/demodulate.sv 
+# -- Compiling package demodulate_sv_unit
+# -- Compiling module demodulate
+# 
+# Top level modules:
+# 	demodulate
+# End time: 00:39:06 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:06 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_test.sv 
+# -- Compiling package fm_radio_test_sv_unit
+# -- Compiling module fm_radio_test
+# 
+# Top level modules:
+# 	fm_radio_test
+# End time: 00:39:07 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:07 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_tb.sv 
+# -- Compiling package fm_radio_tb_sv_unit
+# -- Compiling module fm_radio_tb
+# 
+# Top level modules:
+# 	fm_radio_tb
+# End time: 00:39:07 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 00:39:07 on Mar 07,2024, Elapsed time: 0:12:35
+# Errors: 0, Warnings: 0
+# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.fm_radio_tb -wlf fm_radio.wlf 
+# Start time: 00:39:07 on Mar 07,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading sv_std.std
+# Loading work.fm_radio_tb_sv_unit(fast)
+# Loading work.fm_radio_tb(fast)
+# Loading work.fm_radio_test_sv_unit(fast)
+# Loading work.fm_radio_test(fast)
+# Loading work.fifo(fast)
+# Loading work.fir_sv_unit(fast)
+# Loading work.fir(fast)
+# Loading work.fir(fast__1)
+# Loading work.add_sv_unit(fast)
+# Loading work.add(fast)
+# Loading work.sub_sv_unit(fast)
+# Loading work.sub(fast)
+# Loading work.iir_sv_unit(fast)
+# Loading work.iir(fast)
+# Loading work.gain_sv_unit(fast)
+# Loading work.gain(fast)
+# ** UI-Msg: (vish-4014) No objects found matching '/fm_radio_inst/lp_fir_inst/*'.
+# Error in macro ./fm_radio_test_sim.do line 32
+# ** UI-Msg: (vish-4014) No objects found matching '/fm_radio_inst/lp_fir_inst/*'.
+#     while executing
+# "add wave -noupdate -group fm_radio_tb/fm_radio_inst/lp_fir_inst"
+do fm_radio_test_sim.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:27 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fifo.sv 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 00:39:28 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:28 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/globals.sv 
+# -- Compiling package globals_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 00:39:28 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:28 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/add.sv 
+# -- Compiling package add_sv_unit
+# -- Compiling module add
+# 
+# Top level modules:
+# 	add
+# End time: 00:39:28 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:28 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/sub.sv 
+# -- Compiling package sub_sv_unit
+# -- Compiling module sub
+# 
+# Top level modules:
+# 	sub
+# End time: 00:39:29 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:29 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/div.sv 
+# -- Compiling module div
+# 
+# Top level modules:
+# 	div
+# End time: 00:39:29 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:29 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/qarctan.sv 
+# -- Compiling package qarctan_sv_unit
+# -- Compiling module qarctan
+# 
+# Top level modules:
+# 	qarctan
+# End time: 00:39:29 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:29 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/multiply.sv 
+# -- Compiling package multiply_sv_unit
+# -- Compiling module multiply
+# 
+# Top level modules:
+# 	multiply
+# End time: 00:39:30 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:30 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fir.sv 
+# -- Compiling package fir_sv_unit
+# -- Compiling module fir
+# 
+# Top level modules:
+# 	fir
+# End time: 00:39:30 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:30 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fir_cmplx.sv 
+# -- Compiling package fir_cmplx_sv_unit
+# -- Compiling module fir_cmplx
+# 
+# Top level modules:
+# 	fir_cmplx
+# End time: 00:39:30 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:30 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/iir.sv 
+# -- Compiling package iir_sv_unit
+# -- Compiling module iir
+# 
+# Top level modules:
+# 	iir
+# End time: 00:39:31 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:31 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
+# 
+# Top level modules:
+# 	gain
+# End time: 00:39:31 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:31 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
+# -- Compiling package read_iq_sv_unit
+# -- Compiling module read_iq
+# 
+# Top level modules:
+# 	read_iq
+# End time: 00:39:32 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:32 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/demodulate.sv 
+# -- Compiling package demodulate_sv_unit
+# -- Compiling module demodulate
+# 
+# Top level modules:
+# 	demodulate
+# End time: 00:39:32 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:32 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_test.sv 
+# -- Compiling package fm_radio_test_sv_unit
+# -- Compiling module fm_radio_test
+# 
+# Top level modules:
+# 	fm_radio_test
+# End time: 00:39:32 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:39:32 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_tb.sv 
+# -- Compiling package fm_radio_tb_sv_unit
+# -- Compiling module fm_radio_tb
+# 
+# Top level modules:
+# 	fm_radio_tb
+# End time: 00:39:33 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 00:39:33 on Mar 07,2024, Elapsed time: 0:00:26
+# Errors: 0, Warnings: 0
+# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.fm_radio_tb -wlf fm_radio.wlf 
+# Start time: 00:39:33 on Mar 07,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading sv_std.std
+# Loading work.fm_radio_tb_sv_unit(fast)
+# Loading work.fm_radio_tb(fast)
+# Loading work.fm_radio_test_sv_unit(fast)
+# Loading work.fm_radio_test(fast)
+# Loading work.fifo(fast)
+# Loading work.fir_sv_unit(fast)
+# Loading work.fir(fast)
+# Loading work.fir(fast__1)
+# Loading work.add_sv_unit(fast)
+# Loading work.add(fast)
+# Loading work.sub_sv_unit(fast)
+# Loading work.sub(fast)
+# Loading work.iir_sv_unit(fast)
+# Loading work.iir(fast)
+# Loading work.gain_sv_unit(fast)
+# Loading work.gain(fast)
+# @ 20: Loading file ../fm_radio/src/txt_files/demodulate_out.txt...
+# @ 20: Loading file ../fm_radio/src/txt_files/hp_pilot_mult_out.txt...
+# @ 25: Comparing I ../fm_radio/src/out_files/fm_radio_right_out.txt...
+# @ 25: Comparing Q ../fm_radio/src/out_files/fm_radio_left_out.txt...
+# @ 30: Beginning simulation...
+# @ 1885: (4): RIGHT AUDIO ERROR: 00003c10 != 00003c40.
+# @ 1885: (4): LEFT AUDIO ERROR: 00003c10 != 00003c40.
+# @ 2305: (5): RIGHT AUDIO ERROR: 00001fa0 != 00002010.
+# @ 2305: (5): LEFT AUDIO ERROR: 00001fe0 != 00002050.
+# @ 2725: (6): RIGHT AUDIO ERROR: 00001180 != 00001190.
+# @ 2725: (6): LEFT AUDIO ERROR: 00001250 != 00001260.
+# @ 3145: (7): LEFT AUDIO ERROR: 00001c10 != 00001c20.
+# @ 3565: (8): RIGHT AUDIO ERROR: 00000d00 != 00000d10.
+# @ 3565: (8): LEFT AUDIO ERROR: 00001720 != 00001740.
+# @ 3985: (9): RIGHT AUDIO ERROR: 00001430 != 00001440.
+# @ 4405: (10): RIGHT AUDIO ERROR: 00001390 != 000013a0.
+# @ 4405: (10): LEFT AUDIO ERROR: 00001450 != 00001460.
+# @ 4825: (11): RIGHT AUDIO ERROR: 000018d0 != 000018e0.
+# @ 5245: (12): RIGHT AUDIO ERROR: 00001640 != 00001650.
+# @ 5245: (12): LEFT AUDIO ERROR: 00001740 != 00001750.
+do fm_radio_test_sim.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:47:30 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fifo.sv 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 00:47:31 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:47:31 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/globals.sv 
+# -- Compiling package globals_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 00:47:31 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:47:31 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/add.sv 
+# -- Compiling package add_sv_unit
+# -- Compiling module add
+# 
+# Top level modules:
+# 	add
+# End time: 00:47:31 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:47:31 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/sub.sv 
+# -- Compiling package sub_sv_unit
+# -- Compiling module sub
+# 
+# Top level modules:
+# 	sub
+# End time: 00:47:32 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:47:32 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/div.sv 
+# -- Compiling module div
+# 
+# Top level modules:
+# 	div
+# End time: 00:47:32 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:47:32 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/qarctan.sv 
+# -- Compiling package qarctan_sv_unit
+# -- Compiling module qarctan
+# 
+# Top level modules:
+# 	qarctan
+# End time: 00:47:32 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:47:32 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/multiply.sv 
+# -- Compiling package multiply_sv_unit
+# -- Compiling module multiply
+# 
+# Top level modules:
+# 	multiply
+# End time: 00:47:33 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:47:33 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fir.sv 
+# -- Compiling package fir_sv_unit
+# -- Compiling module fir
+# 
+# Top level modules:
+# 	fir
+# End time: 00:47:33 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:47:33 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fir_cmplx.sv 
+# -- Compiling package fir_cmplx_sv_unit
+# -- Compiling module fir_cmplx
+# 
+# Top level modules:
+# 	fir_cmplx
+# End time: 00:47:33 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:47:33 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/iir.sv 
+# -- Compiling package iir_sv_unit
+# -- Compiling module iir
+# 
+# Top level modules:
+# 	iir
+# End time: 00:47:34 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:47:34 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
+# 
+# Top level modules:
+# 	gain
+# End time: 00:47:34 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:47:34 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
+# -- Compiling package read_iq_sv_unit
+# -- Compiling module read_iq
+# 
+# Top level modules:
+# 	read_iq
+# End time: 00:47:35 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:47:35 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/demodulate.sv 
+# -- Compiling package demodulate_sv_unit
+# -- Compiling module demodulate
+# 
+# Top level modules:
+# 	demodulate
+# End time: 00:47:35 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:47:35 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_test.sv 
+# -- Compiling package fm_radio_test_sv_unit
+# -- Compiling module fm_radio_test
+# 
+# Top level modules:
+# 	fm_radio_test
+# End time: 00:47:35 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:47:35 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_tb.sv 
+# -- Compiling package fm_radio_tb_sv_unit
+# -- Compiling module fm_radio_tb
+# 
+# Top level modules:
+# 	fm_radio_tb
+# End time: 00:47:36 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 00:47:36 on Mar 07,2024, Elapsed time: 0:08:03
+# Errors: 0, Warnings: 0
+# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.fm_radio_tb -wlf fm_radio.wlf 
+# Start time: 00:47:36 on Mar 07,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.fm_radio_tb_sv_unit(fast)
+# Loading work.fm_radio_tb(fast)
+# Loading work.fm_radio_test_sv_unit(fast)
+# Loading work.fm_radio_test(fast)
+# Loading work.fifo(fast)
+# Loading work.fir_sv_unit(fast)
+# Loading work.fir(fast)
+# Loading work.fir(fast__1)
+# ** UI-Msg: (vish-4014) No objects found matching '/fm_radio_inst/left_gain_fifo_inst/*'.
+# Error in macro ./fm_radio_test_sim.do line 47
+# ** UI-Msg: (vish-4014) No objects found matching '/fm_radio_inst/left_gain_fifo_inst/*'.
+#     while executing
+# "add wave -noupdate -group fm_radio_tb/fm_radio_inst/left_gain_fifo_inst"
+do fm_radio_test_sim.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:48:02 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fifo.sv 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 00:48:02 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:48:02 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/globals.sv 
+# -- Compiling package globals_sv_unit
+# 
+# Top level modules:
+# 	--none--
+# End time: 00:48:02 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:48:02 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/add.sv 
+# -- Compiling package add_sv_unit
+# -- Compiling module add
+# 
+# Top level modules:
+# 	add
+# End time: 00:48:03 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:48:03 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/sub.sv 
+# -- Compiling package sub_sv_unit
+# -- Compiling module sub
+# 
+# Top level modules:
+# 	sub
+# End time: 00:48:03 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:48:03 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/div.sv 
+# -- Compiling module div
+# 
+# Top level modules:
+# 	div
+# End time: 00:48:03 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:48:03 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/qarctan.sv 
+# -- Compiling package qarctan_sv_unit
+# -- Compiling module qarctan
+# 
+# Top level modules:
+# 	qarctan
+# End time: 00:48:04 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:48:04 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/multiply.sv 
+# -- Compiling package multiply_sv_unit
+# -- Compiling module multiply
+# 
+# Top level modules:
+# 	multiply
+# End time: 00:48:04 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:48:04 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fir.sv 
+# -- Compiling package fir_sv_unit
+# -- Compiling module fir
+# 
+# Top level modules:
+# 	fir
+# End time: 00:48:04 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:48:05 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fir_cmplx.sv 
+# -- Compiling package fir_cmplx_sv_unit
+# -- Compiling module fir_cmplx
+# 
+# Top level modules:
+# 	fir_cmplx
+# End time: 00:48:05 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:48:05 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/iir.sv 
+# -- Compiling package iir_sv_unit
+# -- Compiling module iir
+# 
+# Top level modules:
+# 	iir
+# End time: 00:48:05 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:48:05 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/gain.sv 
+# -- Compiling package gain_sv_unit
+# -- Compiling module gain
+# 
+# Top level modules:
+# 	gain
+# End time: 00:48:06 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:48:06 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/read_iq.sv 
+# -- Compiling package read_iq_sv_unit
+# -- Compiling module read_iq
+# 
+# Top level modules:
+# 	read_iq
+# End time: 00:48:06 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:48:06 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/demodulate.sv 
+# -- Compiling package demodulate_sv_unit
+# -- Compiling module demodulate
+# 
+# Top level modules:
+# 	demodulate
+# End time: 00:48:06 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:48:06 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_test.sv 
+# -- Compiling package fm_radio_test_sv_unit
+# -- Compiling module fm_radio_test
+# 
+# Top level modules:
+# 	fm_radio_test
+# End time: 00:48:07 on Mar 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:48:07 on Mar 07,2024
+# vlog -reportprogress 300 -work work ../sv/fm_radio_tb.sv 
+# -- Compiling package fm_radio_tb_sv_unit
+# -- Compiling module fm_radio_tb
+# 
+# Top level modules:
+# 	fm_radio_tb
+# End time: 00:48:07 on Mar 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 00:48:07 on Mar 07,2024, Elapsed time: 0:00:31
+# Errors: 0, Warnings: 0
+# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.fm_radio_tb -wlf fm_radio.wlf 
+# Start time: 00:48:07 on Mar 07,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading sv_std.std
+# Loading work.fm_radio_tb_sv_unit(fast)
+# Loading work.fm_radio_tb(fast)
+# Loading work.fm_radio_test_sv_unit(fast)
+# Loading work.fm_radio_test(fast)
+# Loading work.fifo(fast)
+# Loading work.fir_sv_unit(fast)
+# Loading work.fir(fast)
+# Loading work.fir(fast__1)
+# @ 20: Loading file ../fm_radio/src/txt_files/demodulate_out.txt...
+# @ 20: Loading file ../fm_radio/src/txt_files/hp_pilot_mult_out.txt...
+# @ 25: Comparing I ../fm_radio/src/out_files/lpr_fir_out.txt...
+# @ 25: Comparing Q ../fm_radio/src/out_files/lmr_fir_out.txt...
+# @ 30: Beginning simulation...
+# @ 1325: (3): RIGHT AUDIO ERROR: 0000130e != 0000131b.
+# @ 1745: (4): RIGHT AUDIO ERROR: 00000672 != 0000068b.
+# @ 2165: (5): RIGHT AUDIO ERROR: 00000770 != 00000773.
+# @ 2585: (6): RIGHT AUDIO ERROR: 0000065e != 00000663.
+# @ 3005: (7): RIGHT AUDIO ERROR: 00000665 != 0000066a.
+# @ 3425: (8): RIGHT AUDIO ERROR: 000006ca != 000006cd.
+# @ 3845: (9): RIGHT AUDIO ERROR: 00000637 != 0000063d.
+# @ 4265: (10): RIGHT AUDIO ERROR: 00000773 != 00000776.
+# @ 4685: (11): RIGHT AUDIO ERROR: 00000698 != 0000069c.
+# @ 5105: (12): RIGHT AUDIO ERROR: 00000749 != 0000074e.

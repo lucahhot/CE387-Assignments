@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- *************************************************************************************
+FILE DESCRIPTION
+Max Top 5 critical clocks will be reported. For rest user needs to refer to Detailed report
+*******************************************************************************************-->
+<report_table display_priority="2" name="Timing Summary">
+<report_link name="Detailed report">
+<data>/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synlog/proj_1_fpga_mapper.srr</data>
+<title>START OF TIMING REPORT</title>
+</report_link>
+<row>
+<data tcl_name="clock_name">Clock Name</data>
+<data tcl_name="req_freq">Req Freq</data>
+<data tcl_name="est_freq">Est Freq</data>
+<data tcl_name="slack">Slack</data>
+</row>
+<row>
+<data>div_64s_32s|state_derived_clock[4]</data>
+<data>44.0 MHz</data>
+<data>37.4 MHz</data>
+<data>-0.651</data>
+</row>
+<row>
+<data>fm_radio|clock</data>
+<data>44.0 MHz</data>
+<data>32.5 MHz</data>
+<data>-4.009</data>
+</row>
+<row>
+<data>gain_32s_10s_0|state_derived_clock[0]</data>
+<data>44.0 MHz</data>
+<data>3750.9 MHz</data>
+<data>22.449</data>
+</row>
+<row>
+<data>gain_32s_10s_1|state_derived_clock[0]</data>
+<data>44.0 MHz</data>
+<data>3750.9 MHz</data>
+<data>22.449</data>
+</row>
+<row>
+<data>multiply_32s_0|state_derived_clock[0]</data>
+<data>44.0 MHz</data>
+<data>78.8 MHz</data>
+<data>7.495</data>
+</row>
+<row>
+<data>multiply_32s_1|state_derived_clock[0]</data>
+<data>44.0 MHz</data>
+<data>83.9 MHz</data>
+<data>7.503</data>
+</row>
+<row>
+<data>System</data>
+<data>717.1 MHz</data>
+<data>609.6 MHz</data>
+<data>-0.246</data>
+</row>
+</report_table>
