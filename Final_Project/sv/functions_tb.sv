@@ -87,12 +87,50 @@ end
 
 initial begin : data_write_process
    
-    logic signed [0:7] [DATA_SIZE-1:0] x_in;
-    logic signed [0:7] [DATA_SIZE-1:0] coeffs;
+    logic signed [0:23] [DATA_SIZE-1:0] x_in;
     logic signed [DATA_SIZE-1:0] sum;
+    logic signed [DATA_SIZE_2-1:0] temp_sum;
     
     @(negedge reset);
     @(negedge clock);
+
+    x_in = '{32'h000004a6
+            ,32'h000004a6
+            ,32'h00000696
+            ,32'hfffffb5a
+            ,32'hfffffc84
+            ,32'h000007d8
+            ,32'h00000900
+            ,32'h0000073e
+            ,32'h000002ae
+            ,32'h0000091f
+            ,32'h0000012c
+            ,32'h000001ec
+            ,32'h00000196
+            ,32'h00000129
+            ,32'h0000018b
+            ,32'h00000139
+            ,32'h0000012e
+            ,32'h00000146
+            ,32'h0000015b,
+            32'h00000186,
+            32'h000001ee,
+            32'h0000021b,
+            32'h000001b3,
+            32'h000001cf};
+
+    sum = 0;
+    for (int i = 0; i < 24; i++) begin
+        sum = $signed(sum) + $signed(DEQUANTIZE($signed(x_in[24-i-1]) * $signed(AUDIO_LPR_COEFFS[32-i-1])));
+        temp_sum = $signed(x_in[24-i-1]) * $signed(AUDIO_LPR_COEFFS[32-i-1]);
+        $display("x_in = %0d", $signed(x_in[24-i-1]));
+        $display("coefficient = %x", $signed(AUDIO_LPR_COEFFS[32-i-1]));
+        $display("Unquantized product = %x", temp_sum);
+        $display("Unquantized product = %0d", temp_sum);
+        $display("Dequantized product = %x", DEQUANTIZE(temp_sum));
+        // $display("Dequantized product by division = %x", DATA_SIZE'(temp_sum / 1024));
+        $display("Current sum = %x", sum);
+    end
    
 
     @(negedge clock);

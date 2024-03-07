@@ -3,10 +3,9 @@
 
 module fir_tb;
 
-localparam string FILE_IN_NAME = "../source/text_files/hp_pilot_mult_out.txt";
+localparam string FILE_IN_NAME = "../source/text_files/demodulate_out.txt";
 localparam string FILE_OUT_NAME = "../source/output_files/fir_sim_out.txt";
-// localparam string FILE_CMP_NAME = "../source/text_files/bp_lmr_out.txt";
-localparam string FILE_CMP_NAME = "../source/text_files/audio_lmr_out.txt";
+localparam string FILE_CMP_NAME = "../source/text_files/audio_lpr_out.txt";
 
 localparam CLOCK_PERIOD = 10;
 
@@ -32,9 +31,9 @@ logic   out_read_done = '0;
 integer out_errors    = '0;
 
 fir_top #(
-    .NUM_TAPS(NUM_TAPS),
-    .DECIMATION(DECIMATION),
-    .COEFFICIENTS(AUDIO_LMR_COEFFS),
+    .NUM_TAPS(32),
+    .DECIMATION(8),
+    .COEFFICIENTS(AUDIO_LPR_COEFFS),
     .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
 ) fir_top_inst (
     .clock(clock),
@@ -99,7 +98,7 @@ initial begin : data_read_process
     @(negedge clock);
 
     // Only read the first 200 values of data
-    for (int i = 0; i < 1000; i++) begin
+    for (int i = 0; i < 500; i++) begin
  
         @(negedge clock);
         if (x_in_full == 1'b0) begin
@@ -132,7 +131,7 @@ initial begin : data_write_process
     y_out_rd_en = 1'b0;
 
     i = 0;
-    while (i < 1000/DECIMATION) begin
+    while (i < 500/DECIMATION) begin
         @(negedge clock);
         y_out_rd_en = 1'b0;
         if (y_out_empty == 1'b0) begin
