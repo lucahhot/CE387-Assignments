@@ -82,10 +82,10 @@ parameter logic signed [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] IIR_Y_COEFFS = '{32'
 parameter logic signed [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] IIR_X_COEFFS = '{32'h000000b2, 32'h000000b2};
 
 // DEQUANTIZE function
-function logic signed [DATA_SIZE-1:0] DEQUANTIZE(logic signed [DATA_SIZE_2-1:0] i);
+function logic signed [DATA_SIZE-1:0] DEQUANTIZE(logic signed [DATA_SIZE-1:0] i);
     // Arithmetic right shift doesn't work well with negative number rounding so switch the sign 
     // to perform the right shift then apply the negative sign to the results
-    if ($signed(i) < 0) 
+    if (i < 0) 
         DEQUANTIZE = DATA_SIZE'(-(-i >>> BITS));
     else 
         DEQUANTIZE = DATA_SIZE'(i >>> BITS);
