@@ -4,12 +4,12 @@
 module fm_radio_tb;
 // THIS IS THE TB USED FOR DEBUGGING, THIS IS NOT THE REAL TOP LEVEL TESTBENCH
 // localparam string FILE_IN_NAME = "../fm_radio/test/usrp.dat";
-localparam string FILE_MULT_DEMOD_IN_NAME = "../fm_radio/src/txt_files/hp_pilot_mult_out.txt";
+localparam string FILE_SQUARE_BP_PILOT_IN_NAME = "../fm_radio/src/txt_files/bp_pilot_mult_out.txt";
 localparam string FILE_DEMOD_IN_NAME = "../fm_radio/src/txt_files/demodulate_out.txt";
-localparam string FILE_LEFT_OUT_NAME = "../fm_radio/src/out_files/lmr_fir_out.txt";
-localparam string FILE_RIGHT_OUT_NAME = "../fm_radio/src/out_files/lpr_fir_out.txt";
-localparam string FILE_LEFT_CMP_NAME = "../fm_radio/src/txt_files/audio_lmr_out.txt";
-localparam string FILE_RIGHT_CMP_NAME = "../fm_radio/src/txt_files/audio_lpr_out.txt";
+localparam string FILE_LEFT_OUT_NAME = "../fm_radio/src/out_files/fm_radio_left_out.txt";
+localparam string FILE_RIGHT_OUT_NAME = "../fm_radio/src/out_files/fm_radio_right_out.txt";
+localparam string FILE_LEFT_CMP_NAME = "../fm_radio/src/txt_files/gain_left.txt";
+localparam string FILE_RIGHT_CMP_NAME = "../fm_radio/src/txt_files/gain_right.txt";
 
 localparam CLOCK_PERIOD = 10;
 
@@ -28,9 +28,9 @@ logic right_audio_rd_en, left_audio_rd_en;
 logic signed [DATA_SIZE-1:0] right_audio_out, left_audio_out;
 
 // fm_radio_test signals
-logic mult_demod_lmr_full, demod_out_full;
-logic mult_demod_lmr_wr_en, demod_out_wr_en;
-logic signed [DATA_SIZE-1:0] mult_demod_lmr_out_din, demod_out_din;
+logic demod_out_full, square_bp_pilot_out_full;
+logic demod_out_wr_en, square_bp_pilot_out_wr_en;
+logic signed [DATA_SIZE-1:0] demod_out_din, square_bp_pilot_out_din;
 
 fm_radio_test #(
     .DATA_SIZE(DATA_SIZE),
@@ -59,9 +59,9 @@ fm_radio_test #(
 ) fm_radio_inst (
     .clock(clock),
     .reset(reset),
-    .mult_demod_lmr_full(mult_demod_lmr_full),
-    .mult_demod_lmr_wr_en(mult_demod_lmr_wr_en),
-    .mult_demod_lmr_out_din(mult_demod_lmr_out_din),
+    .square_bp_pilot_out_full(square_bp_pilot_out_full),
+    .square_bp_pilot_out_wr_en(square_bp_pilot_out_wr_en),
+    .square_bp_pilot_out_din(square_bp_pilot_out_din),
     .demod_out_full(demod_out_full),
     .demod_out_wr_en(demod_out_wr_en),
     .demod_out_din(demod_out_din),
@@ -112,33 +112,35 @@ initial begin : tb_process
     $finish;
 end
 
-initial begin : mult_demod_read_process
+initial begin : square_bp_pilot_read_process
 
-    int mult_demod_in_file;
+    int square_bp_pilot_in_file;
     int i, j;
 
     @(negedge reset);
-    $display("@ %0t: Loading file %s...", $time, FILE_MULT_DEMOD_IN_NAME);
-    mult_demod_in_file = $fopen(FILE_MULT_DEMOD_IN_NAME, "rb");
+    $display("@ %0t: Loading file %s...", $time, FILE_SQUARE_BP_PILOT_IN_NAME);
+    square_bp_pilot_in_file = $fopen(FILE_SQUARE_BP_PILOT_IN_NAME, "rb");
 
-    mult_demod_lmr_wr_en = 1'b0;
+    square_bp_pilot_out_wr_en = 1'b0;
     @(negedge clock);
 
+    i = 0;
     // Only read the first 100 values of data
-    for (int i = 0; i < 100; i++) begin
+    while (i < 100) begin
  
         @(negedge clock);
-        if (mult_demod_lmr_full == 1'b0) begin
-            mult_demod_lmr_wr_en = 1'b1;
-            j = $fscanf(mult_demod_in_file, "%h", mult_demod_lmr_out_din);
+        if (square_bp_pilot_out_full == 1'b0) begin
+            square_bp_pilot_out_wr_en = 1'b1;
+            j = $fscanf(square_bp_pilot_in_file, "%h", square_bp_pilot_out_din);
             // $display("(%0d) Input value %x",i,x_in_din);
+            i++;
         end else
-            mult_demod_lmr_wr_en = 1'b0;
+            square_bp_pilot_out_wr_en = 1'b0;
     end
 
     @(negedge clock);
-    mult_demod_lmr_wr_en = 1'b0;
-    $fclose(mult_demod_in_file);
+    square_bp_pilot_out_wr_en = 1'b0;
+    $fclose(square_bp_pilot_in_file);
     in_write_done = 1'b1;
 end
 
@@ -155,14 +157,15 @@ initial begin : demod_read_process
     demod_out_wr_en = 1'b0;
     @(negedge clock);
 
+    i = 0;
     // Only read the first 100 values of data
-    for (int i = 0; i < 100; i++) begin
+    while (i < 100) begin
  
         @(negedge clock);
         if (demod_out_full == 1'b0) begin
             demod_out_wr_en = 1'b1;
             j = $fscanf(demod_in_file, "%h", demod_out_din);
-
+            i++;
             // $display("(%0d) Input value %x",i,x_in_din);
         end else
             demod_out_wr_en = 1'b0;
@@ -197,7 +200,7 @@ initial begin : data_write_process
     left_audio_rd_en = 1'b0;
 
     i = 0;
-    while (i < 100/AUDIO_DECIMATION) begin
+    while (i < 100/8) begin     // DIVIDE BY 8 FOR DECIMATION
         @(negedge clock);
         right_audio_rd_en = 1'b0;
         left_audio_rd_en = 1'b0;

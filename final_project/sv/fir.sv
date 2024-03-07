@@ -28,7 +28,7 @@ logic [DATA_SIZE-1:0] y_sum, y_sum_c;
 logic [DATA_SIZE-1:0] tap_value, tap_value_c;
 
 // Registers to hold product value from multiplication to accumulate stage
-logic [DATA_SIZE-1:0] product, product_c;
+logic signed [DATA_SIZE-1:0] product, product_c;
 
 // Last cycle flag to indicate when we should be doing the last accumulation for the MAC pipeline
 logic last_cycle, last_cycle_c;

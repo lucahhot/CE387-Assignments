@@ -28,26 +28,23 @@ add wave -noupdate -group fm_radio_tb -radix hexadecimal /fm_radio_tb/*
 add wave -noupdate -group fm_radio_tb/fm_radio_inst/demod_fifo_inst
 add wave -noupdate -group fm_radio_tb/fm_radio_inst/demod_fifo_inst -radix hexadecimal /fm_radio_inst/demod_fifo_inst/*
 
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/lpr_fir_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/lpr_fir_inst -radix hexadecimal /fm_radio_inst/lpr_fir_inst/*
+add wave -noupdate -group fm_radio_tb/fm_radio_inst/bp_lmr_fifo_inst
+add wave -noupdate -group fm_radio_tb/fm_radio_inst/bp_lmr_fifo_inst -radix hexadecimal /fm_radio_inst/bp_lmr_fifo_inst/*
 
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/lpr_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/lpr_fifo_inst -radix hexadecimal /fm_radio_inst/lpr_fifo_inst/*
+add wave -noupdate -group fm_radio_tb/fm_radio_inst/square_bp_pilot_fifo_inst
+add wave -noupdate -group fm_radio_tb/fm_radio_inst/square_bp_pilot_fifo_inst -radix hexadecimal /fm_radio_inst/square_bp_pilot_fifo_inst/*
+
+add wave -noupdate -group fm_radio_tb/fm_radio_inst/hp_pilot_fifo_inst
+add wave -noupdate -group fm_radio_tb/fm_radio_inst/hp_pilot_fifo_inst -radix hexadecimal /fm_radio_inst/hp_pilot_fifo_inst/*
 
 add wave -noupdate -group fm_radio_tb/fm_radio_inst/mult_demod_lmr_fifo_inst
 add wave -noupdate -group fm_radio_tb/fm_radio_inst/mult_demod_lmr_fifo_inst -radix hexadecimal /fm_radio_inst/mult_demod_lmr_fifo_inst/*
 
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/lmr_fir_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/lmr_fir_inst -radix hexadecimal /fm_radio_inst/lmr_fir_inst/*
+add wave -noupdate -group fm_radio_tb/fm_radio_inst/left_gain_fifo_inst
+add wave -noupdate -group fm_radio_tb/fm_radio_inst/left_gain_fifo_inst -radix hexadecimal /fm_radio_inst/left_gain_fifo_inst/*
 
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/lmr_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/lmr_fifo_inst -radix hexadecimal /fm_radio_inst/lmr_fifo_inst/*
-
-# add wave -noupdate -group fm_radio_tb/fm_radio_inst/left_gain_fifo_inst
-# add wave -noupdate -group fm_radio_tb/fm_radio_inst/left_gain_fifo_inst -radix hexadecimal /fm_radio_inst/left_gain_fifo_inst/*
-
-# add wave -noupdate -group fm_radio_tb/fm_radio_inst/right_gain_fifo_inst
-# add wave -noupdate -group fm_radio_tb/fm_radio_inst/right_gain_fifo_inst -radix hexadecimal /fm_radio_inst/right_gain_fifo_inst/*
+add wave -noupdate -group fm_radio_tb/fm_radio_inst/right_gain_fifo_inst
+add wave -noupdate -group fm_radio_tb/fm_radio_inst/right_gain_fifo_inst -radix hexadecimal /fm_radio_inst/right_gain_fifo_inst/*
 
 
 run -all 
