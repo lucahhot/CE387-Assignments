@@ -2,7 +2,6 @@
 
 module fir_cmplx #(
     parameter NUM_TAPS = 20,
-    parameter DECIMATION = 1,
     parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] COEFFICIENTS_REAL = '{default: '{default: 0}},
     parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] COEFFICIENTS_IMAG = '{default: '{default: 0}}
 ) (
@@ -30,42 +29,52 @@ logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] realshift_reg;
 logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] realshift_reg_c;
 logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] imagshift_reg;
 logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] imagshift_reg_c;
-logic [$clog2(DECIMATION)-1:0] decimation_counter, decimation_counter_c;
-logic [$clog2(NUM_TAPS)-1:0] taps_counter, taps_counter_c;
-logic [DATA_SIZE_2-1:0] yreal_sum, yreal_sum_c; 
-logic [DATA_SIZE_2-1:0] yimag_sum, yimag_sum_c;
+logic [$clog2(NUM_TAPS)-1:0] taps_counter, taps_counter_c; // Always going to need 5 bits
+logic [DATA_SIZE-1:0] yreal_sum, yreal_sum_c; 
+logic [DATA_SIZE-1:0] yimag_sum, yimag_sum_c;
 
 // Tap values
 logic [DATA_SIZE-1:0] realtap_value, realtap_value_c;
 logic [DATA_SIZE-1:0] imagtap_value, imagtap_value_c;
 
-// Wires for more readable code in MAC operation
-logic [DATA_SIZE_2-1:0] real_product;
-logic [DATA_SIZE_2-1:0] imag_product;
-logic [DATA_SIZE_2-1:0] realimag_product;
-logic [DATA_SIZE_2-1:0] imagreal_product;
+// Registers to hold product value from multiplication to accumulate stage
+logic [DATA_SIZE_2-1:0] real_product, real_product_c;
+logic [DATA_SIZE_2-1:0] imag_product, imag_product_c;
+logic [DATA_SIZE_2-1:0] realimag_product, realimag_product_c;
+logic [DATA_SIZE_2-1:0] imagreal_product, imagreal_product_c;
+
+// Last cycle flag to indicate when we should be doing the last accumulation for the MAC pipeline
+logic last_cycle, last_cycle_c;
 
 always_ff @(posedge clock or posedge reset) begin
     if (reset == 1'b1) begin
         state <= S0; 
         realshift_reg <= '{default: '{default: 0}};
         imagshift_reg <= '{default: '{default: 0}};
-        decimation_counter <= '0;
         taps_counter <= '0;
         yreal_sum <= '0;
         yimag_sum <= '0;
         realtap_value <= '0;
         imagtap_value <= '0;
+        real_product <= '0;
+        imag_product <= '0;
+        realimag_product <= '0;
+        imagreal_product <= '0;
+        last_cycle <= '0;
     end else begin
         state <= next_state;
         realshift_reg <= realshift_reg_c;
         imagshift_reg <= imagshift_reg_c;
-        decimation_counter <= decimation_counter_c;
         taps_counter <= taps_counter_c;
         yreal_sum <= yreal_sum_c;
         yimag_sum <= yimag_sum_c;
         realtap_value <= realtap_value_c;
         imagtap_value <= imagtap_value_c;
+        real_product <= real_product_c;
+        imag_product <= imag_product_c;
+        realimag_product <= realimag_product_c;
+        imagreal_product <= imagreal_product_c;
+        last_cycle <= last_cycle_c;
     end
 end
 
@@ -75,7 +84,6 @@ always_comb begin
     ximag_in_rd_en = 1'b0;
     yreal_out_wr_en = 1'b0;
     yimag_out_wr_en = 1'b0;
-    decimation_counter_c = decimation_counter;
     realshift_reg_c = realshift_reg;
     imagshift_reg_c = imagshift_reg;
     taps_counter_c = taps_counter;
@@ -83,63 +91,60 @@ always_comb begin
     yimag_sum_c = yimag_sum;
     realtap_value_c = realtap_value;
     imagtap_value_c = imagtap_value;
+    real_product_c = real_product;
+    imag_product_c = imag_product;
+    realimag_product_c = realimag_product;
+    imagreal_product_c = imagreal_product;
+    last_cycle_c = last_cycle;
 
     case(state)
 
         S0: begin
             if (xreal_in_empty == 1'b0 && ximag_in_empty == 1'b0) begin
-                // Shift in data into shift register and adjust for decimation (take 1 sample in DECIMATION samples)
+                // Shift in data into shift register (NO DECIMATION because DECIMAITON == 1)
                 xreal_in_rd_en = 1'b1;
                 ximag_in_rd_en = 1'b1;
                 realshift_reg_c[1:NUM_TAPS-1] = realshift_reg[0:NUM_TAPS-2];
                 realshift_reg_c[0] = xreal_in_dout;
                 imagshift_reg_c[1:NUM_TAPS-1] = imagshift_reg[0:NUM_TAPS-2];
                 imagshift_reg_c[0] = ximag_in_dout;
-                decimation_counter_c = decimation_counter + 1'b1;
 
-                if (decimation_counter == DECIMATION - 1) begin
-                    next_state = S1;
-                    // Assign first tap value to pipeline fetching of shift_reg value and MAC operation
-                    realtap_value_c = xreal_in_dout;
-                    imagtap_value_c = ximag_in_dout;
-                    // Increment taps_counter_c starting here so we always get the right value in S1
-                    taps_counter_c = taps_counter + 1'b1;
-                end else
-                    next_state = S0;
+                next_state = S1;
+                // Assign first tap value to pipeline fetching of shift_reg value and MAC operation
+                realtap_value_c = xreal_in_dout;
+                imagtap_value_c = ximag_in_dout;
+                // Increment taps_counter_c starting here so we always get the right value in S1
+                taps_counter_c = taps_counter + 1'b1;
             end
-            
         end
 
         S1: begin
-            // Perform multiplications (using MULTIPLY_ROUNDING)
-            // real_product = MULTIPLY_ROUNDING_NODEQUANTIZE(realtap_value,COEFFICIENTS_REAL[taps_counter]);
-            // imag_product = MULTIPLY_ROUNDING_NODEQUANTIZE(imagtap_value,COEFFICIENTS_IMAG[taps_counter]);
-            // realimag_product = MULTIPLY_ROUNDING_NODEQUANTIZE(COEFFICIENTS_REAL[taps_counter],imagtap_value);
-            // imagreal_product = MULTIPLY_ROUNDING_NODEQUANTIZE(COEFFICIENTS_IMAG[taps_counter],realtap_value);
-            // Using normal * since it's error free
-            // Need to account for taps_value potentially overflowing depending on the value of NUM_TAPS (necessary to be able to pipeline fetching of values from the shift registers)
-            if (taps_counter == 0) begin
-                real_product = $signed(realtap_value) * $signed(COEFFICIENTS_REAL[NUM_TAPS-1]);
-                imag_product = $signed(imagtap_value) * $signed(COEFFICIENTS_IMAG[NUM_TAPS-1]);
-                realimag_product = $signed(COEFFICIENTS_REAL[NUM_TAPS-1]) * $signed(imagtap_value);
-                imagreal_product = $signed(COEFFICIENTS_IMAG[NUM_TAPS-1]) * $signed(realtap_value);
+            // This stage does both the multiplication and the dequantization + accumulation but pipelined to save cycles
+            if (last_cycle == 1'b0) begin
+                // If not on last cycle, perform everything
+                real_product_c = $signed(realtap_value) * $signed(COEFFICIENTS_REAL[taps_counter-1]);
+                imag_product_c = $signed(imagtap_value) * $signed(COEFFICIENTS_IMAG[taps_counter-1]);
+                realimag_product_c = $signed(COEFFICIENTS_REAL[taps_counter-1]) * $signed(imagtap_value);
+                imagreal_product_c = $signed(COEFFICIENTS_IMAG[taps_counter-1]) * $signed(realtap_value);
+                // Perform accumulation operation (including the subtraction)
+                if (taps_counter != 1'b1) begin
+                    // Don't perform acculumation in the first cycle since the first product is being calculatied in this current cycle
+                    yreal_sum_c = $signed(yreal_sum) + DEQUANTIZE($signed(real_product) - $signed(imag_product));
+                    yimag_sum_c = $signed(yimag_sum) + DEQUANTIZE($signed(realimag_product) - $signed(imagreal_product));
+                end
+                taps_counter_c = taps_counter + 1'b1;
+                realtap_value_c = realshift_reg[taps_counter];
+                imagtap_value_c = imagshift_reg[taps_counter];
+                // Trigger last_cycle flag when taps_counter has overflowed or is equal to NUM_TAPS
+                if (taps_counter == NUM_TAPS)
+                    last_cycle_c = 1'b1;
             end else begin
-                real_product = $signed(realtap_value) * $signed(COEFFICIENTS_REAL[taps_counter-1]);
-                imag_product = $signed(imagtap_value) * $signed(COEFFICIENTS_IMAG[taps_counter-1]);
-                realimag_product = $signed(COEFFICIENTS_REAL[taps_counter-1]) * $signed(imagtap_value);
-                imagreal_product = $signed(COEFFICIENTS_IMAG[taps_counter-1]) * $signed(realtap_value);
-            end
-            // Perform accumulation operation (including the subtraction)
-            yreal_sum_c = $signed(yreal_sum) + DEQUANTIZE($signed(real_product) - $signed(imag_product));
-            yimag_sum_c = $signed(yimag_sum) + DEQUANTIZE($signed(realimag_product) - $signed(imagreal_product));
-            taps_counter_c = taps_counter + 1'b1;
-            realtap_value_c = realshift_reg[taps_counter];
-            imagtap_value_c = imagshift_reg[taps_counter];
-            // Change state when taps_counter has overflowed or is equal to NUM_TAPS
-            if (taps_counter == NUM_TAPS || taps_counter == 0)
+                // If on last cycle, we only need to perform the accumulation (for the last cycle's products)
+                yreal_sum_c = $signed(yreal_sum) + DEQUANTIZE($signed(real_product) - $signed(imag_product));
+                yimag_sum_c = $signed(yimag_sum) + DEQUANTIZE($signed(realimag_product) - $signed(imagreal_product));
+                last_cycle_c = 1'b0;
                 next_state = S2;
-            else
-                next_state = S1;
+            end
         end
 
         S2: begin
@@ -151,7 +156,6 @@ always_comb begin
                 yimag_out_din = yimag_sum;
                 // Reset all the values for the next set of data
                 taps_counter_c = '0;
-                decimation_counter_c = '0;
                 yreal_sum_c = '0;
                 yimag_sum_c = '0;
                 next_state = S0;
@@ -166,12 +170,16 @@ always_comb begin
             yimag_out_wr_en = 1'b0;
             yreal_out_din = '0;
             yimag_out_din = '0;
-            decimation_counter_c = 'X;
             taps_counter_c = 'X;
             yreal_sum_c = 'X;
             yimag_sum_c = 'X;
             realtap_value_c = 'X;
             imagtap_value_c = 'X;
+            real_product_c = 'X;
+            imag_product_c = 'X;
+            realimag_product_c = 'X;
+            imagreal_product_c = 'X;
+            last_cycle_c = 'X;
         end
     endcase
 end

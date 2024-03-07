@@ -15,7 +15,7 @@ module fir #(
     output  logic [DATA_SIZE-1:0] y_out_din  // Quantized output
 );
 
-typedef enum logic [1:0] {S0, S1, S2} state_types;
+typedef enum logic [1:0] {S0, S1, S2, S3} state_types;
 state_types state, next_state;
 
 logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] shift_reg ;
@@ -27,6 +27,14 @@ logic [DATA_SIZE-1:0] y_sum, y_sum_c;
 // Register to hold shift_reg value to be used in MAC since reading from shift_reg takes forever
 logic [DATA_SIZE-1:0] tap_value, tap_value_c;
 
+// Registers to hold product value from multiplication to accumulate stage
+logic [DATA_SIZE-1:0] product, product_c;
+
+// Last cycle flag to indicate when we should be doing the last accumulation for the MAC pipeline
+logic last_cycle, last_cycle_c;
+
+// Extra register to count taps (that's not offset)
+logic [$clog2(NUM_TAPS)-1:0] coefficient_counter, coefficient_counter_c;
 
 always_ff @(posedge clock or posedge reset) begin
     if (reset == 1'b1) begin
@@ -36,6 +44,9 @@ always_ff @(posedge clock or posedge reset) begin
         taps_counter <= '0;
         y_sum <= '0;
         tap_value <= '0;
+        product <= '0;
+        last_cycle <= '0;
+        coefficient_counter <= '0;
     end else begin
         state <= next_state;
         shift_reg <= shift_reg_c;
@@ -43,6 +54,9 @@ always_ff @(posedge clock or posedge reset) begin
         taps_counter <= taps_counter_c;
         y_sum <= y_sum_c;
         tap_value <= tap_value_c;
+        product <= product_c;
+        last_cycle <= last_cycle_c;
+        coefficient_counter <= coefficient_counter_c;
     end
 end
 
@@ -55,6 +69,9 @@ always_comb begin
     taps_counter_c = taps_counter;
     y_sum_c = y_sum;
     tap_value_c = tap_value;
+    product_c = product;
+    last_cycle_c = last_cycle;
+    coefficient_counter_c = coefficient_counter;
 
     case(state)
 
@@ -69,7 +86,7 @@ always_comb begin
                 if (decimation_counter == DECIMATION - 1) begin
                     next_state = S1;
                     // Assign first tap value to pipeline fetching of shift_reg value and MAC operation
-                    tap_value_c = x_in_dout;
+                    tap_value_c = shift_reg_c[0];
                     // Increment taps_counter_c starting here so we always get the right value in S1
                     taps_counter_c = taps_counter + 1'b1;
                 end else
@@ -79,20 +96,25 @@ always_comb begin
         end
 
         S1: begin
-            // Perform MAC operation (more accurate using MULTIPLY_ROUNDING vs. normal *)
-            // If taps_counter == 0, it means it overflowed (should be 32 if NUM_TAPS == 32) and this is our last calculation but we need to use 32 for the COEFFICIENTS index instead of 0
-            if (taps_counter == 0)
-                y_sum_c = $signed(y_sum) + MULTIPLY_ROUNDING(tap_value,COEFFICIENTS[NUM_TAPS-NUM_TAPS]);
-            else 
-                y_sum_c = $signed(y_sum) + MULTIPLY_ROUNDING(tap_value,COEFFICIENTS[NUM_TAPS-taps_counter]);
-            // y_sum_c = $signed(y_sum) + DEQUANTIZE($signed(shift_reg[taps_counter]) * $signed(COEFFICIENTS[NUM_TAPS-taps_counter-1]));
-            taps_counter_c = taps_counter + 1'b1;
-            tap_value_c = shift_reg[taps_counter];
-            // Change state when taps_counter has overflowed or is equal to NUM_TAPS
-            if (taps_counter == NUM_TAPS || taps_counter == 0)
+            // This stage does both the multiplication and the dequantization + accumulation but pipelined to save cycles
+            if (last_cycle == 1'b0) begin
+                // If not on last cycle, perform everything
+                product_c = $signed(tap_value) * $signed(COEFFICIENTS[NUM_TAPS-coefficient_counter-1]);
+                if (taps_counter != 1'b1)
+                    // Don't perform acculumation in the first cycle since the first product is being calculatied in this current cycle
+                    y_sum_c = $signed(y_sum) + DEQUANTIZE(product);
+                taps_counter_c = taps_counter + 1'b1;
+                coefficient_counter_c = coefficient_counter + 1'b1;
+                tap_value_c = shift_reg[taps_counter];
+                // Trigger last_cycle flag when taps_counter has overflowed (will always do so because we are using 5 bits for 32 tap values)
+                if (taps_counter == 0)
+                    last_cycle_c = 1'b1;
+            end else begin
+                // If on last cycle, we only need to perform the accumulation (for the last cycle's products)
+                y_sum_c = $signed(y_sum) + DEQUANTIZE(product);
+                last_cycle_c = 1'b0;
                 next_state = S2;
-            else
-                next_state = S1;
+            end            
         end
 
         S2: begin
@@ -102,6 +124,7 @@ always_comb begin
                 y_out_din = y_sum;
                 // Reset all the values for the next set of data
                 taps_counter_c = '0;
+                coefficient_counter_c = '0;
                 decimation_counter_c = '0;
                 y_sum_c = '0;
                 next_state = S0;
@@ -118,6 +141,9 @@ always_comb begin
             y_sum_c = 'X;
             shift_reg_c = '{default: '{default: 0}};
             tap_value_c = 'X;
+            product_c = 'X;
+            last_cycle_c = 'X;
+            coefficient_counter_c = 'X;
         end
     endcase
 end

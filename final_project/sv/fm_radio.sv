@@ -182,7 +182,6 @@ logic [DATA_SIZE-1:0] imag_out_din;
 
 fir_cmplx #(
     .NUM_TAPS(CHANNEL_COEFF_TAPS),
-    .DECIMATION(1),
     .COEFFICIENTS_REAL(CHANNEL_COEFFICIENTS_REAL),
     .COEFFICIENTS_IMAG(CHANNEL_COEFFICIENTS_IMAG)
 ) fir_cmplx_inst (
@@ -675,7 +674,6 @@ logic [DATA_SIZE-1:0] left_deemph_out_din;
 
 iir #(
     .NUM_TAPS(IIR_COEFF_TAPS),
-    .DECIMATION(1),
     .IIR_X_COEFFS(IIR_X_COEFFS),
     .IIR_Y_COEFFS(IIR_Y_COEFFS)
 ) left_deemph_inst (
@@ -716,7 +714,6 @@ logic [DATA_SIZE-1:0] right_deemph_out_din;
 
 iir #(
     .NUM_TAPS(IIR_COEFF_TAPS),
-    .DECIMATION(1),
     .IIR_X_COEFFS(IIR_X_COEFFS),
     .IIR_Y_COEFFS(IIR_Y_COEFFS)
 ) right_deemph_inst (
@@ -785,7 +782,7 @@ gain #(
     .reset(reset),
     .in_rd_en(right_deemph_rd_en), 
     .in_empty(right_deemph_empty),
-    .din(right_deemph_out_din),
+    .din(right_deemph_out_dout),
     .out_full(right_gain_full),
     .out_wr_en(right_gain_wr_en),
     .dout(right_gain_out_din),

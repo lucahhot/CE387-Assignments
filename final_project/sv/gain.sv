@@ -52,7 +52,7 @@ always_comb begin
 
         CALC_OUT: begin
             if (out_full == 1'b0) begin
-                dout = MULTIPLY_TRUNCATION(temp_in, vol) << (14-BITS);
+                dout = DEQUANTIZE(temp_in * vol) << (14-BITS);
                 in_rd_en = 1'b0;
                 out_wr_en = 1'b1;
                 next_state = READ;

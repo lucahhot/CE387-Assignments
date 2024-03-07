@@ -33,8 +33,8 @@ always_comb begin
     x_in_rd_en = 1'b0;
     y_in_rd_en = 1'b0;
     out_wr_en = 1'b0;
-    next_state <= state;
-    diff_c <= diff;
+    next_state = state;
+    diff_c = diff;
 
     case(state)
 
@@ -43,6 +43,7 @@ always_comb begin
             x_in_rd_en = 1'b1;
             y_in_rd_en = 1'b1;
             diff_c = $signed(x_in_dout) - $signed(y_in_dout);
+            next_state = S1;
         end
     end
 
@@ -50,10 +51,12 @@ always_comb begin
         if (out_full == 1'b0) begin
             out_wr_en = 1'b1;
             out_din = diff;
+            next_state = S0;
         end
     end
 
     default: begin
+        next_state = S0;
         x_in_rd_en = 1'b0;
         y_in_rd_en = 1'b0;
         out_wr_en = 1'b0;

@@ -89,4 +89,6 @@ add wave -noupdate -group fm_radio_tb/fm_radio_inst/left_gain_fifo_inst -radix h
 
 add wave -noupdate -group fm_radio_tb/fm_radio_inst/right_gain_fifo_inst
 add wave -noupdate -group fm_radio_tb/fm_radio_inst/right_gain_fifo_inst -radix hexadecimal /fm_radio_inst/right_gain_fifo_inst/*
+
+
 run -all 
