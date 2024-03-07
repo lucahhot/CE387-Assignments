@@ -1,0 +1,14 @@
+@N: MF284 |Setting synthesis effort to medium for the design
+@N: MF915 |Option synthesis_strategy=advanced is enabled. 
+@N: MF248 |Running in 64-bit mode.
+@N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
+@N: MF284 |Setting synthesis effort to medium for the design
+@N: MT615 |Found clock add|state_derived_clock with period 26.23ns 
+@N: MT615 |Found clock gain_32s_10s_1|state_derived_clock[0] with period 26.23ns 
+@N: MT615 |Found clock multiply_32s_0|state_derived_clock[0] with period 26.23ns 
+@N: MT615 |Found clock gain_32s_10s_0|state_derived_clock[0] with period 26.23ns 
+@N: MT615 |Found clock multiply_32s_1|state_derived_clock[0] with period 26.23ns 
+@N: MT615 |Found clock div_32s_32s|state_derived_clock[5] with period 26.23ns 
+@N: MT535 |Writing timing correlation to file /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1_ctd.txt 
+@N: MT320 |This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report.
+@N: MT322 |Clock constraints include only register-to-register paths associated with each individual clock.

@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version O-2018.09-SP1
 #--  Project file /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/run_options.txt
-#--  Written on Wed Mar  6 14:52:50 2024
+#--  Written on Thu Mar  7 17:18:55 2024
 
 
 #project files
@@ -12,13 +12,14 @@ add_file -verilog -vlog_std sysv "../sv/div.sv"
 add_file -verilog -vlog_std sysv "../sv/qarctan.sv"
 add_file -verilog -vlog_std sysv "../sv/multiply.sv"
 add_file -verilog -vlog_std sysv "../sv/fir.sv"
+add_file -verilog -vlog_std sysv "../sv/demod_fir.sv"
 add_file -verilog -vlog_std sysv "../sv/fir_cmplx.sv"
 add_file -verilog -vlog_std sysv "../sv/iir.sv"
 add_file -verilog -vlog_std sysv "../sv/gain.sv"
 add_file -verilog -vlog_std sysv "../sv/read_iq.sv"
 add_file -verilog -vlog_std sysv "../sv/demodulate.sv"
 add_file -verilog -vlog_std sysv "../sv/globals.sv"
-add_file -verilog -vlog_std sysv "../sv/fm_radio.sv"
+add_file -verilog -vlog_std sysv "../sv/fm_radio_test.sv"
 
 
 
@@ -49,6 +50,7 @@ set_option -distributed_compile 1
 
 # altera_options
 set_option -automatic_compile_point 1
+set_option -reporting_ctd slack
 set_option -rw_check_on_ram 1
 
 # mapper_without_write_options
@@ -79,6 +81,9 @@ set_option -multi_file_compilation_unit 1
 
 # Compiler Options
 set_option -auto_infer_blackbox 0
+
+#timing report file option
+set_option -reporting_filename "rev_1/proj_1.ta"
 
 #automatic place and route (vendor) options
 set_option -write_apr_constraint 1

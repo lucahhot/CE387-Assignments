@@ -10,13 +10,14 @@ add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv"
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv"
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv"
+add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv"
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv"
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv"
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv"
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv"
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv"
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv"
-add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv"
+add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio_test.sv"
 
 
 
@@ -48,6 +49,7 @@ set_option -distributed_compile 1
 
 # altera_options
 set_option -automatic_compile_point 1
+set_option -reporting_ctd slack
 set_option -rw_check_on_ram 1
 
 # mapper_without_write_options
@@ -78,6 +80,9 @@ set_option -multi_file_compilation_unit 1
 
 # Compiler Options
 set_option -auto_infer_blackbox 0
+
+#timing report file option
+set_option -reporting_filename "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.ta"
 
 #automatic place and route (vendor) options
 set_option -write_apr_constraint 1

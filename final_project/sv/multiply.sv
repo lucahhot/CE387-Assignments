@@ -19,24 +19,20 @@ module multiply #(
 typedef enum logic [0:0] {READ, WRITE} state_types;
 state_types state, next_state;
 
-logic signed [DATA_SIZE-1:0] in1, in1_c;
-logic signed [DATA_SIZE-1:0] in2, in2_c;
+logic signed [DATA_SIZE-1:0] calc, calc_c;
 
 always_ff @(posedge clock or posedge reset) begin
     if (reset == 1'b1) begin
         state <= READ;
-        in1 <= '0;
-        in2 <= '0;
+        calc <= '0;
     end else begin
         state <= next_state;
-        in1 <= in1_c;
-        in2 <= in2_c;
+        calc <= calc_c;
     end
 end
 
 always_comb begin
-    in1_c = in1;
-    in2_c = in2;
+    calc_c = calc;
     next_state = state;
 
     case (state) 
@@ -46,8 +42,7 @@ always_comb begin
                 next_state = WRITE;
                 x_in_rd_en = 1'b1;
                 y_in_rd_en = 1'b1;
-                in1_c = x;
-                in2_c = y;
+                calc_c = x * y;
             end else begin
                 x_in_rd_en = 1'b0;
                 y_in_rd_en = 1'b0;
@@ -59,7 +54,7 @@ always_comb begin
             x_in_rd_en = 1'b0;
             y_in_rd_en = 1'b0;
             if (out_full == 1'b0) begin
-                dout = DEQUANTIZE(in1 * in2);
+                dout = DEQUANTIZE(calc);
                 out_wr_en = 1'b1;
                 next_state = READ;
             end else begin
@@ -73,8 +68,7 @@ always_comb begin
             x_in_rd_en = 1'b0;
             y_in_rd_en = 1'b0;
             out_wr_en = 1'b0;
-            in1_c = '0;
-            in2_c = '0;
+            calc_c = '0;
         end
     endcase
 
