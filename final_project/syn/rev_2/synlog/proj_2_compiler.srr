@@ -98,6 +98,7 @@ Synopsys Verilog Compiler, Version comp2018q4p1, Build 004R, Built Nov 27 2018 2
 @I::"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv" (library work)
 @I::"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv" (library work)
 Verilog syntax check successful!
+File /home/mwp8699/CE387-Assignments/final_project/sv/square.sv changed - recompiling
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":4:0:4:9|Synthesizing module work_/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv_unit in library work.
 Selecting top level module fm_radio
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":2:7:2:10|Synthesizing module fifo in library work.
@@ -166,10 +167,7 @@ Running optimization stage 1 on demod_fir_32s_1s_Z3 .......
    Generated name = fir_32s_1s_Z4
 Running optimization stage 1 on fir_32s_1s_Z4 .......
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":3:7:3:14|Synthesizing module multiply in library work.
-
-	DATA_SIZE=32'b00000000000000000000000000100000
-   Generated name = multiply_32s
-Running optimization stage 1 on multiply_32s .......
+Running optimization stage 1 on multiply .......
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":3:7:3:15|Synthesizing module demod_fir in library work.
 
 	NUM_TAPS=32'b00000000000000000000000000100000
@@ -209,7 +207,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Fri Mar  8 10:36:45 2024
+# Fri Mar  8 13:38:13 2024
 
 ###########################################################]
 ###########################################################[
@@ -233,6 +231,7 @@ Implementation : rev_2
 Synopsys Synopsys Netlist Linker, Version comp2018q4p1, Build 004R, Built Nov 27 2018 21:19:49
 
 @N|Running in 64-bit mode
+File /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/synwork/layer0.srs changed - recompiling
 @N: NF107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv":3:7:3:14|Selected library: work cell: fm_radio view verilog as top level
 @N: NF107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv":3:7:3:14|Selected library: work cell: fm_radio view verilog as top level
 
@@ -241,7 +240,7 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Fri Mar  8 10:36:46 2024
+# Fri Mar  8 13:38:14 2024
 
 ###########################################################]
 
@@ -250,14 +249,14 @@ Finished Containment srs generation. (Real Time elapsed 0h:00m:00s; CPU Time ela
 Divided design in to 1 groups
 @L:"/home/mwp8699/CE387-Assignments/final_project/syn/rev_2/synwork//distcomp/distcomp0/distcomp0.log" "Log file for distribution node work.fm_radio.verilog "
 Compiling work_fm_radio_verilog as a separate process
-Compilation of node work.fm_radio finished successfully.Real start time 0h:00m:00s, Real end time = 0h:00m:04s, Total real run time = 0h:00m:04s
+Compilation of node work.fm_radio finished successfully.Real start time 0h:00m:00s, Real end time = 0h:00m:03s, Total real run time = 0h:00m:03s
 
 Distributed Compiler Report
 ***************************
 
 DP Name                   Status      Start time     End Time       Total Real Time     Log File                                                                                         
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-work.fm_radio.verilog     Success     0h:00m:00s     0h:00m:04s     0h:00m:04s          /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/synwork//distcomp/distcomp0/distcomp0.log
+work.fm_radio.verilog     Success     0h:00m:00s     0h:00m:03s     0h:00m:03s          /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/synwork//distcomp/distcomp0/distcomp0.log
 =========================================================================================================================================================================================
 ###########################################################[
 
@@ -280,13 +279,14 @@ Implementation : rev_2
 Synopsys Synopsys Netlist Linker, Version comp2018q4p1, Build 004R, Built Nov 27 2018 21:19:49
 
 @N|Running in 64-bit mode
+File /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/synwork//distcomp/distcomp0/distcomp0.srs changed - recompiling
 
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 72MB peak: 73MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Fri Mar  8 10:36:51 2024
+# Fri Mar  8 13:38:18 2024
 
 ###########################################################]
 @END
@@ -296,6 +296,6 @@ At c_hdl Exit (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:03s; Memory
 Process took 0h:00m:05s realtime, 0h:00m:03s cputime
 
 Process completed successfully.
-# Fri Mar  8 10:36:51 2024
+# Fri Mar  8 13:38:18 2024
 
 ###########################################################]

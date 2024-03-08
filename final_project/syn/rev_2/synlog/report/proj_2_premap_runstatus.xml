@@ -13,7 +13,7 @@ The file contains the job information from mapper to be displayed as part of the
 </job_status>
 <job_info>
 <info name="Notes">
-<data>17</data>
+<data>15</data>
 <report_link name="more">
 <data>/home/mwp8699/CE387-Assignments/final_project/syn/rev_2/synlog/report/proj_2_premap_notes.txt</data>
 </report_link>
@@ -40,7 +40,7 @@ The file contains the job information from mapper to be displayed as part of the
 <data>150MB</data>
 </info>
 <info name="Date &amp; Time">
-<data type="timestamp">1709915853</data>
+<data type="timestamp">1709926701</data>
 </info>
 </job_info>
 </job_run_status>

@@ -78,6 +78,7 @@ Synopsys Verilog Compiler, Version comp2018q4p1, Build 004R, Built Nov 27 2018 2
 @I::"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv" (library work)
 @I::"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv" (library work)
 Verilog syntax check successful!
+File /home/mwp8699/CE387-Assignments/final_project/sv/square.sv changed - recompiling
 @N:: Applying property .distcompmodetop with value 1 on module fm_radio in library work
 @N:: Applying property .distcompnoprune with value 1 on module fm_radio in library work
 @N:: Applying property .noprune with value 1 on module fm_radio in library work
@@ -162,12 +163,6 @@ Running optimization stage 1 on fir_cmplx_20s_Z1 .......
 	DIVISOR_WIDTH=32'b00000000000000000000000000100000
    Generated name = div_32s_32s
 Running optimization stage 1 on div_32s_32s .......
-@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":104:8:104:11|Latch generated from always block for signal remainder[31:0]; possible missing assignment in an if or case statement.
-@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":104:8:104:11|Latch generated from always block for signal quotient[31:0]; possible missing assignment in an if or case statement.
-@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":104:8:104:11|Latch generated from always block for signal overflow; possible missing assignment in an if or case statement.
-@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":104:8:104:11|always_comb does not infer combinatorial logic
-@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":104:8:104:11|always_comb does not infer combinatorial logic
-@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":104:8:104:11|always_comb does not infer combinatorial logic
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":3:7:3:13|Synthesizing module qarctan in library work.
 Running optimization stage 1 on qarctan .......
 @W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":80:4:80:7|Latch generated from always block for signal dividend[31:0]; possible missing assignment in an if or case statement.
@@ -198,7 +193,6 @@ Running optimization stage 1 on demod_fir_32s_1s_Z2 .......
 	DATA_SIZE=32'b00000000000000000000000000100000
    Generated name = square_32s
 Running optimization stage 1 on square_32s .......
-@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/square.sv":35:4:35:7|Latch generated from always block for signal dout[31:0]; possible missing assignment in an if or case statement.
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":3:7:3:15|Synthesizing module demod_fir in library work.
 
 	NUM_TAPS=32'b00000000000000000000000000100000
@@ -218,11 +212,7 @@ Running optimization stage 1 on fir_32s_1s_Z4 .......
 @W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":76:4:76:7|Latch generated from always block for signal y_out_din[31:0]; possible missing assignment in an if or case statement.
 @W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":76:4:76:7|always_comb does not infer combinatorial logic
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":3:7:3:14|Synthesizing module multiply in library work.
-
-	DATA_SIZE=32'b00000000000000000000000000100000
-   Generated name = multiply_32s
-Running optimization stage 1 on multiply_32s .......
-@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":38:4:38:7|Latch generated from always block for signal dout[31:0]; possible missing assignment in an if or case statement.
+Running optimization stage 1 on multiply .......
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":3:7:3:15|Synthesizing module demod_fir in library work.
 
 	NUM_TAPS=32'b00000000000000000000000000100000
@@ -243,12 +233,8 @@ Running optimization stage 1 on fir_32s_8s_Z6 .......
 @W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":76:4:76:7|always_comb does not infer combinatorial logic
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/add.sv":3:7:3:9|Synthesizing module add in library work.
 Running optimization stage 1 on add .......
-@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/add.sv":39:4:39:7|Latch generated from always block for signal out_din[31:0]; possible missing assignment in an if or case statement.
-@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/add.sv":39:4:39:7|always_comb does not infer combinatorial logic
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/sub.sv":3:7:3:9|Synthesizing module sub in library work.
 Running optimization stage 1 on sub .......
-@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/sub.sv":39:4:39:7|Latch generated from always block for signal out_din[31:0]; possible missing assignment in an if or case statement.
-@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/sub.sv":39:4:39:7|always_comb does not infer combinatorial logic
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":3:7:3:9|Synthesizing module iir in library work.
 
 	NUM_TAPS=32'b00000000000000000000000000000010
@@ -309,7 +295,13 @@ State machine has 3 reachable states with original encodings of:
    01
    10
 @N: CL135 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":117:30:117:53|Found sequential shift shift_reg with address depth of 32 words and data bit width of 32.
-Running optimization stage 2 on multiply_32s .......
+Running optimization stage 2 on multiply .......
+@N: CL201 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":23:0:23:8|Trying to extract state machine for register state.
+Extracted state machine for register state
+State machine has 3 reachable states with original encodings of:
+   00
+   01
+   10
 Running optimization stage 2 on fir_32s_1s_Z4 .......
 @N: CL201 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":39:0:39:8|Trying to extract state machine for register state.
 Extracted state machine for register state
@@ -385,11 +377,11 @@ For a summary of runtime and memory usage per design unit, please see file:
 
 @END
 
-At c_ver Exit (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:02s; Memory used current: 127MB peak: 144MB)
+At c_ver Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 127MB peak: 144MB)
 
-Process took 0h:00m:03s realtime, 0h:00m:02s cputime
+Process took 0h:00m:02s realtime, 0h:00m:02s cputime
 
 Process completed successfully.
-# Fri Mar  8 10:36:49 2024
+# Fri Mar  8 13:38:17 2024
 
 ###########################################################]

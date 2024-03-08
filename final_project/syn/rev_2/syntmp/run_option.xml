@@ -3,13 +3,13 @@
   Synopsys, Inc.
   Version O-2018.09-SP1
   Project file /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/syntmp/run_option.xml
-  Written on Fri Mar  8 10:36:45 2024
+  Written on Fri Mar  8 13:38:13 2024
 
 
 --> 
 <project_attribute_list name="Project Settings"> 
      <option name="project_name" display_name="Project Name">fm_radio</option>
-     <option name="device_name" display_name="Device Name">rev_2: Intel CYCLONE IV E : EP4CE6</option>
+     <option name="device_name" display_name="Device Name">rev_2: Intel CYCLONE IV E : EP4CE115</option>
      <option name="impl_name" display_name="Implementation Name">rev_2</option>
      <option name="top_module" display_name="Top Module"></option>
      <option name="pipe" display_name="Pipelining">1</option>

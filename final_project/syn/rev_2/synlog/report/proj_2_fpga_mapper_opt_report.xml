@@ -5,7 +5,7 @@ The file contains the optimization information from mapper to be displayed as pa
 *******************************************************************************************-->
 <report_table display_priority="3" name="Optimizations Summary">
 <parameter tooltip="Retiming summary: Registers Before / After retiming" name="Retiming">
-<data>690 / 1148</data>
+<data>720 / 859</data>
 <report_link name="more">
 <data>/home/mwp8699/CE387-Assignments/final_project/syn/rev_2/synlog/report/proj_2_fpga_mapper_retiming.rpt</data>
 <title>START OF CLOCK OPTIMIZATION REPORT</title>

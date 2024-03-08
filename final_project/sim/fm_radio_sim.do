@@ -2,7 +2,7 @@ setenv LMC_TIMEUNIT -9
 vlib work
 vmap work work
 
-# udp_reader architecture
+# fm_radio architecture
 vlog -work work "../sv/fifo.sv"
 vlog -work work "../sv/globals.sv"
 vlog -work work "../sv/add.sv"
@@ -19,72 +19,22 @@ vlog -work work "../sv/gain.sv"
 vlog -work work "../sv/read_iq.sv"
 vlog -work work "../sv/demodulate.sv"
 vlog -work work "../sv/fm_radio.sv"
-vlog -work work "../sv/fm_radio_tb.sv"
+# vlog -work work "../sv/fm_radio_tb.sv"
 
-vsim -classdebug -voptargs=+acc +notimingchecks -L work work.fm_radio_tb -wlf fm_radio.wlf
+# uvm library
+vlog -work work +incdir+$env(UVM_HOME)/src $env(UVM_HOME)/src/uvm.sv
+vlog -work work +incdir+$env(UVM_HOME)/src $env(UVM_HOME)/src/uvm_macros.svh
+vlog -work work +incdir+$env(UVM_HOME)/src $env(MTI_HOME)/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv
 
-add wave -noupdate -group fm_radio_tb
-add wave -noupdate -group fm_radio_tb -radix hexadecimal /fm_radio_tb/*
+# uvm package
+vlog -work work +incdir+$env(UVM_HOME)/src "../uvm/fm_radio_uvm_pkg.sv"
+vlog -work work +incdir+$env(UVM_HOME)/src "../uvm/fm_radio_uvm_tb.sv"
 
+# start uvm simulation
+vsim -classdebug -voptargs=+acc +notimingchecks -L work work.fm_radio_uvm_tb -wlf fm_radio_uvm_tb.wlf -sv_lib lib/uvm_dpi -dpicpppath /usr/bin/gcc +incdir+$env(MTI_HOME)/verilog_src/questa_uvm_pkg-1.2/src/
 
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/read_iq_fifo_in_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/read_iq_fifo_in_inst -radix hexadecimal /fm_radio_inst/read_iq_fifo_in_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/i_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/i_fifo_inst -radix hexadecimal /fm_radio_inst/i_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/q_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/q_fifo_inst -radix hexadecimal /fm_radio_inst/q_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/real_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/real_fifo_inst -radix hexadecimal /fm_radio_inst/real_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/imag_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/imag_fifo_inst -radix hexadecimal /fm_radio_inst/imag_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/demod_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/demod_fifo_inst -radix hexadecimal /fm_radio_inst/demod_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/bp_pilot_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/bp_pilot_fifo_inst -radix hexadecimal /fm_radio_inst/bp_pilot_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/square_bp_pilot_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/square_bp_pilot_fifo_inst -radix hexadecimal /fm_radio_inst/square_bp_pilot_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/hp_pilot_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/hp_pilot_fifo_inst -radix hexadecimal /fm_radio_inst/hp_pilot_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/bp_lmr_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/bp_lmr_fifo_inst -radix hexadecimal /fm_radio_inst/bp_lmr_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/lpr_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/lpr_fifo_inst -radix hexadecimal /fm_radio_inst/lpr_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/mult_demod_lmr_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/mult_demod_lmr_fifo_inst -radix hexadecimal /fm_radio_inst/mult_demod_lmr_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/lmr_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/lmr_fifo_inst -radix hexadecimal /fm_radio_inst/lmr_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/left_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/left_fifo_inst -radix hexadecimal /fm_radio_inst/left_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/right_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/right_fifo_inst -radix hexadecimal /fm_radio_inst/right_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/left_deemph_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/left_deemph_fifo_inst -radix hexadecimal /fm_radio_inst/left_deemph_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/right_deemph_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/right_deemph_fifo_inst -radix hexadecimal /fm_radio_inst/right_deemph_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/left_gain_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/left_gain_fifo_inst -radix hexadecimal /fm_radio_inst/left_gain_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/right_gain_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/right_gain_fifo_inst -radix hexadecimal /fm_radio_inst/right_gain_fifo_inst/*
-
-
-
+do fm_radio_wave.do
 
 run -all 
+
+#quit;

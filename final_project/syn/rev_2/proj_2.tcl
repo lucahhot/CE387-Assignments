@@ -4,7 +4,7 @@
 set_global_assignment -name TOP_LEVEL_ENTITY "|fm_radio"
 set_global_assignment -name ROUTING_BACK_ANNOTATION_MODE NORMAL
 set_global_assignment -name FAMILY "CYCLONE IVE"
-set_global_assignment -name DEVICE "EP4CE6E22A7"
+set_global_assignment -name DEVICE "EP4CE115F23C7"
 set_global_assignment -section_id fm_radio -name EDA_DESIGN_ENTRY_SYNTHESIS_TOOL "SYNPLIFY"
 set_global_assignment -section_id eda_design_synthesis -name EDA_USE_LMF synplcty.lmf
 set_global_assignment -name TAO_FILE "myresults.tao"

@@ -481,7 +481,6 @@ logic mult_demod_lmr_full;
 logic [DATA_SIZE-1:0] mult_demod_lmr_out_din;
 
 multiply #(
-    .DATA_SIZE(DATA_SIZE)
 ) mult_demod_lmr_inst (
     .clock(clock),
     .reset(reset),

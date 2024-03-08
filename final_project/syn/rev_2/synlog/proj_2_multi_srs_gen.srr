@@ -19,6 +19,7 @@ Implementation : rev_2
 Synopsys Synopsys Netlist Linker, Version comp2018q4p1, Build 004R, Built Nov 27 2018 21:19:49
 
 @N|Running in 64-bit mode
+File /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/synwork/proj_2_comp.srs changed - recompiling
 @N: NF107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv":3:7:3:14|Selected library: work cell: fm_radio view verilog as top level
 @N: NF107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv":3:7:3:14|Selected library: work cell: fm_radio view verilog as top level
 
@@ -27,6 +28,6 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Fri Mar  8 10:36:52 2024
+# Fri Mar  8 13:38:19 2024
 
 ###########################################################]

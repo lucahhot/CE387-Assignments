@@ -37,8 +37,8 @@ set_option -job par_1 -add par
 
 #device options
 set_option -technology CYCLONEIV-E
-set_option -part EP4CE6
-set_option -package EA22
+set_option -part EP4CE115
+set_option -package FC23
 set_option -speed_grade -7
 set_option -part_companion ""
 

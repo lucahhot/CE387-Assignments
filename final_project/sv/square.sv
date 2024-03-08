@@ -31,6 +31,7 @@ end
 always_comb begin
     calc_c = calc;
     next_state = state;
+    dout = '0;
 
     case (state) 
         READ: begin

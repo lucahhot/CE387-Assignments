@@ -2,7 +2,7 @@
 #1001 : define_attribute {i:state[3:0]} syn_encoding sequential
 # line 5 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/proj_2_fsm.sdc
 
-define_attribute {i:demodulate_inst.qarctan_inst.state_1_ i:demodulate_inst.qarctan_inst.state_0_ i:demodulate_inst.qarctan_inst.state_rep1_1_ i:demodulate_inst.qarctan_inst.state_rep2_1_ i:demodulate_inst.qarctan_inst.state_rep1_0_ i:demodulate_inst.qarctan_inst.state_rep2_0_} {syn_encoding} {sequential}
+define_attribute {i:demodulate_inst.qarctan_inst.state_1_ i:demodulate_inst.qarctan_inst.state_0_} {syn_encoding} {sequential}
 
 #1002 : define_attribute {i:state[2:0]} syn_encoding onehot
 # line 6 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/proj_2_fsm.sdc

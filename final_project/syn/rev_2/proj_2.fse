@@ -1,71 +1,81 @@
 
-fsm_encoding {28490499} sequential
+fsm_encoding {284904910} sequential
 
-fsm_state_encoding {28490499} S0 {00}
+fsm_state_encoding {284904910} S0 {00}
 
-fsm_state_encoding {28490499} S1 {01}
+fsm_state_encoding {284904910} S1 {01}
 
-fsm_state_encoding {28490499} S2 {10}
+fsm_state_encoding {284904910} S2 {10}
 
-fsm_registers {28490499} {state[1]}  {state[0]} 
+fsm_registers {284904910} {state[1]}  {state[0]} 
 
-fsm_encoding {18580587} sequential
+fsm_encoding {18580588} sequential
 
-fsm_state_encoding {18580587} READY {00}
+fsm_state_encoding {18580588} READY {00}
 
-fsm_state_encoding {18580587} MULTIPLY {01}
+fsm_state_encoding {18580588} MULTIPLY {01}
 
-fsm_state_encoding {18580587} ANGLE {10}
+fsm_state_encoding {18580588} ANGLE {10}
 
-fsm_state_encoding {18580587} OUTPUT {11}
+fsm_state_encoding {18580588} OUTPUT {11}
 
-fsm_registers {18580587} {state[1]}  {state[0]} 
+fsm_registers {18580588} {state[1]}  {state[0]} 
 
-fsm_encoding {16384388} onehot
+fsm_encoding {16384389} onehot
 
-fsm_state_encoding {16384388} INIT {000001}
+fsm_state_encoding {16384389} INIT {000001}
 
-fsm_state_encoding {16384388} B_EQ_1 {000010}
+fsm_state_encoding {16384389} B_EQ_1 {000010}
 
-fsm_state_encoding {16384388} GET_MSB {000100}
+fsm_state_encoding {16384389} GET_MSB {000100}
 
-fsm_state_encoding {16384388} LOOP {001000}
+fsm_state_encoding {16384389} LOOP {001000}
 
-fsm_state_encoding {16384388} LOOP2 {010000}
+fsm_state_encoding {16384389} LOOP2 {010000}
 
-fsm_state_encoding {16384388} EPILOGUE {100000}
+fsm_state_encoding {16384389} EPILOGUE {100000}
 
-fsm_registers {16384388} {state[5]}  {state[4]}  {state[3]}  {state[2]}  {state[1]}  {state[0]} 
+fsm_registers {16384389} {state[5]}  {state[4]}  {state[3]}  {state[2]}  {state[1]}  {state[0]} 
 
-fsm_encoding {26430436} sequential
+fsm_encoding {26430437} sequential
 
-fsm_state_encoding {26430436} S0 {00}
+fsm_state_encoding {26430437} S0 {00}
 
-fsm_state_encoding {26430436} S1 {01}
+fsm_state_encoding {26430437} S1 {01}
 
-fsm_state_encoding {26430436} S2 {10}
+fsm_state_encoding {26430437} S2 {10}
 
-fsm_registers {26430436} {state[1]}  {state[0]} 
+fsm_registers {26430437} {state[1]}  {state[0]} 
 
-fsm_encoding {26430435} onehot
+fsm_encoding {26430436} onehot
 
-fsm_state_encoding {26430435} S0 {001}
+fsm_state_encoding {26430436} S0 {001}
 
-fsm_state_encoding {26430435} S1 {010}
+fsm_state_encoding {26430436} S1 {010}
 
-fsm_state_encoding {26430435} S2 {100}
+fsm_state_encoding {26430436} S2 {100}
 
-fsm_registers {26430435} {state[2]}  {state[1]}  {state[0]} 
+fsm_registers {26430436} {state[2]}  {state[1]}  {state[0]} 
 
-fsm_encoding {24390394} sequential
+fsm_encoding {24390395} sequential
 
-fsm_state_encoding {24390394} S0 {00}
+fsm_state_encoding {24390395} S0 {00}
 
-fsm_state_encoding {24390394} S1 {01}
+fsm_state_encoding {24390395} S1 {01}
 
-fsm_state_encoding {24390394} S2 {10}
+fsm_state_encoding {24390395} S2 {10}
 
-fsm_registers {24390394} {state[1]}  {state[0]} 
+fsm_registers {24390395} {state[1]}  {state[0]} 
+
+fsm_encoding {20230234} sequential
+
+fsm_state_encoding {20230234} READ {00}
+
+fsm_state_encoding {20230234} MULTIPLY {01}
+
+fsm_state_encoding {20230234} OUTPUT {10}
+
+fsm_registers {20230234} {state[1]}  {state[0]} 
 
 fsm_encoding {26430433} gray
 
