@@ -46,18 +46,30 @@ class fm_radio_uvm_scoreboard extends uvm_scoreboard;
 
     virtual function void comparison();
 
-        real THRESHOLD = 1;
+        // real THRESHOLD = 1;
 
-        if ((tx_out.audio_left_output - tx_cmp.audio_left_output) > THRESHOLD || (tx_cmp.audio_left_output - tx_out.audio_left_output) > THRESHOLD) begin
+        // if ((tx_out.audio_left_output - tx_cmp.audio_left_output) > THRESHOLD || (tx_cmp.audio_left_output - tx_out.audio_left_output) > THRESHOLD) begin
+        //     `uvm_info("SB_CMP", tx_out.sprint(), UVM_LOW);
+        //     `uvm_info("SB_CMP", tx_cmp.sprint(), UVM_LOW);
+        //     `uvm_fatal("SB_CMP", $sformatf("Audio left output exceeded error threshold: fm_radio audio_left_output = %x, real output = %x", tx_out.audio_left_output, tx_cmp.audio_left_output));
+        // end
+
+        // if ((tx_out.audio_right_output - tx_cmp.audio_right_output) > THRESHOLD || (tx_cmp.audio_right_output - tx_out.audio_right_output) > THRESHOLD) begin
+        //     `uvm_info("SB_CMP", tx_out.sprint(), UVM_LOW);
+        //     `uvm_info("SB_CMP", tx_cmp.sprint(), UVM_LOW);
+        //     `uvm_fatal("SB_CMP", $sformatf("Audio right output exceeded error threshold: fm_radio audio_right_output = %x, real output = %x", tx_out.audio_right_output, tx_cmp.audio_right_output));
+        // end
+
+        if (tx_out.audio_left_output != tx_cmp.audio_left_output) begin
             `uvm_info("SB_CMP", tx_out.sprint(), UVM_LOW);
             `uvm_info("SB_CMP", tx_cmp.sprint(), UVM_LOW);
-            `uvm_fatal("SB_CMP", $sformatf("Audio left output exceeded error threshold: fm_radio audio_left_output = %x, real output = %x", tx_out.audio_left_output, tx_cmp.audio_left_output));
+            `uvm_fatal("SB_CMP", $sformatf("Audio left output not equal: fm_radio audio_left_output = %x, real output = %x", tx_out.audio_left_output, tx_cmp.audio_left_output));
         end
 
-        if ((tx_out.audio_right_output - tx_cmp.audio_right_output) > THRESHOLD || (tx_cmp.audio_right_output - tx_out.audio_right_output) > THRESHOLD) begin
+        if (tx_out.audio_right_output != tx_cmp.audio_left_output) begin
             `uvm_info("SB_CMP", tx_out.sprint(), UVM_LOW);
             `uvm_info("SB_CMP", tx_cmp.sprint(), UVM_LOW);
-            `uvm_fatal("SB_CMP", $sformatf("Audio right output exceeded error threshold: fm_radio audio_right_output = %x, real output = %x", tx_out.audio_right_output, tx_cmp.audio_right_output));
+            `uvm_fatal("SB_CMP", $sformatf("Audio right output not equal: fm_radio audio_right_output = %x, real output = %x", tx_out.audio_right_output, tx_cmp.audio_right_output));
         end
 
     endfunction: comparison
