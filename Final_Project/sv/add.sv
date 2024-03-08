@@ -44,6 +44,11 @@ always_comb begin
             y_in_rd_en = 1'b1;
             sum_c = $signed(x_in_dout) + $signed(y_in_dout);
             next_state = S1;
+        end else begin
+            x_in_rd_en = 1'b0;
+            y_in_rd_en =1'b0;
+            sum_c = '0;
+            next_state = S0;
         end
     end
 
@@ -52,6 +57,10 @@ always_comb begin
             out_wr_en = 1'b1;
             out_din = sum;
             next_state = S0;
+        end else begin
+            out_wr_en = 1'b0;
+            out_din = '0;
+            next_state = S1;
         end
     end
 

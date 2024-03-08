@@ -1,10 +1,6 @@
 `include "globals.sv" 
 
-module fir_cmplx #(
-    parameter NUM_TAPS = 20,
-    parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] COEFFICIENTS_REAL = '{default: '{default: 0}},
-    parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] COEFFICIENTS_IMAG = '{default: '{default: 0}}
-) (
+module fir_cmplx (
     input   logic clock,
     input   logic reset,
     input   logic [DATA_SIZE-1:0] xreal_in_dout,   
@@ -22,14 +18,26 @@ module fir_cmplx #(
     output  logic [DATA_SIZE-1:0] yimag_out_din
 );
 
+parameter CHANNEL_COEFF_TAPS = 20;
+
+parameter logic signed [0:CHANNEL_COEFF_TAPS-1] [DATA_SIZE-1:0] CHANNEL_COEFFICIENTS_REAL = '{
+    32'h00000001, 32'h00000008, 32'hfffffff3, 32'h00000009, 32'h0000000b, 32'hffffffd3, 32'h00000045, 32'hffffffd3, 
+    32'hffffffb1, 32'h00000257, 32'h00000257, 32'hffffffb1, 32'hffffffd3, 32'h00000045, 32'hffffffd3, 32'h0000000b, 
+    32'h00000009, 32'hfffffff3, 32'h00000008, 32'h00000001};
+
+parameter logic signed [0:CHANNEL_COEFF_TAPS-1] [DATA_SIZE-1:0]  CHANNEL_COEFFICIENTS_IMAG = '{
+	32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 
+	32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 
+	32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000};
+
 typedef enum logic [1:0] {S0, S1, S2} state_types;
 state_types state, next_state;
 
-logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] realshift_reg;
-logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] realshift_reg_c;
-logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] imagshift_reg;
-logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] imagshift_reg_c;
-logic [$clog2(NUM_TAPS)-1:0] taps_counter, taps_counter_c; // Always going to need 5 bits
+logic [0:CHANNEL_COEFF_TAPS-1] [DATA_SIZE-1:0] realshift_reg;
+logic [0:CHANNEL_COEFF_TAPS-1] [DATA_SIZE-1:0] realshift_reg_c;
+logic [0:CHANNEL_COEFF_TAPS-1] [DATA_SIZE-1:0] imagshift_reg;
+logic [0:CHANNEL_COEFF_TAPS-1] [DATA_SIZE-1:0] imagshift_reg_c;
+logic [$clog2(CHANNEL_COEFF_TAPS)-1:0] taps_counter, taps_counter_c; // Always going to need 5 bits
 logic [DATA_SIZE-1:0] yreal_sum, yreal_sum_c; 
 logic [DATA_SIZE-1:0] yimag_sum, yimag_sum_c;
 
@@ -104,9 +112,9 @@ always_comb begin
                 // Shift in data into shift register (NO DECIMATION because DECIMAITON == 1)
                 xreal_in_rd_en = 1'b1;
                 ximag_in_rd_en = 1'b1;
-                realshift_reg_c[1:NUM_TAPS-1] = realshift_reg[0:NUM_TAPS-2];
+                realshift_reg_c[1:CHANNEL_COEFF_TAPS-1] = realshift_reg[0:CHANNEL_COEFF_TAPS-2];
                 realshift_reg_c[0] = xreal_in_dout;
-                imagshift_reg_c[1:NUM_TAPS-1] = imagshift_reg[0:NUM_TAPS-2];
+                imagshift_reg_c[1:CHANNEL_COEFF_TAPS-1] = imagshift_reg[0:CHANNEL_COEFF_TAPS-2];
                 imagshift_reg_c[0] = ximag_in_dout;
 
                 next_state = S1;
@@ -122,10 +130,10 @@ always_comb begin
             // This stage does both the multiplication and the dequantization + accumulation but pipelined to save cycles
             if (last_cycle == 1'b0) begin
                 // If not on last cycle, perform everything
-                real_product_c = $signed(realtap_value) * $signed(COEFFICIENTS_REAL[taps_counter-1]);
-                imag_product_c = $signed(imagtap_value) * $signed(COEFFICIENTS_IMAG[taps_counter-1]);
-                realimag_product_c = $signed(COEFFICIENTS_REAL[taps_counter-1]) * $signed(imagtap_value);
-                imagreal_product_c = $signed(COEFFICIENTS_IMAG[taps_counter-1]) * $signed(realtap_value);
+                real_product_c = $signed(realtap_value) * $signed(CHANNEL_COEFFICIENTS_REAL[taps_counter-1]);
+                imag_product_c = $signed(imagtap_value) * $signed(CHANNEL_COEFFICIENTS_IMAG[taps_counter-1]);
+                realimag_product_c = $signed(CHANNEL_COEFFICIENTS_REAL[taps_counter-1]) * $signed(imagtap_value);
+                imagreal_product_c = $signed(CHANNEL_COEFFICIENTS_IMAG[taps_counter-1]) * $signed(realtap_value);
                 // Perform accumulation operation (including the subtraction)
                 if (taps_counter != 1'b1) begin
                     // Don't perform acculumation in the first cycle since the first product is being calculatied in this current cycle
@@ -135,8 +143,8 @@ always_comb begin
                 taps_counter_c = taps_counter + 1'b1;
                 realtap_value_c = realshift_reg[taps_counter];
                 imagtap_value_c = imagshift_reg[taps_counter];
-                // Trigger last_cycle flag when taps_counter has overflowed or is equal to NUM_TAPS
-                if (taps_counter == NUM_TAPS)
+                // Trigger last_cycle flag when taps_counter has overflowed or is equal to CHANNEL_COEFF_TAPS
+                if (taps_counter == CHANNEL_COEFF_TAPS)
                     last_cycle_c = 1'b1;
             end else begin
                 // If on last cycle, we only need to perform the accumulation (for the last cycle's products)

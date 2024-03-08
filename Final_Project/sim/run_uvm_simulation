@@ -13,4 +13,6 @@ make -f Makefile.questa dpi_lib32 LIBDIR=lib
 
 # vsim -c -do iir_sim.do
 
-vsim -c -do demod_sim.do
+# vsim -c -do demod_sim.do
+
+vsim -c -do fm_radio_sim.do

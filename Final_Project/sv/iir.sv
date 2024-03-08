@@ -1,10 +1,6 @@
 `include "globals.sv" 
 
-module iir #(
-    parameter NUM_TAPS = 2,
-    parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] IIR_Y_COEFFS = '{default: '{default: 0}},
-    parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] IIR_X_COEFFS = '{default: '{default: 0}}
-) (
+module iir (
     input   logic clock,
     input   logic reset,
     input   logic [DATA_SIZE-1:0] x_in_dout,   // Quantized input 
@@ -15,17 +11,22 @@ module iir #(
     output  logic [DATA_SIZE-1:0] y_out_din  // Quantized output
 );
 
+parameter IIR_COEFF_TAPS = 2;
+
+parameter logic signed [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] IIR_Y_COEFFS = '{32'h00000000, 32'hfffffd66};
+parameter logic signed [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] IIR_X_COEFFS = '{32'h000000b2, 32'h000000b2};
+
 typedef enum logic [1:0] {S0, S1, S2, S3} state_types;
 state_types state, next_state;
 
-logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] xshift_reg ;
-logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] xshift_reg_c ;
-logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] yshift_reg ;
-logic [0:NUM_TAPS-1] [DATA_SIZE-1:0] yshift_reg_c ;
-logic [$clog2(NUM_TAPS)-1:0] taps_counter, taps_counter_c;
+logic [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] xshift_reg ;
+logic [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] xshift_reg_c ;
+logic [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] yshift_reg ;
+logic [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] yshift_reg_c ;
+logic [$clog2(IIR_COEFF_TAPS)-1:0] taps_counter, taps_counter_c;
 logic [DATA_SIZE-1:0] y1_sum, y1_sum_c; 
 logic [DATA_SIZE-1:0] y2_sum, y2_sum_c;
-logic [$clog2(NUM_TAPS)-1:0] yshift_counter, yshift_counter_c;
+logic [$clog2(IIR_COEFF_TAPS)-1:0] yshift_counter, yshift_counter_c;
 
 // Register to hold shift_reg value to be used in MAC since reading from shift_reg takes forever
 logic [DATA_SIZE-1:0] xtap_value, xtap_value_c;
@@ -96,7 +97,7 @@ always_comb begin
             if (x_in_empty == 1'b0) begin
                 // Shift in data into shift register (NO DECIMATION because DECIMAITON == 1)
                 x_in_rd_en = 1'b1;
-                xshift_reg_c[1:NUM_TAPS-1] = xshift_reg[0:NUM_TAPS-2];
+                xshift_reg_c[1:IIR_COEFF_TAPS-1] = xshift_reg[0:IIR_COEFF_TAPS-2];
                 xshift_reg_c[0] = x_in_dout;
                 next_state = S1;
                 // Assign first tap value to pipeline fetching of shift_reg value and MAC operation
@@ -108,8 +109,8 @@ always_comb begin
 
         S1: begin
             // Shift y register NUM_TAPs times NOT DECIMATION times but do not shift in new value
-            if (yshift_counter < NUM_TAPS - 1) begin 
-                yshift_reg_c[1:NUM_TAPS-1] = yshift_reg[0:NUM_TAPS-2];
+            if (yshift_counter < IIR_COEFF_TAPS - 1) begin 
+                yshift_reg_c[1:IIR_COEFF_TAPS-1] = yshift_reg[0:IIR_COEFF_TAPS-2];
                 yshift_counter_c = yshift_counter + 1'b1;
                 next_state = S1;
             end else begin
@@ -150,7 +151,7 @@ always_comb begin
             if (y_out_full == 1'b0) begin
                 // Write last value in yshift_reg to y_out
                 y_out_wr_en = 1'b1;
-                y_out_din = yshift_reg[NUM_TAPS-1];
+                y_out_din = yshift_reg[IIR_COEFF_TAPS-1];
                 // Shift in sum of y1 and y2 into yshift_reg_c[0]
                 yshift_reg_c[0] = $signed(y1_sum) + $signed(y2_sum);
                 // Reset all the values for the next set of data
