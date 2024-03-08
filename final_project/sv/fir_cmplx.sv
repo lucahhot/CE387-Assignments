@@ -147,6 +147,48 @@ always_comb begin
             end
         end
 
+        // S1: begin
+        //     // This stage does both the multiplication and the dequantization + accumulation but pipelined to save cycles
+        //     next_state = S2;
+        //     if (last_cycle == 1'b0) begin
+        //         // If not on last cycle, perform everything
+        //         real_product_c = $signed(realtap_value) * $signed(COEFFICIENTS_REAL[taps_counter-1]);
+                
+        //         // Perform accumulation operation (including the subtraction)
+        //         if (taps_counter != 1'b1) begin
+        //             // Don't perform acculumation in the first cycle since the first product is being calculatied in this current cycle
+        //             yreal_sum_c = $signed(yreal_sum) + DEQUANTIZE($signed(real_product) - $signed(imag_product));
+        //         end
+                
+        //         // Trigger last_cycle flag when taps_counter has overflowed or is equal to NUM_TAPS
+        //     end else begin
+        //         // If on last cycle, we only need to perform the accumulation (for the last cycle's products)
+        //         yreal_sum_c = $signed(yreal_sum) + DEQUANTIZE($signed(real_product) - $signed(imag_product));
+        //     end
+        // end
+
+        // S2: begin
+        //     if (last_cycle == 1'b0) begin
+        //         imag_product_c = $signed(imagtap_value) * $signed(COEFFICIENTS_IMAG[taps_counter-1]);
+        //         realimag_product_c = $signed(COEFFICIENTS_REAL[taps_counter-1]) * $signed(imagtap_value);
+        //         imagreal_product_c = $signed(COEFFICIENTS_IMAG[taps_counter-1]) * $signed(realtap_value);
+        //         if (taps_counter != 1'b1) begin
+        //             yimag_sum_c = $signed(yimag_sum) + DEQUANTIZE($signed(realimag_product) - $signed(imagreal_product));
+        //         end
+        //         taps_counter_c = taps_counter + 1'b1;
+        //         imagtap_value_c = imagshift_reg[taps_counter];
+        //         realtap_value_c = realshift_reg[taps_counter];
+        //         if (taps_counter == NUM_TAPS)
+        //             last_cycle_c = 1'b1;
+        //         next_state = S1;
+            
+        //     end else begin
+        //         yimag_sum_c = $signed(yimag_sum) + DEQUANTIZE($signed(realimag_product) - $signed(imagreal_product));
+        //         last_cycle_c = 1'b0;
+        //         next_state = S3;
+        //     end
+        // end
+
         S2: begin
             if (yreal_out_full == 1'b0 && yimag_out_full == 1'b0) begin
                 // Write sum values to FIFO

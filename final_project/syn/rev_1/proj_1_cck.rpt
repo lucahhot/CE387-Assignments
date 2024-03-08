@@ -16,7 +16,7 @@ max stack size: 8388608 (bytes)
 
 Implementation : rev_1
 
-# Written on Thu Mar  7 19:49:16 2024
+# Written on Fri Mar  8 10:34:03 2024
 
 ##### DESIGN INFO #######################################################
 
@@ -41,27 +41,30 @@ Clock Relationships
 Starting                                          Ending                                            |     rise to rise     |     fall to fall     |     rise to fall     |     fall to rise                     
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 System                                            fm_radio|clock                                    |     10.000           |     No paths         |     No paths         |     No paths                         
-System                                            div_32s_32s|state_derived_clock[5]                |     10.000           |     No paths         |     No paths         |     No paths                         
 fm_radio|clock                                    System                                            |     10.000           |     No paths         |     No paths         |     No paths                         
 fm_radio|clock                                    fm_radio|clock                                    |     10.000           |     No paths         |     No paths         |     No paths                         
 fm_radio|clock                                    add|state_derived_clock                           |     10.000           |     No paths         |     No paths         |     No paths                         
+fm_radio|clock                                    demodulate|state_derived_clock[2]                 |     No paths         |     No paths         |     5.000            |     No paths                         
 fm_radio|clock                                    gain_32s_10s_1|state_derived_clock[0]             |     10.000           |     No paths         |     No paths         |     No paths                         
-fm_radio|clock                                    multiply_32s_0|state_derived_clock[0]             |     10.000           |     No paths         |     No paths         |     No paths                         
+fm_radio|clock                                    multiply_32s|state_derived_clock[0]               |     10.000           |     No paths         |     No paths         |     No paths                         
 fm_radio|clock                                    read_iq_32s_16s_8s_10s|state_derived_clock[0]     |     10.000           |     No paths         |     5.000            |     No paths                         
 fm_radio|clock                                    gain_32s_10s_0|state_derived_clock[0]             |     10.000           |     No paths         |     No paths         |     No paths                         
-fm_radio|clock                                    multiply_32s_1|state_derived_clock[0]             |     10.000           |     No paths         |     No paths         |     No paths                         
+fm_radio|clock                                    square_32s|state_derived_clock[0]                 |     10.000           |     No paths         |     No paths         |     No paths                         
 fm_radio|clock                                    div_32s_32s|state_derived_clock[5]                |     10.000           |     No paths         |     No paths         |     No paths                         
 add|state_derived_clock                           fm_radio|clock                                    |     10.000           |     No paths         |     No paths         |     No paths                         
+demodulate|state_derived_clock[2]                 fm_radio|clock                                    |     No paths         |     No paths         |     No paths         |     5.000                            
+demodulate|state_derived_clock[2]                 demodulate|state_derived_clock[2]                 |     No paths         |     10.000           |     No paths         |     No paths                         
+demodulate|state_derived_clock[2]                 div_32s_32s|state_derived_clock[5]                |     No paths         |     No paths         |     No paths         |     5.000                            
 gain_32s_10s_1|state_derived_clock[0]             fm_radio|clock                                    |     10.000           |     No paths         |     No paths         |     No paths                         
 gain_32s_10s_1|state_derived_clock[0]             gain_32s_10s_1|state_derived_clock[0]             |     10.000           |     No paths         |     No paths         |     No paths                         
-multiply_32s_0|state_derived_clock[0]             fm_radio|clock                                    |     10.000           |     No paths         |     No paths         |     No paths                         
-multiply_32s_0|state_derived_clock[0]             multiply_32s_0|state_derived_clock[0]             |     10.000           |     No paths         |     No paths         |     No paths                         
+multiply_32s|state_derived_clock[0]               fm_radio|clock                                    |     10.000           |     No paths         |     No paths         |     No paths                         
+multiply_32s|state_derived_clock[0]               multiply_32s|state_derived_clock[0]               |     10.000           |     No paths         |     No paths         |     No paths                         
 read_iq_32s_16s_8s_10s|state_derived_clock[0]     fm_radio|clock                                    |     10.000           |     No paths         |     No paths         |     5.000                            
 read_iq_32s_16s_8s_10s|state_derived_clock[0]     read_iq_32s_16s_8s_10s|state_derived_clock[0]     |     10.000           |     No paths         |     No paths         |     No paths                         
 gain_32s_10s_0|state_derived_clock[0]             fm_radio|clock                                    |     10.000           |     No paths         |     No paths         |     No paths                         
 gain_32s_10s_0|state_derived_clock[0]             gain_32s_10s_0|state_derived_clock[0]             |     10.000           |     No paths         |     No paths         |     No paths                         
-multiply_32s_1|state_derived_clock[0]             fm_radio|clock                                    |     10.000           |     No paths         |     No paths         |     No paths                         
-multiply_32s_1|state_derived_clock[0]             multiply_32s_1|state_derived_clock[0]             |     10.000           |     No paths         |     No paths         |     No paths                         
+square_32s|state_derived_clock[0]                 fm_radio|clock                                    |     10.000           |     No paths         |     No paths         |     No paths                         
+square_32s|state_derived_clock[0]                 square_32s|state_derived_clock[0]                 |     10.000           |     No paths         |     No paths         |     No paths                         
 div_32s_32s|state_derived_clock[5]                fm_radio|clock                                    |     10.000           |     No paths         |     No paths         |     No paths                         
 ===============================================================================================================================================================================================================
  Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.

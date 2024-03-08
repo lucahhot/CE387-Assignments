@@ -64,7 +64,7 @@ module fm_radio #(
     parameter logic signed [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] IIR_X_COEFFS = '{32'h000000b2, 32'h000000b2},
     parameter logic signed [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] IIR_Y_COEFFS = '{32'h00000000, 32'hfffffd66},
     
-    parameter FIFO_BUFFER_SIZE = 128,
+    parameter FIFO_BUFFER_SIZE = 16,
     parameter AUDIO_DECIMATION = 8
 
 ) (
@@ -316,8 +316,7 @@ demod_fir #(
 );
 
 // Wires from BP_PILOT_FIFO to SQUARE_BP_PILOT
-logic x_bp_pilot_fir_rd_en, y_bp_pilot_fir_rd_en;
-assign bp_pilot_fifo_rd_en = x_bp_pilot_fir_rd_en && y_bp_pilot_fir_rd_en;
+logic bp_pilot_fifo_rd_en;
 logic bp_pilot_fir_empty;
 logic [DATA_SIZE-1:0] bp_pilot_fir_out_dout;
 
@@ -341,19 +340,32 @@ logic square_bp_pilot_out_wr_en;
 logic square_bp_pilot_out_full;
 logic [DATA_SIZE-1:0] square_bp_pilot_out_din;
 
-multiply #(
+// multiply #(
+//     .DATA_SIZE(DATA_SIZE)
+// ) square_bp_pilot_inst (
+//     .clock(clock),
+//     .reset(reset),
+//     .x_in_rd_en(x_bp_pilot_fir_rd_en),
+//     .y_in_rd_en(y_bp_pilot_fir_rd_en),
+//     .x_in_empty(bp_pilot_fir_empty),
+//     .y_in_empty(bp_pilot_fir_empty),
+//     .out_wr_en(square_bp_pilot_out_wr_en),
+//     .out_full(square_bp_pilot_out_full),
+//     .x(bp_pilot_fir_out_dout),
+//     .y(bp_pilot_fir_out_dout),
+//     .dout(square_bp_pilot_out_din)
+// );  
+
+square #(
     .DATA_SIZE(DATA_SIZE)
 ) square_bp_pilot_inst (
     .clock(clock),
     .reset(reset),
-    .x_in_rd_en(x_bp_pilot_fir_rd_en),
-    .y_in_rd_en(y_bp_pilot_fir_rd_en),
-    .x_in_empty(bp_pilot_fir_empty),
-    .y_in_empty(bp_pilot_fir_empty),
+    .in_rd_en(bp_pilot_fifo_rd_en),
+    .in_empty(bp_pilot_fir_empty),
     .out_wr_en(square_bp_pilot_out_wr_en),
     .out_full(square_bp_pilot_out_full),
-    .x(bp_pilot_fir_out_dout),
-    .y(bp_pilot_fir_out_dout),
+    .data_in(bp_pilot_fir_out_dout),
     .dout(square_bp_pilot_out_din)
 );  
 
@@ -754,7 +766,7 @@ fifo #(
     .empty(right_deemph_empty)
 );
 
-logic [31:0] quant_gain = QUANTIZE_I(GAIN);
+logic [31:0] quant_gain = QUANTIZE(GAIN);
 
 // Wires from LEFT_GAIN to LEFT_GAIN_FIFO
 logic left_gain_full;

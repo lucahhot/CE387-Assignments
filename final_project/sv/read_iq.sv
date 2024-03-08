@@ -77,8 +77,8 @@ always_comb begin
             if (i_out_full == 1'b0 && q_out_full == 1'b0) begin
                 out_wr_en = 1'b1;
                 in_rd_en = 1'b0;
-                i_out = QUANTIZE_I(DATA_SIZE'(i_temp));    // quantize
-                q_out = QUANTIZE_I(DATA_SIZE'(q_temp));    // quantize
+                i_out = QUANTIZE(DATA_SIZE'(i_temp));    // quantize
+                q_out = QUANTIZE(DATA_SIZE'(q_temp));    // quantize
                 next_state = READ;
             end else begin
                 next_state = WRITE;

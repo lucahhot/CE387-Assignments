@@ -169,6 +169,19 @@ module div #(
                 valid_out = 1'b1;
                 next_state = INIT;
             end
+
+            default: begin
+                quotient = '0;
+                remainder = '0;
+                valid_out = 1'b0;
+                next_state = INIT;
+                a_c = 'X;
+                b_c = 'X;
+                q_c = 'X;
+                msb_a_c = 'X;
+                msb_b_c = 'X;
+                p_c = 'X;
+            end
         endcase
     end
 

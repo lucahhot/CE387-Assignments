@@ -12,10 +12,10 @@
 Starting:    /vol/synopsys/fpga/O-2018.09-SP1/linux_a_64/mbin/synplify
 Install:     /vol/synopsys/fpga/O-2018.09-SP1
 Hostname:    joker.ece.northwestern.edu
-Date:        Tue Mar  5 19:37:03 2024
+Date:        Fri Mar  8 00:41:30 2024
 Version:     O-2018.09-SP1
 
-Arguments:   -product synplify_premier divide.prj
+Arguments:   -product synplify_premier fm_radio.prj
 ProductType: synplify_premier
 
 License checkout: synplifypremierdp
@@ -28,58 +28,102 @@ License Option: ident
 log file: "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.srr"
 Running: rev_1 in foreground
 
-Running divide|rev_1
+Running fm_radio|rev_1
 
-Running Flow: compile (Compile) on divide|rev_1
-# Tue Mar  5 19:37:06 2024
+Running Flow: compile (Compile) on fm_radio|rev_1
+# Fri Mar  8 00:41:34 2024
 
-Running Flow: compile_flow (Compile Process) on divide|rev_1
-# Tue Mar  5 19:37:06 2024
+Running Flow: compile_flow (Compile Process) on fm_radio|rev_1
+# Fri Mar  8 00:41:34 2024
 License granted for 4 parallel jobs
 
-Running: compiler (Compile Input) on divide|rev_1
-# Tue Mar  5 19:37:06 2024
+Running: compiler (Compile Input) on fm_radio|rev_1
+# Fri Mar  8 00:41:34 2024
 Copied /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork/proj_1_comp.srs to /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.srs
 
 compiler completed
-# Tue Mar  5 19:37:10 2024
+# Fri Mar  8 00:41:41 2024
 
 Return Code: 0
-Run Time:00h:00m:03s
+Run Time:00h:00m:07s
 
-Running: multi_srs_gen (Multi-srs Generator) on divide|rev_1
-# Tue Mar  5 19:37:10 2024
+Running: multi_srs_gen (Multi-srs Generator) on fm_radio|rev_1
+# Fri Mar  8 00:41:41 2024
 
 multi_srs_gen completed
-# Tue Mar  5 19:37:10 2024
+# Fri Mar  8 00:41:41 2024
 
 Return Code: 0
 Run Time:00h:00m:00s
 Copied /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork/proj_1_mult.srs to /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.srs
-Complete: Compile Process on divide|rev_1
+Complete: Compile Process on fm_radio|rev_1
+using FSM Exploration result file: "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1_fsm.sdc"
 
-Running: premap (Premap) on divide|rev_1
-# Tue Mar  5 19:37:10 2024
+Running: premap (Premap) on fm_radio|rev_1
+# Fri Mar  8 00:41:41 2024
 
 premap completed with warnings
-# Tue Mar  5 19:37:10 2024
-
-Return Code: 1
-Run Time:00h:00m:00s
-Complete: Compile on divide|rev_1
-
-Running Flow: map (Map) on divide|rev_1
-# Tue Mar  5 19:37:10 2024
-License granted for 4 parallel jobs
-
-Running: fpga_mapper (Map & Optimize) on divide|rev_1
-# Tue Mar  5 19:37:10 2024
-Copied /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork/proj_1_m.srm to /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.srm
-
-fpga_mapper completed with warnings
-# Tue Mar  5 19:37:12 2024
+# Fri Mar  8 00:41:43 2024
 
 Return Code: 1
 Run Time:00h:00m:02s
-Complete: Map on divide|rev_1
-Complete: Logic Synthesis on divide|rev_1
+Complete: Compile on fm_radio|rev_1
+
+Running Flow: map (Map) on fm_radio|rev_1
+# Fri Mar  8 00:41:43 2024
+License granted for 4 parallel jobs
+using FSM Exploration result file: "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1_fsm.sdc"
+
+Running: fpga_mapper (Map & Optimize) on fm_radio|rev_1
+# Fri Mar  8 00:41:43 2024
+Copied /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork/proj_1_m.srm to /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.srm
+fpga_mapper exited with errors
+Job failed on: fm_radio|rev_1
+
+Job: "fpga_mapper" terminated with error status: 2
+See log file: "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synlog/proj_1_fpga_mapper.srr"
+# Fri Mar  8 00:42:37 2024
+
+Return Code: 2
+Run Time:00h:00m:54s
+Complete: Map on fm_radio|rev_1
+Complete: Logic Synthesis on fm_radio|rev_1
+20WARNING:  No database file, or it is out of date.
+INFO:  Resetting Correlation database
+WARNING:  No database file, or it is out of date.
+INFO:  Target Implementation: /home/mwp8699/CE387-Assignments/final_project/syn/fm_radio.prj|rev_1
+INFO:  **** *_synplify.sdc verification mode  *****
+INFO:  Running with: effort = high, paths per endpoint = 1, sorted by = slack, QOR mode = 1 
+ 
+INFO:  Exiting after *.itd file creation, correlation check not run. 
+ 
+0
+/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/sdc_verif_slack.xml /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/sdc_verif_slack_match.xmlWhile running 64-bit - Linux build
+
+@E::Signal 000 error in synplify
+Stack trace
+ID:uirc/3588/synplify
+===========
+0xdd222e
+0xdd5b80
+0x6db568
+0x7f38a69e1b4f
+0x1c5a4fa
+0x1c5a9be
+0x1c614f7
+0x1c6d2a6
+0x17d280f
+0x184cc66
+0x184cdf2
+0x7f38aae7f4bf
+0x7f38aad5c704
+0xd48587
+
+Please open a web case about this problem. A Synopsys CAE will then contact you.
+
+Instructions to open a web-case:
+1.  Go to the Synopsys support web site, https://solvnet.synopsys.com. 
+2.  Login with your user name and password. If you do not have an account, please register and set one up.
+3.  Click the `Enter A Call' link.
+4.  Provide a detailed description of the problem, and fill in all required fields.
+5.  Attach any test cases or archived project files required to reproduce the problem. 

@@ -12,6 +12,7 @@ add_file -verilog -vlog_std sysv "../sv/sub.sv"
 add_file -verilog -vlog_std sysv "../sv/div.sv"
 add_file -verilog -vlog_std sysv "../sv/qarctan.sv"
 add_file -verilog -vlog_std sysv "../sv/multiply.sv"
+add_file -verilog -vlog_std sysv "../sv/square.sv"
 add_file -verilog -vlog_std sysv "../sv/fir.sv"
 add_file -verilog -vlog_std sysv "../sv/demod_fir.sv"
 add_file -verilog -vlog_std sysv "../sv/fir_cmplx.sv"
@@ -23,8 +24,8 @@ add_file -verilog -vlog_std sysv "../sv/fm_radio.sv"
 
 
 
-#implementation: "rev_1"
-impl -add rev_1 -type fpga
+#implementation: "rev_2"
+impl -add rev_2 -type fpga
 
 #
 #implementation attributes
@@ -83,13 +84,13 @@ set_option -multi_file_compilation_unit 1
 set_option -auto_infer_blackbox 0
 
 #timing report file option
-set_option -reporting_filename "rev_1/proj_1.ta"
+set_option -reporting_filename "rev_2/proj_2.ta"
 
 #automatic place and route (vendor) options
 set_option -write_apr_constraint 1
 
 #set result format/file last
-project -result_file "rev_1/proj_1.vqm"
+project -result_file "rev_2/proj_2.vqm"
 
 #design plan options
-impl -active "rev_1"
+impl -active "rev_2"

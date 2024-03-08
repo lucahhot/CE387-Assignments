@@ -17,6 +17,8 @@
 @N:: Applying property .noprune with value 1 on module demod_fir in library work
 @N:: Applying property .distcompnoprune with value 1 on module multiply in library work
 @N:: Applying property .noprune with value 1 on module multiply in library work
+@N:: Applying property .distcompnoprune with value 1 on module square in library work
+@N:: Applying property .noprune with value 1 on module square in library work
 @N:: Applying property .distcompnoprune with value 1 on module demodulate in library work
 @N:: Applying property .noprune with value 1 on module demodulate in library work
 @N:: Applying property .distcompnoprune with value 1 on module qarctan in library work
@@ -32,11 +34,11 @@ Selecting top level module fm_radio
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":2:7:2:10|Synthesizing module fifo in library work.
 
 	FIFO_DATA_WIDTH=32'b00000000000000000000000000001000
-	FIFO_BUFFER_SIZE=32'b00000000000000000000000010000000
-	FIFO_ADDR_WIDTH=32'b00000000000000000000000000001000
-   Generated name = fifo_8s_128s_8s
-Running optimization stage 1 on fifo_8s_128s_8s .......
-@N: CL134 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|Found RAM fifo_buf, depth=128, width=8
+	FIFO_BUFFER_SIZE=32'b00000000000000000000000000010000
+	FIFO_ADDR_WIDTH=32'b00000000000000000000000000000101
+   Generated name = fifo_8s_16s_5s
+Running optimization stage 1 on fifo_8s_16s_5s .......
+@N: CL134 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|Found RAM fifo_buf, depth=16, width=8
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":3:7:3:13|Synthesizing module read_iq in library work.
 
 	DATA_SIZE=32'b00000000000000000000000000100000
@@ -54,11 +56,11 @@ Running optimization stage 1 on read_iq_32s_16s_8s_10s .......
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":2:7:2:10|Synthesizing module fifo in library work.
 
 	FIFO_DATA_WIDTH=32'b00000000000000000000000000100000
-	FIFO_BUFFER_SIZE=32'b00000000000000000000000010000000
-	FIFO_ADDR_WIDTH=32'b00000000000000000000000000001000
-   Generated name = fifo_32s_128s_8s
-Running optimization stage 1 on fifo_32s_128s_8s .......
-@N: CL134 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|Found RAM fifo_buf, depth=128, width=32
+	FIFO_BUFFER_SIZE=32'b00000000000000000000000000010000
+	FIFO_ADDR_WIDTH=32'b00000000000000000000000000000101
+   Generated name = fifo_32s_16s_5s
+Running optimization stage 1 on fifo_32s_16s_5s .......
+@N: CL134 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|Found RAM fifo_buf, depth=16, width=32
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":3:7:3:15|Synthesizing module fir_cmplx in library work.
 
 	NUM_TAPS=32'b00000000000000000000000000010100
@@ -88,16 +90,20 @@ Running optimization stage 1 on div_32s_32s .......
 @W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":104:8:104:11|always_comb does not infer combinatorial logic
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":3:7:3:13|Synthesizing module qarctan in library work.
 Running optimization stage 1 on qarctan .......
-@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":77:4:77:7|Latch generated from always block for signal dividend[31:0]; possible missing assignment in an if or case statement.
-@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":77:4:77:7|Latch generated from always block for signal divisor[31:0]; possible missing assignment in an if or case statement.
-@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":77:4:77:7|always_comb does not infer combinatorial logic
-@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":77:4:77:7|always_comb does not infer combinatorial logic
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":80:4:80:7|Latch generated from always block for signal dividend[31:0]; possible missing assignment in an if or case statement.
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":80:4:80:7|Latch generated from always block for signal divisor[31:0]; possible missing assignment in an if or case statement.
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":80:4:80:7|always_comb does not infer combinatorial logic
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":80:4:80:7|always_comb does not infer combinatorial logic
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":3:7:3:16|Synthesizing module demodulate in library work.
 Running optimization stage 1 on demodulate .......
-@W: CL169 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":51:0:51:8|Pruning unused register qarctan_gain_product[31:0]. Make sure that there are no unused intermediate registers.
-@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":87:4:87:7|Latch generated from always block for signal next_state[2:0]; possible missing assignment in an if or case statement.
-@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":87:4:87:7|always_comb does not infer combinatorial logic
-@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":87:4:87:7|always_comb does not infer combinatorial logic
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":96:4:96:7|Latch generated from always block for signal qarctan_real[31:0]; possible missing assignment in an if or case statement.
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":96:4:96:7|Latch generated from always block for signal qarctan_imag[31:0]; possible missing assignment in an if or case statement.
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":96:4:96:7|Latch generated from always block for signal next_state[2:0]; possible missing assignment in an if or case statement.
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":96:4:96:7|always_comb does not infer combinatorial logic
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":96:4:96:7|always_comb does not infer combinatorial logic
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":96:4:96:7|always_comb does not infer combinatorial logic
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":96:4:96:7|always_comb does not infer combinatorial logic
+@W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":96:4:96:7|always_comb does not infer combinatorial logic
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":3:7:3:15|Synthesizing module demod_fir in library work.
 
 	NUM_TAPS=32'b00000000000000000000000000100000
@@ -107,12 +113,12 @@ Running optimization stage 1 on demodulate .......
 Running optimization stage 1 on demod_fir_32s_1s_Z2 .......
 @W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":81:4:81:7|Latch generated from always block for signal y_out_din[31:0]; possible missing assignment in an if or case statement.
 @W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":81:4:81:7|always_comb does not infer combinatorial logic
-@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":3:7:3:14|Synthesizing module multiply in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/square.sv":3:7:3:12|Synthesizing module square in library work.
 
 	DATA_SIZE=32'b00000000000000000000000000100000
-   Generated name = multiply_32s
-Running optimization stage 1 on multiply_32s .......
-@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":38:4:38:7|Latch generated from always block for signal dout[31:0]; possible missing assignment in an if or case statement.
+   Generated name = square_32s
+Running optimization stage 1 on square_32s .......
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/square.sv":35:4:35:7|Latch generated from always block for signal dout[31:0]; possible missing assignment in an if or case statement.
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":3:7:3:15|Synthesizing module demod_fir in library work.
 
 	NUM_TAPS=32'b00000000000000000000000000100000
@@ -131,6 +137,12 @@ Running optimization stage 1 on demod_fir_32s_1s_Z3 .......
 Running optimization stage 1 on fir_32s_1s_Z4 .......
 @W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":76:4:76:7|Latch generated from always block for signal y_out_din[31:0]; possible missing assignment in an if or case statement.
 @W: CL217 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":76:4:76:7|always_comb does not infer combinatorial logic
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":3:7:3:14|Synthesizing module multiply in library work.
+
+	DATA_SIZE=32'b00000000000000000000000000100000
+   Generated name = multiply_32s
+Running optimization stage 1 on multiply_32s .......
+@W: CL118 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":38:4:38:7|Latch generated from always block for signal dout[31:0]; possible missing assignment in an if or case statement.
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":3:7:3:15|Synthesizing module demod_fir in library work.
 
 	NUM_TAPS=32'b00000000000000000000000000100000
@@ -217,6 +229,7 @@ State machine has 3 reachable states with original encodings of:
    01
    10
 @N: CL135 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":117:30:117:53|Found sequential shift shift_reg with address depth of 32 words and data bit width of 32.
+Running optimization stage 2 on multiply_32s .......
 Running optimization stage 2 on fir_32s_1s_Z4 .......
 @N: CL201 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":39:0:39:8|Trying to extract state machine for register state.
 Extracted state machine for register state
@@ -233,7 +246,7 @@ State machine has 3 reachable states with original encodings of:
    01
    10
 @N: CL135 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":117:30:117:53|Found sequential shift shift_reg with address depth of 32 words and data bit width of 32.
-Running optimization stage 2 on multiply_32s .......
+Running optimization stage 2 on square_32s .......
 Running optimization stage 2 on demod_fir_32s_1s_Z2 .......
 @N: CL201 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":43:0:43:8|Trying to extract state machine for register state.
 Extracted state machine for register state
@@ -243,18 +256,23 @@ State machine has 3 reachable states with original encodings of:
    10
 @N: CL135 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":117:30:117:53|Found sequential shift shift_reg with address depth of 32 words and data bit width of 32.
 Running optimization stage 2 on demodulate .......
-@W: CL279 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":51:0:51:8|Pruning register bits 31 to 23 of demod_temp[31:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL190 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":51:0:51:8|Optimizing register bit demod_temp[0] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL260 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":51:0:51:8|Pruning register bit 0 of demod_temp[31:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
+@W: CL279 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":96:4:96:7|Pruning register bits 31 to 24 of qarctan_real[31:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL279 :"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":96:4:96:7|Pruning register bits 31 to 24 of qarctan_imag[31:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 Running optimization stage 2 on qarctan .......
-@W: CL190 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":56:0:56:8|Optimizing register bit quad_product[0] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL190 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":56:0:56:8|Optimizing register bit quad_product[1] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL279 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":77:4:77:7|Pruning register bits 9 to 1 of dividend[31:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@W: CL279 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":56:0:56:8|Pruning register bits 1 to 0 of quad_product[31:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@N: CL201 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":56:0:56:8|Trying to extract state machine for register state.
+@W: CL190 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":58:0:58:8|Optimizing register bit quad_product[0] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":58:0:58:8|Optimizing register bit quad_product[1] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL279 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":80:4:80:7|Pruning register bits 9 to 1 of dividend[31:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL279 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":58:0:58:8|Pruning register bits 1 to 0 of quad_product[31:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@N: CL201 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":58:0:58:8|Trying to extract state machine for register state.
 Extracted state machine for register state
-State machine has 3 reachable states with original encodings of:
+State machine has 4 reachable states with original encodings of:
    00
    01
    10
+   11
+@W: CL279 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":58:0:58:8|Pruning register bits 31 to 25 of data_out_temp[31:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 Running optimization stage 2 on div_32s_32s .......
 @N: CL201 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":38:4:38:12|Trying to extract state machine for register state.
 Extracted state machine for register state
@@ -277,9 +295,9 @@ State machine has 3 reachable states with original encodings of:
    00
    01
    10
-Running optimization stage 2 on fifo_32s_128s_8s .......
+Running optimization stage 2 on fifo_32s_16s_5s .......
 Running optimization stage 2 on read_iq_32s_16s_8s_10s .......
-Running optimization stage 2 on fifo_8s_128s_8s .......
+Running optimization stage 2 on fifo_8s_16s_5s .......
 
 For a summary of runtime and memory usage per design unit, please see file:
 ==========================================================

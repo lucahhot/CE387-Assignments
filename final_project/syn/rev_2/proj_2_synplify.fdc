@@ -1,0 +1,20 @@
+
+#1001 : define_attribute {i:state[3:0]} syn_encoding sequential
+# line 5 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/proj_2_fsm.sdc
+
+define_attribute {i:demodulate_inst.qarctan_inst.state_1_ i:demodulate_inst.qarctan_inst.state_0_ i:demodulate_inst.qarctan_inst.state_rep1_1_ i:demodulate_inst.qarctan_inst.state_rep2_1_ i:demodulate_inst.qarctan_inst.state_rep1_0_ i:demodulate_inst.qarctan_inst.state_rep2_0_} {syn_encoding} {sequential}
+
+#1002 : define_attribute {i:state[2:0]} syn_encoding onehot
+# line 6 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/proj_2_fsm.sdc
+
+define_attribute {i:bp_lmr_fifo_inst.state_ret i:bp_lmr_fifo_inst.state_ret_1 i:bp_lmr_fifo_inst.state_ret_2 i:bp_lmr_fifo_inst.state_ret_3 i:bp_lmr_fifo_inst.state_ret_4 i:bp_lmr_fifo_inst.state_ret_5 i:bp_lmr_fir_inst.state_1_ i:bp_lmr_fir_inst.state_0_ i:bp_lmr_fir_inst.state_0_2_ i:bp_lmr_fir_inst.state_ret} {syn_encoding} {onehot}
+
+#1003 : define_attribute {i:state[2:0]} syn_encoding gray
+# line 7 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/proj_2_fsm.sdc
+
+define_attribute {i:lpr_fifo_inst.state_ret i:lpr_fifo_inst.state_ret_1 i:lpr_fifo_inst.state_ret_2 i:lpr_fifo_inst.state_ret_3 i:lpr_fifo_inst.state_ret_4 i:lpr_fifo_inst.state_ret_5 i:lpr_fir_inst.state_0_ i:lpr_fir_inst.state_0_1_ i:lpr_fir_inst.state_ret} {syn_encoding} {gray}
+
+#1004 : define_attribute {i:state[5:0]} syn_encoding onehot
+# line 8 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/proj_2_fsm.sdc
+
+define_attribute {i:demodulate_inst.qarctan_inst.divider_inst.state_5_ i:demodulate_inst.qarctan_inst.divider_inst.state_4_ i:demodulate_inst.qarctan_inst.divider_inst.state_3_ i:demodulate_inst.qarctan_inst.divider_inst.state_2_ i:demodulate_inst.qarctan_inst.divider_inst.state_1_ i:demodulate_inst.qarctan_inst.divider_inst.state_0_} {syn_encoding} {onehot}

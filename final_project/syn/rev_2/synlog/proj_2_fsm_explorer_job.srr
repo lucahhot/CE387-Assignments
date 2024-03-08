@@ -1,0 +1,1399 @@
+# Fri Mar  8 10:36:52 2024
+
+
+Copyright (C) 1994-2018 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify (R) Premier
+Build: O-2018.09-SP1
+Install: /vol/synopsys/fpga/O-2018.09-SP1
+OS: Red Hat Enterprise Linux 8.9 (Ootpa)
+Hostname: joker.ece.northwestern.edu
+max virtual memory: unlimited (bytes)
+max user processes: 126575
+max stack size: 8388608 (bytes)
+
+
+Implementation : rev_2
+Synopsys Intel FPGA Technology Mapper, Version maprc, Build 4745R, Built Nov 27 2018 21:14:52
+
+
+Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 98MB peak: 99MB)
+
+@A: MF827 |No constraint file specified.
+@N: MF284 |Setting synthesis effort to medium for the design
+@N: MF915 |Option synthesis_strategy=advanced is enabled. 
+@N: MF248 |Running in 64-bit mode.
+@N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
+
+Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 107MB peak: 108MB)
+
+
+Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 107MB peak: 108MB)
+
+@W: FA406 |Environment variable QUARTUS_ROOTDIR not set. Cannot determine PAR version.
+@N: MF284 |Setting synthesis effort to medium for the design
+
+Finished Clear Box Flow. (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 128MB peak: 130MB)
+
+@W: FA401 |Found flip-flop with unsupported asynchronous set. Implemented set functionality by creating a latch.
+
+
+Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 128MB peak: 130MB)
+
+
+Running FSM Explorer ...
+
+@W: MO129 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":80:4:80:7|Sequential instance demodulate_inst.qarctan_inst.dividend[0] is reduced to a combinational gate by constant propagation.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_deemph_fifo_inst.dout[31:0] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|Removing sequential instance left_deemph_fifo_inst.fifo_buf[31:0] (in view: work.fm_radio(verilog)) of type view:PrimLib.ram1(prim) because it does not drive other instances.
+
+Available hyper_sources - for debug and ip models
+	None Found
+
+
+Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 135MB peak: 138MB)
+
+@N: MO231 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":42:4:42:12|Found counter in view:work.fm_radio(verilog) instance left_deemph_fifo_inst.wr_addr[4:0] 
+@N: MO231 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":49:0:49:8|Found counter in view:work.fir_cmplx_20s_Z1(verilog) instance taps_counter[4:0] 
+@N: MO231 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":43:0:43:8|Found counter in view:work.demod_fir_32s_1s_Z2(verilog) instance taps_counter[4:0] 
+@N: MO231 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":43:0:43:8|Found counter in view:work.demod_fir_32s_1s_Z3(verilog) instance taps_counter[4:0] 
+@N: MO231 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":39:0:39:8|Found counter in view:work.fir_32s_1s_Z4(verilog) instance taps_counter[4:0] 
+@N: MO231 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":43:0:43:8|Found counter in view:work.demod_fir_32s_8s_Z5(verilog) instance taps_counter[4:0] 
+@N: MO231 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":39:0:39:8|Found counter in view:work.fir_32s_8s_Z6(verilog) instance taps_counter[4:0] 
+
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 143MB peak: 144MB)
+
+
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 143MB peak: 144MB)
+
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[0] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[0] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[1] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[1] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[2] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[2] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[3] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[3] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[4] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[4] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[5] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[5] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[6] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[6] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[7] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[7] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[8] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[8] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[9] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[9] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[10] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[10] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[11] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[11] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[12] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[12] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[13] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[13] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[14] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[14] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[15] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[15] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[16] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[16] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[17] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[17] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[18] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[18] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[19] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[19] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[20] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[20] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[21] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[21] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[22] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[22] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[23] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[23] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[24] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[24] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[25] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[25] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[26] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[26] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[27] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[27] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[28] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[28] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[29] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[29] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[30] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[30] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_gain_fifo_inst.dout[31] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[31] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[0] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[0] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[1] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[1] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[2] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[2] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[3] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[3] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[4] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[4] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[5] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[5] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[6] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[6] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[7] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[7] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[8] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[8] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[9] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[9] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[10] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[10] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[11] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[11] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[12] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[12] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[13] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[13] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[14] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[14] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[15] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[15] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[16] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[16] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[17] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[17] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[18] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[18] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[19] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[19] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[20] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[20] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[21] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[21] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[22] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[22] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[23] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[23] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[24] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[24] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[25] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[25] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[26] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[26] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[27] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[27] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[28] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[28] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[29] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[29] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[30] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[30] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance left_gain_fifo_inst.dout[31] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[31] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[0] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[1] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[2] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[3] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[4] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[5] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[6] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[7] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[8] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[9] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[10] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[11] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[12] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[13] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[14] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[15] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[16] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[17] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[18] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[19] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[20] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[21] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[22] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[23] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[24] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[25] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[26] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[27] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[28] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[29] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[30] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_deemph_fifo_inst.dout[31] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_fifo_inst.dout[0] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance right_fifo_inst.dout[1] (in view: work.fm_radio(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+
+Only the first 100 messages of id 'BN362' are reported. To see all messages use 'report_messages -log /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/synlog/proj_2_fsm_explorer_job.srr -id BN362' in the Tcl shell. To see all messages in future runs, use the command 'message_override -limit {BN362} -count unlimited' in the Tcl shell.
+@N: MF135 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":39:0:39:8|RAM shift_reg_CR31[31:0] (in view: work.fir_32s_8s_Z6(verilog)) is 32 words by 32 bits.
+@N: MF135 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":43:0:43:8|RAM shift_reg_CR31[31:0] (in view: work.demod_fir_32s_8s_Z5(verilog)) is 32 words by 32 bits.
+@N: MF135 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":39:0:39:8|RAM shift_reg_CR31[31:0] (in view: work.fir_32s_1s_Z4(verilog)) is 32 words by 32 bits.
+@N: MF135 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":43:0:43:8|RAM shift_reg_CR31[31:0] (in view: work.demod_fir_32s_1s_Z3(verilog)) is 32 words by 32 bits.
+@N: MF135 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":43:0:43:8|RAM shift_reg_CR31[31:0] (in view: work.demod_fir_32s_1s_Z2(verilog)) is 32 words by 32 bits.
+@N: MF135 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":49:0:49:8|RAM realshift_reg_CR31[31:0] (in view: work.fir_cmplx_20s_Z1(verilog)) is 32 words by 32 bits.
+@N: MF135 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":49:0:49:8|RAM imagshift_reg_CR31[31:0] (in view: work.fir_cmplx_20s_Z1(verilog)) is 32 words by 32 bits.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|RAM i_fifo_inst.fifo_buf[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|RAM q_fifo_inst.fifo_buf[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|RAM demod_fifo_inst.fifo_buf[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|RAM square_bp_pilot_fifo_inst.fifo_buf[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|RAM lmr_fifo_inst.fifo_buf[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|RAM lpr_fifo_inst.fifo_buf[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|RAM mult_demod_lmr_fifo_inst.fifo_buf[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|RAM left_gain_fifo_inst.fifo_buf[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|RAM left_fifo_inst.fifo_buf[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|RAM right_fifo_inst.fifo_buf[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|RAM right_deemph_fifo_inst.fifo_buf[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|RAM right_gain_fifo_inst.fifo_buf[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register left_gain_fifo_inst.dout[31:0] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@A: BN291 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Boundary register right_gain_fifo_inst.dout[31:0] (in view: work.fm_radio(verilog)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+
+Starting factoring (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:02s; Memory used current: 145MB peak: 150MB)
+
+
+Finished factoring (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 148MB peak: 150MB)
+
+@W: BN132 :|Removing sequential instance fir_cmplx_inst.imagshift_reg_CF4[1] because it is equivalent to instance fir_cmplx_inst.realshift_reg_CF4[1]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :|Removing sequential instance fir_cmplx_inst.imagshift_reg_CF4[0] because it is equivalent to instance fir_cmplx_inst.realshift_reg_CF4[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :|Removing sequential instance fir_cmplx_inst.imagshift_reg_CF4[2] because it is equivalent to instance fir_cmplx_inst.realshift_reg_CF4[2]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :|Removing sequential instance fir_cmplx_inst.imagshift_reg_CF4[3] because it is equivalent to instance fir_cmplx_inst.realshift_reg_CF4[3]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :|Removing sequential instance fir_cmplx_inst.realshift_reg_CF4[4] because it is equivalent to instance fir_cmplx_inst.imagshift_reg_CF4[4]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|Removing sequential instance left_gain_inst.dout[3] because it is equivalent to instance left_gain_inst.dout[2]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|Removing sequential instance left_gain_inst.dout[2] because it is equivalent to instance left_gain_inst.dout[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":42:4:42:12|Removing sequential instance i_fifo_inst.wr_addr[1] because it is equivalent to instance q_fifo_inst.wr_addr[1]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":46:2:46:13|Removing sequential instance demodulate_inst.qarctan_inst.divider_inst.a_ret_11[0] because it is equivalent to instance demodulate_inst.qarctan_inst.divider_inst.a_ret_122. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|Removing sequential instance left_gain_inst.dout[31] because it is equivalent to instance left_gain_inst.dout[30]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|Removing sequential instance left_gain_inst.dout[30] because it is equivalent to instance left_gain_inst.dout[28]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|Removing sequential instance left_gain_inst.dout[29] because it is equivalent to instance left_gain_inst.dout[27]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|Removing sequential instance left_gain_inst.dout[28] because it is equivalent to instance left_gain_inst.dout[26]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|Removing sequential instance right_gain_inst.dout[31] because it is equivalent to instance right_gain_inst.dout[30]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|Removing sequential instance right_gain_inst.dout[30] because it is equivalent to instance right_gain_inst.dout[28]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|Removing sequential instance right_gain_inst.dout[29] because it is equivalent to instance right_gain_inst.dout[27]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|Removing sequential instance right_gain_inst.dout[28] because it is equivalent to instance right_gain_inst.dout[26]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|Removing sequential instance right_gain_inst.dout[3] because it is equivalent to instance right_gain_inst.dout[2]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|Removing sequential instance right_gain_inst.dout[2] because it is equivalent to instance right_gain_inst.dout[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/square.sv":35:4:35:7|Removing sequential instance square_bp_pilot_inst.dout[31] because it is equivalent to instance square_bp_pilot_inst.dout[30]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/square.sv":35:4:35:7|Removing sequential instance square_bp_pilot_inst.dout[30] because it is equivalent to instance square_bp_pilot_inst.dout[28]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/square.sv":35:4:35:7|Removing sequential instance square_bp_pilot_inst.dout[29] because it is equivalent to instance square_bp_pilot_inst.dout[27]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/square.sv":35:4:35:7|Removing sequential instance square_bp_pilot_inst.dout[28] because it is equivalent to instance square_bp_pilot_inst.dout[26]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/square.sv":35:4:35:7|Removing sequential instance square_bp_pilot_inst.dout[27] because it is equivalent to instance square_bp_pilot_inst.dout[25]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/square.sv":35:4:35:7|Removing sequential instance square_bp_pilot_inst.dout[26] because it is equivalent to instance square_bp_pilot_inst.dout[24]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/square.sv":35:4:35:7|Removing sequential instance square_bp_pilot_inst.dout[25] because it is equivalent to instance square_bp_pilot_inst.dout[23]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/square.sv":35:4:35:7|Removing sequential instance square_bp_pilot_inst.dout[24] because it is equivalent to instance square_bp_pilot_inst.dout[22]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":46:2:46:13|Removing sequential instance demodulate_inst.qarctan_inst.divider_inst.a_ret_0[21] because it is equivalent to instance demodulate_inst.qarctan_inst.divider_inst.a_ret_10. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":38:4:38:7|Removing sequential instance mult_demod_lmr_inst.dout[23] because it is equivalent to instance mult_demod_lmr_inst.dout[25]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":38:4:38:7|Removing sequential instance mult_demod_lmr_inst.dout[24] because it is equivalent to instance mult_demod_lmr_inst.dout[26]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":38:4:38:7|Removing sequential instance mult_demod_lmr_inst.dout[25] because it is equivalent to instance mult_demod_lmr_inst.dout[27]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":38:4:38:7|Removing sequential instance mult_demod_lmr_inst.dout[26] because it is equivalent to instance mult_demod_lmr_inst.dout[28]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":38:4:38:7|Removing sequential instance mult_demod_lmr_inst.dout[27] because it is equivalent to instance mult_demod_lmr_inst.dout[29]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":38:4:38:7|Removing sequential instance mult_demod_lmr_inst.dout[28] because it is equivalent to instance mult_demod_lmr_inst.dout[30]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":38:4:38:7|Removing sequential instance mult_demod_lmr_inst.dout[31] because it is equivalent to instance mult_demod_lmr_inst.dout[30]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":38:4:38:7|Removing sequential instance mult_demod_lmr_inst.dout[30] because it is equivalent to instance mult_demod_lmr_inst.dout[22]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.i_out[31] because it is equivalent to instance read_iq_inst.i_out[30]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.i_out[30] because it is equivalent to instance read_iq_inst.i_out[28]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.i_out[29] because it is equivalent to instance read_iq_inst.i_out[27]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.i_out[28] because it is equivalent to instance read_iq_inst.i_out[26]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.i_out[27] because it is equivalent to instance read_iq_inst.i_out[25]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.q_out[31] because it is equivalent to instance read_iq_inst.q_out[30]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.q_out[30] because it is equivalent to instance read_iq_inst.q_out[28]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.q_out[29] because it is equivalent to instance read_iq_inst.q_out[27]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.q_out[28] because it is equivalent to instance read_iq_inst.q_out[26]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.q_out[27] because it is equivalent to instance read_iq_inst.q_out[25]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.i_out[9] because it is equivalent to instance read_iq_inst.i_out[8]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.i_out[8] because it is equivalent to instance read_iq_inst.i_out[6]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.i_out[7] because it is equivalent to instance read_iq_inst.i_out[5]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.i_out[6] because it is equivalent to instance read_iq_inst.i_out[4]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.i_out[5] because it is equivalent to instance read_iq_inst.i_out[3]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.i_out[4] because it is equivalent to instance read_iq_inst.i_out[2]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.i_out[3] because it is equivalent to instance read_iq_inst.i_out[1]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.i_out[2] because it is equivalent to instance read_iq_inst.i_out[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.i_out[1] because it is equivalent to instance read_iq_inst.q_out[9]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.i_out[0] because it is equivalent to instance read_iq_inst.q_out[8]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.q_out[9] because it is equivalent to instance read_iq_inst.q_out[7]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.q_out[8] because it is equivalent to instance read_iq_inst.q_out[6]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.q_out[7] because it is equivalent to instance read_iq_inst.q_out[5]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.q_out[6] because it is equivalent to instance read_iq_inst.q_out[4]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.q_out[5] because it is equivalent to instance read_iq_inst.q_out[3]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.q_out[4] because it is equivalent to instance read_iq_inst.q_out[2]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.q_out[3] because it is equivalent to instance read_iq_inst.q_out[1]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.q_out[2] because it is equivalent to instance read_iq_inst.q_out[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":42:4:42:12|Removing sequential instance q_fifo_inst.wr_addr[0] because it is equivalent to instance i_fifo_inst.wr_addr[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":42:4:42:12|Removing sequential instance q_fifo_inst.wr_addr[2] because it is equivalent to instance i_fifo_inst.wr_addr[2]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":42:4:42:12|Removing sequential instance q_fifo_inst.wr_addr[3] because it is equivalent to instance i_fifo_inst.wr_addr[3]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":42:4:42:12|Removing sequential instance q_fifo_inst.wr_addr[4] because it is equivalent to instance i_fifo_inst.wr_addr[4]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":38:4:38:7|Removing sequential instance mult_demod_lmr_inst.dout[29] because it is equivalent to instance mult_demod_lmr_inst.dout[22]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/square.sv":35:4:35:7|Removing sequential instance square_bp_pilot_inst.dout[23] because it is equivalent to instance square_bp_pilot_inst.dout[22]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|Removing sequential instance left_gain_inst.dout[1] because it is equivalent to instance left_gain_inst.dout[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|Removing sequential instance left_gain_inst.dout[27] because it is equivalent to instance left_gain_inst.dout[26]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|Removing sequential instance right_gain_inst.dout[27] because it is equivalent to instance right_gain_inst.dout[26]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":40:4:40:7|Removing sequential instance right_gain_inst.dout[1] because it is equivalent to instance right_gain_inst.dout[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.q_out[1] because it is equivalent to instance read_iq_inst.q_out[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.i_out[26] because it is equivalent to instance read_iq_inst.i_out[25]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":50:4:50:7|Removing sequential instance read_iq_inst.q_out[26] because it is equivalent to instance read_iq_inst.q_out[25]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@N: MO231 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":42:4:42:12|Found counter in view:work.fm_radio(verilog) instance i_fifo_inst.wr_addr[4:0] 
+@N: MO231 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":42:4:42:12|Found counter in view:work.fm_radio(verilog) instance demod_fifo_inst.wr_addr[4:0] 
+@N: MO231 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":42:4:42:12|Found counter in view:work.fm_radio(verilog) instance square_bp_pilot_fifo_inst.wr_addr[4:0] 
+@N: MO231 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":42:4:42:12|Found counter in view:work.fm_radio(verilog) instance lpr_fifo_inst.wr_addr[4:0] 
+@N: MO231 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":42:4:42:12|Found counter in view:work.fm_radio(verilog) instance mult_demod_lmr_fifo_inst.wr_addr[4:0] 
+@N: MO231 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":42:4:42:12|Found counter in view:work.fm_radio(verilog) instance lmr_fifo_inst.wr_addr[4:0] 
+@N: MO231 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":42:4:42:12|Found counter in view:work.fm_radio(verilog) instance left_fifo_inst.wr_addr[4:0] 
+@N: MO231 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":42:4:42:12|Found counter in view:work.fm_radio(verilog) instance right_fifo_inst.wr_addr[4:0] 
+@N: MO231 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":42:4:42:12|Found counter in view:work.fm_radio(verilog) instance right_deemph_fifo_inst.wr_addr[4:0] 
+@N: MO231 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":42:4:42:12|Found counter in view:work.fm_radio(verilog) instance left_gain_fifo_inst.wr_addr[4:0] 
+@N: MO231 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":42:4:42:12|Found counter in view:work.fm_radio(verilog) instance right_gain_fifo_inst.wr_addr[4:0] 
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Removing sequential instance reg_12[9] because it is equivalent to instance reg_12[7]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Removing sequential instance reg_12[7] because it is equivalent to instance reg_12[4]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Removing sequential instance reg_12[4] because it is equivalent to instance reg_12[3]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Removing sequential instance reg_12[3] because it is equivalent to instance reg_12[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Removing sequential instance reg_0_1[9] because it is equivalent to instance reg_12[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Removing sequential instance reg_0_1[7] because it is equivalent to instance reg_12[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Removing sequential instance reg_0_1[4] because it is equivalent to instance reg_12[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Removing sequential instance reg_0_1[3] because it is equivalent to instance reg_12[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Removing sequential instance reg_0_1[0] because it is equivalent to instance reg_12[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Removing sequential instance reg_12[8] because it is equivalent to instance reg_12[10]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Removing sequential instance reg_12[6] because it is equivalent to instance reg_12[10]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Removing sequential instance reg_12[5] because it is equivalent to instance reg_12[10]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Removing sequential instance reg_12[2] because it is equivalent to instance reg_12[10]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Removing sequential instance reg_12[1] because it is equivalent to instance reg_12[10]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Removing sequential instance reg_0_1[8] because it is equivalent to instance reg_0_1[10]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Removing sequential instance reg_0_1[6] because it is equivalent to instance reg_0_1[10]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Removing sequential instance reg_0_1[5] because it is equivalent to instance reg_0_1[10]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Removing sequential instance reg_0_1[2] because it is equivalent to instance reg_0_1[10]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Removing sequential instance reg_0_1[1] because it is equivalent to instance reg_0_1[10]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: MO160 :|Register bit left_deemph_inst.ytap_value_0[18] (in view view:work.fm_radio(verilog)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO160 :|Register bit right_deemph_inst.ytap_value_0[18] (in view view:work.fm_radio(verilog)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO129 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|Sequential instance reg_12[0] is reduced to a combinational gate by constant propagation.
+@W: MO160 :|Register bit demodulate_inst.qarctan_inst.quad_product[1] (in view view:work.fm_radio(verilog)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO160 :|Register bit demodulate_inst.qarctan_inst.quad_product[0] (in view view:work.fm_radio(verilog)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO160 :|Register bit right_deemph_inst.y1_product[0] (in view view:work.fm_radio(verilog)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO160 :|Register bit left_deemph_inst.y1_product[0] (in view view:work.fm_radio(verilog)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":43:0:43:8|RAM bp_lmr_fir_inst.shift_reg_CR31[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":49:0:49:8|RAM fir_cmplx_inst.realshift_reg_CR31[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":49:0:49:8|RAM fir_cmplx_inst.imagshift_reg_CR31[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":39:0:39:8|RAM lmr_fir_inst.shift_reg_CR31[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":43:0:43:8|RAM bp_pilot_fir_inst.shift_reg_CR31[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":39:0:39:8|RAM hp_pilot_fir_inst.shift_reg_CR31[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":43:0:43:8|RAM lpr_fir_inst.shift_reg_CR31[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|RAM imag_fifo_inst.fifo_buf[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|RAM real_fifo_inst.fifo_buf[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|RAM bp_lmr_fifo_inst.fifo_buf[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|RAM hp_pilot_fifo_inst.fifo_buf[31:0] (in view: work.fm_radio(verilog)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@N: MF135 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|RAM bp_pilot_fifo_inst.fifo_buf[30:0] (in view: work.fm_radio(verilog)) is 16 words by 31 bits.
+@W: FA365 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|Ram bp_pilot_fifo_inst.fifo_buf[30:0] will be mapped into logic and will consume around 496 register resources.
+@N: MF135 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|RAM read_iq_fifo_in_inst.fifo_buf[7:0] (in view: work.fm_radio(verilog)) is 16 words by 8 bits.
+@W: FA365 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|Ram read_iq_fifo_in_inst.fifo_buf[7:0] will be mapped into logic and will consume around 128 register resources.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":55:34:55:47|Removing sequential instance G_1678 because it is equivalent to instance G_1640. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":55:34:55:47|Removing sequential instance G_1640 because it is equivalent to instance G_1602. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":55:34:55:47|Removing sequential instance G_1602 because it is equivalent to instance G_1564. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":55:34:55:47|Removing sequential instance G_1564 because it is equivalent to instance G_1526. To keep the instance, apply constraint syn_preserve=1 on the instance.
+Encoding state machine demodulate_inst.qarctan_inst.divider_inst.state[5:0] (in view: ScratchLib.demodulate_inst.qarctan_inst.divider_inst.state_5_0cc(gate_dflt))
+original code -> new code
+   000 -> 000001
+   001 -> 000010
+   010 -> 000100
+   011 -> 001000
+   100 -> 010000
+   101 -> 100000
+Encoding state machine lpr_fir_inst.state[2:0] (in view: ScratchLib.lpr_fir_inst.state_2_0cc(gate_dflt))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+Encoding state machine lmr_fir_inst.state[2:0] (in view: ScratchLib.lmr_fir_inst.state_2_0cc(gate_dflt))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+Encoding state machine bp_pilot_fir_inst.state[2:0] (in view: ScratchLib.bp_pilot_fir_inst.state_2_0cc(gate_dflt))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+Encoding state machine bp_lmr_fir_inst.state[2:0] (in view: ScratchLib.bp_lmr_fir_inst.state_2_0cc(gate_dflt))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+Encoding state machine hp_pilot_fir_inst.state[2:0] (in view: ScratchLib.hp_pilot_fir_inst.state_2_0cc(gate_dflt))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+Encoding state machine left_deemph_inst.state[3:0] (in view: ScratchLib.left_deemph_inst.state_3_0cc(gate_dflt))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+   11 -> 11
+@N: MO225 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|There are no possible illegal states for state machine left_deemph_inst.state[3:0] (in view: ScratchLib.left_deemph_inst.state_3_0cc(gate_dflt)); safe FSM implementation is not required.
+Encoding state machine right_deemph_inst.state[3:0] (in view: ScratchLib.right_deemph_inst.state_3_0cc(gate_dflt))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+   11 -> 11
+@N: MO225 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|There are no possible illegal states for state machine right_deemph_inst.state[3:0] (in view: ScratchLib.right_deemph_inst.state_3_0cc(gate_dflt)); safe FSM implementation is not required.
+Encoding state machine fir_cmplx_inst.state[2:0] (in view: ScratchLib.fir_cmplx_inst.state_2_0cc(gate_dflt))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+Encoding state machine demodulate_inst.qarctan_inst.state[3:0] (in view: ScratchLib.demodulate_inst.qarctan_inst.state_3_0cc(gate_dflt))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+   11 -> 11
+@N: MO225 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":58:0:58:8|There are no possible illegal states for state machine demodulate_inst.qarctan_inst.state[3:0] (in view: ScratchLib.demodulate_inst.qarctan_inst.state_3_0cc(gate_dflt)); safe FSM implementation is not required.
+
+Starting gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:09s; Memory used current: 197MB peak: 201MB)
+
+@N: MF578 :"/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv":38:4:38:7|Incompatible asynchronous control logic preventing generated clock conversion of mult_demod_lmr_inst.dout[22] (in view: work.fm_radio(verilog)). Check "Force Generated Clock Conversion with Asynchronous Signals" in "GCC & Prototyping Tools" tab or set force_async_genclk_conv option to 1 in project file to enable. This should only be set if asynchronous control logic cannot cause a clock edge.
+
+Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:10s; Memory used current: 197MB peak: 201MB)
+
+
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:10s; Memory used current: 208MB peak: 228MB)
+
+
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 211MB peak: 228MB)
+
+
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:12s; Memory used current: 211MB peak: 228MB)
+
+
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:13s; Memory used current: 208MB peak: 228MB)
+
+
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:15s; CPU Time elapsed 0h:00m:15s; Memory used current: 211MB peak: 228MB)
+
+
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:17s; Memory used current: 211MB peak: 228MB)
+
+@N: MF794 |RAM fifo_buf[7:0] required 624 registers during mapping 
+
+Finished preparing to map (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:17s; Memory used current: 211MB peak: 228MB)
+
+
+Finished technology mapping (Real Time elapsed 0h:00m:22s; CPU Time elapsed 0h:00m:22s; Memory used current: 242MB peak: 285MB)
+
+@N: FA100 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":49:0:49:8|Instance "fir_cmplx_inst.imagshift_reg_CR31rx_0[0]" with "32" loads has been replicated "1" time(s) due to hard fanout limit of "30" 
+@N: FA100 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":39:0:39:8|Instance "hp_pilot_fir_inst.shift_reg_CR31rx_0[0]" with "32" loads has been replicated "1" time(s) due to hard fanout limit of "30" 
+@N: FA100 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":43:0:43:8|Instance "lpr_fir_inst.shift_reg_CR31rx_0[0]" with "32" loads has been replicated "1" time(s) due to hard fanout limit of "30" 
+@N: FA100 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":49:0:49:8|Instance "fir_cmplx_inst.realshift_reg_CR31rx_0[0]" with "32" loads has been replicated "1" time(s) due to hard fanout limit of "30" 
+@N: FA100 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":43:0:43:8|Instance "bp_lmr_fir_inst.shift_reg_CR31rx_0[0]" with "32" loads has been replicated "1" time(s) due to hard fanout limit of "30" 
+@N: FA100 :"/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv":43:0:43:8|Instance "bp_pilot_fir_inst.shift_reg_CR31rx_0[0]" with "32" loads has been replicated "1" time(s) due to hard fanout limit of "30" 
+@N: FA100 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":39:0:39:8|Instance "lmr_fir_inst.shift_reg_CR31rx_0[0]" with "32" loads has been replicated "1" time(s) due to hard fanout limit of "30" 
+@N: FA100 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":55:34:55:47|Instance "G_1526" with "289" loads has been replicated "9" time(s) due to hard fanout limit of "30" 
+@N: FA100 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":46:2:46:13|Instance "demodulate_inst.qarctan_inst.divider_inst.a_ret_100" with "32" loads has been replicated "1" time(s) due to hard fanout limit of "30" 
+@N: FA100 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv":189:2:189:15|Instance "fir_cmplx_inst.imagtap_value_ret_63" with "359" loads has been replicated "11" time(s) due to hard fanout limit of "30" 
+@N: FA100 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":46:2:46:13|Instance "demodulate_inst.qarctan_inst.divider_inst.a_ret_118" with "38" loads has been replicated "1" time(s) due to hard fanout limit of "30" 
+@N: MF321 |667 registers to be packed into RAMs/DSPs blocks 
+		bp_lmr_fifo_inst.empty
+		bp_lmr_fir_inst.product[0]
+		bp_lmr_fir_inst.product[1]
+		bp_lmr_fir_inst.product[2]
+		bp_lmr_fir_inst.product[3]
+		bp_lmr_fir_inst.product[4]
+		bp_lmr_fir_inst.product[5]
+		bp_lmr_fir_inst.product[6]
+		bp_lmr_fir_inst.product[7]
+		bp_lmr_fir_inst.product[8]
+		bp_lmr_fir_inst.product[9]
+		bp_lmr_fir_inst.product[10]
+		bp_lmr_fir_inst.product[11]
+		bp_lmr_fir_inst.product[12]
+		bp_lmr_fir_inst.product[13]
+		bp_lmr_fir_inst.product[14]
+		bp_lmr_fir_inst.product[15]
+		bp_lmr_fir_inst.product[16]
+		bp_lmr_fir_inst.product[17]
+		bp_lmr_fir_inst.product[18]
+		bp_lmr_fir_inst.product[19]
+		bp_lmr_fir_inst.product[20]
+		bp_lmr_fir_inst.product[21]
+		bp_lmr_fir_inst.product[22]
+		bp_lmr_fir_inst.product[23]
+		bp_lmr_fir_inst.product[24]
+		bp_lmr_fir_inst.product[25]
+		bp_lmr_fir_inst.product[26]
+		bp_lmr_fir_inst.product[27]
+		bp_lmr_fir_inst.product[28]
+		bp_lmr_fir_inst.product[29]
+		bp_lmr_fir_inst.product[30]
+		bp_lmr_fir_inst.product[31]
+		bp_lmr_fir_inst.tap_value[0]
+		bp_lmr_fir_inst.tap_value[1]
+		bp_lmr_fir_inst.tap_value[2]
+		bp_lmr_fir_inst.tap_value[3]
+		bp_lmr_fir_inst.tap_value[4]
+		bp_lmr_fir_inst.tap_value[5]
+		bp_lmr_fir_inst.tap_value[6]
+		bp_lmr_fir_inst.tap_value[7]
+		bp_lmr_fir_inst.tap_value[8]
+		bp_lmr_fir_inst.tap_value[9]
+		bp_lmr_fir_inst.tap_value[10]
+		bp_lmr_fir_inst.tap_value[11]
+		bp_lmr_fir_inst.tap_value[12]
+		bp_lmr_fir_inst.tap_value[13]
+		bp_lmr_fir_inst.tap_value[14]
+		bp_lmr_fir_inst.tap_value[15]
+		bp_lmr_fir_inst.tap_value[16]
+		bp_lmr_fir_inst.tap_value[17]
+		bp_lmr_fir_inst.tap_value[18]
+		bp_lmr_fir_inst.tap_value[19]
+		bp_lmr_fir_inst.tap_value[20]
+		bp_lmr_fir_inst.tap_value[21]
+		bp_lmr_fir_inst.tap_value[22]
+		bp_lmr_fir_inst.tap_value[23]
+		bp_lmr_fir_inst.tap_value[24]
+		bp_lmr_fir_inst.tap_value[25]
+		bp_lmr_fir_inst.tap_value[26]
+		bp_lmr_fir_inst.tap_value[27]
+		bp_lmr_fir_inst.tap_value[28]
+		bp_lmr_fir_inst.tap_value[29]
+		bp_lmr_fir_inst.tap_value[30]
+		bp_lmr_fir_inst.tap_value[31]
+		bp_pilot_fir_inst.product[0]
+		bp_pilot_fir_inst.product[1]
+		bp_pilot_fir_inst.product[2]
+		bp_pilot_fir_inst.product[3]
+		bp_pilot_fir_inst.product[4]
+		bp_pilot_fir_inst.product[5]
+		bp_pilot_fir_inst.product[6]
+		bp_pilot_fir_inst.product[7]
+		bp_pilot_fir_inst.product[8]
+		bp_pilot_fir_inst.product[9]
+		bp_pilot_fir_inst.product[10]
+		bp_pilot_fir_inst.product[11]
+		bp_pilot_fir_inst.product[12]
+		bp_pilot_fir_inst.product[13]
+		bp_pilot_fir_inst.product[14]
+		bp_pilot_fir_inst.product[15]
+		bp_pilot_fir_inst.product[16]
+		bp_pilot_fir_inst.product[17]
+		bp_pilot_fir_inst.product[18]
+		bp_pilot_fir_inst.product[19]
+		bp_pilot_fir_inst.product[20]
+		bp_pilot_fir_inst.product[21]
+		bp_pilot_fir_inst.product[22]
+		bp_pilot_fir_inst.product[23]
+		bp_pilot_fir_inst.product[24]
+		bp_pilot_fir_inst.product[25]
+		bp_pilot_fir_inst.product[26]
+		bp_pilot_fir_inst.product[27]
+		bp_pilot_fir_inst.product[28]
+		bp_pilot_fir_inst.product[29]
+		bp_pilot_fir_inst.product[30]
+		bp_pilot_fir_inst.product[31]
+		bp_pilot_fir_inst.tap_value[0]
+		bp_pilot_fir_inst.tap_value[1]
+		bp_pilot_fir_inst.tap_value[2]
+		bp_pilot_fir_inst.tap_value[3]
+		bp_pilot_fir_inst.tap_value[4]
+		bp_pilot_fir_inst.tap_value[5]
+		bp_pilot_fir_inst.tap_value[6]
+		bp_pilot_fir_inst.tap_value[7]
+		bp_pilot_fir_inst.tap_value[8]
+		bp_pilot_fir_inst.tap_value[9]
+		bp_pilot_fir_inst.tap_value[10]
+		bp_pilot_fir_inst.tap_value[11]
+		bp_pilot_fir_inst.tap_value[12]
+		bp_pilot_fir_inst.tap_value[13]
+		bp_pilot_fir_inst.tap_value[14]
+		bp_pilot_fir_inst.tap_value[15]
+		bp_pilot_fir_inst.tap_value[16]
+		bp_pilot_fir_inst.tap_value[17]
+		bp_pilot_fir_inst.tap_value[18]
+		bp_pilot_fir_inst.tap_value[19]
+		bp_pilot_fir_inst.tap_value[20]
+		bp_pilot_fir_inst.tap_value[21]
+		bp_pilot_fir_inst.tap_value[22]
+		bp_pilot_fir_inst.tap_value[23]
+		bp_pilot_fir_inst.tap_value[24]
+		bp_pilot_fir_inst.tap_value[25]
+		bp_pilot_fir_inst.tap_value[26]
+		bp_pilot_fir_inst.tap_value[27]
+		bp_pilot_fir_inst.tap_value[28]
+		bp_pilot_fir_inst.tap_value[29]
+		bp_pilot_fir_inst.tap_value[30]
+		bp_pilot_fir_inst.tap_value[31]
+		demodulate_inst.imag_curr[14]
+		demodulate_inst.imag_curr[15]
+		demodulate_inst.imag_curr[16]
+		demodulate_inst.imag_curr[17]
+		demodulate_inst.imag_prev[0]
+		demodulate_inst.imag_prev[1]
+		demodulate_inst.imag_prev[2]
+		demodulate_inst.imag_prev[3]
+		demodulate_inst.imag_prev[4]
+		demodulate_inst.imag_prev[5]
+		demodulate_inst.imag_prev[6]
+		demodulate_inst.imag_prev[7]
+		demodulate_inst.imag_prev[8]
+		demodulate_inst.imag_prev[9]
+		demodulate_inst.imag_prev[10]
+		demodulate_inst.imag_prev[11]
+		demodulate_inst.imag_prev[12]
+		demodulate_inst.imag_prev[13]
+		demodulate_inst.imag_prev[14]
+		demodulate_inst.imag_prev[15]
+		demodulate_inst.imag_prev[16]
+		demodulate_inst.imag_prev[17]
+		demodulate_inst.imag_prev[18]
+		demodulate_inst.imag_prev[19]
+		demodulate_inst.imag_prev[20]
+		demodulate_inst.imag_prev[21]
+		demodulate_inst.imag_prev[22]
+		demodulate_inst.imag_prev[23]
+		demodulate_inst.imag_prev[24]
+		demodulate_inst.imag_prev[25]
+		demodulate_inst.imag_prev[26]
+		demodulate_inst.imag_prev[27]
+		demodulate_inst.imag_prev[28]
+		demodulate_inst.imag_prev[29]
+		demodulate_inst.imag_prev[30]
+		demodulate_inst.imag_prev[31]
+		demodulate_inst.qarctan_inst.divider_inst.a[0]
+		demodulate_inst.qarctan_inst.divider_inst.a[1]
+		demodulate_inst.qarctan_inst.divider_inst.a[2]
+		demodulate_inst.qarctan_inst.divider_inst.a[3]
+		demodulate_inst.qarctan_inst.divider_inst.a[4]
+		demodulate_inst.qarctan_inst.divider_inst.a[5]
+		demodulate_inst.qarctan_inst.divider_inst.a[6]
+		demodulate_inst.qarctan_inst.divider_inst.a[7]
+		demodulate_inst.qarctan_inst.divider_inst.a[8]
+		demodulate_inst.qarctan_inst.divider_inst.a[9]
+		demodulate_inst.qarctan_inst.divider_inst.a[10]
+		demodulate_inst.qarctan_inst.divider_inst.a[11]
+		demodulate_inst.qarctan_inst.divider_inst.a[12]
+		demodulate_inst.qarctan_inst.divider_inst.a[13]
+		demodulate_inst.qarctan_inst.divider_inst.a[14]
+		demodulate_inst.qarctan_inst.divider_inst.a[15]
+		demodulate_inst.qarctan_inst.divider_inst.a[16]
+		demodulate_inst.qarctan_inst.divider_inst.a[17]
+		demodulate_inst.qarctan_inst.divider_inst.a[18]
+		demodulate_inst.qarctan_inst.divider_inst.a[19]
+		demodulate_inst.qarctan_inst.divider_inst.a[20]
+		demodulate_inst.qarctan_inst.divider_inst.a[21]
+		demodulate_inst.qarctan_inst.divider_inst.a[22]
+		demodulate_inst.qarctan_inst.divider_inst.a[23]
+		demodulate_inst.qarctan_inst.divider_inst.a[24]
+		demodulate_inst.qarctan_inst.divider_inst.a[25]
+		demodulate_inst.qarctan_inst.divider_inst.a[26]
+		demodulate_inst.qarctan_inst.divider_inst.a[27]
+		demodulate_inst.qarctan_inst.divider_inst.a[28]
+		demodulate_inst.qarctan_inst.divider_inst.a[29]
+		demodulate_inst.qarctan_inst.divider_inst.a[30]
+		demodulate_inst.qarctan_inst.divider_inst.a[31]
+		demodulate_inst.qarctan_inst.divider_inst.b[1]
+		demodulate_inst.qarctan_inst.divider_inst.b[2]
+		demodulate_inst.qarctan_inst.divider_inst.b[3]
+		demodulate_inst.qarctan_inst.divider_inst.b[4]
+		demodulate_inst.qarctan_inst.divider_inst.b[5]
+		demodulate_inst.qarctan_inst.divider_inst.b[6]
+		demodulate_inst.qarctan_inst.divider_inst.b[7]
+		demodulate_inst.qarctan_inst.divider_inst.b[8]
+		demodulate_inst.qarctan_inst.divider_inst.b[9]
+		demodulate_inst.qarctan_inst.divider_inst.b[10]
+		demodulate_inst.qarctan_inst.divider_inst.b[11]
+		demodulate_inst.qarctan_inst.divider_inst.b[12]
+		demodulate_inst.qarctan_inst.divider_inst.b[13]
+		demodulate_inst.qarctan_inst.divider_inst.b[14]
+		demodulate_inst.qarctan_inst.divider_inst.b[15]
+		demodulate_inst.qarctan_inst.divider_inst.b[16]
+		demodulate_inst.qarctan_inst.divider_inst.b[17]
+		demodulate_inst.qarctan_inst.divider_inst.b[18]
+		demodulate_inst.qarctan_inst.divider_inst.b[19]
+		demodulate_inst.qarctan_inst.divider_inst.b[20]
+		demodulate_inst.qarctan_inst.divider_inst.b[21]
+		demodulate_inst.qarctan_inst.divider_inst.b[22]
+		demodulate_inst.qarctan_inst.divider_inst.b[23]
+		demodulate_inst.qarctan_inst.divider_inst.b[24]
+		demodulate_inst.qarctan_inst.divider_inst.b[25]
+		demodulate_inst.qarctan_inst.divider_inst.b[26]
+		demodulate_inst.qarctan_inst.divider_inst.b[27]
+		demodulate_inst.qarctan_inst.divider_inst.b[28]
+		demodulate_inst.qarctan_inst.divider_inst.b[29]
+		demodulate_inst.qarctan_inst.divider_inst.b[30]
+		demodulate_inst.qarctan_inst.divider_inst.b[31]
+		demodulate_inst.qarctan_inst.divider_inst.p[0]
+		demodulate_inst.qarctan_inst.divider_inst.p[1]
+		demodulate_inst.qarctan_inst.divider_inst.p[2]
+		demodulate_inst.qarctan_inst.divider_inst.p[3]
+		demodulate_inst.qarctan_inst.divider_inst.p[4]
+		demodulate_inst.qarctan_inst.divider_inst.p[5]
+		demodulate_inst.qarctan_inst.divider_inst.p[6]
+		demodulate_inst.qarctan_inst.divider_inst.q[0]
+		demodulate_inst.qarctan_inst.divider_inst.q[1]
+		demodulate_inst.qarctan_inst.divider_inst.q[2]
+		demodulate_inst.qarctan_inst.divider_inst.q[3]
+		demodulate_inst.qarctan_inst.divider_inst.q[4]
+		demodulate_inst.qarctan_inst.divider_inst.q[5]
+		demodulate_inst.qarctan_inst.divider_inst.q[6]
+		demodulate_inst.qarctan_inst.divider_inst.q[7]
+		demodulate_inst.qarctan_inst.divider_inst.q[8]
+		demodulate_inst.qarctan_inst.divider_inst.q[9]
+		demodulate_inst.qarctan_inst.divider_inst.q[10]
+		demodulate_inst.qarctan_inst.divider_inst.q[11]
+		demodulate_inst.qarctan_inst.divider_inst.q[12]
+		demodulate_inst.qarctan_inst.divider_inst.q[13]
+		demodulate_inst.qarctan_inst.divider_inst.q[14]
+		demodulate_inst.qarctan_inst.divider_inst.q[15]
+		demodulate_inst.qarctan_inst.divider_inst.q[16]
+		demodulate_inst.qarctan_inst.divider_inst.q[17]
+		demodulate_inst.qarctan_inst.divider_inst.q[18]
+		demodulate_inst.qarctan_inst.divider_inst.q[19]
+		demodulate_inst.qarctan_inst.divider_inst.q[20]
+		demodulate_inst.qarctan_inst.divider_inst.q[21]
+		demodulate_inst.qarctan_inst.divider_inst.q[22]
+		demodulate_inst.qarctan_inst.divider_inst.q[23]
+		demodulate_inst.qarctan_inst.divider_inst.q[24]
+		demodulate_inst.qarctan_inst.divider_inst.q[25]
+		demodulate_inst.qarctan_inst.divider_inst.q[26]
+		demodulate_inst.qarctan_inst.divider_inst.q[27]
+		demodulate_inst.qarctan_inst.divider_inst.q[28]
+		demodulate_inst.qarctan_inst.divider_inst.q[29]
+		demodulate_inst.qarctan_inst.divider_inst.q[30]
+		demodulate_inst.qarctan_inst.divider_inst.q[31]
+		demodulate_inst.real_curr[14]
+		demodulate_inst.real_curr[15]
+		demodulate_inst.real_curr[16]
+		demodulate_inst.real_curr[17]
+		demodulate_inst.real_prev[14]
+		demodulate_inst.real_prev[15]
+		demodulate_inst.real_prev[16]
+		demodulate_inst.real_prev[17]
+		demodulate_inst.state_0[0]
+		demodulate_inst.state_0[1]
+		demodulate_inst.state_0[2]
+		demodulate_inst.state_1[0]
+		demodulate_inst.state_1[1]
+		fir_cmplx_inst.imagtap_value[0]
+		fir_cmplx_inst.imagtap_value[1]
+		fir_cmplx_inst.imagtap_value[2]
+		fir_cmplx_inst.imagtap_value[3]
+		fir_cmplx_inst.imagtap_value[4]
+		fir_cmplx_inst.imagtap_value[5]
+		fir_cmplx_inst.imagtap_value[6]
+		fir_cmplx_inst.imagtap_value[7]
+		fir_cmplx_inst.imagtap_value[8]
+		fir_cmplx_inst.imagtap_value[9]
+		fir_cmplx_inst.imagtap_value[10]
+		fir_cmplx_inst.imagtap_value[11]
+		fir_cmplx_inst.imagtap_value[12]
+		fir_cmplx_inst.imagtap_value[13]
+		fir_cmplx_inst.imagtap_value[14]
+		fir_cmplx_inst.imagtap_value[15]
+		fir_cmplx_inst.imagtap_value[16]
+		fir_cmplx_inst.imagtap_value[17]
+		fir_cmplx_inst.imagtap_value[18]
+		fir_cmplx_inst.imagtap_value[19]
+		fir_cmplx_inst.imagtap_value[20]
+		fir_cmplx_inst.imagtap_value[21]
+		fir_cmplx_inst.imagtap_value[22]
+		fir_cmplx_inst.imagtap_value[23]
+		fir_cmplx_inst.imagtap_value[24]
+		fir_cmplx_inst.imagtap_value[25]
+		fir_cmplx_inst.imagtap_value[26]
+		fir_cmplx_inst.imagtap_value[27]
+		fir_cmplx_inst.imagtap_value[28]
+		fir_cmplx_inst.imagtap_value[29]
+		fir_cmplx_inst.imagtap_value[30]
+		fir_cmplx_inst.imagtap_value[31]
+		fir_cmplx_inst.real_product[0]
+		fir_cmplx_inst.real_product[1]
+		fir_cmplx_inst.real_product[2]
+		fir_cmplx_inst.real_product[3]
+		fir_cmplx_inst.real_product[4]
+		fir_cmplx_inst.real_product[5]
+		fir_cmplx_inst.real_product[6]
+		fir_cmplx_inst.real_product[7]
+		fir_cmplx_inst.real_product[8]
+		fir_cmplx_inst.real_product[9]
+		fir_cmplx_inst.real_product[10]
+		fir_cmplx_inst.real_product[11]
+		fir_cmplx_inst.real_product[12]
+		fir_cmplx_inst.real_product[13]
+		fir_cmplx_inst.real_product[14]
+		fir_cmplx_inst.real_product[15]
+		fir_cmplx_inst.real_product[16]
+		fir_cmplx_inst.real_product[17]
+		fir_cmplx_inst.real_product[18]
+		fir_cmplx_inst.real_product[19]
+		fir_cmplx_inst.real_product[20]
+		fir_cmplx_inst.real_product[21]
+		fir_cmplx_inst.real_product[22]
+		fir_cmplx_inst.real_product[23]
+		fir_cmplx_inst.real_product[24]
+		fir_cmplx_inst.real_product[25]
+		fir_cmplx_inst.real_product[26]
+		fir_cmplx_inst.real_product[27]
+		fir_cmplx_inst.real_product[28]
+		fir_cmplx_inst.real_product[29]
+		fir_cmplx_inst.real_product[30]
+		fir_cmplx_inst.real_product[31]
+		fir_cmplx_inst.realimag_product[0]
+		fir_cmplx_inst.realimag_product[1]
+		fir_cmplx_inst.realimag_product[2]
+		fir_cmplx_inst.realimag_product[3]
+		fir_cmplx_inst.realimag_product[4]
+		fir_cmplx_inst.realimag_product[5]
+		fir_cmplx_inst.realimag_product[6]
+		fir_cmplx_inst.realimag_product[7]
+		fir_cmplx_inst.realimag_product[8]
+		fir_cmplx_inst.realimag_product[9]
+		fir_cmplx_inst.realimag_product[10]
+		fir_cmplx_inst.realimag_product[11]
+		fir_cmplx_inst.realimag_product[12]
+		fir_cmplx_inst.realimag_product[13]
+		fir_cmplx_inst.realimag_product[14]
+		fir_cmplx_inst.realimag_product[15]
+		fir_cmplx_inst.realimag_product[16]
+		fir_cmplx_inst.realimag_product[17]
+		fir_cmplx_inst.realimag_product[18]
+		fir_cmplx_inst.realimag_product[19]
+		fir_cmplx_inst.realimag_product[20]
+		fir_cmplx_inst.realimag_product[21]
+		fir_cmplx_inst.realimag_product[22]
+		fir_cmplx_inst.realimag_product[23]
+		fir_cmplx_inst.realimag_product[24]
+		fir_cmplx_inst.realimag_product[25]
+		fir_cmplx_inst.realimag_product[26]
+		fir_cmplx_inst.realimag_product[27]
+		fir_cmplx_inst.realimag_product[28]
+		fir_cmplx_inst.realimag_product[29]
+		fir_cmplx_inst.realimag_product[30]
+		fir_cmplx_inst.realimag_product[31]
+		fir_cmplx_inst.realtap_value[0]
+		fir_cmplx_inst.realtap_value[1]
+		fir_cmplx_inst.realtap_value[2]
+		fir_cmplx_inst.realtap_value[3]
+		fir_cmplx_inst.realtap_value[4]
+		fir_cmplx_inst.realtap_value[5]
+		fir_cmplx_inst.realtap_value[6]
+		fir_cmplx_inst.realtap_value[7]
+		fir_cmplx_inst.realtap_value[8]
+		fir_cmplx_inst.realtap_value[9]
+		fir_cmplx_inst.realtap_value[10]
+		fir_cmplx_inst.realtap_value[11]
+		fir_cmplx_inst.realtap_value[12]
+		fir_cmplx_inst.realtap_value[13]
+		fir_cmplx_inst.realtap_value[14]
+		fir_cmplx_inst.realtap_value[15]
+		fir_cmplx_inst.realtap_value[16]
+		fir_cmplx_inst.realtap_value[17]
+		fir_cmplx_inst.realtap_value[18]
+		fir_cmplx_inst.realtap_value[19]
+		fir_cmplx_inst.realtap_value[20]
+		fir_cmplx_inst.realtap_value[21]
+		fir_cmplx_inst.realtap_value[22]
+		fir_cmplx_inst.realtap_value[23]
+		fir_cmplx_inst.realtap_value[24]
+		fir_cmplx_inst.realtap_value[25]
+		fir_cmplx_inst.realtap_value[26]
+		fir_cmplx_inst.realtap_value[27]
+		fir_cmplx_inst.realtap_value[28]
+		fir_cmplx_inst.realtap_value[29]
+		fir_cmplx_inst.realtap_value[30]
+		fir_cmplx_inst.realtap_value[31]
+		hp_pilot_fifo_inst.empty
+		hp_pilot_fir_inst.product[0]
+		hp_pilot_fir_inst.product[1]
+		hp_pilot_fir_inst.product[2]
+		hp_pilot_fir_inst.product[3]
+		hp_pilot_fir_inst.product[4]
+		hp_pilot_fir_inst.product[5]
+		hp_pilot_fir_inst.product[6]
+		hp_pilot_fir_inst.product[7]
+		hp_pilot_fir_inst.product[8]
+		hp_pilot_fir_inst.product[9]
+		hp_pilot_fir_inst.product[10]
+		hp_pilot_fir_inst.product[11]
+		hp_pilot_fir_inst.product[12]
+		hp_pilot_fir_inst.product[13]
+		hp_pilot_fir_inst.product[14]
+		hp_pilot_fir_inst.product[15]
+		hp_pilot_fir_inst.product[16]
+		hp_pilot_fir_inst.product[17]
+		hp_pilot_fir_inst.product[18]
+		hp_pilot_fir_inst.product[19]
+		hp_pilot_fir_inst.product[20]
+		hp_pilot_fir_inst.product[21]
+		hp_pilot_fir_inst.product[22]
+		hp_pilot_fir_inst.product[23]
+		hp_pilot_fir_inst.product[24]
+		hp_pilot_fir_inst.product[25]
+		hp_pilot_fir_inst.product[26]
+		hp_pilot_fir_inst.product[27]
+		hp_pilot_fir_inst.product[28]
+		hp_pilot_fir_inst.product[29]
+		hp_pilot_fir_inst.product[30]
+		hp_pilot_fir_inst.product[31]
+		hp_pilot_fir_inst.tap_value[0]
+		hp_pilot_fir_inst.tap_value[1]
+		hp_pilot_fir_inst.tap_value[2]
+		hp_pilot_fir_inst.tap_value[3]
+		hp_pilot_fir_inst.tap_value[4]
+		hp_pilot_fir_inst.tap_value[5]
+		hp_pilot_fir_inst.tap_value[6]
+		hp_pilot_fir_inst.tap_value[7]
+		hp_pilot_fir_inst.tap_value[8]
+		hp_pilot_fir_inst.tap_value[9]
+		hp_pilot_fir_inst.tap_value[10]
+		hp_pilot_fir_inst.tap_value[11]
+		hp_pilot_fir_inst.tap_value[12]
+		hp_pilot_fir_inst.tap_value[13]
+		hp_pilot_fir_inst.tap_value[14]
+		hp_pilot_fir_inst.tap_value[15]
+		hp_pilot_fir_inst.tap_value[16]
+		hp_pilot_fir_inst.tap_value[17]
+		hp_pilot_fir_inst.tap_value[18]
+		hp_pilot_fir_inst.tap_value[19]
+		hp_pilot_fir_inst.tap_value[20]
+		hp_pilot_fir_inst.tap_value[21]
+		hp_pilot_fir_inst.tap_value[22]
+		hp_pilot_fir_inst.tap_value[23]
+		hp_pilot_fir_inst.tap_value[24]
+		hp_pilot_fir_inst.tap_value[25]
+		hp_pilot_fir_inst.tap_value[26]
+		hp_pilot_fir_inst.tap_value[27]
+		hp_pilot_fir_inst.tap_value[28]
+		hp_pilot_fir_inst.tap_value[29]
+		hp_pilot_fir_inst.tap_value[30]
+		hp_pilot_fir_inst.tap_value[31]
+		lmr_fir_inst.product[0]
+		lmr_fir_inst.product[1]
+		lmr_fir_inst.product[2]
+		lmr_fir_inst.product[3]
+		lmr_fir_inst.product[4]
+		lmr_fir_inst.product[5]
+		lmr_fir_inst.product[6]
+		lmr_fir_inst.product[7]
+		lmr_fir_inst.product[8]
+		lmr_fir_inst.product[9]
+		lmr_fir_inst.product[10]
+		lmr_fir_inst.product[11]
+		lmr_fir_inst.product[12]
+		lmr_fir_inst.product[13]
+		lmr_fir_inst.product[14]
+		lmr_fir_inst.product[15]
+		lmr_fir_inst.product[16]
+		lmr_fir_inst.product[17]
+		lmr_fir_inst.product[18]
+		lmr_fir_inst.product[19]
+		lmr_fir_inst.product[20]
+		lmr_fir_inst.product[21]
+		lmr_fir_inst.product[22]
+		lmr_fir_inst.product[23]
+		lmr_fir_inst.product[24]
+		lmr_fir_inst.product[25]
+		lmr_fir_inst.product[26]
+		lmr_fir_inst.product[27]
+		lmr_fir_inst.product[28]
+		lmr_fir_inst.product[29]
+		lmr_fir_inst.product[30]
+		lmr_fir_inst.product[31]
+		lmr_fir_inst.tap_value[0]
+		lmr_fir_inst.tap_value[1]
+		lmr_fir_inst.tap_value[2]
+		lmr_fir_inst.tap_value[3]
+		lmr_fir_inst.tap_value[4]
+		lmr_fir_inst.tap_value[5]
+		lmr_fir_inst.tap_value[6]
+		lmr_fir_inst.tap_value[7]
+		lmr_fir_inst.tap_value[8]
+		lmr_fir_inst.tap_value[9]
+		lmr_fir_inst.tap_value[10]
+		lmr_fir_inst.tap_value[11]
+		lmr_fir_inst.tap_value[12]
+		lmr_fir_inst.tap_value[13]
+		lmr_fir_inst.tap_value[14]
+		lmr_fir_inst.tap_value[15]
+		lmr_fir_inst.tap_value[16]
+		lmr_fir_inst.tap_value[17]
+		lmr_fir_inst.tap_value[18]
+		lmr_fir_inst.tap_value[19]
+		lmr_fir_inst.tap_value[20]
+		lmr_fir_inst.tap_value[21]
+		lmr_fir_inst.tap_value[22]
+		lmr_fir_inst.tap_value[23]
+		lmr_fir_inst.tap_value[24]
+		lmr_fir_inst.tap_value[25]
+		lmr_fir_inst.tap_value[26]
+		lmr_fir_inst.tap_value[27]
+		lmr_fir_inst.tap_value[28]
+		lmr_fir_inst.tap_value[29]
+		lmr_fir_inst.tap_value[30]
+		lmr_fir_inst.tap_value[31]
+		lpr_fir_inst.product[0]
+		lpr_fir_inst.product[1]
+		lpr_fir_inst.product[2]
+		lpr_fir_inst.product[3]
+		lpr_fir_inst.product[4]
+		lpr_fir_inst.product[5]
+		lpr_fir_inst.product[6]
+		lpr_fir_inst.product[7]
+		lpr_fir_inst.product[8]
+		lpr_fir_inst.product[9]
+		lpr_fir_inst.product[10]
+		lpr_fir_inst.product[11]
+		lpr_fir_inst.product[12]
+		lpr_fir_inst.product[13]
+		lpr_fir_inst.product[14]
+		lpr_fir_inst.product[15]
+		lpr_fir_inst.product[16]
+		lpr_fir_inst.product[17]
+		lpr_fir_inst.product[18]
+		lpr_fir_inst.product[19]
+		lpr_fir_inst.product[20]
+		lpr_fir_inst.product[21]
+		lpr_fir_inst.product[22]
+		lpr_fir_inst.product[23]
+		lpr_fir_inst.product[24]
+		lpr_fir_inst.product[25]
+		lpr_fir_inst.product[26]
+		lpr_fir_inst.product[27]
+		lpr_fir_inst.product[28]
+		lpr_fir_inst.product[29]
+		lpr_fir_inst.product[30]
+		lpr_fir_inst.product[31]
+		lpr_fir_inst.tap_value[0]
+		lpr_fir_inst.tap_value[1]
+		lpr_fir_inst.tap_value[2]
+		lpr_fir_inst.tap_value[3]
+		lpr_fir_inst.tap_value[4]
+		lpr_fir_inst.tap_value[5]
+		lpr_fir_inst.tap_value[6]
+		lpr_fir_inst.tap_value[7]
+		lpr_fir_inst.tap_value[8]
+		lpr_fir_inst.tap_value[9]
+		lpr_fir_inst.tap_value[10]
+		lpr_fir_inst.tap_value[11]
+		lpr_fir_inst.tap_value[12]
+		lpr_fir_inst.tap_value[13]
+		lpr_fir_inst.tap_value[14]
+		lpr_fir_inst.tap_value[15]
+		lpr_fir_inst.tap_value[16]
+		lpr_fir_inst.tap_value[17]
+		lpr_fir_inst.tap_value[18]
+		lpr_fir_inst.tap_value[19]
+		lpr_fir_inst.tap_value[20]
+		lpr_fir_inst.tap_value[21]
+		lpr_fir_inst.tap_value[22]
+		lpr_fir_inst.tap_value[23]
+		lpr_fir_inst.tap_value[24]
+		lpr_fir_inst.tap_value[25]
+		lpr_fir_inst.tap_value[26]
+		lpr_fir_inst.tap_value[27]
+		lpr_fir_inst.tap_value[28]
+		lpr_fir_inst.tap_value[29]
+		lpr_fir_inst.tap_value[30]
+		lpr_fir_inst.tap_value[31]
+		mult_demod_lmr_fifo_inst.empty
+		mult_demod_lmr_inst.calc[0]
+		mult_demod_lmr_inst.calc[1]
+		mult_demod_lmr_inst.calc[2]
+		mult_demod_lmr_inst.calc[3]
+		mult_demod_lmr_inst.calc[4]
+		mult_demod_lmr_inst.calc[5]
+		mult_demod_lmr_inst.calc[6]
+		mult_demod_lmr_inst.calc[7]
+		mult_demod_lmr_inst.calc[8]
+		mult_demod_lmr_inst.calc[9]
+		mult_demod_lmr_inst.calc[10]
+		mult_demod_lmr_inst.calc[11]
+		mult_demod_lmr_inst.calc[12]
+		mult_demod_lmr_inst.calc[13]
+		mult_demod_lmr_inst.calc[14]
+		mult_demod_lmr_inst.calc[15]
+		mult_demod_lmr_inst.calc[16]
+		mult_demod_lmr_inst.calc[17]
+		mult_demod_lmr_inst.calc[18]
+		mult_demod_lmr_inst.calc[19]
+		mult_demod_lmr_inst.calc[20]
+		mult_demod_lmr_inst.calc[21]
+		mult_demod_lmr_inst.calc[22]
+		mult_demod_lmr_inst.calc[23]
+		mult_demod_lmr_inst.calc[24]
+		mult_demod_lmr_inst.calc[25]
+		mult_demod_lmr_inst.calc[26]
+		mult_demod_lmr_inst.calc[27]
+		mult_demod_lmr_inst.calc[28]
+		mult_demod_lmr_inst.calc[29]
+		mult_demod_lmr_inst.calc[30]
+		mult_demod_lmr_inst.calc[31]
+		mult_demod_lmr_inst.state[0]
+		square_bp_pilot_inst.calc[0]
+		square_bp_pilot_inst.calc[1]
+		square_bp_pilot_inst.calc[2]
+		square_bp_pilot_inst.calc[3]
+		square_bp_pilot_inst.calc[4]
+		square_bp_pilot_inst.calc[5]
+		square_bp_pilot_inst.calc[6]
+		square_bp_pilot_inst.calc[7]
+		square_bp_pilot_inst.calc[8]
+		square_bp_pilot_inst.calc[9]
+		square_bp_pilot_inst.calc[10]
+		square_bp_pilot_inst.calc[11]
+		square_bp_pilot_inst.calc[12]
+		square_bp_pilot_inst.calc[13]
+		square_bp_pilot_inst.calc[14]
+		square_bp_pilot_inst.calc[15]
+		square_bp_pilot_inst.calc[16]
+		square_bp_pilot_inst.calc[17]
+		square_bp_pilot_inst.calc[18]
+		square_bp_pilot_inst.calc[19]
+		square_bp_pilot_inst.calc[20]
+		square_bp_pilot_inst.calc[21]
+		square_bp_pilot_inst.calc[22]
+		square_bp_pilot_inst.calc[23]
+		square_bp_pilot_inst.calc[24]
+		square_bp_pilot_inst.calc[25]
+		square_bp_pilot_inst.calc[26]
+		square_bp_pilot_inst.calc[27]
+		square_bp_pilot_inst.calc[28]
+		square_bp_pilot_inst.calc[29]
+		square_bp_pilot_inst.calc[30]
+		square_bp_pilot_inst.calc[31]
+
+New registers created by packing :
+		bp_lmr_fifo_inst.empty_ret
+		bp_lmr_fir_inst.product_ret
+		bp_lmr_fir_inst.product_ret_0
+		bp_lmr_fir_inst.tap_value_ret_1
+		bp_lmr_fir_inst.tap_value_ret_2
+		bp_lmr_fir_inst.tap_value_ret_16
+		bp_lmr_fir_inst.tap_value_ret_17
+		bp_lmr_fir_inst.tap_value_ret_18
+		bp_lmr_fir_inst.tap_value_ret_19
+		bp_lmr_fir_inst.tap_value_ret_31
+		bp_lmr_fir_inst.tap_value_ret_63
+		bp_pilot_fir_inst.product_ret
+		bp_pilot_fir_inst.product_ret_0
+		bp_pilot_fir_inst.tap_value_ret_1
+		bp_pilot_fir_inst.tap_value_ret_2
+		bp_pilot_fir_inst.tap_value_ret_16
+		bp_pilot_fir_inst.tap_value_ret_17
+		bp_pilot_fir_inst.tap_value_ret_18
+		bp_pilot_fir_inst.tap_value_ret_19
+		bp_pilot_fir_inst.tap_value_ret_31
+		bp_pilot_fir_inst.tap_value_ret_63
+		demod_fifo_inst.state_ret
+		demod_fifo_inst.state_ret_1
+		demod_fifo_inst.state_ret_2
+		demod_fifo_inst.state_ret_3
+		demod_fifo_inst.state_ret_4
+		demod_fifo_inst.state_ret_5
+		demodulate_inst.imag_curr_ret_0
+		demodulate_inst.imag_prev_ret
+		demodulate_inst.qarctan_inst.divider_inst.a_ret
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_0
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_10
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_11
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_19
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_23
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_25
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_27
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_29
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_31
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_33
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_35
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_37
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_39
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_41
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_43
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_45
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_46
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_48
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_50
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_52
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_87
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_89
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_91
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_93
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_95
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_97
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_99
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_100
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_100_rep1
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_101
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_103
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_105
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_107
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_109
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_111
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_113
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_115
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_117
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_118
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_118_rep1
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_122
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_123
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_124
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_125
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_126
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_127
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_128
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_129
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_130
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_131
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_132
+		demodulate_inst.qarctan_inst.divider_inst.a_ret_133
+		demodulate_inst.qarctan_inst.divider_inst.b_ret
+		demodulate_inst.qarctan_inst.divider_inst.b_ret_30
+		demodulate_inst.qarctan_inst.divider_inst.msb_a_ret
+		demodulate_inst.qarctan_inst.divider_inst.p_ret
+		demodulate_inst.qarctan_inst.divider_inst.p_ret_0
+		demodulate_inst.qarctan_inst.divider_inst.p_ret_1
+		demodulate_inst.qarctan_inst.divider_inst.q_ret
+		demodulate_inst.qarctan_inst.divider_inst.q_ret_1
+		demodulate_inst.qarctan_inst.divider_inst.q_ret_24
+		demodulate_inst.state_0_ret
+		demodulate_inst.state_1_ret_1
+		demodulate_inst.state_ret_3
+		demodulate_inst.state_ret_4
+		fir_cmplx_inst.imagtap_value_ret_2
+		fir_cmplx_inst.imagtap_value_ret_31
+		fir_cmplx_inst.imagtap_value_ret_63
+		fir_cmplx_inst.imagtap_value_ret_63_rep1
+		fir_cmplx_inst.imagtap_value_ret_63_rep2
+		fir_cmplx_inst.imagtap_value_ret_63_rep3
+		fir_cmplx_inst.imagtap_value_ret_63_rep4
+		fir_cmplx_inst.imagtap_value_ret_63_rep5
+		fir_cmplx_inst.imagtap_value_ret_63_rep6
+		fir_cmplx_inst.imagtap_value_ret_63_rep7
+		fir_cmplx_inst.imagtap_value_ret_63_rep8
+		fir_cmplx_inst.imagtap_value_ret_63_rep9
+		fir_cmplx_inst.imagtap_value_ret_63_rep10
+		fir_cmplx_inst.imagtap_value_ret_63_rep11
+		fir_cmplx_inst.real_product_ret
+		fir_cmplx_inst.real_product_ret_31
+		fir_cmplx_inst.realimag_product_ret
+		fir_cmplx_inst.realimag_product_ret_31
+		fir_cmplx_inst.realtap_value_ret_1
+		fir_cmplx_inst.realtap_value_ret_2
+		fir_cmplx_inst.realtap_value_ret_31
+		fir_cmplx_inst.taps_counter_ret_0
+		hp_pilot_fifo_inst.empty_ret
+		hp_pilot_fir_inst.product_ret
+		hp_pilot_fir_inst.product_ret_0
+		hp_pilot_fir_inst.tap_value_ret_1
+		hp_pilot_fir_inst.tap_value_ret_2
+		hp_pilot_fir_inst.tap_value_ret_16
+		hp_pilot_fir_inst.tap_value_ret_17
+		hp_pilot_fir_inst.tap_value_ret_18
+		hp_pilot_fir_inst.tap_value_ret_19
+		hp_pilot_fir_inst.tap_value_ret_31
+		hp_pilot_fir_inst.tap_value_ret_63
+		left_gain_fifo_inst.state_ret
+		left_gain_fifo_inst.wr_addr_ret
+		left_gain_fifo_inst.wr_addr_ret_1
+		left_gain_fifo_inst.wr_addr_ret_2
+		left_gain_fifo_inst.wr_addr_ret_3
+		left_gain_fifo_inst.wr_addr_ret_4
+		left_gain_fifo_inst.wr_addr_ret_5
+		left_gain_fifo_inst.wr_addr_ret_7
+		left_gain_inst.state_ret
+		lmr_fir_inst.product_ret
+		lmr_fir_inst.product_ret_0
+		lmr_fir_inst.tap_value_ret_1
+		lmr_fir_inst.tap_value_ret_2
+		lmr_fir_inst.tap_value_ret_16
+		lmr_fir_inst.tap_value_ret_17
+		lmr_fir_inst.tap_value_ret_18
+		lmr_fir_inst.tap_value_ret_19
+		lmr_fir_inst.tap_value_ret_31
+		lmr_fir_inst.tap_value_ret_63
+		lpr_fir_inst.product_ret
+		lpr_fir_inst.product_ret_0
+		lpr_fir_inst.tap_value_ret_1
+		lpr_fir_inst.tap_value_ret_2
+		lpr_fir_inst.tap_value_ret_16
+		lpr_fir_inst.tap_value_ret_17
+		lpr_fir_inst.tap_value_ret_18
+		lpr_fir_inst.tap_value_ret_19
+		lpr_fir_inst.tap_value_ret_31
+		lpr_fir_inst.tap_value_ret_63
+		mult_demod_lmr_fifo_inst.empty_ret
+		mult_demod_lmr_inst.calc_ret
+		mult_demod_lmr_inst.calc_ret_0
+		mult_demod_lmr_inst.state_ret_4
+		read_iq_inst.state_ret_2
+		read_iq_inst.state_ret_5
+		reg
+		reg_0
+		reg_0_0
+		reg_1
+		reg_1_0
+		reg_2
+		reg_3
+		reg_4
+		reg_5
+		reg_6
+		reg_7
+		reg_8
+		reg_9
+		reg_10
+		reg_11
+		right_fifo_inst.state_ret
+		right_fifo_inst.wr_addr_ret
+		right_fifo_inst.wr_addr_ret_1
+		right_fifo_inst.wr_addr_ret_3
+		right_fifo_inst.wr_addr_ret_4
+		right_fifo_inst.wr_addr_ret_6
+		right_gain_fifo_inst.state_ret
+		right_gain_fifo_inst.wr_addr_ret
+		right_gain_fifo_inst.wr_addr_ret_1
+		right_gain_fifo_inst.wr_addr_ret_2
+		right_gain_fifo_inst.wr_addr_ret_3
+		right_gain_fifo_inst.wr_addr_ret_4
+		right_gain_fifo_inst.wr_addr_ret_5
+		right_gain_fifo_inst.wr_addr_ret_7
+		right_gain_inst.state_ret
+		square_bp_pilot_inst.calc_ret_31
+		sub_inst.state_ret_1
+
+@N: MF322 |Retiming summary: 667 registers retimed to 1089 
+
+		#####  BEGIN RETIMING REPORT  #####
+
+Retiming summary : 667 registers retimed to 1089
+
+Original and Pipelined registers replaced by retiming :
+
+New registers created by retiming :
+
+
+		#####   END RETIMING REPORT  #####
+
+@N: FA100 :|Instance "demodulate_inst.qarctan_inst.divider_inst.un1_state_11_0_i" with "49" loads has been replicated "1" time(s) due to hard fanout limit of "30" 
+
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:25s; CPU Time elapsed 0h:00m:25s; Memory used current: 250MB peak: 285MB)
+
+
+Finished restoring hierarchy (Real Time elapsed 0h:00m:25s; CPU Time elapsed 0h:00m:25s; Memory used current: 254MB peak: 285MB)
+
+
+FSM Explorer Results
+====================
+FSM (parent lib.cell.view | instance)               Selected encoding style
+---------------------------------------------------------------------------
+{work.qarctan.verilog|i:state[3:0]}                 sequential             
+{work.demod_fir_32s_1s_Z3.verilog|i:state[2:0]}     onehot                 
+{work.demod_fir_32s_8s_Z5.verilog|i:state[2:0]}     gray                   
+{work.div_32s_32s.verilog|i:state[5:0]}             onehot                 
+===========================================================================
+
+FSM Explorer successful!
+Process took 0h:00m:39s realtime, 0h:00m:34s cputime
+# Fri Mar  8 10:37:31 2024
+
+###########################################################]

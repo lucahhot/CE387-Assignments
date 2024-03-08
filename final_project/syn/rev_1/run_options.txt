@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version O-2018.09-SP1
 #--  Project file /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/run_options.txt
-#--  Written on Thu Mar  7 19:49:08 2024
+#--  Written on Fri Mar  8 10:33:58 2024
 
 
 #project files
@@ -12,6 +12,7 @@ add_file -verilog -vlog_std sysv "../sv/sub.sv"
 add_file -verilog -vlog_std sysv "../sv/div.sv"
 add_file -verilog -vlog_std sysv "../sv/qarctan.sv"
 add_file -verilog -vlog_std sysv "../sv/multiply.sv"
+add_file -verilog -vlog_std sysv "../sv/square.sv"
 add_file -verilog -vlog_std sysv "../sv/fir.sv"
 add_file -verilog -vlog_std sysv "../sv/demod_fir.sv"
 add_file -verilog -vlog_std sysv "../sv/fir_cmplx.sv"

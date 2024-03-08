@@ -16,6 +16,8 @@ define_directive {v:work.demod_fir} {.noprune} {1}
 define_directive {v:work.demod_fir} {.distcompnoprune} {1}
 define_directive {v:work.multiply} {.noprune} {1}
 define_directive {v:work.multiply} {.distcompnoprune} {1}
+define_directive {v:work.square} {.noprune} {1}
+define_directive {v:work.square} {.distcompnoprune} {1}
 define_directive {v:work.demodulate} {.noprune} {1}
 define_directive {v:work.demodulate} {.distcompnoprune} {1}
 define_directive {v:work.qarctan} {.noprune} {1}

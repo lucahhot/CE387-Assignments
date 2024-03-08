@@ -360,7 +360,7 @@
 </clock_skew>
 <req_per>  </req_per>
 <slack>  </slack>
-<ucf>  </ucf>
+<ucf> -Timing constraint applied as multi cycle path with factor 2 (from c:square_32s|state_derived_clock[0] to c:square_32s|state_derived_clock[0]) </ucf>
 <status>
 <val> 0 </val>
 </status>
@@ -382,7 +382,7 @@
 </clock_skew>
 <req_per>  </req_per>
 <slack>  </slack>
-<ucf> -Timing constraint applied as multi cycle path with factor 2 (from c:multiply_32s_0|state_derived_clock[0] to c:multiply_32s_0|state_derived_clock[0]) </ucf>
+<ucf> -Timing constraint applied as multi cycle path with factor 2 (from c:gain_32s_10s_1|state_derived_clock[0] to c:gain_32s_10s_1|state_derived_clock[0]) </ucf>
 <status>
 <val> 0 </val>
 </status>
@@ -404,73 +404,7 @@
 </clock_skew>
 <req_per>  </req_per>
 <slack>  </slack>
-<ucf> -Timing constraint applied as multi cycle path with factor 2 (from c:multiply_32s_1|state_derived_clock[0] to c:multiply_32s_1|state_derived_clock[0]) </ucf>
-<status>
-<val> 0 </val>
-</status>
-<margin>
-<val> 0 </val>
-</margin>
-</path_info>
-<path_info>
-<index> 19   </index>
-<start_inst>    </start_inst>
-<start_type>  </start_type>
-<start_clock>    </start_clock>
-<end_inst>    </end_inst>
-<end_type>    </end_type>
-<end_clock>    </end_clock>
-<clock_skew>
-<val>  </val>
-<txt>  -  </txt>
-</clock_skew>
-<req_per>  </req_per>
-<slack>  </slack>
-<ucf> -Timing constraint applied as multi cycle path with factor 2 (from c:gain_32s_10s_1|state_derived_clock[0] to c:gain_32s_10s_1|state_derived_clock[0]) </ucf>
-<status>
-<val> 0 </val>
-</status>
-<margin>
-<val> 0 </val>
-</margin>
-</path_info>
-<path_info>
-<index> 20   </index>
-<start_inst>    </start_inst>
-<start_type>  </start_type>
-<start_clock>    </start_clock>
-<end_inst>    </end_inst>
-<end_type>    </end_type>
-<end_clock>    </end_clock>
-<clock_skew>
-<val>  </val>
-<txt>  -  </txt>
-</clock_skew>
-<req_per>  </req_per>
-<slack>  </slack>
 <ucf> -Timing constraint applied as multi cycle path with factor 2 (from c:gain_32s_10s_0|state_derived_clock[0] to c:gain_32s_10s_0|state_derived_clock[0]) </ucf>
-<status>
-<val> 0 </val>
-</status>
-<margin>
-<val> 0 </val>
-</margin>
-</path_info>
-<path_info>
-<index> 21   </index>
-<start_inst>    </start_inst>
-<start_type>  </start_type>
-<start_clock>    </start_clock>
-<end_inst>    </end_inst>
-<end_type>    </end_type>
-<end_clock>    </end_clock>
-<clock_skew>
-<val>  </val>
-<txt>  -  </txt>
-</clock_skew>
-<req_per>  </req_per>
-<slack>  </slack>
-<ucf>  </ucf>
 <status>
 <val> 0 </val>
 </status>

@@ -1,0 +1,184 @@
+<html><body><samp><pre>
+<!@TC:1709914556>
+# Fri Mar  8 10:15:55 2024
+
+
+Copyright (C) 1994-2018 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify (R) Premier
+Build: O-2018.09-SP1
+Install: /vol/synopsys/fpga/O-2018.09-SP1
+OS: Red Hat Enterprise Linux 8.9 (Ootpa)
+Hostname: joker.ece.northwestern.edu
+max virtual memory: unlimited (bytes)
+max user processes: 126575
+max stack size: 8388608 (bytes)
+
+
+Implementation : rev_1
+<a name=mapperReport41></a>Synopsys Intel FPGA Technology Pre-mapping, Version maprc, Build 4745R, Built Nov 27 2018 21:14:52</a>
+
+
+Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 98MB peak: 99MB)
+
+Reading constraint file: /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1_fsm.sdc
+@N:<a href="@N:MF284:@XP_HELP">MF284</a> : <!@TM:1709914556> | Setting synthesis effort to medium for the design 
+Linked File:  <a href="/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1_scck.rpt:@XP_FILE">proj_1_scck.rpt</a>
+Printing clock  summary report in "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1_scck.rpt" file 
+@N:<a href="@N:MF472:@XP_HELP">MF472</a> : <!@TM:1709914556> | Synthesis running in Automatic Compile Point mode 
+@N:<a href="@N:MF474:@XP_HELP">MF474</a> : <!@TM:1709914556> | No compile point is identified in Automatic Compile Point mode 
+@N:<a href="@N:MF915:@XP_HELP">MF915</a> : <!@TM:1709914556> | Option synthesis_strategy=advanced is enabled.  
+@N:<a href="@N:MF248:@XP_HELP">MF248</a> : <!@TM:1709914556> | Running in 64-bit mode. 
+@N:<a href="@N:MF666:@XP_HELP">MF666</a> : <!@TM:1709914556> | Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.) 
+
+Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 107MB peak: 108MB)
+
+
+Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 107MB peak: 108MB)
+
+<font color=#A52A2A>@W:<a href="@W:FA406:@XP_HELP">FA406</a> : <!@TM:1709914556> | Environment variable QUARTUS_ROOTDIR not set. Cannot determine PAR version.</font> 
+@N:<a href="@N:MF284:@XP_HELP">MF284</a> : <!@TM:1709914556> | Setting synthesis effort to medium for the design 
+
+Finished Clear Box Flow. (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 128MB peak: 130MB)
+
+<font color=#A52A2A>@W:<a href="@W:FA401:@XP_HELP">FA401</a> : <!@TM:1709914556> | Found flip-flop with unsupported asynchronous set. Implemented set functionality by creating a latch.</font> 
+@N:<a href="@N:MH105:@XP_HELP">MH105</a> : <!@TM:1709914556> | UMR3 is only supported for HAPS-80. 
+@N:<a href="@N:MH105:@XP_HELP">MH105</a> : <!@TM:1709914556> | UMR3 is only supported for HAPS-80. 
+<font color=#A52A2A>@W:<a href="@W:MO129:@XP_HELP">MO129</a> : <a href="/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv:80:4:80:8:@W:MO129:@XP_MSG">qarctan.sv(80)</a><!@TM:1709914556> | Sequential instance demodulate_inst.qarctan_inst.dividend[0] is reduced to a combinational gate by constant propagation.</font>
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="/home/mwp8699/CE387-Assignments/final_project/sv/div.sv:104:8:104:12:@N:BN362:@XP_MSG">div.sv(104)</a><!@TM:1709914556> | Removing sequential instance remainder[31:0] (in view: work.div_32s_32s(verilog)) of type view:PrimLib.latr(prim) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="/home/mwp8699/CE387-Assignments/final_project/sv/div.sv:104:8:104:12:@N:BN362:@XP_MSG">div.sv(104)</a><!@TM:1709914556> | Removing sequential instance overflow (in view: work.div_32s_32s(verilog)) of type view:PrimLib.lat(prim) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv:50:4:50:13:@N:BN362:@XP_MSG">fifo.sv(50)</a><!@TM:1709914556> | Removing sequential instance dout[31:0] (in view: work.fifo_32s_16s_5s_3(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv:35:4:35:13:@N:BN362:@XP_MSG">fifo.sv(35)</a><!@TM:1709914556> | Removing sequential instance fifo_buf[31:0] (in view: work.fifo_32s_16s_5s_3(verilog)) of type view:PrimLib.ram1(prim) because it does not drive other instances.
+
+Finished netlist restructuring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 132MB peak: 134MB)
+
+
+
+<a name=mapperReport42></a>Clock Summary</a>
+******************
+
+          Start                                               Requested     Requested     Clock                             Clock                   Clock
+Level     Clock                                               Frequency     Period        Type                              Group                   Load 
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+0 -       System                                              100.0 MHz     10.000        system                            system_clkgroup         322  
+                                                                                                                                                         
+0 -       fm_radio|clock                                      100.0 MHz     10.000        inferred                          Inferred_clkgroup_0     3709 
+1 .         demodulate|state_derived_clock[2]                 100.0 MHz     10.000        derived (from fm_radio|clock)     Inferred_clkgroup_0     547  
+1 .         read_iq_32s_16s_8s_10s|state_derived_clock[0]     100.0 MHz     10.000        derived (from fm_radio|clock)     Inferred_clkgroup_0     176  
+1 .         div_32s_32s|state_derived_clock[5]                100.0 MHz     10.000        derived (from fm_radio|clock)     Inferred_clkgroup_0     130  
+1 .         gain_32s_10s_0|state_derived_clock[0]             100.0 MHz     10.000        derived (from fm_radio|clock)     Inferred_clkgroup_0     98   
+1 .         gain_32s_10s_1|state_derived_clock[0]             100.0 MHz     10.000        derived (from fm_radio|clock)     Inferred_clkgroup_0     98   
+1 .         add|state_derived_clock                           100.0 MHz     10.000        derived (from fm_radio|clock)     Inferred_clkgroup_0     96   
+1 .         multiply_32s|state_derived_clock[0]               100.0 MHz     10.000        derived (from fm_radio|clock)     Inferred_clkgroup_0     96   
+1 .         square_32s|state_derived_clock[0]                 100.0 MHz     10.000        derived (from fm_radio|clock)     Inferred_clkgroup_0     96   
+=========================================================================================================================================================
+
+
+
+Clock Load Summary
+***********************
+
+                                                  Clock     Source                                                                      Clock Pin                                                      Non-clock Pin                                      Non-clock Pin                                                     
+Clock                                             Load      Pin                                                                         Seq Example                                                    Seq Example                                        Comb Example                                                      
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+System                                            322       -                                                                           right_gain_inst.out_wr_en.C                                    -                                                  -                                                                 
+                                                                                                                                                                                                                                                                                                                            
+fm_radio|clock                                    3709      clock(port)                                                                 right_gain_fifo_inst.rd_addr[4:0].C                            -                                                  -                                                                 
+demodulate|state_derived_clock[2]                 547       demodulate_inst.state[2:0].Q[2](dffr)                                       demodulate_inst.next_state[2].C                                demod_fifo_inst.fifo_buf[31:0].WE[0]               demod_fifo_inst.p_write_buffer\.un11_wr_addr_t.I[1](and)          
+read_iq_32s_16s_8s_10s|state_derived_clock[0]     176       read_iq_inst.state[0].Q[0](dffr)                                            read_iq_inst.i_buff[7:0].C                                     q_fifo_inst.fifo_buf[31:0].WE[0]                   q_fifo_inst.p_write_buffer\.un11_wr_addr_t.I[1](and)              
+div_32s_32s|state_derived_clock[5]                130       demodulate_inst.qarctan_inst.divider_inst.state[5:0].Q[5](statemachine)     demodulate_inst.qarctan_inst.divider_inst.quotient[31:0].C     demodulate_inst.qarctan_inst.state[3:0].I[0]       demodulate_inst.qarctan_inst.next_state_0_sqmuxa.I[0](and)        
+gain_32s_10s_0|state_derived_clock[0]             98        right_gain_inst.state[0].Q[0](dffr)                                         right_gain_inst.dout[31:0].C                                   right_gain_inst.temp_in[31:0].E                    right_gain_inst.un1_state_1.I[0](inv)                             
+gain_32s_10s_1|state_derived_clock[0]             98        left_gain_inst.state[0].Q[0](dffr)                                          left_gain_inst.dout[31:0].C                                    left_gain_inst.temp_in[31:0].E                     left_gain_inst.un1_state_1.I[0](inv)                              
+add|state_derived_clock                           96        add_inst.state.Q[0](dffr)                                                   add_inst.out_din[31:0].C                                       left_fifo_inst.fifo_buf[31:0].WE[0]                lpr_rd_en.I[0](and)                                               
+multiply_32s|state_derived_clock[0]               96        mult_demod_lmr_inst.state[0].Q[0](dffr)                                     mult_demod_lmr_inst.dout[31:0].C                               mult_demod_lmr_fifo_inst.fifo_buf[31:0].WE[0]      mult_demod_lmr_fifo_inst.p_write_buffer\.un11_wr_addr_t.I[1](and) 
+square_32s|state_derived_clock[0]                 96        square_bp_pilot_inst.state[0].Q[0](dffr)                                    square_bp_pilot_inst.dout[31:0].C                              square_bp_pilot_fifo_inst.fifo_buf[31:0].WE[0]     square_bp_pilot_fifo_inst.p_write_buffer\.un11_wr_addr_t.I[1](and)
+============================================================================================================================================================================================================================================================================================================================
+
+<font color=#A52A2A>@W:<a href="@W:MT531:@XP_HELP">MT531</a> : <a href="/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv:100:4:100:8:@W:MT531:@XP_MSG">fir_cmplx.sv(100)</a><!@TM:1709914556> | Found signal identified as System clock which controls 322 sequential elements including fir_cmplx_inst.yreal_out_din[31:0].  Using this clock, which has no specified timing constraint, can prevent conversion of gated or generated clocks and can adversely impact design performance. </font>
+<font color=#A52A2A>@W:<a href="@W:MT529:@XP_HELP">MT529</a> : <a href="/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv:63:4:63:13:@W:MT529:@XP_MSG">fifo.sv(63)</a><!@TM:1709914556> | Found inferred clock fm_radio|clock which controls 3709 sequential elements including read_iq_fifo_in_inst.empty. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. </font>
+
+Finished Pre Mapping Phase.
+@N:<a href="@N:BN225:@XP_HELP">BN225</a> : <!@TM:1709914556> | Writing default property annotation file /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.sap. 
+
+Starting constraint checker (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 125MB peak: 134MB)
+
+Encoding state machine state[2:0] (in view: work.fir_cmplx_20s_Z1(verilog))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+Encoding state machine state[5:0] (in view: work.div_32s_32s(verilog))
+original code -> new code
+   000 -> 000001
+   001 -> 000010
+   010 -> 000100
+   011 -> 001000
+   100 -> 010000
+   101 -> 100000
+Encoding state machine state[3:0] (in view: work.qarctan(verilog))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+   11 -> 11
+@N:<a href="@N:MO225:@XP_HELP">MO225</a> : <a href="/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv:58:0:58:9:@N:MO225:@XP_MSG">qarctan.sv(58)</a><!@TM:1709914556> | There are no possible illegal states for state machine state[3:0] (in view: work.qarctan(verilog)); safe FSM implementation is not required.
+Encoding state machine state[2:0] (in view: work.demod_fir_32s_1s_Z2(verilog))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+Encoding state machine state[2:0] (in view: work.demod_fir_32s_1s_Z3(verilog))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+Encoding state machine state[2:0] (in view: work.fir_32s_1s_Z4(verilog))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+Encoding state machine state[2:0] (in view: work.demod_fir_32s_8s_Z5(verilog))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+Encoding state machine state[2:0] (in view: work.fir_32s_8s_Z6(verilog))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+Encoding state machine state[3:0] (in view: work.iir_2s_Z7_1(verilog))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+   11 -> 11
+@N:<a href="@N:MO225:@XP_HELP">MO225</a> : <a href="/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv:44:0:44:9:@N:MO225:@XP_MSG">iir.sv(44)</a><!@TM:1709914556> | There are no possible illegal states for state machine state[3:0] (in view: work.iir_2s_Z7_1(verilog)); safe FSM implementation is not required.
+Encoding state machine state[3:0] (in view: work.iir_2s_Z7_0(verilog))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+   11 -> 11
+@N:<a href="@N:MO225:@XP_HELP">MO225</a> : <a href="/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv:44:0:44:9:@N:MO225:@XP_MSG">iir.sv(44)</a><!@TM:1709914556> | There are no possible illegal states for state machine state[3:0] (in view: work.iir_2s_Z7_0(verilog)); safe FSM implementation is not required.
+
+Finished constraint checker preprocessing (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 143MB peak: 148MB)
+
+None
+None
+
+Finished constraint checker (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 145MB peak: 150MB)
+
+Pre-mapping successful!
+
+At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 60MB peak: 150MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Fri Mar  8 10:15:56 2024
+
+###########################################################]
+
+</pre></samp></body></html>

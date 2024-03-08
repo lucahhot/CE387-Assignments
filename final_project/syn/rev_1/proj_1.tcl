@@ -1,11 +1,11 @@
 # Run with quartus_sh -t <x_cons.tcl>
 
 # Global assignments 
-set_global_assignment -name TOP_LEVEL_ENTITY "|divide"
+set_global_assignment -name TOP_LEVEL_ENTITY "|fm_radio"
 set_global_assignment -name ROUTING_BACK_ANNOTATION_MODE NORMAL
 set_global_assignment -name FAMILY "CYCLONE IVE"
 set_global_assignment -name DEVICE "EP4CE6E22A7"
-set_global_assignment -section_id divide -name EDA_DESIGN_ENTRY_SYNTHESIS_TOOL "SYNPLIFY"
+set_global_assignment -section_id fm_radio -name EDA_DESIGN_ENTRY_SYNTHESIS_TOOL "SYNPLIFY"
 set_global_assignment -section_id eda_design_synthesis -name EDA_USE_LMF synplcty.lmf
 set_global_assignment -name TAO_FILE "myresults.tao"
 set_global_assignment -name SOURCES_PER_DESTINATION_INCLUDE_COUNT "1000" 
@@ -29,7 +29,7 @@ if {[file exists ___quartus_options.tcl]} {
     # this will synchronize any existing partitions declared in Synpilfy
     # with partitions existing in Quartus. If partitions exist,
     # incremental compilation will be enabled
-     set Design_Name "divide" 
+     set Design_Name "fm_radio" 
     variable compile_point_list
     set compile_point_list [list]
     source "/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/qic.tcl"

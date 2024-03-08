@@ -1,0 +1,720 @@
+
+#1001 : define_output_delay N_108 -0.201 -ref N_108:f
+# line 1 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {N_108}] {-0.201} -ref {N_108:f}
+
+#1002 : define_input_delay q_ret_0_0_0__N_6 -0.326 -ref q_ret_0_0_0__N_6:f
+# line 2 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q_ret_0_0_0__N_6}] {-0.326} -ref {q_ret_0_0_0__N_6:f}
+
+#1003 : define_input_delay {state_o_17[0]} 1.198 -ref {state_o_17[0]:f}
+# line 3 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {state_o_17[0]}] {1.198} -ref {state_o_17[0]:f}
+
+#1004 : define_output_delay {state[0]} 0.583 -ref {state[0]:f}
+# line 4 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {state[0]}] {0.583} -ref {state[0]:f}
+
+#1005 : define_output_delay {state[1]} 1.667 -ref {state[1]:f}
+# line 5 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {state[1]}] {1.667} -ref {state[1]:f}
+
+#1006 : define_output_delay {state[2]} 2.747 -ref {state[2]:f}
+# line 6 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {state[2]}] {2.747} -ref {state[2]:f}
+
+#1007 : define_output_delay {state[3]} 2.446 -ref {state[3]:f}
+# line 7 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {state[3]}] {2.446} -ref {state[3]:f}
+
+#1008 : define_output_delay {state[4]} 3.992 -ref {state[4]:f}
+# line 8 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {state[4]}] {3.992} -ref {state[4]:f}
+
+#1009 : define_output_delay {quotient_2[1]} -0.305 -ref {quotient_2[1]:f}
+# line 9 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[1]}] {-0.305} -ref {quotient_2[1]:f}
+
+#1010 : define_output_delay {quotient_2[2]} -0.305 -ref {quotient_2[2]:f}
+# line 10 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[2]}] {-0.305} -ref {quotient_2[2]:f}
+
+#1011 : define_output_delay {quotient_2[3]} -0.305 -ref {quotient_2[3]:f}
+# line 11 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[3]}] {-0.305} -ref {quotient_2[3]:f}
+
+#1012 : define_output_delay {quotient_2[4]} -0.305 -ref {quotient_2[4]:f}
+# line 12 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[4]}] {-0.305} -ref {quotient_2[4]:f}
+
+#1013 : define_output_delay {quotient_2[5]} -0.305 -ref {quotient_2[5]:f}
+# line 13 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[5]}] {-0.305} -ref {quotient_2[5]:f}
+
+#1014 : define_output_delay {quotient_2[6]} -0.305 -ref {quotient_2[6]:f}
+# line 14 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[6]}] {-0.305} -ref {quotient_2[6]:f}
+
+#1015 : define_output_delay {quotient_2[7]} -0.305 -ref {quotient_2[7]:f}
+# line 15 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[7]}] {-0.305} -ref {quotient_2[7]:f}
+
+#1016 : define_output_delay {quotient_2[8]} -0.305 -ref {quotient_2[8]:f}
+# line 16 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[8]}] {-0.305} -ref {quotient_2[8]:f}
+
+#1017 : define_output_delay {quotient_2[9]} -0.305 -ref {quotient_2[9]:f}
+# line 17 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[9]}] {-0.305} -ref {quotient_2[9]:f}
+
+#1018 : define_output_delay {quotient_2[10]} -0.305 -ref {quotient_2[10]:f}
+# line 18 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[10]}] {-0.305} -ref {quotient_2[10]:f}
+
+#1019 : define_output_delay {quotient_2[11]} -0.305 -ref {quotient_2[11]:f}
+# line 19 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[11]}] {-0.305} -ref {quotient_2[11]:f}
+
+#1020 : define_output_delay {quotient_2[12]} -0.305 -ref {quotient_2[12]:f}
+# line 20 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[12]}] {-0.305} -ref {quotient_2[12]:f}
+
+#1021 : define_output_delay {quotient_2[13]} -0.305 -ref {quotient_2[13]:f}
+# line 21 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[13]}] {-0.305} -ref {quotient_2[13]:f}
+
+#1022 : define_output_delay {quotient_2[14]} -0.305 -ref {quotient_2[14]:f}
+# line 22 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[14]}] {-0.305} -ref {quotient_2[14]:f}
+
+#1023 : define_output_delay {quotient_2[15]} -0.305 -ref {quotient_2[15]:f}
+# line 23 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[15]}] {-0.305} -ref {quotient_2[15]:f}
+
+#1024 : define_output_delay {quotient_2[16]} -0.305 -ref {quotient_2[16]:f}
+# line 24 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[16]}] {-0.305} -ref {quotient_2[16]:f}
+
+#1025 : define_output_delay {quotient_2[17]} -0.305 -ref {quotient_2[17]:f}
+# line 25 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[17]}] {-0.305} -ref {quotient_2[17]:f}
+
+#1026 : define_output_delay {quotient_2[18]} -0.305 -ref {quotient_2[18]:f}
+# line 26 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[18]}] {-0.305} -ref {quotient_2[18]:f}
+
+#1027 : define_output_delay {quotient_2[19]} -0.305 -ref {quotient_2[19]:f}
+# line 27 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[19]}] {-0.305} -ref {quotient_2[19]:f}
+
+#1028 : define_output_delay {quotient_2[20]} -0.305 -ref {quotient_2[20]:f}
+# line 28 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[20]}] {-0.305} -ref {quotient_2[20]:f}
+
+#1029 : define_output_delay {quotient_2[21]} -0.305 -ref {quotient_2[21]:f}
+# line 29 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[21]}] {-0.305} -ref {quotient_2[21]:f}
+
+#1030 : define_output_delay {quotient_2[22]} -0.305 -ref {quotient_2[22]:f}
+# line 30 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[22]}] {-0.305} -ref {quotient_2[22]:f}
+
+#1031 : define_output_delay {quotient_2[23]} -0.305 -ref {quotient_2[23]:f}
+# line 31 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[23]}] {-0.305} -ref {quotient_2[23]:f}
+
+#1032 : define_output_delay {quotient_2[24]} -0.305 -ref {quotient_2[24]:f}
+# line 32 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[24]}] {-0.305} -ref {quotient_2[24]:f}
+
+#1033 : define_output_delay {quotient_2[25]} -0.305 -ref {quotient_2[25]:f}
+# line 33 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[25]}] {-0.305} -ref {quotient_2[25]:f}
+
+#1034 : define_output_delay {quotient_2[26]} -0.305 -ref {quotient_2[26]:f}
+# line 34 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[26]}] {-0.305} -ref {quotient_2[26]:f}
+
+#1035 : define_output_delay {quotient_2[27]} -0.305 -ref {quotient_2[27]:f}
+# line 35 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[27]}] {-0.305} -ref {quotient_2[27]:f}
+
+#1036 : define_output_delay {quotient_2[28]} -0.305 -ref {quotient_2[28]:f}
+# line 36 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[28]}] {-0.305} -ref {quotient_2[28]:f}
+
+#1037 : define_output_delay {quotient_2[29]} -0.305 -ref {quotient_2[29]:f}
+# line 37 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {quotient_2[29]}] {-0.305} -ref {quotient_2[29]:f}
+
+#1038 : define_input_delay {q[1]} 2.155 -ref {q[1]:f}
+# line 38 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[1]}] {2.155} -ref {q[1]:f}
+
+#1039 : define_input_delay {q[2]} 2.155 -ref {q[2]:f}
+# line 39 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[2]}] {2.155} -ref {q[2]:f}
+
+#1040 : define_input_delay {q[3]} 2.155 -ref {q[3]:f}
+# line 40 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[3]}] {2.155} -ref {q[3]:f}
+
+#1041 : define_input_delay {q[4]} 2.155 -ref {q[4]:f}
+# line 41 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[4]}] {2.155} -ref {q[4]:f}
+
+#1042 : define_input_delay {q[5]} 2.155 -ref {q[5]:f}
+# line 42 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[5]}] {2.155} -ref {q[5]:f}
+
+#1043 : define_input_delay {q[6]} 2.155 -ref {q[6]:f}
+# line 43 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[6]}] {2.155} -ref {q[6]:f}
+
+#1044 : define_input_delay {q[7]} 2.155 -ref {q[7]:f}
+# line 44 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[7]}] {2.155} -ref {q[7]:f}
+
+#1045 : define_input_delay {q[8]} 2.155 -ref {q[8]:f}
+# line 45 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[8]}] {2.155} -ref {q[8]:f}
+
+#1046 : define_input_delay {q[9]} 2.155 -ref {q[9]:f}
+# line 46 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[9]}] {2.155} -ref {q[9]:f}
+
+#1047 : define_input_delay {q[10]} 1.975 -ref {q[10]:f}
+# line 47 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[10]}] {1.975} -ref {q[10]:f}
+
+#1048 : define_input_delay {q[11]} 1.975 -ref {q[11]:f}
+# line 48 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[11]}] {1.975} -ref {q[11]:f}
+
+#1049 : define_input_delay {q[12]} 1.975 -ref {q[12]:f}
+# line 49 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[12]}] {1.975} -ref {q[12]:f}
+
+#1050 : define_input_delay {q[13]} 1.975 -ref {q[13]:f}
+# line 50 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[13]}] {1.975} -ref {q[13]:f}
+
+#1051 : define_input_delay {q[14]} 1.975 -ref {q[14]:f}
+# line 51 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[14]}] {1.975} -ref {q[14]:f}
+
+#1052 : define_input_delay {q[15]} 1.975 -ref {q[15]:f}
+# line 52 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[15]}] {1.975} -ref {q[15]:f}
+
+#1053 : define_input_delay {q[16]} 1.975 -ref {q[16]:f}
+# line 53 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[16]}] {1.975} -ref {q[16]:f}
+
+#1054 : define_input_delay {q[17]} 1.975 -ref {q[17]:f}
+# line 54 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[17]}] {1.975} -ref {q[17]:f}
+
+#1055 : define_input_delay {q[18]} 1.975 -ref {q[18]:f}
+# line 55 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[18]}] {1.975} -ref {q[18]:f}
+
+#1056 : define_input_delay {q[19]} 1.975 -ref {q[19]:f}
+# line 56 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[19]}] {1.975} -ref {q[19]:f}
+
+#1057 : define_input_delay {q[20]} 1.975 -ref {q[20]:f}
+# line 57 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[20]}] {1.975} -ref {q[20]:f}
+
+#1058 : define_input_delay {q[21]} 1.975 -ref {q[21]:f}
+# line 58 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[21]}] {1.975} -ref {q[21]:f}
+
+#1059 : define_input_delay {q[22]} 1.975 -ref {q[22]:f}
+# line 59 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[22]}] {1.975} -ref {q[22]:f}
+
+#1060 : define_input_delay {q[23]} 1.975 -ref {q[23]:f}
+# line 60 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[23]}] {1.975} -ref {q[23]:f}
+
+#1061 : define_input_delay {q[24]} 1.975 -ref {q[24]:f}
+# line 61 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[24]}] {1.975} -ref {q[24]:f}
+
+#1062 : define_input_delay {q[25]} 1.975 -ref {q[25]:f}
+# line 62 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[25]}] {1.975} -ref {q[25]:f}
+
+#1063 : define_input_delay {q[26]} 1.975 -ref {q[26]:f}
+# line 63 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[26]}] {1.975} -ref {q[26]:f}
+
+#1064 : define_input_delay {q[27]} 1.975 -ref {q[27]:f}
+# line 64 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[27]}] {1.975} -ref {q[27]:f}
+
+#1065 : define_input_delay {q[28]} 1.975 -ref {q[28]:f}
+# line 65 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[28]}] {1.975} -ref {q[28]:f}
+
+#1066 : define_input_delay {q[29]} 1.968 -ref {q[29]:f}
+# line 66 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q[29]}] {1.968} -ref {q[29]:f}
+
+#1067 : define_input_delay {un2_quotient_1[1]} 3.151 -ref {un2_quotient_1[1]:f}
+# line 67 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[1]}] {3.151} -ref {un2_quotient_1[1]:f}
+
+#1068 : define_input_delay {un2_quotient_1[2]} 3.316 -ref {un2_quotient_1[2]:f}
+# line 68 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[2]}] {3.316} -ref {un2_quotient_1[2]:f}
+
+#1069 : define_input_delay {un2_quotient_1[3]} 3.316 -ref {un2_quotient_1[3]:f}
+# line 69 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[3]}] {3.316} -ref {un2_quotient_1[3]:f}
+
+#1070 : define_input_delay {un2_quotient_1[4]} 3.382 -ref {un2_quotient_1[4]:f}
+# line 70 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[4]}] {3.382} -ref {un2_quotient_1[4]:f}
+
+#1071 : define_input_delay {un2_quotient_1[5]} 3.382 -ref {un2_quotient_1[5]:f}
+# line 71 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[5]}] {3.382} -ref {un2_quotient_1[5]:f}
+
+#1072 : define_input_delay {un2_quotient_1[6]} 3.448 -ref {un2_quotient_1[6]:f}
+# line 72 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[6]}] {3.448} -ref {un2_quotient_1[6]:f}
+
+#1073 : define_input_delay {un2_quotient_1[7]} 3.448 -ref {un2_quotient_1[7]:f}
+# line 73 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[7]}] {3.448} -ref {un2_quotient_1[7]:f}
+
+#1074 : define_input_delay {un2_quotient_1[8]} 3.514 -ref {un2_quotient_1[8]:f}
+# line 74 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[8]}] {3.514} -ref {un2_quotient_1[8]:f}
+
+#1075 : define_input_delay {un2_quotient_1[9]} 3.514 -ref {un2_quotient_1[9]:f}
+# line 75 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[9]}] {3.514} -ref {un2_quotient_1[9]:f}
+
+#1076 : define_input_delay {un2_quotient_1[10]} 3.580 -ref {un2_quotient_1[10]:f}
+# line 76 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[10]}] {3.580} -ref {un2_quotient_1[10]:f}
+
+#1077 : define_input_delay {un2_quotient_1[11]} 3.580 -ref {un2_quotient_1[11]:f}
+# line 77 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[11]}] {3.580} -ref {un2_quotient_1[11]:f}
+
+#1078 : define_input_delay {un2_quotient_1[12]} 3.646 -ref {un2_quotient_1[12]:f}
+# line 78 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[12]}] {3.646} -ref {un2_quotient_1[12]:f}
+
+#1079 : define_input_delay {un2_quotient_1[13]} 3.646 -ref {un2_quotient_1[13]:f}
+# line 79 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[13]}] {3.646} -ref {un2_quotient_1[13]:f}
+
+#1080 : define_input_delay {un2_quotient_1[14]} 3.712 -ref {un2_quotient_1[14]:f}
+# line 80 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[14]}] {3.712} -ref {un2_quotient_1[14]:f}
+
+#1081 : define_input_delay {un2_quotient_1[15]} 3.712 -ref {un2_quotient_1[15]:f}
+# line 81 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[15]}] {3.712} -ref {un2_quotient_1[15]:f}
+
+#1082 : define_input_delay {un2_quotient_1[16]} 3.778 -ref {un2_quotient_1[16]:f}
+# line 82 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[16]}] {3.778} -ref {un2_quotient_1[16]:f}
+
+#1083 : define_input_delay {un2_quotient_1[17]} 3.778 -ref {un2_quotient_1[17]:f}
+# line 83 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[17]}] {3.778} -ref {un2_quotient_1[17]:f}
+
+#1084 : define_input_delay {un2_quotient_1[18]} 3.844 -ref {un2_quotient_1[18]:f}
+# line 84 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[18]}] {3.844} -ref {un2_quotient_1[18]:f}
+
+#1085 : define_input_delay {un2_quotient_1[19]} 3.844 -ref {un2_quotient_1[19]:f}
+# line 85 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[19]}] {3.844} -ref {un2_quotient_1[19]:f}
+
+#1086 : define_input_delay {un2_quotient_1[20]} 3.910 -ref {un2_quotient_1[20]:f}
+# line 86 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[20]}] {3.910} -ref {un2_quotient_1[20]:f}
+
+#1087 : define_input_delay {un2_quotient_1[21]} 3.910 -ref {un2_quotient_1[21]:f}
+# line 87 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[21]}] {3.910} -ref {un2_quotient_1[21]:f}
+
+#1088 : define_input_delay {un2_quotient_1[22]} 3.976 -ref {un2_quotient_1[22]:f}
+# line 88 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[22]}] {3.976} -ref {un2_quotient_1[22]:f}
+
+#1089 : define_input_delay {un2_quotient_1[23]} 3.976 -ref {un2_quotient_1[23]:f}
+# line 89 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[23]}] {3.976} -ref {un2_quotient_1[23]:f}
+
+#1090 : define_input_delay {un2_quotient_1[24]} 4.042 -ref {un2_quotient_1[24]:f}
+# line 90 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[24]}] {4.042} -ref {un2_quotient_1[24]:f}
+
+#1091 : define_input_delay {un2_quotient_1[25]} 4.042 -ref {un2_quotient_1[25]:f}
+# line 91 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[25]}] {4.042} -ref {un2_quotient_1[25]:f}
+
+#1092 : define_input_delay {un2_quotient_1[26]} 4.108 -ref {un2_quotient_1[26]:f}
+# line 92 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[26]}] {4.108} -ref {un2_quotient_1[26]:f}
+
+#1093 : define_input_delay {un2_quotient_1[27]} 4.108 -ref {un2_quotient_1[27]:f}
+# line 93 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[27]}] {4.108} -ref {un2_quotient_1[27]:f}
+
+#1094 : define_input_delay {un2_quotient_1[28]} 4.174 -ref {un2_quotient_1[28]:f}
+# line 94 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[28]}] {4.174} -ref {un2_quotient_1[28]:f}
+
+#1095 : define_input_delay {un2_quotient_1[29]} 4.174 -ref {un2_quotient_1[29]:f}
+# line 95 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {un2_quotient_1[29]}] {4.174} -ref {un2_quotient_1[29]:f}
+
+#1096 : define_output_delay a_ret_45_0_0_g2 0.818 -ref a_ret_45_0_0_g2:f
+# line 96 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {a_ret_45_0_0_g2}] {0.818} -ref {a_ret_45_0_0_g2:f}
+
+#1097 : define_input_delay a_ret_45_0_0_I3_i_1 7.254 -ref a_ret_45_0_0_I3_i_1:f
+# line 97 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {a_ret_45_0_0_I3_i_1}] {7.254} -ref {a_ret_45_0_0_I3_i_1:f}
+
+#1098 : define_input_delay a_ret_45_0_0_I1_i_1 5.123 -ref a_ret_45_0_0_I1_i_1:f
+# line 98 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {a_ret_45_0_0_I1_i_1}] {5.123} -ref {a_ret_45_0_0_I1_i_1:f}
+
+#1099 : define_input_delay a_ret_45_0_0_I0_i_1 1.711 -ref a_ret_45_0_0_I0_i_1:f
+# line 99 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {a_ret_45_0_0_I0_i_1}] {1.711} -ref {a_ret_45_0_0_I0_i_1:f}
+
+#1100 : define_input_delay q_ret_1_0_I0_i_0 1.682 -ref q_ret_1_0_I0_i_0:f
+# line 100 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {q_ret_1_0_I0_i_0}] {1.682} -ref {q_ret_1_0_I0_i_0:f}
+
+#1101 : define_output_delay q_ret_1_0_g2 1.292 -ref q_ret_1_0_g2:f
+# line 101 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {q_ret_1_0_g2}] {1.292} -ref {q_ret_1_0_g2:f}
+
+#1102 : define_output_delay p_ret_0_0_0_g2 0.340 -ref p_ret_0_0_0_g2:f
+# line 102 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {p_ret_0_0_0_g2}] {0.340} -ref {p_ret_0_0_0_g2:f}
+
+#1103 : define_input_delay quad_product_1_0_2__I0_i_0 -0.326 -ref quad_product_1_0_2__I0_i_0:f
+# line 103 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {quad_product_1_0_2__I0_i_0}] {-0.326} -ref {quad_product_1_0_2__I0_i_0:f}
+
+#1104 : define_input_delay {dividend[31]} 0.928 -ref {dividend[31]:f}
+# line 104 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {dividend[31]}] {0.928} -ref {dividend[31]:f}
+
+#1105 : define_input_delay {divisor[0]} 1.185 -ref {divisor[0]:f}
+# line 105 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay {divisor[0]} {1.185} -ref {divisor[0]:f}
+
+#1106 : define_input_delay {divisor[1]} 0.867 -ref {divisor[1]:f}
+# line 106 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[1]}] {0.867} -ref {divisor[1]:f}
+
+#1107 : define_input_delay {divisor[2]} 0.867 -ref {divisor[2]:f}
+# line 107 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[2]}] {0.867} -ref {divisor[2]:f}
+
+#1108 : define_input_delay {divisor[3]} 0.867 -ref {divisor[3]:f}
+# line 108 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[3]}] {0.867} -ref {divisor[3]:f}
+
+#1109 : define_input_delay {divisor[4]} 0.867 -ref {divisor[4]:f}
+# line 109 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[4]}] {0.867} -ref {divisor[4]:f}
+
+#1110 : define_input_delay {divisor[5]} 0.867 -ref {divisor[5]:f}
+# line 110 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[5]}] {0.867} -ref {divisor[5]:f}
+
+#1111 : define_input_delay {divisor[6]} 0.867 -ref {divisor[6]:f}
+# line 111 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[6]}] {0.867} -ref {divisor[6]:f}
+
+#1112 : define_input_delay {divisor[7]} 0.867 -ref {divisor[7]:f}
+# line 112 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[7]}] {0.867} -ref {divisor[7]:f}
+
+#1113 : define_input_delay {divisor[8]} 0.867 -ref {divisor[8]:f}
+# line 113 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[8]}] {0.867} -ref {divisor[8]:f}
+
+#1114 : define_input_delay {divisor[9]} 0.867 -ref {divisor[9]:f}
+# line 114 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[9]}] {0.867} -ref {divisor[9]:f}
+
+#1115 : define_input_delay {divisor[10]} 0.867 -ref {divisor[10]:f}
+# line 115 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[10]}] {0.867} -ref {divisor[10]:f}
+
+#1116 : define_input_delay {divisor[11]} 0.867 -ref {divisor[11]:f}
+# line 116 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[11]}] {0.867} -ref {divisor[11]:f}
+
+#1117 : define_input_delay {divisor[12]} 0.867 -ref {divisor[12]:f}
+# line 117 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[12]}] {0.867} -ref {divisor[12]:f}
+
+#1118 : define_input_delay {divisor[13]} 0.867 -ref {divisor[13]:f}
+# line 118 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[13]}] {0.867} -ref {divisor[13]:f}
+
+#1119 : define_input_delay {divisor[14]} 0.867 -ref {divisor[14]:f}
+# line 119 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[14]}] {0.867} -ref {divisor[14]:f}
+
+#1120 : define_input_delay {divisor[15]} 0.867 -ref {divisor[15]:f}
+# line 120 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[15]}] {0.867} -ref {divisor[15]:f}
+
+#1121 : define_input_delay {divisor[16]} 0.867 -ref {divisor[16]:f}
+# line 121 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[16]}] {0.867} -ref {divisor[16]:f}
+
+#1122 : define_input_delay {divisor[17]} 0.867 -ref {divisor[17]:f}
+# line 122 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[17]}] {0.867} -ref {divisor[17]:f}
+
+#1123 : define_input_delay {divisor[18]} 0.867 -ref {divisor[18]:f}
+# line 123 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[18]}] {0.867} -ref {divisor[18]:f}
+
+#1124 : define_input_delay {divisor[19]} 0.867 -ref {divisor[19]:f}
+# line 124 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[19]}] {0.867} -ref {divisor[19]:f}
+
+#1125 : define_input_delay {divisor[20]} 0.867 -ref {divisor[20]:f}
+# line 125 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[20]}] {0.867} -ref {divisor[20]:f}
+
+#1126 : define_input_delay {divisor[21]} 0.867 -ref {divisor[21]:f}
+# line 126 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[21]}] {0.867} -ref {divisor[21]:f}
+
+#1127 : define_input_delay {divisor[22]} 0.867 -ref {divisor[22]:f}
+# line 127 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[22]}] {0.867} -ref {divisor[22]:f}
+
+#1128 : define_input_delay {divisor[23]} 0.867 -ref {divisor[23]:f}
+# line 128 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[23]}] {0.867} -ref {divisor[23]:f}
+
+#1129 : define_input_delay {divisor[24]} 0.867 -ref {divisor[24]:f}
+# line 129 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[24]}] {0.867} -ref {divisor[24]:f}
+
+#1130 : define_input_delay {divisor[25]} 0.867 -ref {divisor[25]:f}
+# line 130 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[25]}] {0.867} -ref {divisor[25]:f}
+
+#1131 : define_input_delay {divisor[26]} 0.867 -ref {divisor[26]:f}
+# line 131 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[26]}] {0.867} -ref {divisor[26]:f}
+
+#1132 : define_input_delay {divisor[27]} 0.867 -ref {divisor[27]:f}
+# line 132 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[27]}] {0.867} -ref {divisor[27]:f}
+
+#1133 : define_input_delay {divisor[28]} 0.867 -ref {divisor[28]:f}
+# line 133 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[28]}] {0.867} -ref {divisor[28]:f}
+
+#1134 : define_input_delay {divisor[29]} 0.867 -ref {divisor[29]:f}
+# line 134 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[29]}] {0.867} -ref {divisor[29]:f}
+
+#1135 : define_input_delay {divisor[30]} 0.867 -ref {divisor[30]:f}
+# line 135 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[30]}] {0.867} -ref {divisor[30]:f}
+
+#1136 : define_input_delay {divisor[31]} 0.887 -ref {divisor[31]:f}
+# line 136 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {divisor[31]}] {0.887} -ref {divisor[31]:f}
+
+#1137 : define_output_delay N_170 1.216 -ref N_170:f
+# line 137 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {N_170}] {1.216} -ref {N_170:f}
+
+#1138 : define_output_delay N_70_0 1.682 -ref N_70_0:f
+# line 138 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {N_70_0}] {1.682} -ref {N_70_0:f}
+
+#1139 : define_input_delay start_div_0_sqmuxa -0.370 -ref start_div_0_sqmuxa:f
+# line 139 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {start_div_0_sqmuxa}] {-0.370} -ref {start_div_0_sqmuxa:f}
+
+#1140 : define_output_delay b_0_0_0__I2_i_0 2.474 -ref b_0_0_0__I2_i_0:f
+# line 140 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {b_0_0_0__I2_i_0}] {2.474} -ref {b_0_0_0__I2_i_0:f}
+
+#1141 : define_output_delay {state_i[5]} 2.467 -ref {state_i[5]:f}
+# line 141 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_output_delay [get_ports {state_i[5]}] {2.467} -ref {state_i[5]:f}
+
+#1142 : define_input_delay N_33_i 6.959 -ref N_33_i:f
+# line 142 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {N_33_i}] {6.959} -ref {N_33_i:f}
+
+#1143 : define_clock -name clock_c -period 10.000 -clockgroup default_clkgroup clock_c
+# line 143 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_clock -name {clock_c} -period {10.000} -clockgroup {default_clkgroup} [get_ports {clock_c}]
+
+#1144 : define_input_delay reset_c -0.326 -ref reset_c:f
+# line 144 in /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/fsm_tmp.sdc
+
+define_input_delay [get_ports {reset_c}] {-0.326} -ref {reset_c:f}

@@ -12,10 +12,10 @@
 Starting:    /vol/synopsys/fpga/O-2018.09-SP1/linux_a_64/mbin/synplify
 Install:     /vol/synopsys/fpga/O-2018.09-SP1
 Hostname:    joker.ece.northwestern.edu
-Date:        Thu Mar  7 17:18:48 2024
+Date:        Fri Mar  8 10:09:48 2024
 Version:     O-2018.09-SP1
 
-Arguments:   -product synplify_premier fm_radio_test.prj
+Arguments:   -product synplify_premier fm_radio.prj
 ProductType: synplify_premier
 
 License checkout: synplifypremierdp
@@ -28,123 +28,133 @@ License Option: ident
 log file: "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.srr"
 Running: rev_1 in foreground
 
-Running fm_radio_test|rev_1
+Running fm_radio|rev_1
 
-Running Flow: compile (Compile) on fm_radio_test|rev_1
-# Thu Mar  7 17:18:55 2024
+Running Flow: compile (Compile) on fm_radio|rev_1
+# Fri Mar  8 10:10:20 2024
 
-Running Flow: compile_flow (Compile Process) on fm_radio_test|rev_1
-# Thu Mar  7 17:18:55 2024
+Running Flow: compile_flow (Compile Process) on fm_radio|rev_1
+# Fri Mar  8 10:10:20 2024
 License granted for 4 parallel jobs
 
-Running: compiler (Compile Input) on fm_radio_test|rev_1
-# Thu Mar  7 17:18:55 2024
+Running: compiler (Compile Input) on fm_radio|rev_1
+# Fri Mar  8 10:10:20 2024
 Copied /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork/proj_1_comp.srs to /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.srs
 
 compiler completed
-# Thu Mar  7 17:19:00 2024
-
-Return Code: 0
-Run Time:00h:00m:05s
-
-Running: multi_srs_gen (Multi-srs Generator) on fm_radio_test|rev_1
-# Thu Mar  7 17:19:01 2024
-
-multi_srs_gen completed
-# Thu Mar  7 17:19:01 2024
-
-Return Code: 0
-Run Time:00h:00m:00s
-Copied /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork/proj_1_mult.srs to /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.srs
-Complete: Compile Process on fm_radio_test|rev_1
-using FSM Exploration result file: "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1_fsm.sdc"
-
-Running: premap (Premap) on fm_radio_test|rev_1
-# Thu Mar  7 17:19:01 2024
-
-premap completed with warnings
-# Thu Mar  7 17:19:03 2024
-
-Return Code: 1
-Run Time:00h:00m:02s
-Complete: Compile on fm_radio_test|rev_1
-
-Running Flow: map (Map) on fm_radio_test|rev_1
-# Thu Mar  7 17:19:03 2024
-License granted for 4 parallel jobs
-using FSM Exploration result file: "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1_fsm.sdc"
-
-Running: fpga_mapper (Map & Optimize) on fm_radio_test|rev_1
-# Thu Mar  7 17:19:03 2024
-Copied /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork/proj_1_m.srm to /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.srm
-fpga_mapper exited with errors
-Job failed on: fm_radio_test|rev_1
-
-Job: "fpga_mapper" terminated with error status: 2
-See log file: "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synlog/proj_1_fpga_mapper.srr"
-# Thu Mar  7 17:20:05 2024
-
-Return Code: 2
-Run Time:00h:01m:02s
-Complete: Map on fm_radio_test|rev_1
-Complete: Logic Synthesis on fm_radio_test|rev_1
-2Loaded XDM (Hierarchy) data base - elapsed time 0:0 Blocks=18
-@N Implementation '/home/mwp8699/CE387-Assignments/final_project/syn/fm_radio_test.prj|rev_1' design hierarchy loaded from database
-log file: "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.srr"
-Running: rev_1 in foreground
-
-Running fm_radio_test|rev_1
-
-Running Flow: compile (Compile) on fm_radio_test|rev_1
-# Thu Mar  7 19:19:51 2024
-
-Running Flow: compile_flow (Compile Process) on fm_radio_test|rev_1
-# Thu Mar  7 19:19:51 2024
-License granted for 4 parallel jobs
-
-Running: compiler (Compile Input) on fm_radio_test|rev_1
-# Thu Mar  7 19:19:51 2024
-
-compiler completed
-# Thu Mar  7 19:19:57 2024
+# Fri Mar  8 10:10:26 2024
 
 Return Code: 0
 Run Time:00h:00m:06s
 
-Running: multi_srs_gen (Multi-srs Generator) on fm_radio_test|rev_1
-# Thu Mar  7 19:19:57 2024
-Up-To-Date: multi_srs_gen. No run necessary
-Complete: Compile Process on fm_radio_test|rev_1
+Running: multi_srs_gen (Multi-srs Generator) on fm_radio|rev_1
+# Fri Mar  8 10:10:26 2024
+
+multi_srs_gen completed
+# Fri Mar  8 10:10:26 2024
+
+Return Code: 0
+Run Time:00h:00m:00s
+Copied /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork/proj_1_mult.srs to /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.srs
+Complete: Compile Process on fm_radio|rev_1
 using FSM Exploration result file: "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1_fsm.sdc"
 
-Running: premap (Premap) on fm_radio_test|rev_1
-# Thu Mar  7 19:19:57 2024
+Running: premap (Premap) on fm_radio|rev_1
+# Fri Mar  8 10:10:26 2024
 
 premap completed with warnings
-# Thu Mar  7 19:20:01 2024
+# Fri Mar  8 10:10:27 2024
 
 Return Code: 1
-Run Time:00h:00m:04s
-Complete: Compile on fm_radio_test|rev_1
+Run Time:00h:00m:01s
+Complete: Compile on fm_radio|rev_1
 
-Running Flow: map (Map) on fm_radio_test|rev_1
-# Thu Mar  7 19:20:01 2024
+Running Flow: map (Map) on fm_radio|rev_1
+# Fri Mar  8 10:10:27 2024
 License granted for 4 parallel jobs
 using FSM Exploration result file: "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1_fsm.sdc"
 
-Running: fpga_mapper (Map & Optimize) on fm_radio_test|rev_1
-# Thu Mar  7 19:20:01 2024
+Running: fpga_mapper (Map & Optimize) on fm_radio|rev_1
+# Fri Mar  8 10:10:27 2024
+Copied /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork/proj_1_m.srm to /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.srm
 fpga_mapper exited with errors
-Job failed on: fm_radio_test|rev_1
+Job failed on: fm_radio|rev_1
 
 Job: "fpga_mapper" terminated with error status: 2
 See log file: "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synlog/proj_1_fpga_mapper.srr"
-# Thu Mar  7 19:20:08 2024
+# Fri Mar  8 10:11:08 2024
 
 Return Code: 2
-Run Time:00h:00m:07s
-Complete: Map on fm_radio_test|rev_1
-Complete: Logic Synthesis on fm_radio_test|rev_1
-2Opening object source file /home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv
-exit status=2
+Run Time:00h:00m:41s
+Complete: Map on fm_radio|rev_1
+Complete: Logic Synthesis on fm_radio|rev_1
+2log file: "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.srr"
+Running: rev_1 in foreground
+
+Running fm_radio|rev_1
+
+Running Flow: compile (Compile) on fm_radio|rev_1
+# Fri Mar  8 10:15:48 2024
+
+Running Flow: compile_flow (Compile Process) on fm_radio|rev_1
+# Fri Mar  8 10:15:48 2024
+License granted for 4 parallel jobs
+
+Running: compiler (Compile Input) on fm_radio|rev_1
+# Fri Mar  8 10:15:48 2024
+Copied /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork/proj_1_comp.srs to /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.srs
+
+compiler completed
+# Fri Mar  8 10:15:54 2024
+
+Return Code: 0
+Run Time:00h:00m:06s
+
+Running: multi_srs_gen (Multi-srs Generator) on fm_radio|rev_1
+# Fri Mar  8 10:15:54 2024
+
+multi_srs_gen completed
+# Fri Mar  8 10:15:54 2024
+
+Return Code: 0
+Run Time:00h:00m:00s
+Copied /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork/proj_1_mult.srs to /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.srs
+Complete: Compile Process on fm_radio|rev_1
+using FSM Exploration result file: "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1_fsm.sdc"
+
+Running: premap (Premap) on fm_radio|rev_1
+# Fri Mar  8 10:15:54 2024
+
+premap completed with warnings
+# Fri Mar  8 10:15:56 2024
+
+Return Code: 1
+Run Time:00h:00m:02s
+Complete: Compile on fm_radio|rev_1
+
+Running Flow: map (Map) on fm_radio|rev_1
+# Fri Mar  8 10:15:56 2024
+License granted for 4 parallel jobs
+using FSM Exploration result file: "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1_fsm.sdc"
+
+Running: fpga_mapper (Map & Optimize) on fm_radio|rev_1
+# Fri Mar  8 10:15:56 2024
+Warning: The design file /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork/proj_1_prem.srm has been modified.
+As a result the open design d:1 is out of date.
+Continued use can yield inconsistent results.
+
+Copied /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork/proj_1_m.srm to /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.srm
+
+fpga_mapper completed with warnings
+# Fri Mar  8 10:16:31 2024
+
+Return Code: 1
+Run Time:00h:00m:35s
+Complete: Map on fm_radio|rev_1
+Complete: Logic Synthesis on fm_radio|rev_1
+0Warning: The design file /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.srm has been modified.
+As a result the open design d:0 is out of date.
+Continued use can yield inconsistent results.
+
+exit status=0
 License checkin: synplifypremierdp

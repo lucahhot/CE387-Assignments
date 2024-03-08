@@ -1,2 +1,5 @@
-@E: CS187 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":53:4:53:6|Expecting endmodule
+@E: CG513 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":80:54:80:54|No definition for function QUANTIZE_I
+@E: CG513 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":81:54:81:54|No definition for function QUANTIZE_I
+@E: CG906 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":41:14:41:24|Reference to unknown variable DATA_SIZE_2.
+@E: CG513 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv":759:42:759:42|No definition for function QUANTIZE_I
 

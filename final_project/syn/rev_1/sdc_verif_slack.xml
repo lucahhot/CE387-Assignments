@@ -18,18 +18,18 @@
 </path_info>
 <path_info>
 <index> 1   </index>
-<start_inst> demodulate_inst/imag_prev[0]   </start_inst>
+<start_inst> fir_cmplx_inst/realshift_reg_CR31   </start_inst>
 <start_type> reg </start_type>
-<start_clock> fm_radio_test|clock:r   </start_clock>
-<end_inst> demodulate_inst/demod_temp[22]   </end_inst>
+<start_clock> fm_radio|clock:r   </start_clock>
+<end_inst> fir_cmplx_inst/real_product_ret[28]   </end_inst>
 <end_type> reg   </end_type>
-<end_clock> fm_radio_test|clock:r   </end_clock>
+<end_clock> fm_radio|clock:r   </end_clock>
 <clock_skew>
 <val> 0.0 </val>
 <txt> 0.000 - 0.000 </txt>
 </clock_skew>
-<req_per> 26.226 </req_per>
-<slack> -4.628 </slack>
+<req_per> 10.0 </req_per>
+<slack> -0.807 </slack>
 <ucf>  </ucf>
 <status>
 <val> 0 </val>
@@ -40,18 +40,18 @@
 </path_info>
 <path_info>
 <index> 2   </index>
-<start_inst> demodulate_inst/imag_prev[0]   </start_inst>
+<start_inst> left_gain_inst/DEQUANTIZE_27\.i_56_ml_ml_muladd_0[28:0]   </start_inst>
 <start_type> reg </start_type>
-<start_clock> fm_radio_test|clock:r   </start_clock>
-<end_inst> demodulate_inst/qarctan_inst/divisor[31]   </end_inst>
+<start_clock> fm_radio|clock:r   </start_clock>
+<end_inst> left_gain_inst/dout[24]   </end_inst>
 <end_type> reg   </end_type>
-<end_clock> System:r   </end_clock>
+<end_clock> gain_32s_10s_1|state_derived_clock[0]:r   </end_clock>
 <clock_skew>
 <val> 0.0 </val>
 <txt> 0.000 - 0.000 </txt>
 </clock_skew>
-<req_per> 26.226 </req_per>
-<slack> 4.760 </slack>
+<req_per> 10.0 </req_per>
+<slack> 0.949 </slack>
 <ucf>  </ucf>
 <status>
 <val> 0 </val>
@@ -62,18 +62,18 @@
 </path_info>
 <path_info>
 <index> 3   </index>
-<start_inst> mult_demod_lmr_inst/in2[0]   </start_inst>
+<start_inst> right_gain_inst/DEQUANTIZE_27\.i_56_ml_ml_muladd_0[28:0]   </start_inst>
 <start_type> reg </start_type>
-<start_clock> fm_radio_test|clock:r   </start_clock>
-<end_inst> mult_demod_lmr_inst/dout[20]   </end_inst>
+<start_clock> fm_radio|clock:r   </start_clock>
+<end_inst> right_gain_inst/dout[24]   </end_inst>
 <end_type> reg   </end_type>
-<end_clock> multiply_32s_0|state_derived_clock[0]:r   </end_clock>
+<end_clock> gain_32s_10s_0|state_derived_clock[0]:r   </end_clock>
 <clock_skew>
 <val> 0.0 </val>
 <txt> 0.000 - 0.000 </txt>
 </clock_skew>
-<req_per> 26.226 </req_per>
-<slack> 12.102 </slack>
+<req_per> 10.0 </req_per>
+<slack> 0.949 </slack>
 <ucf>  </ucf>
 <status>
 <val> 0 </val>
@@ -84,18 +84,18 @@
 </path_info>
 <path_info>
 <index> 4   </index>
-<start_inst> square_bp_pilot_inst/in1[0]   </start_inst>
+<start_inst> demodulate_inst/qarctan_imag[23]   </start_inst>
 <start_type> reg </start_type>
-<start_clock> fm_radio_test|clock:r   </start_clock>
-<end_inst> square_bp_pilot_inst/dout[20]   </end_inst>
+<start_clock> System:r   </start_clock>
+<end_inst> demodulate_inst/qarctan_inst/divisor[31]   </end_inst>
 <end_type> reg   </end_type>
-<end_clock> multiply_32s_1|state_derived_clock[0]:r   </end_clock>
+<end_clock> System:r   </end_clock>
 <clock_skew>
 <val> 0.0 </val>
 <txt> 0.000 - 0.000 </txt>
 </clock_skew>
-<req_per> 26.226 </req_per>
-<slack> 12.174 </slack>
+<req_per> 10.0 </req_per>
+<slack> 2.862 </slack>
 <ucf>  </ucf>
 <status>
 <val> 0 </val>
@@ -106,18 +106,18 @@
 </path_info>
 <path_info>
 <index> 5   </index>
-<start_inst> left_gain_inst/DEQUANTIZE_26\.i_54_ml_ml_muladd_0[28:0]   </start_inst>
+<start_inst> mult_demod_lmr_inst/calc_ret_0[0]   </start_inst>
 <start_type> reg </start_type>
-<start_clock> fm_radio_test|clock:r   </start_clock>
-<end_inst> left_gain_inst/dout[24]   </end_inst>
+<start_clock> fm_radio|clock:r   </start_clock>
+<end_inst> mult_demod_lmr_inst/dout[20]   </end_inst>
 <end_type> reg   </end_type>
-<end_clock> gain_32s_10s_1|state_derived_clock[0]:r   </end_clock>
+<end_clock> System:r   </end_clock>
 <clock_skew>
 <val> 0.0 </val>
 <txt> 0.000 - 0.000 </txt>
 </clock_skew>
-<req_per> 26.226 </req_per>
-<slack> 17.175 </slack>
+<req_per> 10.0 </req_per>
+<slack> 3.492 </slack>
 <ucf>  </ucf>
 <status>
 <val> 0 </val>
@@ -128,18 +128,18 @@
 </path_info>
 <path_info>
 <index> 6   </index>
-<start_inst> demodulate_inst/qarctan_inst/dividend[31]   </start_inst>
+<start_inst> demodulate_inst/qarctan_real[23]   </start_inst>
 <start_type> reg </start_type>
 <start_clock> System:r   </start_clock>
-<end_inst> demodulate_inst/qarctan_inst/divider_inst/a[31]   </end_inst>
+<end_inst> demodulate_inst/qarctan_inst/data_out_temp[24]   </end_inst>
 <end_type> reg   </end_type>
-<end_clock> fm_radio_test|clock:r   </end_clock>
+<end_clock> fm_radio|clock:r   </end_clock>
 <clock_skew>
 <val> 0.0 </val>
 <txt> 0.000 - 0.000 </txt>
 </clock_skew>
-<req_per> 26.226 </req_per>
-<slack> 20.115 </slack>
+<req_per> 10.0 </req_per>
+<slack> 4.431 </slack>
 <ucf>  </ucf>
 <status>
 <val> 0 </val>
@@ -150,18 +150,18 @@
 </path_info>
 <path_info>
 <index> 7   </index>
-<start_inst> right_gain_inst/vol[10]   </start_inst>
+<start_inst> square_bp_pilot_inst/calc_ret_31[0]   </start_inst>
 <start_type> reg </start_type>
-<start_clock> fm_radio_test|clock:r   </start_clock>
-<end_inst> right_gain_inst/dout[24]   </end_inst>
+<start_clock> fm_radio|clock:r   </start_clock>
+<end_inst> square_bp_pilot_inst/dout[20]   </end_inst>
 <end_type> reg   </end_type>
-<end_clock> gain_32s_10s_0|state_derived_clock[0]:r   </end_clock>
+<end_clock> square_32s|state_derived_clock[0]:r   </end_clock>
 <clock_skew>
 <val> 0.0 </val>
 <txt> 0.000 - 0.000 </txt>
 </clock_skew>
-<req_per> 26.226 </req_per>
-<slack> 20.221 </slack>
+<req_per> 10.0 </req_per>
+<slack> 4.646 </slack>
 <ucf>  </ucf>
 <status>
 <val> 0 </val>
@@ -172,18 +172,18 @@
 </path_info>
 <path_info>
 <index> 8   </index>
-<start_inst> left_fifo_inst/wr_addr[7]   </start_inst>
+<start_inst> left_gain_inst/in_rd_en_1   </start_inst>
 <start_type> reg </start_type>
-<start_clock> fm_radio_test|clock:r   </start_clock>
-<end_inst> add_inst/out_din[0]   </end_inst>
+<start_clock> gain_32s_10s_1|state_derived_clock[0]:r   </start_clock>
+<end_inst> left_deemph_inst/state_ret   </end_inst>
 <end_type> reg   </end_type>
-<end_clock> add|state_derived_clock:r   </end_clock>
+<end_clock> fm_radio|clock:r   </end_clock>
 <clock_skew>
 <val> 0.0 </val>
 <txt> 0.000 - 0.000 </txt>
 </clock_skew>
-<req_per> 26.226 </req_per>
-<slack> 21.548 </slack>
+<req_per> 10.0 </req_per>
+<slack> 5.034 </slack>
 <ucf>  </ucf>
 <status>
 <val> 0 </val>
@@ -194,18 +194,18 @@
 </path_info>
 <path_info>
 <index> 9   </index>
-<start_inst> demodulate_inst/qarctan_inst/divider_inst/quotient[0]   </start_inst>
+<start_inst> right_gain_inst/in_rd_en_1   </start_inst>
 <start_type> reg </start_type>
-<start_clock> div_32s_32s|state_derived_clock[5]:r   </start_clock>
-<end_inst> demodulate_inst/qarctan_inst/quad_product[31]   </end_inst>
+<start_clock> gain_32s_10s_0|state_derived_clock[0]:r   </start_clock>
+<end_inst> right_deemph_inst/state_ret   </end_inst>
 <end_type> reg   </end_type>
-<end_clock> fm_radio_test|clock:r   </end_clock>
+<end_clock> fm_radio|clock:r   </end_clock>
 <clock_skew>
 <val> 0.0 </val>
 <txt> 0.000 - 0.000 </txt>
 </clock_skew>
-<req_per> 26.226 </req_per>
-<slack> 22.313 </slack>
+<req_per> 10.0 </req_per>
+<slack> 5.315 </slack>
 <ucf>  </ucf>
 <status>
 <val> 0 </val>
@@ -216,9 +216,9 @@
 </path_info>
 <path_info>
 <index> 10   </index>
-<start_inst> demodulate_inst/qarctan_inst/divider_inst/q[0]   </start_inst>
+<start_inst> demodulate_inst/qarctan_inst/divider_inst/q_ret   </start_inst>
 <start_type> reg </start_type>
-<start_clock> fm_radio_test|clock:r   </start_clock>
+<start_clock> fm_radio|clock:r   </start_clock>
 <end_inst> demodulate_inst/qarctan_inst/divider_inst/quotient[28]   </end_inst>
 <end_type> reg   </end_type>
 <end_clock> div_32s_32s|state_derived_clock[5]:r   </end_clock>
@@ -226,8 +226,8 @@
 <val> 0.0 </val>
 <txt> 0.000 - 0.000 </txt>
 </clock_skew>
-<req_per> 26.226 </req_per>
-<slack> 23.158 </slack>
+<req_per> 10.0 </req_per>
+<slack> 5.651 </slack>
 <ucf>  </ucf>
 <status>
 <val> 0 </val>
@@ -238,18 +238,18 @@
 </path_info>
 <path_info>
 <index> 11   </index>
-<start_inst> demodulate_inst/qarctan_inst/dividend[31]   </start_inst>
+<start_inst> demodulate_inst/qarctan_inst/divider_inst/quotient[0]   </start_inst>
 <start_type> reg </start_type>
-<start_clock> System:r   </start_clock>
-<end_inst> demodulate_inst/qarctan_inst/divider_inst/quotient[22]   </end_inst>
+<start_clock> div_32s_32s|state_derived_clock[5]:r   </start_clock>
+<end_inst> demodulate_inst/qarctan_inst/quad_product[31]   </end_inst>
 <end_type> reg   </end_type>
-<end_clock> div_32s_32s|state_derived_clock[5]:r   </end_clock>
+<end_clock> fm_radio|clock:r   </end_clock>
 <clock_skew>
 <val> 0.0 </val>
 <txt> 0.000 - 0.000 </txt>
 </clock_skew>
-<req_per> 26.226 </req_per>
-<slack> 23.833 </slack>
+<req_per> 10.0 </req_per>
+<slack> 6.086 </slack>
 <ucf>  </ucf>
 <status>
 <val> 0 </val>
@@ -260,18 +260,18 @@
 </path_info>
 <path_info>
 <index> 12   </index>
-<start_inst> mult_demod_lmr_inst/dout[22]   </start_inst>
+<start_inst> left_fifo_inst/wr_addr[3]   </start_inst>
 <start_type> reg </start_type>
-<start_clock> multiply_32s_0|state_derived_clock[0]:r   </start_clock>
-<end_inst> mult_demod_lmr_fifo_inst/fifo_buf   </end_inst>
+<start_clock> fm_radio|clock:r   </start_clock>
+<end_inst> add_inst/out_din[0]   </end_inst>
 <end_type> reg   </end_type>
-<end_clock> fm_radio_test|clock:r   </end_clock>
+<end_clock> add|state_derived_clock:r   </end_clock>
 <clock_skew>
 <val> 0.0 </val>
 <txt> 0.000 - 0.000 </txt>
 </clock_skew>
-<req_per> 26.226 </req_per>
-<slack> 25.909 </slack>
+<req_per> 10.0 </req_per>
+<slack> 6.543 </slack>
 <ucf>  </ucf>
 <status>
 <val> 0 </val>
@@ -282,18 +282,18 @@
 </path_info>
 <path_info>
 <index> 13   </index>
-<start_inst> square_bp_pilot_inst/dout[22]   </start_inst>
+<start_inst> demodulate_inst/qarctan_inst/divisor[31]   </start_inst>
 <start_type> reg </start_type>
-<start_clock> multiply_32s_1|state_derived_clock[0]:r   </start_clock>
-<end_inst> square_bp_pilot_fifo_inst/fifo_buf   </end_inst>
+<start_clock> System:r   </start_clock>
+<end_inst> demodulate_inst/qarctan_inst/divider_inst/quotient[10]   </end_inst>
 <end_type> reg   </end_type>
-<end_clock> fm_radio_test|clock:r   </end_clock>
+<end_clock> div_32s_32s|state_derived_clock[5]:r   </end_clock>
 <clock_skew>
 <val> 0.0 </val>
 <txt> 0.000 - 0.000 </txt>
 </clock_skew>
-<req_per> 26.226 </req_per>
-<slack> 25.909 </slack>
+<req_per> 10.0 </req_per>
+<slack> 8.089 </slack>
 <ucf>  </ucf>
 <status>
 <val> 0 </val>
@@ -304,18 +304,18 @@
 </path_info>
 <path_info>
 <index> 14   </index>
-<start_inst> left_gain_inst/dout[26]   </start_inst>
+<start_inst> square_bp_pilot_inst/dout[22]   </start_inst>
 <start_type> reg </start_type>
-<start_clock> gain_32s_10s_1|state_derived_clock[0]:r   </start_clock>
-<end_inst> left_gain_fifo_inst/fifo_buf   </end_inst>
+<start_clock> square_32s|state_derived_clock[0]:r   </start_clock>
+<end_inst> square_bp_pilot_fifo_inst/fifo_buf   </end_inst>
 <end_type> reg   </end_type>
-<end_clock> fm_radio_test|clock:r   </end_clock>
+<end_clock> fm_radio|clock:r   </end_clock>
 <clock_skew>
 <val> 0.0 </val>
 <txt> 0.000 - 0.000 </txt>
 </clock_skew>
-<req_per> 26.226 </req_per>
-<slack> 25.974 </slack>
+<req_per> 10.0 </req_per>
+<slack> 9.683 </slack>
 <ucf>  </ucf>
 <status>
 <val> 0 </val>
@@ -326,18 +326,18 @@
 </path_info>
 <path_info>
 <index> 15   </index>
-<start_inst> right_gain_inst/dout[26]   </start_inst>
+<start_inst> add_inst/out_din[0]   </start_inst>
 <start_type> reg </start_type>
-<start_clock> gain_32s_10s_0|state_derived_clock[0]:r   </start_clock>
-<end_inst> right_gain_fifo_inst/fifo_buf   </end_inst>
+<start_clock> add|state_derived_clock:r   </start_clock>
+<end_inst> left_fifo_inst/fifo_buf   </end_inst>
 <end_type> reg   </end_type>
-<end_clock> fm_radio_test|clock:r   </end_clock>
+<end_clock> fm_radio|clock:r   </end_clock>
 <clock_skew>
 <val> 0.0 </val>
 <txt> 0.000 - 0.000 </txt>
 </clock_skew>
-<req_per> 26.226 </req_per>
-<slack> 25.974 </slack>
+<req_per> 10.0 </req_per>
+<slack> 9.807 </slack>
 <ucf>  </ucf>
 <status>
 <val> 0 </val>
@@ -348,19 +348,19 @@
 </path_info>
 <path_info>
 <index> 16   </index>
-<start_inst> add_inst/out_din[0]   </start_inst>
+<start_inst> square_bp_pilot_inst/dout[0]   </start_inst>
 <start_type> reg </start_type>
-<start_clock> add|state_derived_clock:r   </start_clock>
-<end_inst> left_fifo_inst/fifo_buf   </end_inst>
+<start_clock> square_32s|state_derived_clock[0]:r   </start_clock>
+<end_inst> square_bp_pilot_inst/dout[0]   </end_inst>
 <end_type> reg   </end_type>
-<end_clock> fm_radio_test|clock:r   </end_clock>
+<end_clock> square_32s|state_derived_clock[0]:r   </end_clock>
 <clock_skew>
 <val> 0.0 </val>
 <txt> 0.000 - 0.000 </txt>
 </clock_skew>
-<req_per> 26.226 </req_per>
-<slack> 26.034 </slack>
-<ucf>  </ucf>
+<req_per> 20.0 </req_per>
+<slack> 18.210 </slack>
+<ucf> -Timing constraint applied as multi cycle path with factor 2 (from c:square_32s|state_derived_clock[0] to c:square_32s|state_derived_clock[0]) </ucf>
 <status>
 <val> 0 </val>
 </status>
@@ -370,50 +370,6 @@
 </path_info>
 <path_info>
 <index> 17   </index>
-<start_inst> mult_demod_lmr_inst/dout[0]   </start_inst>
-<start_type> reg </start_type>
-<start_clock> multiply_32s_0|state_derived_clock[0]:r   </start_clock>
-<end_inst> mult_demod_lmr_inst/dout[0]   </end_inst>
-<end_type> reg   </end_type>
-<end_clock> multiply_32s_0|state_derived_clock[0]:r   </end_clock>
-<clock_skew>
-<val> 0.0 </val>
-<txt> 0.000 - 0.000 </txt>
-</clock_skew>
-<req_per> 52.452 </req_per>
-<slack> 50.388 </slack>
-<ucf> -Timing constraint applied as multi cycle path with factor 2 (from c:multiply_32s_0|state_derived_clock[0] to c:multiply_32s_0|state_derived_clock[0]) </ucf>
-<status>
-<val> 0 </val>
-</status>
-<margin>
-<val> 0 </val>
-</margin>
-</path_info>
-<path_info>
-<index> 18   </index>
-<start_inst> square_bp_pilot_inst/dout[0]   </start_inst>
-<start_type> reg </start_type>
-<start_clock> multiply_32s_1|state_derived_clock[0]:r   </start_clock>
-<end_inst> square_bp_pilot_inst/dout[0]   </end_inst>
-<end_type> reg   </end_type>
-<end_clock> multiply_32s_1|state_derived_clock[0]:r   </end_clock>
-<clock_skew>
-<val> 0.0 </val>
-<txt> 0.000 - 0.000 </txt>
-</clock_skew>
-<req_per> 52.452 </req_per>
-<slack> 50.388 </slack>
-<ucf> -Timing constraint applied as multi cycle path with factor 2 (from c:multiply_32s_1|state_derived_clock[0] to c:multiply_32s_1|state_derived_clock[0]) </ucf>
-<status>
-<val> 0 </val>
-</status>
-<margin>
-<val> 0 </val>
-</margin>
-</path_info>
-<path_info>
-<index> 19   </index>
 <start_inst> left_gain_inst/dout[26]   </start_inst>
 <start_type> reg </start_type>
 <start_clock> gain_32s_10s_1|state_derived_clock[0]:r   </start_clock>
@@ -424,8 +380,8 @@
 <val> 0.0 </val>
 <txt> 0.000 - 0.000 </txt>
 </clock_skew>
-<req_per> 52.452 </req_per>
-<slack> 51.091 </slack>
+<req_per> 20.0 </req_per>
+<slack> 18.633 </slack>
 <ucf> -Timing constraint applied as multi cycle path with factor 2 (from c:gain_32s_10s_1|state_derived_clock[0] to c:gain_32s_10s_1|state_derived_clock[0]) </ucf>
 <status>
 <val> 0 </val>
@@ -435,7 +391,7 @@
 </margin>
 </path_info>
 <path_info>
-<index> 20   </index>
+<index> 18   </index>
 <start_inst> right_gain_inst/dout[26]   </start_inst>
 <start_type> reg </start_type>
 <start_clock> gain_32s_10s_0|state_derived_clock[0]:r   </start_clock>
@@ -446,31 +402,9 @@
 <val> 0.0 </val>
 <txt> 0.000 - 0.000 </txt>
 </clock_skew>
-<req_per> 52.452 </req_per>
-<slack> 51.091 </slack>
+<req_per> 20.0 </req_per>
+<slack> 18.633 </slack>
 <ucf> -Timing constraint applied as multi cycle path with factor 2 (from c:gain_32s_10s_0|state_derived_clock[0] to c:gain_32s_10s_0|state_derived_clock[0]) </ucf>
-<status>
-<val> 0 </val>
-</status>
-<margin>
-<val> 0 </val>
-</margin>
-</path_info>
-<path_info>
-<index> 21   </index>
-<start_inst> read_iq_inst/q_out[0]   </start_inst>
-<start_type> reg </start_type>
-<start_clock> System:r   </start_clock>
-<end_inst> read_iq_inst/q_out[0]   </end_inst>
-<end_type> reg   </end_type>
-<end_clock> System:r   </end_clock>
-<clock_skew>
-<val> 0.0 </val>
-<txt> 0.000 - 0.000 </txt>
-</clock_skew>
-<req_per> 1000.0 </req_per>
-<slack> 998.360 </slack>
-<ucf>  </ucf>
 <status>
 <val> 0 </val>
 </status>

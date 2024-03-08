@@ -21,7 +21,7 @@ fm_radio.hp_pilot_fifo_inst work fifo 0 1
 fm_radio.hp_pilot_fir_inst work fir 0 1
 fm_radio.square_bp_pilot_fifo_inst work fifo 0 1
 fm_radio.bp_lmr_fir_inst work demod_fir 0 1
-fm_radio.square_bp_pilot_inst work multiply 0 1
+fm_radio.square_bp_pilot_inst work square 0 1
 fm_radio.bp_pilot_fifo_inst work fifo 0 1
 fm_radio.bp_pilot_fir_inst work demod_fir 0 1
 fm_radio.demod_fifo_inst work fifo 0 1

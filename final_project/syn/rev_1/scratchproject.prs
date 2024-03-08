@@ -10,6 +10,7 @@ add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/div.sv"
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv"
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv"
+add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/square.sv"
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv"
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv"
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv"

@@ -1,1 +1,1 @@
-set tmp [q_correlate_db_qii -paths_per 1 -qor 1 -sdc_verif -impl_name /home/mwp8699/CE387-Assignments/final_project/syn/fm_radio_test.prj|rev_1 -impl_result /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.vqm -load_sta -no_gui]
+set tmp [q_correlate_db_qii -paths_per 1 -qor 1 -sdc_verif -impl_name /home/mwp8699/CE387-Assignments/final_project/syn/fm_radio.prj|rev_1 -impl_result /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1.vqm -load_sta -no_gui]

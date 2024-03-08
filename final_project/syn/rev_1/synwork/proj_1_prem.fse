@@ -1,13 +1,13 @@
 
-fsm_encoding {26490499} sequential
+fsm_encoding {28490499} sequential
 
-fsm_state_encoding {26490499} S0 {00}
+fsm_state_encoding {28490499} S0 {00}
 
-fsm_state_encoding {26490499} S1 {01}
+fsm_state_encoding {28490499} S1 {01}
 
-fsm_state_encoding {26490499} S2 {10}
+fsm_state_encoding {28490499} S2 {10}
 
-fsm_registers {26490499} {state[1]}  {state[0]} 
+fsm_registers {28490499} {state[1]}  {state[0]} 
 
 fsm_encoding {16384388} onehot
 
@@ -25,86 +25,88 @@ fsm_state_encoding {16384388} EPILOGUE {100000}
 
 fsm_registers {16384388} {state[5]}  {state[4]}  {state[3]}  {state[2]}  {state[1]}  {state[0]} 
 
-fsm_encoding {18560567} sequential
+fsm_encoding {18580587} sequential
 
-fsm_state_encoding {18560567} READY {00}
+fsm_state_encoding {18580587} READY {00}
 
-fsm_state_encoding {18560567} MULTIPLY {01}
+fsm_state_encoding {18580587} MULTIPLY {01}
 
-fsm_state_encoding {18560567} ANGLE {10}
+fsm_state_encoding {18580587} ANGLE {10}
 
-fsm_registers {18560567} {state[1]}  {state[0]} 
+fsm_state_encoding {18580587} OUTPUT {11}
 
-fsm_encoding {24430436} sequential
+fsm_registers {18580587} {state[1]}  {state[0]} 
 
-fsm_state_encoding {24430436} S0 {00}
+fsm_encoding {26430436} sequential
 
-fsm_state_encoding {24430436} S1 {01}
+fsm_state_encoding {26430436} S0 {00}
 
-fsm_state_encoding {24430436} S2 {10}
+fsm_state_encoding {26430436} S1 {01}
 
-fsm_registers {24430436} {state[1]}  {state[0]} 
+fsm_state_encoding {26430436} S2 {10}
 
-fsm_encoding {24430435} sequential
+fsm_registers {26430436} {state[1]}  {state[0]} 
 
-fsm_state_encoding {24430435} S0 {00}
+fsm_encoding {26430435} sequential
 
-fsm_state_encoding {24430435} S1 {01}
+fsm_state_encoding {26430435} S0 {00}
 
-fsm_state_encoding {24430435} S2 {10}
+fsm_state_encoding {26430435} S1 {01}
 
-fsm_registers {24430435} {state[1]}  {state[0]} 
+fsm_state_encoding {26430435} S2 {10}
 
-fsm_encoding {22390394} sequential
+fsm_registers {26430435} {state[1]}  {state[0]} 
 
-fsm_state_encoding {22390394} S0 {00}
+fsm_encoding {24390394} sequential
 
-fsm_state_encoding {22390394} S1 {01}
+fsm_state_encoding {24390394} S0 {00}
 
-fsm_state_encoding {22390394} S2 {10}
+fsm_state_encoding {24390394} S1 {01}
 
-fsm_registers {22390394} {state[1]}  {state[0]} 
+fsm_state_encoding {24390394} S2 {10}
 
-fsm_encoding {24430433} sequential
+fsm_registers {24390394} {state[1]}  {state[0]} 
 
-fsm_state_encoding {24430433} S0 {00}
+fsm_encoding {26430433} sequential
 
-fsm_state_encoding {24430433} S1 {01}
+fsm_state_encoding {26430433} S0 {00}
 
-fsm_state_encoding {24430433} S2 {10}
+fsm_state_encoding {26430433} S1 {01}
 
-fsm_registers {24430433} {state[1]}  {state[0]} 
+fsm_state_encoding {26430433} S2 {10}
 
-fsm_encoding {22390392} sequential
+fsm_registers {26430433} {state[1]}  {state[0]} 
 
-fsm_state_encoding {22390392} S0 {00}
+fsm_encoding {24390392} sequential
 
-fsm_state_encoding {22390392} S1 {01}
+fsm_state_encoding {24390392} S0 {00}
 
-fsm_state_encoding {22390392} S2 {10}
+fsm_state_encoding {24390392} S1 {01}
 
-fsm_registers {22390392} {state[1]}  {state[0]} 
+fsm_state_encoding {24390392} S2 {10}
 
-fsm_encoding {28440441} sequential
+fsm_registers {24390392} {state[1]}  {state[0]} 
 
-fsm_state_encoding {28440441} S0 {00}
+fsm_encoding {30440441} sequential
 
-fsm_state_encoding {28440441} S1 {01}
+fsm_state_encoding {30440441} S0 {00}
 
-fsm_state_encoding {28440441} S2 {10}
+fsm_state_encoding {30440441} S1 {01}
 
-fsm_state_encoding {28440441} S3 {11}
+fsm_state_encoding {30440441} S2 {10}
 
-fsm_registers {28440441} {state[1]}  {state[0]} 
+fsm_state_encoding {30440441} S3 {11}
 
-fsm_encoding {28440441} sequential
+fsm_registers {30440441} {state[1]}  {state[0]} 
 
-fsm_state_encoding {28440441} S0 {00}
+fsm_encoding {30440441} sequential
 
-fsm_state_encoding {28440441} S1 {01}
+fsm_state_encoding {30440441} S0 {00}
 
-fsm_state_encoding {28440441} S2 {10}
+fsm_state_encoding {30440441} S1 {01}
 
-fsm_state_encoding {28440441} S3 {11}
+fsm_state_encoding {30440441} S2 {10}
 
-fsm_registers {28440441} {state[1]}  {state[0]} 
+fsm_state_encoding {30440441} S3 {11}
+
+fsm_registers {30440441} {state[1]}  {state[0]} 

@@ -1,0 +1,17 @@
+@N: MF284 |Setting synthesis effort to medium for the design
+@N: MF472 |Synthesis running in Automatic Compile Point mode
+@N: MF474 |No compile point is identified in Automatic Compile Point mode
+@N: MF915 |Option synthesis_strategy=advanced is enabled. 
+@N: MF248 |Running in 64-bit mode.
+@N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
+@N: MF284 |Setting synthesis effort to medium for the design
+@N: MH105 |UMR3 is only supported for HAPS-80.
+@N: MH105 |UMR3 is only supported for HAPS-80.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":104:8:104:11|Removing sequential instance remainder[31:0] (in view: work.div_32s_32s(verilog)) of type view:PrimLib.latr(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv":104:8:104:11|Removing sequential instance overflow (in view: work.div_32s_32s(verilog)) of type view:PrimLib.lat(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":50:4:50:12|Removing sequential instance dout[31:0] (in view: work.fifo_32s_16s_5s_3(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
+@N: BN362 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":35:4:35:12|Removing sequential instance fifo_buf[31:0] (in view: work.fifo_32s_16s_5s_3(verilog)) of type view:PrimLib.ram1(prim) because it does not drive other instances.
+@N: BN225 |Writing default property annotation file /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/proj_2.sap.
+@N: MO225 :"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv":58:0:58:8|There are no possible illegal states for state machine state[3:0] (in view: work.qarctan(verilog)); safe FSM implementation is not required.
+@N: MO225 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|There are no possible illegal states for state machine state[3:0] (in view: work.iir_2s_Z7_1(verilog)); safe FSM implementation is not required.
+@N: MO225 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":44:0:44:8|There are no possible illegal states for state machine state[3:0] (in view: work.iir_2s_Z7_0(verilog)); safe FSM implementation is not required.

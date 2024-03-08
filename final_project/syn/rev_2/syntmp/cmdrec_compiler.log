@@ -1,0 +1,44 @@
+/vol/synopsys/fpga/O-2018.09-SP1/bin/c_hdl  -osyn  /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/synwork/proj_2_comp.srs  -hdllog  /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/synlog/proj_2_compiler.srr  -encrypt  -mp  4  -prodtype  synplify_premier  -licensetype  synplifypremierdp  -distcompmode 1 -verification_mode 0  -verilog  -prodtype  synplify_premier  -verification_mode 0 -infer_seqShift -primux -fixsmult -dspmac -nram -divnmod -continue_on_error -nostructver   -I /home/mwp8699/CE387-Assignments/final_project/syn/  -I /vol/synopsys/fpga/O-2018.09-SP1/lib   -sysv  -devicelib  /vol/synopsys/fpga/O-2018.09-SP1/lib/altera/altera.v  -devicelib  /vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/cycloneive.v  -devicelib  /vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v  -devicelib  /vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_lpm.v  -devicelib  /vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_primitives.v  -encrypt  -pro  -dmgen  /home/mwp8699/CE387-Assignments/final_project/syn/rev_2/dm  -auto_infer_blackbox 0 -proto -ui -fid2 -ram -sharing on -ll 2000 -autosm  -D_MULTIPLE_FILE_COMPILATION_UNIT_  -fast_synthesis 0  -lib work -fsysv /home/mwp8699/CE387-Assignments/final_project/sv/globals.sv -lib work -fsysv /home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv -lib work -fsysv /home/mwp8699/CE387-Assignments/final_project/sv/add.sv -lib work -fsysv /home/mwp8699/CE387-Assignments/final_project/sv/sub.sv -lib work -fsysv /home/mwp8699/CE387-Assignments/final_project/sv/div.sv -lib work -fsysv /home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv -lib work -fsysv /home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv -lib work -fsysv /home/mwp8699/CE387-Assignments/final_project/sv/square.sv -lib work -fsysv /home/mwp8699/CE387-Assignments/final_project/sv/fir.sv -lib work -fsysv /home/mwp8699/CE387-Assignments/final_project/sv/demod_fir.sv -lib work -fsysv /home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv -lib work -fsysv /home/mwp8699/CE387-Assignments/final_project/sv/iir.sv -lib work -fsysv /home/mwp8699/CE387-Assignments/final_project/sv/gain.sv -lib work -fsysv /home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv -lib work -fsysv /home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv -lib work -fsysv /home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv  -jobname  "compiler" 
+relcom:/vol/synopsys/fpga/O-2018.09-SP1/bin/c_hdl -osyn ../synwork/proj_2_comp.srs -hdllog ../synlog/proj_2_compiler.srr -encrypt -mp 4 -prodtype synplify_premier -licensetype synplifypremierdp -distcompmode 1 -verification_mode 0 -verilog -prodtype synplify_premier -verification_mode 0 -infer_seqShift -primux -fixsmult -dspmac -nram -divnmod -continue_on_error -nostructver -I ../../ -I /vol/synopsys/fpga/O-2018.09-SP1/lib -sysv -devicelib /vol/synopsys/fpga/O-2018.09-SP1/lib/altera/altera.v -devicelib /vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/cycloneive.v -devicelib /vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v -devicelib /vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_lpm.v -devicelib /vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_primitives.v -encrypt -pro -dmgen ../dm -auto_infer_blackbox 0 -proto -ui -fid2 -ram -sharing on -ll 2000 -autosm -D_MULTIPLE_FILE_COMPILATION_UNIT_ -fast_synthesis 0 -lib work -fsysv ../../../sv/globals.sv -lib work -fsysv ../../../sv/fifo.sv -lib work -fsysv ../../../sv/add.sv -lib work -fsysv ../../../sv/sub.sv -lib work -fsysv ../../../sv/div.sv -lib work -fsysv ../../../sv/qarctan.sv -lib work -fsysv ../../../sv/multiply.sv -lib work -fsysv ../../../sv/square.sv -lib work -fsysv ../../../sv/fir.sv -lib work -fsysv ../../../sv/demod_fir.sv -lib work -fsysv ../../../sv/fir_cmplx.sv -lib work -fsysv ../../../sv/iir.sv -lib work -fsysv ../../../sv/gain.sv -lib work -fsysv ../../../sv/read_iq.sv -lib work -fsysv ../../../sv/demodulate.sv -lib work -fsysv ../../../sv/fm_radio.sv -jobname "compiler"
+rc:0 success:1 runtime:7
+file:../synwork/proj_2_comp.srs|io:o|time:1709915811|size:79841|exec:0|csum:
+file:../synlog/proj_2_compiler.srr|io:o|time:1709915811|size:24401|exec:0|csum:
+file:/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/altera.v|io:i|time:1543381811|size:761|exec:0|csum:530DBF8BEE396EFE8B33F0255371F1EA
+file:/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/cycloneive.v|io:i|time:1543381840|size:248626|exec:0|csum:B7FC851277DB49C2CA5F418047EB2E4F
+file:/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v|io:i|time:1543381839|size:2618882|exec:0|csum:84794777C52804010B1D63698E285DB9
+file:/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_lpm.v|io:i|time:1543381839|size:14867|exec:0|csum:01D82E1D5975CD832C9D765243E5182D
+file:/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_primitives.v|io:i|time:1543381839|size:35286|exec:0|csum:C0AAD8CA21730C472D624582C058B929
+file:./-fsysv|io:i|time:0|size:-1|exec:0|csum:
+file:../../../sv/globals.sv|io:i|time:1709879809|size:5526|exec:0|csum:6C0EB716CADF5765756A968C3540DAF0
+file:./-fsysv|io:i|time:0|size:-1|exec:0|csum:
+file:../../../sv/fifo.sv|io:i|time:1709862541|size:2419|exec:0|csum:6FFB0B8780BFB785EC7E47257ABD9318
+file:./-fsysv|io:i|time:0|size:-1|exec:0|csum:
+file:../../../sv/add.sv|io:i|time:1709766258|size:1718|exec:0|csum:65FEC42FB0699F1D8295E43DAD5C1E9A
+file:./-fsysv|io:i|time:0|size:-1|exec:0|csum:
+file:../../../sv/sub.sv|io:i|time:1709766325|size:1483|exec:0|csum:B6F962B047C9365B5CA3812124058CD9
+file:./-fsysv|io:i|time:0|size:-1|exec:0|csum:
+file:../../../sv/div.sv|io:i|time:1709877567|size:5749|exec:0|csum:834D548FCE68497DFF157D1AE190F4A9
+file:./-fsysv|io:i|time:0|size:-1|exec:0|csum:
+file:../../../sv/qarctan.sv|io:i|time:1709877592|size:5034|exec:0|csum:505C68915DAB6C292B317E9F4E4A3F41
+file:./-fsysv|io:i|time:0|size:-1|exec:0|csum:
+file:../../../sv/multiply.sv|io:i|time:1709853493|size:2041|exec:0|csum:928D7DB668B88D91FDA27F3CD331EA42
+file:./-fsysv|io:i|time:0|size:-1|exec:0|csum:
+file:../../../sv/square.sv|io:i|time:1709879477|size:1730|exec:0|csum:4AFB7683F76F7AE7621F8512E4671204
+file:./-fsysv|io:i|time:0|size:-1|exec:0|csum:
+file:../../../sv/fir.sv|io:i|time:1709877335|size:5581|exec:0|csum:757CF8FEB8DF4E355A1E5ED414278433
+file:./-fsysv|io:i|time:0|size:-1|exec:0|csum:
+file:../../../sv/demod_fir.sv|io:i|time:1709847313|size:5987|exec:0|csum:7E82BACDA5AE0CC0EB730FB20E0D5268
+file:./-fsysv|io:i|time:0|size:-1|exec:0|csum:
+file:../../../sv/fir_cmplx.sv|io:i|time:1709882102|size:10028|exec:0|csum:7C2EF43A6E1A4FE466C2D4D985BC37AC
+file:./-fsysv|io:i|time:0|size:-1|exec:0|csum:
+file:../../../sv/iir.sv|io:i|time:1709836522|size:7110|exec:0|csum:65BF484D47491783F89C720F5A8078FD
+file:./-fsysv|io:i|time:0|size:-1|exec:0|csum:
+file:../../../sv/gain.sv|io:i|time:1709779457|size:1865|exec:0|csum:55D21A43250A9BE472DD91616A8D9D75
+file:./-fsysv|io:i|time:0|size:-1|exec:0|csum:
+file:../../../sv/read_iq.sv|io:i|time:1709878305|size:2818|exec:0|csum:CD84964CC20D03DFA35AF9DCDFE9CE4A
+file:./-fsysv|io:i|time:0|size:-1|exec:0|csum:
+file:../../../sv/demodulate.sv|io:i|time:1709877501|size:5717|exec:0|csum:50DBA6199A4AF5D7C0380CE5A09BF8AD
+file:./-fsysv|io:i|time:0|size:-1|exec:0|csum:
+file:../../../sv/fm_radio.sv|io:i|time:1709914462|size:22991|exec:0|csum:ADA56E42480DB388C5F25542101E624B
+file:/vol/synopsys/fpga/O-2018.09-SP1/linux_a_64/c_hdl|io:i|time:1543382462|size:8760008|exec:1|csum:CF968C540087EF9F5288FFCDBF191EA5
+file:/vol/synopsys/fpga/O-2018.09-SP1/bin/c_hdl|io:i|time:1543382354|size:367|exec:1|csum:E52A0D56112AD6C22F02B648B6F508CE
