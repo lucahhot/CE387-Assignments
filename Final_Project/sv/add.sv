@@ -11,7 +11,9 @@ module add (
     output  logic y_in_rd_en,
     output  logic out_wr_en,
     input   logic out_full,
-    output  logic [DATA_SIZE-1:0] out_din  
+    output  logic [DATA_SIZE-1:0] out_din
+    
+      
 );
 
 typedef enum logic {S0, S1} state_types;
@@ -29,12 +31,14 @@ always_ff @(posedge clock or posedge reset) begin
     end
 end
 
+
 always_comb begin
     x_in_rd_en = 1'b0;
     y_in_rd_en = 1'b0;
     out_wr_en = 1'b0;
     next_state = state;
     sum_c = sum;
+    out_din = '0;
 
     case(state)
 

@@ -35,6 +35,7 @@ always_comb begin
     out_wr_en = 1'b0;
     next_state = state;
     diff_c = diff;
+    out_din ='0;
 
     case(state)
 

@@ -1,13 +1,11 @@
 #--  Synopsys, Inc.
 #--  Version O-2018.09-SP1
 #--  Project file /home/laa8390/Documents/CE387/CE387-Assignments/Final_Project/syn/fir_cmplx.prj
-#--  Written on Tue Mar  5 19:09:24 2024
+#--  Written on Fri Mar  8 11:33:47 2024
 
 
 #project files
-add_file -verilog -vlog_std sysv "../sv/fifo.sv"
 add_file -verilog -vlog_std sysv "../sv/fir_cmplx.sv"
-add_file -verilog -vlog_std sysv "../sv/fir_cmplx_top.sv"
 add_file -verilog -vlog_std sysv "../sv/globals.sv"
 
 
@@ -33,7 +31,6 @@ set_option -part_companion ""
 
 #compilation/mapping options
 set_option -use_fsm_explorer 1
-set_option -top_module "fir_cmplx_top"
 
 # hdl_compiler_options
 set_option -distributed_compile 1

@@ -42,6 +42,7 @@ always_comb begin
     out_wr_en = 1'b0;
     a_c = '0;
     b_c = '0;
+    dout = '0;
 
     case (state) 
         READ: begin

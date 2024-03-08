@@ -1,14 +1,12 @@
 #--  Synopsys, Inc.
 #--  Version O-2018.09-SP1
 #--  Project file /home/laa8390/Documents/CE387/CE387-Assignments/Final_Project/syn/iir.prj
-#--  Written on Tue Mar  5 20:36:24 2024
+#--  Written on Fri Mar  8 11:36:34 2024
 
 
 #project files
 add_file -verilog -vlog_std sysv "../sv/iir.sv"
-add_file -verilog -vlog_std sysv "../sv/iir_top.sv"
 add_file -verilog -vlog_std sysv "../sv/globals.sv"
-add_file -verilog -vlog_std sysv "../sv/fifo.sv"
 
 
 
@@ -33,7 +31,6 @@ set_option -part_companion ""
 
 #compilation/mapping options
 set_option -use_fsm_explorer 1
-set_option -top_module "iir_top"
 
 # hdl_compiler_options
 set_option -distributed_compile 1

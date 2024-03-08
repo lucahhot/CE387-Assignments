@@ -1,9 +1,6 @@
 `include "globals.sv" 
 
 module iir_top #(
-    parameter NUM_TAPS = 2,
-    parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] IIR_Y_COEFFS = '{32'h00000000, 32'hfffffd66},
-    parameter logic signed [0:NUM_TAPS-1] [DATA_SIZE-1:0] IIR_X_COEFFS = '{32'h000000b2, 32'h000000b2},
     parameter FIFO_BUFFER_SIZE = 16
 ) (
     input   logic                   clock,
@@ -44,11 +41,7 @@ logic y_out_full;
 logic [DATA_SIZE-1:0] y_out_din;
 
 // iir module
-iir #(
-    .NUM_TAPS(NUM_TAPS),
-    .IIR_X_COEFFS(IIR_X_COEFFS),
-    .IIR_Y_COEFFS(IIR_Y_COEFFS)
-) iir_inst (
+iir iir_inst (
     .clock(clock),
     .reset(reset),
     .x_in_dout(x_in_dout),

@@ -22,28 +22,6 @@ vlog -work work "../sv/fm_radio_tb.sv"
 
 vsim -classdebug -voptargs=+acc +notimingchecks -L work work.fm_radio_tb -wlf fm_radio.wlf
 
-add wave -noupdate -group fm_radio_tb
-add wave -noupdate -group fm_radio_tb -radix hexadecimal /fm_radio_tb/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/i_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/i_fifo_inst -radix hexadecimal /fm_radio_inst/i_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/q_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/q_fifo_inst -radix hexadecimal /fm_radio_inst/q_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/real_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/real_fifo_inst -radix hexadecimal /fm_radio_inst/real_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/imag_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/imag_fifo_inst -radix hexadecimal /fm_radio_inst/imag_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/demod_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/demod_fifo_inst -radix hexadecimal /fm_radio_inst/demod_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/left_gain_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/left_gain_fifo_inst -radix hexadecimal /fm_radio_inst/left_gain_fifo_inst/*
-
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/right_gain_fifo_inst
-add wave -noupdate -group fm_radio_tb/fm_radio_inst/right_gain_fifo_inst -radix hexadecimal /fm_radio_inst/right_gain_fifo_inst/*
+do fm_radio_waves.do
 
 run -all 

@@ -1,8 +1,8 @@
 `include "globals.sv"
 
 module div #(
-    parameter DIVIDEND_WIDTH = DATA_SIZE,
-    parameter DIVISOR_WIDTH = DATA_SIZE
+    parameter DIVIDEND_WIDTH = 32,
+    parameter DIVISOR_WIDTH = 32
 ) (
     input  logic                        clk,
     input  logic                        reset,
@@ -100,6 +100,10 @@ module div #(
         msb_a_c = msb_a;
         msb_b_c = msb_b;
         p_c = p;
+        quotient = '0;
+        remainder = '0;
+        valid_out = 1'b0;
+        overflow =  1'b0;
 
         case (state)
 
@@ -136,6 +140,8 @@ module div #(
             GET_MSB: begin
                 msb_a_c = get_msb_pos(a,(DIVIDEND_WIDTH-1));
                 msb_b_c = get_msb_pos(b,(DIVISOR_WIDTH-1));
+                // msb_a_c = get_msb_pos(a);
+                // msb_b_c = get_msb_pos(b);
                 next_state = LOOP;
             end
 
@@ -174,6 +180,7 @@ module div #(
                 quotient = '0;
                 remainder = '0;
                 valid_out = 1'b0;
+                overflow  = 1'b0;
                 next_state = INIT;
                 a_c = 'X;
                 b_c = 'X;

@@ -1,10 +1,25 @@
 #--  Synopsys, Inc.
 #--  Version O-2018.09-SP1
 #--  Project file /home/laa8390/Documents/CE387/CE387-Assignments/Final_Project/syn/fm_radio.prj
-#--  Written on Fri Mar  8 00:33:00 2024
+#--  Written on Fri Mar  8 12:55:44 2024
 
 
 #project files
+add_file -verilog -vlog_std sysv "../sv/add.sv"
+add_file -verilog -vlog_std sysv "../sv/demod_fir.sv"
+add_file -verilog -vlog_std sysv "../sv/demodulate.sv"
+add_file -verilog -vlog_std sysv "../sv/div.sv"
+add_file -verilog -vlog_std sysv "../sv/fifo.sv"
+add_file -verilog -vlog_std sysv "../sv/fir.sv"
+add_file -verilog -vlog_std sysv "../sv/fir_cmplx.sv"
+add_file -verilog -vlog_std sysv "../sv/fm_radio.sv"
+add_file -verilog -vlog_std sysv "../sv/gain.sv"
+add_file -verilog -vlog_std sysv "../sv/globals.sv"
+add_file -verilog -vlog_std sysv "../sv/iir.sv"
+add_file -verilog -vlog_std sysv "../sv/multiply.sv"
+add_file -verilog -vlog_std sysv "../sv/qarctan.sv"
+add_file -verilog -vlog_std sysv "../sv/read_iq.sv"
+add_file -verilog -vlog_std sysv "../sv/sub.sv"
 
 
 
@@ -22,22 +37,24 @@ set_option -job par_1 -add par
 
 #device options
 set_option -technology CYCLONEIV-E
-set_option -part EP4CE6
-set_option -package EA22
+set_option -part EP4CE115
+set_option -package FC23
 set_option -speed_grade -7
 set_option -part_companion ""
 
 #compilation/mapping options
-set_option -use_fsm_explorer 0
+set_option -use_fsm_explorer 1
+set_option -top_module "fm_radio"
 
 # hdl_compiler_options
 set_option -distributed_compile 1
 
 # altera_options
+set_option -automatic_compile_point 1
 set_option -rw_check_on_ram 1
 
 # mapper_without_write_options
-set_option -frequency auto
+set_option -frequency 100
 set_option -srs_instrumentation 1
 
 # mapper_options
@@ -50,7 +67,7 @@ set_option -maxfan 30
 set_option -disable_io_insertion 0
 set_option -pipe 1
 set_option -update_models_cp 0
-set_option -retiming 0
+set_option -retiming 1
 set_option -no_sequential_opt 0
 set_option -fix_gated_and_generated_clocks 1
 

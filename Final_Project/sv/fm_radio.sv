@@ -62,7 +62,7 @@ parameter logic signed [0:HP_COEFF_TAPS-1] [DATA_SIZE-1:0] HP_COEFFS = '{
     32'h0000000c, 32'h0000000b, 32'h00000008, 32'h00000004, 32'h00000002, 32'h00000000, 32'h00000000, 32'hffffffff
 };
 
-parameter FIFO_BUFFER_SIZE = 64;
+parameter FIFO_BUFFER_SIZE = 16;
 parameter AUDIO_DECIMATION = 8;
 
 logic read_iq_in_rd_en;
