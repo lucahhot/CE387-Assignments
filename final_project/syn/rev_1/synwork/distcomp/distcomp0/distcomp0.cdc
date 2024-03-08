@@ -1,5 +1,5 @@
-define_directive {v:work.fm_radio_test} {.noprune} {1}
-define_directive {v:work.fm_radio_test} {.distcompnoprune} {1}
+define_directive {v:work.fm_radio} {.noprune} {1}
+define_directive {v:work.fm_radio} {.distcompnoprune} {1}
 define_directive {v:work.fifo} {.noprune} {1}
 define_directive {v:work.fifo} {.distcompnoprune} {1}
 define_directive {v:work.gain} {.noprune} {1}
@@ -26,4 +26,4 @@ define_directive {v:work.fir_cmplx} {.noprune} {1}
 define_directive {v:work.fir_cmplx} {.distcompnoprune} {1}
 define_directive {v:work.read_iq} {.noprune} {1}
 define_directive {v:work.read_iq} {.distcompnoprune} {1}
-define_directive {v:work.fm_radio_test} {.distcompmodetop} {1}
+define_directive {v:work.fm_radio} {.distcompmodetop} {1}

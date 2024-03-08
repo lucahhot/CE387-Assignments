@@ -3,6 +3,7 @@
 #--  Project file /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/scratchproject.prs
 
 #project files
+add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv"
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv"
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/add.sv"
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/sub.sv"
@@ -16,8 +17,7 @@ add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv"
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv"
 add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv"
-add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv"
-add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio_test.sv"
+add_file -verilog -vlog_std sysv "/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv"
 
 
 
@@ -53,7 +53,7 @@ set_option -reporting_ctd slack
 set_option -rw_check_on_ram 1
 
 # mapper_without_write_options
-set_option -frequency auto
+set_option -frequency 100
 set_option -srs_instrumentation 1
 
 # mapper_options

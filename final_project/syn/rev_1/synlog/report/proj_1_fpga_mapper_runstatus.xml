@@ -13,34 +13,34 @@ The file contains the job information from mapper to be displayed as part of the
 </job_status>
 <job_info>
 <info name="Notes">
-<data>706</data>
+<data>935</data>
 <report_link name="more">
 <data>/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synlog/report/proj_1_fpga_mapper_notes.txt</data>
 </report_link>
 </info>
 <info name="Warnings">
-<data>145</data>
+<data>153</data>
 <report_link name="more">
 <data>/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synlog/report/proj_1_fpga_mapper_warnings.txt</data>
 </report_link>
 </info>
 <info name="Errors">
-<data>2</data>
+<data>3</data>
 <report_link name="more">
 <data>/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synlog/report/proj_1_fpga_mapper_errors.txt</data>
 </report_link>
 </info>
 <info name="CPU Time">
-<data>0h:01m:00s</data>
+<data>0h:01m:37s</data>
 </info>
 <info name="Real Time">
-<data>0h:01m:02s</data>
+<data>0h:01m:39s</data>
 </info>
 <info name="Peak Memory">
-<data>382MB</data>
+<data>492MB</data>
 </info>
 <info name="Date &amp; Time">
-<data type="timestamp">1709853605</data>
+<data type="timestamp">1709862655</data>
 </info>
 </job_info>
 </job_run_status>

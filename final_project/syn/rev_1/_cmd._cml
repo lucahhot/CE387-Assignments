@@ -1,1 +1,1 @@
--distcompmode -link    -encrypt       -top work.fm_radio_test -osyn /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork/proj_1_comp.srs /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork//distcomp/distcomp0/distcomp0.srs    
+-distcompmode -link    -encrypt       -top work.fm_radio -osyn /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork/proj_1_comp.srs /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork//distcomp/distcomp0/distcomp0.srs    

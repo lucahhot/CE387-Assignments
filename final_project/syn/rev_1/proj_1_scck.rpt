@@ -16,7 +16,7 @@ max stack size: 8388608 (bytes)
 
 Implementation : rev_1
 
-# Written on Thu Mar  7 17:19:01 2024
+# Written on Thu Mar  7 19:49:14 2024
 
 ##### FILES SYNTAX CHECKED ##############################################
 Constraint File(s):      "/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/proj_1_fsm.sdc"
@@ -33,20 +33,20 @@ No issues found in constraint syntax.
 Clock Summary
 *************
 
-          Start                                               Requested     Requested     Clock                                  Clock                     Clock
-Level     Clock                                               Frequency     Period        Type                                   Group                     Load 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-0 -       System                                              1.0 MHz       1000.000      system                                 system_clkgroup           379  
-                                                                                                                                                                
-0 -       fm_radio_test|clock                                 1.0 MHz       1000.000      inferred                               Autoconstr_clkgroup_0     3776 
-1 .         read_iq_32s_16s_8s_10s|state_derived_clock[0]     1.0 MHz       1000.000      derived (from fm_radio_test|clock)     Autoconstr_clkgroup_0     176  
-1 .         div_32s_32s|state_derived_clock[5]                1.0 MHz       1000.000      derived (from fm_radio_test|clock)     Autoconstr_clkgroup_0     129  
-1 .         gain_32s_10s_0|state_derived_clock[0]             1.0 MHz       1000.000      derived (from fm_radio_test|clock)     Autoconstr_clkgroup_0     98   
-1 .         gain_32s_10s_1|state_derived_clock[0]             1.0 MHz       1000.000      derived (from fm_radio_test|clock)     Autoconstr_clkgroup_0     98   
-1 .         add|state_derived_clock                           1.0 MHz       1000.000      derived (from fm_radio_test|clock)     Autoconstr_clkgroup_0     96   
-1 .         multiply_32s_0|state_derived_clock[0]             1.0 MHz       1000.000      derived (from fm_radio_test|clock)     Autoconstr_clkgroup_0     96   
-1 .         multiply_32s_1|state_derived_clock[0]             1.0 MHz       1000.000      derived (from fm_radio_test|clock)     Autoconstr_clkgroup_0     96   
-================================================================================================================================================================
+          Start                                               Requested     Requested     Clock                             Clock                   Clock
+Level     Clock                                               Frequency     Period        Type                              Group                   Load 
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+0 -       System                                              100.0 MHz     10.000        system                            system_clkgroup         379  
+                                                                                                                                                         
+0 -       fm_radio|clock                                      100.0 MHz     10.000        inferred                          Inferred_clkgroup_0     3662 
+1 .         read_iq_32s_16s_8s_10s|state_derived_clock[0]     100.0 MHz     10.000        derived (from fm_radio|clock)     Inferred_clkgroup_0     176  
+1 .         div_32s_32s|state_derived_clock[5]                100.0 MHz     10.000        derived (from fm_radio|clock)     Inferred_clkgroup_0     129  
+1 .         gain_32s_10s_0|state_derived_clock[0]             100.0 MHz     10.000        derived (from fm_radio|clock)     Inferred_clkgroup_0     98   
+1 .         gain_32s_10s_1|state_derived_clock[0]             100.0 MHz     10.000        derived (from fm_radio|clock)     Inferred_clkgroup_0     98   
+1 .         add|state_derived_clock                           100.0 MHz     10.000        derived (from fm_radio|clock)     Inferred_clkgroup_0     96   
+1 .         multiply_32s_0|state_derived_clock[0]             100.0 MHz     10.000        derived (from fm_radio|clock)     Inferred_clkgroup_0     96   
+1 .         multiply_32s_1|state_derived_clock[0]             100.0 MHz     10.000        derived (from fm_radio|clock)     Inferred_clkgroup_0     96   
+=========================================================================================================================================================
 
 
 Clock Load Summary
@@ -57,7 +57,7 @@ Clock                                             Load      Pin                 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 System                                            379       -                                                                           right_gain_inst.out_wr_en.C                                    -                                                  -                                                                
                                                                                                                                                                                                                                                                                                                            
-fm_radio_test|clock                               3776      clock(port)                                                                 right_gain_fifo_inst.fifo_buf[31:0].CLK                        -                                                  -                                                                
+fm_radio|clock                                    3662      clock(port)                                                                 right_gain_fifo_inst.fifo_buf[31:0].CLK                        -                                                  -                                                                
 read_iq_32s_16s_8s_10s|state_derived_clock[0]     176       read_iq_inst.state[0].Q[0](dffr)                                            read_iq_inst.i_buff[7:0].C                                     q_fifo_inst.fifo_buf[31:0].WE[0]                   q_fifo_inst.p_write_buffer\.un11_wr_addr_t.I[1](and)             
 div_32s_32s|state_derived_clock[5]                129       demodulate_inst.qarctan_inst.divider_inst.state[5:0].Q[5](statemachine)     demodulate_inst.qarctan_inst.divider_inst.quotient[31:0].C     demodulate_inst.qarctan_inst.state[2:0].I[0]       demodulate_inst.qarctan_inst.quad_product_c_0_sqmuxa.I[0](and)   
 gain_32s_10s_0|state_derived_clock[0]             98        right_gain_inst.state[0].Q[0](dffr)                                         right_gain_inst.dout[31:0].C                                   right_gain_inst.temp_in[31:0].E                    right_gain_inst.un1_state_1.I[0](inv)                            

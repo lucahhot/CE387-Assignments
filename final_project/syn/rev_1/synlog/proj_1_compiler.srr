@@ -81,9 +81,9 @@ Synopsys Verilog Compiler, Version comp2018q4p1, Build 004R, Built Nov 27 2018 2
 @I::"/vol/synopsys/fpga/O-2018.09-SP1/lib/synip/hcei/zceistubs.v" (library snps_haps)
 @I::"/vol/synopsys/fpga/O-2018.09-SP1/lib/vlog/scemi_objects.v" (library snps_haps)
 @I::"/vol/synopsys/fpga/O-2018.09-SP1/lib/vlog/scemi_pipes.svh" (library snps_haps)
+@I::"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv" (library work)
 @I::"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv" (library work)
 @I::"/home/mwp8699/CE387-Assignments/final_project/sv/add.sv" (library work)
-@I:"/home/mwp8699/CE387-Assignments/final_project/sv/add.sv":"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv" (library work)
 @I::"/home/mwp8699/CE387-Assignments/final_project/sv/sub.sv" (library work)
 @I::"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv" (library work)
 @I::"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv" (library work)
@@ -95,19 +95,18 @@ Synopsys Verilog Compiler, Version comp2018q4p1, Build 004R, Built Nov 27 2018 2
 @I::"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv" (library work)
 @I::"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv" (library work)
 @I::"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv" (library work)
-@I::"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio_test.sv" (library work)
-@W: CG1337 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio_test.sv":317:7:317:25|Net bp_pilot_fifo_rd_en is not declared.
+@I::"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv" (library work)
+@W: CG1337 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv":320:7:320:25|Net bp_pilot_fifo_rd_en is not declared.
 Verilog syntax check successful!
-File /home/mwp8699/CE387-Assignments/final_project/sv/multiply.sv changed - recompiling
-@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":4:0:4:9|Synthesizing module work_/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv_unit in library work.
-Selecting top level module fm_radio_test
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":4:0:4:9|Synthesizing module work_/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv_unit in library work.
+Selecting top level module fm_radio
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":2:7:2:10|Synthesizing module fifo in library work.
 
 	FIFO_DATA_WIDTH=32'b00000000000000000000000000001000
-	FIFO_BUFFER_SIZE=32'b00000000000000000000010000000000
-	FIFO_ADDR_WIDTH=32'b00000000000000000000000000001011
-   Generated name = fifo_8s_1024s_11s
-Running optimization stage 1 on fifo_8s_1024s_11s .......
+	FIFO_BUFFER_SIZE=32'b00000000000000000000000010000000
+	FIFO_ADDR_WIDTH=32'b00000000000000000000000000001000
+   Generated name = fifo_8s_128s_8s
+Running optimization stage 1 on fifo_8s_128s_8s .......
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":3:7:3:13|Synthesizing module read_iq in library work.
 
 	DATA_SIZE=32'b00000000000000000000000000100000
@@ -119,10 +118,10 @@ Running optimization stage 1 on read_iq_32s_16s_8s_10s .......
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":2:7:2:10|Synthesizing module fifo in library work.
 
 	FIFO_DATA_WIDTH=32'b00000000000000000000000000100000
-	FIFO_BUFFER_SIZE=32'b00000000000000000000010000000000
-	FIFO_ADDR_WIDTH=32'b00000000000000000000000000001011
-   Generated name = fifo_32s_1024s_11s
-Running optimization stage 1 on fifo_32s_1024s_11s .......
+	FIFO_BUFFER_SIZE=32'b00000000000000000000000010000000
+	FIFO_ADDR_WIDTH=32'b00000000000000000000000000001000
+   Generated name = fifo_32s_128s_8s
+Running optimization stage 1 on fifo_32s_128s_8s .......
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir_cmplx.sv":3:7:3:15|Synthesizing module fir_cmplx in library work.
 
 	NUM_TAPS=32'b00000000000000000000000000010100
@@ -170,7 +169,7 @@ Running optimization stage 1 on fir_32s_1s_Z4 .......
 
 	NUM_TAPS=32'b00000000000000000000000000100000
 	DECIMATION=32'b00000000000000000000000000001000
-	COEFFICIENTS=1024'b1111111111111111111111111111110111111111111111111111111111111010111111111111111111111111111101001111111111111111111111111110110111111111111111111111111111100101111111111111111111111111110111111111111111111111111111111110001011111111111111111111111111110011000000000000000000000000000101010000000000000000000000000100001100000000000000000000000010011011000000000000000000000000111110010000000000000000000000010101110100000000000000000000000110111110000000000000000000000010000011100000000000000000000000100100001100000000000000000000001001000011000000000000000000000010000011100000000000000000000000011011111000000000000000000000000101011101000000000000000000000000111110010000000000000000000000001001101100000000000000000000000001001110000000000000000000000000000101011111111111111111111111111111001111111111111111111111111111100010111111111111111111111111110111111111111111111111111111111110010111111111111111111111111111101101111111111111111111111111111101001111111111111111111111111111101011111111111111111111111111111101
+	COEFFICIENTS=1024'b1111111111111111111111111111110111111111111111111111111111111010111111111111111111111111111101001111111111111111111111111110110111111111111111111111111111100101111111111111111111111111110111111111111111111111111111111110001011111111111111111111111111110011000000000000000000000000000101010000000000000000000000000100111000000000000000000000000010011011000000000000000000000000111110010000000000000000000000010101110100000000000000000000000110111110000000000000000000000010000011100000000000000000000000100100001100000000000000000000001001000011000000000000000000000010000011100000000000000000000000011011111000000000000000000000000101011101000000000000000000000000111110010000000000000000000000001001101100000000000000000000000001001110000000000000000000000000000101011111111111111111111111111111001111111111111111111111111111100010111111111111111111111111110111111111111111111111111111111110010111111111111111111111111111101101111111111111111111111111111101001111111111111111111111111111101011111111111111111111111111111101
    Generated name = demod_fir_32s_8s_Z5
 Running optimization stage 1 on demod_fir_32s_8s_Z5 .......
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fir.sv":3:7:3:9|Synthesizing module fir in library work.
@@ -197,15 +196,15 @@ Running optimization stage 1 on iir_2s_Z7 .......
 	BITS=32'b00000000000000000000000000001010
    Generated name = gain_32s_10s
 Running optimization stage 1 on gain_32s_10s .......
-@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio_test.sv":3:7:3:19|Synthesizing module fm_radio_test in library work.
-Running optimization stage 1 on fm_radio_test .......
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv":3:7:3:14|Synthesizing module fm_radio in library work.
+Running optimization stage 1 on fm_radio .......
 
-At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 81MB peak: 83MB)
+At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 80MB peak: 82MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Thu Mar  7 17:18:55 2024
+# Thu Mar  7 19:49:08 2024
 
 ###########################################################]
 ###########################################################[
@@ -230,32 +229,32 @@ Synopsys Synopsys Netlist Linker, Version comp2018q4p1, Build 004R, Built Nov 27
 
 @N|Running in 64-bit mode
 File /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork/layer0.srs changed - recompiling
-@N: NF107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio_test.sv":3:7:3:19|Selected library: work cell: fm_radio_test view verilog as top level
-@N: NF107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio_test.sv":3:7:3:19|Selected library: work cell: fm_radio_test view verilog as top level
+@N: NF107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv":3:7:3:14|Selected library: work cell: fm_radio view verilog as top level
+@N: NF107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv":3:7:3:14|Selected library: work cell: fm_radio view verilog as top level
 
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 69MB peak: 70MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Thu Mar  7 17:18:55 2024
+# Thu Mar  7 19:49:08 2024
 
 ###########################################################]
 
 Finished Containment srs generation. (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 3MB peak: 4MB)
 
 Divided design in to 1 groups
-@L:"/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork//distcomp/distcomp0/distcomp0.log" "Log file for distribution node work.fm_radio_test.verilog "
-Compiling work_fm_radio_test_verilog as a separate process
-Compilation of node work.fm_radio_test finished successfully.Real start time 0h:00m:00s, Real end time = 0h:00m:03s, Total real run time = 0h:00m:03s
+@L:"/home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork//distcomp/distcomp0/distcomp0.log" "Log file for distribution node work.fm_radio.verilog "
+Compiling work_fm_radio_verilog as a separate process
+Compilation of node work.fm_radio finished successfully.Real start time 0h:00m:00s, Real end time = 0h:00m:03s, Total real run time = 0h:00m:03s
 
 Distributed Compiler Report
 ***************************
 
-DP Name                        Status      Start time     End Time       Total Real Time     Log File                                                                                         
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-work.fm_radio_test.verilog     Success     0h:00m:00s     0h:00m:03s     0h:00m:03s          /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork//distcomp/distcomp0/distcomp0.log
-==============================================================================================================================================================================================
+DP Name                   Status      Start time     End Time       Total Real Time     Log File                                                                                         
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+work.fm_radio.verilog     Success     0h:00m:00s     0h:00m:03s     0h:00m:03s          /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/synwork//distcomp/distcomp0/distcomp0.log
+=========================================================================================================================================================================================
 ###########################################################[
 
 Copyright (C) 1994-2018 Synopsys, Inc.
@@ -284,16 +283,16 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Thu Mar  7 17:18:59 2024
+# Thu Mar  7 19:49:12 2024
 
 ###########################################################]
 @END
 
-At c_hdl Exit (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:02s; Memory used current: 3MB peak: 6MB)
+At c_hdl Exit (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:03s; Memory used current: 3MB peak: 6MB)
 
-Process took 0h:00m:04s realtime, 0h:00m:02s cputime
+Process took 0h:00m:04s realtime, 0h:00m:03s cputime
 
 Process completed successfully.
-# Thu Mar  7 17:18:59 2024
+# Thu Mar  7 19:49:12 2024
 
 ###########################################################]

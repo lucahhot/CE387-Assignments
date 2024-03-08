@@ -1,10 +1,11 @@
 #--  Synopsys, Inc.
 #--  Version O-2018.09-SP1
 #--  Project file /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/run_options.txt
-#--  Written on Thu Mar  7 17:18:55 2024
+#--  Written on Thu Mar  7 19:49:08 2024
 
 
 #project files
+add_file -verilog -vlog_std sysv "../sv/globals.sv"
 add_file -verilog -vlog_std sysv "../sv/fifo.sv"
 add_file -verilog -vlog_std sysv "../sv/add.sv"
 add_file -verilog -vlog_std sysv "../sv/sub.sv"
@@ -18,8 +19,7 @@ add_file -verilog -vlog_std sysv "../sv/iir.sv"
 add_file -verilog -vlog_std sysv "../sv/gain.sv"
 add_file -verilog -vlog_std sysv "../sv/read_iq.sv"
 add_file -verilog -vlog_std sysv "../sv/demodulate.sv"
-add_file -verilog -vlog_std sysv "../sv/globals.sv"
-add_file -verilog -vlog_std sysv "../sv/fm_radio_test.sv"
+add_file -verilog -vlog_std sysv "../sv/fm_radio.sv"
 
 
 
@@ -54,7 +54,7 @@ set_option -reporting_ctd slack
 set_option -rw_check_on_ram 1
 
 # mapper_without_write_options
-set_option -frequency auto
+set_option -frequency 100
 set_option -srs_instrumentation 1
 
 # mapper_options

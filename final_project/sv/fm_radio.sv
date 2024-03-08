@@ -9,21 +9,23 @@ module fm_radio #(
 
     parameter CHANNEL_COEFF_TAPS = 20,
     parameter logic signed [0:CHANNEL_COEFF_TAPS-1] [DATA_SIZE-1:0] CHANNEL_COEFFICIENTS_REAL = '{
-	32'h00000001, 32'h00000008, 32'hfffffff3, 32'h00000009, 32'h0000000b, 32'hffffffd3, 32'h00000045, 32'hffffffd3, 
-	32'hffffffb1, 32'h00000257, 32'h00000257, 32'hffffffb1, 32'hffffffd3, 32'h00000045, 32'hffffffd3, 32'h0000000b, 
-	32'h00000009, 32'hfffffff3, 32'h00000008, 32'h00000001},
+        32'h00000001, 32'h00000008, 32'hfffffff3, 32'h00000009, 32'h0000000b, 32'hffffffd3, 32'h00000045, 32'hffffffd3, 
+        32'hffffffb1, 32'h00000257, 32'h00000257, 32'hffffffb1, 32'hffffffd3, 32'h00000045, 32'hffffffd3, 32'h0000000b, 
+        32'h00000009, 32'hfffffff3, 32'h00000008, 32'h00000001
+    },
     parameter logic signed [0:CHANNEL_COEFF_TAPS-1] [DATA_SIZE-1:0]  CHANNEL_COEFFICIENTS_IMAG = '{
-	32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 
-	32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 
-	32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000},
-    
+        32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 
+        32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000, 
+        32'h00000000, 32'h00000000, 32'h00000000, 32'h00000000
+    },
+
     parameter  AUDIO_LPR_COEFF_TAPS = 32,
     parameter logic signed [0:AUDIO_LPR_COEFF_TAPS-1] [DATA_SIZE-1:0] AUDIO_LPR_COEFFS = '{
         32'hfffffffd, 32'hfffffffa, 32'hfffffff4, 32'hffffffed, 32'hffffffe5, 32'hffffffdf, 32'hffffffe2, 32'hfffffff3, 
-        32'h00000015, 32'h00000043, 32'h0000009b, 32'h000000f9, 32'h0000015d, 32'h000001be, 32'h0000020e, 32'h00000243, 
-	    32'h00000243, 32'h0000020e, 32'h000001be, 32'h0000015d, 32'h000000f9, 32'h0000009b, 32'h0000004e, 32'h00000015, 
-	    32'hfffffff3, 32'hffffffe2, 32'hffffffdf, 32'hffffffe5, 32'hffffffed, 32'hfffffff4, 32'hfffffffa, 32'hfffffffd
-    }, 
+        32'h00000015, 32'h0000004e, 32'h0000009b, 32'h000000f9, 32'h0000015d, 32'h000001be, 32'h0000020e, 32'h00000243, 
+        32'h00000243, 32'h0000020e, 32'h000001be, 32'h0000015d, 32'h000000f9, 32'h0000009b, 32'h0000004e, 32'h00000015, 
+        32'hfffffff3, 32'hffffffe2, 32'hffffffdf, 32'hffffffe5, 32'hffffffed, 32'hfffffff4, 32'hfffffffa, 32'hfffffffd
+    },
 
     parameter AUDIO_LMR_COEFF_TAPS = 32,
     parameter logic signed [0:AUDIO_LMR_COEFF_TAPS-1] [DATA_SIZE-1:0] AUDIO_LMR_COEFFS = '{
@@ -57,17 +59,18 @@ module fm_radio #(
         32'h0000000c, 32'h0000000b, 32'h00000008, 32'h00000004, 32'h00000002, 32'h00000000, 32'h00000000, 32'hffffffff
     },
 
+
     parameter IIR_COEFF_TAPS = 2,
     parameter logic signed [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] IIR_X_COEFFS = '{32'h000000b2, 32'h000000b2},
     parameter logic signed [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] IIR_Y_COEFFS = '{32'h00000000, 32'hfffffd66},
     
-    parameter FIFO_BUFFER_SIZE = 1024,
+    parameter FIFO_BUFFER_SIZE = 128,
     parameter AUDIO_DECIMATION = 8
 
 ) (
     input   logic                   clock,
     input   logic                   reset,
-    
+
     output  logic                   in_full,
     input   logic                   in_wr_en,
     input   logic [BYTE_SIZE-1:0]   data_in,
@@ -81,7 +84,6 @@ module fm_radio #(
     input   logic                   right_audio_rd_en
 );
 
-// Wires from input FIFO to read_iq module
 logic read_iq_in_rd_en;
 logic [BYTE_SIZE-1:0] read_iq_in;
 logic read_iq_in_empty;
@@ -103,11 +105,11 @@ fifo #(
 
 // Wires from read_iq module to I FIFO
 logic i_out_full;
-logic [DATA_SIZE-1:0] i_out;
+logic [DATA_SIZE-1:0] i_out_din;
 
 // Wires from read_iq module to Q FIFO
 logic q_out_full;
-logic [DATA_SIZE-1:0] q_out;
+logic [DATA_SIZE-1:0] q_out_din;
 
 logic read_iq_out_wr_en;
 
@@ -125,14 +127,14 @@ read_iq #(
     .q_out_full(q_out_full),
     .out_wr_en(read_iq_out_wr_en),
     .data_in(read_iq_in),
-    .i_out(i_out),
-    .q_out(q_out)
+    .i_out(i_out_din),
+    .q_out(q_out_din)
 );
 
 // Wires from I FIFO to FIR CMPLX
-logic [DATA_SIZE-1:0] i_fifo_out;
-logic i_fifo_rd_en;
-logic i_fifo_empty;
+logic [DATA_SIZE-1:0] i_out_dout;
+logic i_rd_en;
+logic i_out_empty;
 
 fifo #(
     .FIFO_DATA_WIDTH(DATA_SIZE),
@@ -141,18 +143,18 @@ fifo #(
     .reset(reset),
     .wr_clk(clock),
     .wr_en(read_iq_out_wr_en),
-    .din(i_out),
+    .din(i_out_din),
     .full(i_out_full),
     .rd_clk(clock),
-    .rd_en(i_fifo_rd_en),
-    .dout(i_fifo_out),
-    .empty(i_fifo_empty)
+    .rd_en(i_rd_en),
+    .dout(i_out_dout),
+    .empty(i_out_empty)
 );
 
 // Wires from Q FIFO to FIR CMPLX
-logic [DATA_SIZE-1:0] q_fifo_out;
-logic q_fifo_rd_en;
-logic q_fifo_empty;
+logic [DATA_SIZE-1:0] q_out_dout;
+logic q_rd_en;
+logic q_out_empty;
 
 fifo #(
     .FIFO_DATA_WIDTH(DATA_SIZE),
@@ -161,12 +163,12 @@ fifo #(
     .reset(reset),
     .wr_clk(clock),
     .wr_en(read_iq_out_wr_en),
-    .din(q_out),
+    .din(q_out_din),
     .full(q_out_full),
     .rd_clk(clock),
-    .rd_en(q_fifo_rd_en),
-    .dout(q_fifo_out),
-    .empty(q_fifo_empty)
+    .rd_en(q_rd_en),
+    .dout(q_out_dout),
+    .empty(q_out_empty)
 );
 
 // REAL == I, IMAG == Q
@@ -187,12 +189,12 @@ fir_cmplx #(
 ) fir_cmplx_inst (
     .clock(clock),
     .reset(reset),
-    .xreal_in_dout(i_fifo_out),
-    .xreal_in_empty(i_fifo_empty),
-    .xreal_in_rd_en(i_fifo_rd_en),
-    .ximag_in_dout(q_fifo_out),
-    .ximag_in_empty(q_fifo_empty),
-    .ximag_in_rd_en(q_fifo_rd_en),
+    .xreal_in_dout(i_out_dout),
+    .xreal_in_empty(i_out_empty),
+    .xreal_in_rd_en(i_rd_en),
+    .ximag_in_dout(q_out_dout),
+    .ximag_in_empty(q_out_empty),
+    .ximag_in_rd_en(q_rd_en),
     .yreal_out_wr_en(real_out_wr_en),
     .yreal_out_full(real_out_full),
     .yreal_out_din(real_out_din),
@@ -203,9 +205,8 @@ fir_cmplx #(
 
 // Wires from REAL_FIFO to DEMODULATE
 logic [DATA_SIZE-1:0] real_out_dout;
-logic real_empty;
-
-logic real_imag_rd_en;
+logic real_out_empty;
+logic real_rd_en;
 
 fifo #(
     .FIFO_DATA_WIDTH(DATA_SIZE),
@@ -217,14 +218,15 @@ fifo #(
     .din(real_out_din),
     .full(real_out_full),
     .rd_clk(clock),
-    .rd_en(real_imag_rd_en),
+    .rd_en(real_rd_en),
     .dout(real_out_dout),
-    .empty(real_empty)
+    .empty(real_out_empty)
 );
 
 // Wires from IMAG_FIFO to DEMODULATE
 logic [DATA_SIZE-1:0] imag_out_dout;
-logic imag_empty;
+logic imag_out_empty;
+logic imag_rd_en;
 
 
 fifo #(
@@ -237,14 +239,10 @@ fifo #(
     .din(imag_out_din),
     .full(imag_out_full),
     .rd_clk(clock),
-    .rd_en(real_imag_rd_en),
+    .rd_en(imag_rd_en),
     .dout(imag_out_dout),
-    .empty(imag_empty)
+    .empty(imag_out_empty)
 );
-
-// INTERMEDIATE SIGNALS
-logic demod_input_fifos_empty;
-assign demod_input_fifos_empty = real_empty || imag_empty;
 
 // Wires from DEMODULATE to DEMOD_FIFO
 logic [DATA_SIZE-1:0] demod_out_din;
@@ -256,23 +254,26 @@ demodulate #(
 ) demodulate_inst (
     .clk(clock),
     .reset(reset),
-    .input_fifos_empty(demod_input_fifos_empty),
-    .input_rd_en(real_imag_rd_en),
+    .real_rd_en(real_rd_en),
+    .real_empty(real_out_empty),
     .real_in(real_out_dout),
+    .imag_rd_en(imag_rd_en),
+    .imag_empty(imag_out_empty),
     .imag_in(imag_out_dout),
     .demod_out(demod_out_din),
     .wr_en_out(demod_wr_en_out),
     .out_fifo_full(demod_out_full)
 );
 
-logic bp_lmr_fir_demod_rd_en;
+// FIR sync wires
+logic bp_lmr_fir_ready, bp_pilot_fir_ready, lpr_fir_ready;
 
 // Wires from DEMOD_FIFO to FIRs
 logic demod_rd_en;
-logic lpr_fir_demod_rd_en;
-logic bp_pilot_demod_rd_en;
-
-assign demod_rd_en = lpr_fir_demod_rd_en && bp_lmr_fir_demod_rd_en && bp_pilot_demod_rd_en;
+logic bp_lmr_fir_rd_en;
+logic lpr_fir_rd_en;
+logic bp_pilot_fir_rd_en;
+assign demod_rd_en = bp_lmr_fir_rd_en && lpr_fir_rd_en && bp_pilot_fir_rd_en;
 
 logic [DATA_SIZE-1:0] demod_out_dout;
 logic demod_empty;
@@ -292,97 +293,11 @@ fifo #(
     .empty(demod_empty)
 );
 
-// Wires from LPR_INST to LPR_FIFO
-logic lpr_out_wr_en;
-logic lpr_out_full;
-logic [DATA_SIZE-1:0] lpr_out_din;
+logic bp_pilot_fir_out_wr_en;
+logic bp_pilot_fir_out_full;
+logic [DATA_SIZE-1:0] bp_pilot_fir_out_din;
 
-fir #(
-    .NUM_TAPS(AUDIO_LPR_COEFF_TAPS),
-    .DECIMATION(AUDIO_DECIMATION),
-    .COEFFICIENTS(AUDIO_LPR_COEFFS)
-) lpr_fir_inst (
-    .clock(clock),
-    .reset(reset),
-    .x_in_dout(demod_out_dout),
-    .x_in_empty(demod_empty),
-    .x_in_rd_en(lpr_fir_demod_rd_en),
-    .y_out_wr_en(lpr_out_wr_en),
-    .y_out_full(lpr_out_full),
-    .y_out_din(lpr_out_din)
-);
-
-// Wires from LPR_FIFO to ADD or SUB
-logic add_lpr_rd_en;
-logic sub_lpr_rd_en;
-logic lpr_rd_en;
-assign lpr_rd_en = add_lpr_rd_en && sub_lpr_rd_en;
-logic lpr_empty;
-logic [DATA_SIZE-1:0] lpr_out_dout;
-
-fifo #(
-    .FIFO_DATA_WIDTH(DATA_SIZE),
-    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
-) lpr_fifo_inst (
-    .reset(reset),
-    .wr_clk(clock),
-    .wr_en(lpr_out_wr_en),
-    .din(lpr_out_din),
-    .full(lpr_out_full),
-    .rd_clk(clock),
-    .rd_en(lpr_rd_en),
-    .dout(lpr_out_dout),
-    .empty(lpr_empty)
-);
-
-// Wires from BP_LMR_INST to BP_LMR_FIFO
-logic bp_lmr_out_wr_en;
-logic bp_lmr_out_full;
-logic [DATA_SIZE-1:0] bp_lmr_out_din;
-
-
-fir #(
-    .NUM_TAPS(BP_LMR_COEFF_TAPS),
-    .DECIMATION(1),
-    .COEFFICIENTS(BP_LMR_COEFFS)
-) bp_lmr_fir_inst (
-    .clock(clock),
-    .reset(reset),
-    .x_in_dout(demod_out_dout),
-    .x_in_empty(demod_empty),
-    .x_in_rd_en(bp_lmr_fir_demod_rd_en),
-    .y_out_wr_en(bp_lmr_out_wr_en),
-    .y_out_full(bp_lmr_out_full),
-    .y_out_din(bp_lmr_out_din)
-);
-
-// Wires from BP_LMR_FIFO to MULT_DEMOD_LMR_INST
-logic bp_lmr_rd_en;
-logic bp_lmr_empty;
-logic [DATA_SIZE-1:0] bp_lmr_out_dout;
-
-fifo #(
-    .FIFO_DATA_WIDTH(DATA_SIZE),
-    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
-) bp_lmr_fifo_inst (
-    .reset(reset),
-    .wr_clk(clock),
-    .wr_en(bp_lmr_out_wr_en),
-    .din(bp_lmr_out_din),
-    .full(bp_lmr_out_full),
-    .rd_clk(clock),
-    .rd_en(bp_lmr_rd_en),
-    .dout(bp_lmr_out_dout),
-    .empty(bp_lmr_empty)
-);
-
-// Wires from BP_PILOT_FIR to BP_PILOT_FIFO
-logic bp_pilot_wr_en;
-logic bp_pilot_out_full;
-logic [DATA_SIZE-1:0] bp_pilot_out_din;
-
-
-fir #(
+demod_fir #(
     .NUM_TAPS(BP_PILOT_COEFF_TAPS),
     .DECIMATION(1),
     .COEFFICIENTS(BP_PILOT_COEFFS)
@@ -391,20 +306,20 @@ fir #(
     .reset(reset),
     .x_in_dout(demod_out_dout),
     .x_in_empty(demod_empty),
-    .x_in_rd_en(bp_pilot_demod_rd_en),
-    .y_out_wr_en(bp_pilot_wr_en),
-    .y_out_full(bp_pilot_out_full),
-    .y_out_din(bp_pilot_out_din)
+    .x_in_rd_en(bp_pilot_fir_rd_en),
+    .y_out_wr_en(bp_pilot_fir_out_wr_en),
+    .y_out_full(bp_pilot_fir_out_full),
+    .y_out_din(bp_pilot_fir_out_din),
+    .fir_a_ready(bp_lmr_fir_ready),
+    .fir_b_ready(lpr_fir_ready),
+    .demod_fir_ready(bp_pilot_fir_ready)
 );
 
-// Wires from BP_PILOT_FIFO to MULTIPLY
-logic x_bp_pilot_rd_en;
-logic y_bp_pilot_rd_en;
-
-logic bp_pilot_rd_en;
-assign bp_pilot_rd_en = x_bp_pilot_rd_en && y_bp_pilot_rd_en;
-logic bp_pilot_empty;
-logic [DATA_SIZE-1:0] bp_pilot_out_dout;
+// Wires from BP_PILOT_FIFO to SQUARE_BP_PILOT
+logic x_bp_pilot_fir_rd_en, y_bp_pilot_fir_rd_en;
+assign bp_pilot_fifo_rd_en = x_bp_pilot_fir_rd_en && y_bp_pilot_fir_rd_en;
+logic bp_pilot_fir_empty;
+logic [DATA_SIZE-1:0] bp_pilot_fir_out_dout;
 
 fifo #(
     .FIFO_DATA_WIDTH(DATA_SIZE),
@@ -412,18 +327,18 @@ fifo #(
 ) bp_pilot_fifo_inst (
     .reset(reset),
     .wr_clk(clock),
-    .wr_en(bp_pilot_wr_en),
-    .din(bp_pilot_out_din),
-    .full(bp_pilot_out_full),
+    .wr_en(bp_pilot_fir_out_wr_en),
+    .din(bp_pilot_fir_out_din),
+    .full(bp_pilot_fir_out_full),
     .rd_clk(clock),
-    .rd_en(bp_pilot_rd_en),
-    .dout(bp_pilot_out_dout),
-    .empty(bp_pilot_empty)
+    .rd_en(bp_pilot_fifo_rd_en),
+    .dout(bp_pilot_fir_out_dout),
+    .empty(bp_pilot_fir_empty)
 );
 
-// Wires from SQUARE_BP_PILOT to SQUARE_BP_PILOT_FIFO
-logic square_bp_pilot_wr_en;
-logic square_bp_pilot_full;
+// Wires from SQUARE_BP_PILOT_INST to SQUARE_BP_PILOT_FIFO
+logic square_bp_pilot_out_wr_en;
+logic square_bp_pilot_out_full;
 logic [DATA_SIZE-1:0] square_bp_pilot_out_din;
 
 multiply #(
@@ -431,15 +346,39 @@ multiply #(
 ) square_bp_pilot_inst (
     .clock(clock),
     .reset(reset),
-    .x_in_rd_en(x_bp_pilot_rd_en),
-    .y_in_rd_en(y_bp_pilot_rd_en),
-    .x_in_empty(bp_pilot_empty),
-    .y_in_empty(bp_pilot_empty),
-    .out_wr_en(square_bp_pilot_wr_en),
-    .out_full(square_bp_pilot_full),
-    .x(bp_pilot_out_dout),
-    .y(bp_pilot_out_dout),
+    .x_in_rd_en(x_bp_pilot_fir_rd_en),
+    .y_in_rd_en(y_bp_pilot_fir_rd_en),
+    .x_in_empty(bp_pilot_fir_empty),
+    .y_in_empty(bp_pilot_fir_empty),
+    .out_wr_en(square_bp_pilot_out_wr_en),
+    .out_full(square_bp_pilot_out_full),
+    .x(bp_pilot_fir_out_dout),
+    .y(bp_pilot_fir_out_dout),
     .dout(square_bp_pilot_out_din)
+);  
+
+
+// Wires from BP_LMR_INST to BP_LMR_FIFO
+logic bp_lmr_out_wr_en;
+logic bp_lmr_out_full;
+logic [DATA_SIZE-1:0] bp_lmr_out_din;
+
+demod_fir #(
+    .NUM_TAPS(BP_LMR_COEFF_TAPS),
+    .DECIMATION(1),
+    .COEFFICIENTS(BP_LMR_COEFFS)
+) bp_lmr_fir_inst (
+    .clock(clock),
+    .reset(reset),
+    .x_in_dout(demod_out_dout),
+    .x_in_empty(demod_empty),
+    .x_in_rd_en(bp_lmr_fir_rd_en),
+    .y_out_wr_en(bp_lmr_out_wr_en),
+    .y_out_full(bp_lmr_out_full),
+    .y_out_din(bp_lmr_out_din),
+    .fir_a_ready(bp_pilot_fir_ready),
+    .fir_b_ready(lpr_fir_ready),
+    .demod_fir_ready(bp_lmr_fir_ready)
 );
 
 // Wires from SQUARE_BP_PILOT_FIFO to HP_FIR (high-pass FIR)
@@ -453,9 +392,9 @@ fifo #(
 ) square_bp_pilot_fifo_inst (
     .reset(reset),
     .wr_clk(clock),
-    .wr_en(square_bp_pilot_wr_en),
+    .wr_en(square_bp_pilot_out_wr_en),
     .din(square_bp_pilot_out_din),
-    .full(square_bp_pilot_full),
+    .full(square_bp_pilot_out_full),
     .rd_clk(clock),
     .rd_en(square_bp_pilot_rd_en),
     .dout(square_bp_pilot_out_dout),
@@ -503,6 +442,27 @@ fifo #(
     .empty(hp_pilot_empty)
 );
 
+
+// Wires from BP_LMR_FIFO to MULT_DEMOD_LMR_INST
+logic bp_lmr_rd_en;
+logic bp_lmr_empty;
+logic [DATA_SIZE-1:0] bp_lmr_out_dout;
+
+fifo #(
+    .FIFO_DATA_WIDTH(DATA_SIZE),
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
+) bp_lmr_fifo_inst (
+    .reset(reset),
+    .wr_clk(clock),
+    .wr_en(bp_lmr_out_wr_en),
+    .din(bp_lmr_out_din),
+    .full(bp_lmr_out_full),
+    .rd_clk(clock),
+    .rd_en(bp_lmr_rd_en),
+    .dout(bp_lmr_out_dout),
+    .empty(bp_lmr_empty)
+);
+
 // Wires from MULT_DEMOD_LMR_INST to MULT_DEMOD_LMR_FIFO
 logic mult_demod_lmr_wr_en;
 logic mult_demod_lmr_full;
@@ -524,6 +484,52 @@ multiply #(
     .dout(mult_demod_lmr_out_din)
 );
 
+// Wires from LPR_INST to LPR_FIFO
+logic lpr_out_wr_en;
+logic lpr_out_full;
+logic [DATA_SIZE-1:0] lpr_out_din;
+
+demod_fir #(
+    .NUM_TAPS(AUDIO_LPR_COEFF_TAPS),
+    .DECIMATION(AUDIO_DECIMATION),
+    .COEFFICIENTS(AUDIO_LPR_COEFFS)
+) lpr_fir_inst (
+    .clock(clock),
+    .reset(reset),
+    .x_in_dout(demod_out_dout),
+    .x_in_empty(demod_empty),
+    .x_in_rd_en(lpr_fir_rd_en),
+    .y_out_wr_en(lpr_out_wr_en),
+    .y_out_full(lpr_out_full),
+    .y_out_din(lpr_out_din),
+    .fir_a_ready(bp_lmr_fir_ready),
+    .fir_b_ready(bp_pilot_fir_ready),
+    .demod_fir_ready(lpr_fir_ready)
+);
+
+// Wires from LPR_FIFO to ADD or SUB
+logic add_lpr_rd_en;
+logic sub_lpr_rd_en;
+logic lpr_rd_en;
+assign lpr_rd_en = add_lpr_rd_en && sub_lpr_rd_en;
+logic lpr_empty;
+logic [DATA_SIZE-1:0] lpr_out_dout;
+
+fifo #(
+    .FIFO_DATA_WIDTH(DATA_SIZE),
+    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
+) lpr_fifo_inst (
+    .reset(reset),
+    .wr_clk(clock),
+    .wr_en(lpr_out_wr_en),
+    .din(lpr_out_din),
+    .full(lpr_out_full),
+    .rd_clk(clock),
+    .rd_en(lpr_rd_en),
+    .dout(lpr_out_dout),
+    .empty(lpr_empty)
+);
+
 // Wires from MULT_DEMOD_FIFO to LMR_FIR
 logic mult_demod_lmr_rd_en;
 logic mult_demod_lmr_empty;
@@ -532,7 +538,7 @@ logic [DATA_SIZE-1:0] mult_demod_lmr_out_dout;
 fifo #(
     .FIFO_DATA_WIDTH(DATA_SIZE),
     .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
-) mult_demod_lmr_fifo (
+) mult_demod_lmr_fifo_inst (
     .reset(reset),
     .wr_clk(clock),
     .wr_en(mult_demod_lmr_wr_en),
@@ -588,6 +594,7 @@ fifo #(
     .dout(lmr_out_dout),
     .empty(lmr_empty)
 );
+
 
 // Wires from ADD_INST to ADD_FIFO
 logic left_wr_en;

@@ -30,7 +30,7 @@
 @N: CG333 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":53875:12:53875:23|Read directive translate_on.
 @N: CG334 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":54140:12:54140:24|Read directive translate_off.
 @N: CG333 :"/vol/synopsys/fpga/O-2018.09-SP1/lib/altera/quartus_prime181/altera_mf.v":54154:12:54154:23|Read directive translate_on.
-@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":4:0:4:9|Synthesizing module work_/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv_unit in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":4:0:4:9|Synthesizing module work_/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv_unit in library work.
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":2:7:2:10|Synthesizing module fifo in library work.
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv":3:7:3:13|Synthesizing module read_iq in library work.
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":2:7:2:10|Synthesizing module fifo in library work.
@@ -48,9 +48,9 @@
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/sub.sv":3:7:3:9|Synthesizing module sub in library work.
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/iir.sv":3:7:3:9|Synthesizing module iir in library work.
 @N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv":3:7:3:10|Synthesizing module gain in library work.
-@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio_test.sv":3:7:3:19|Synthesizing module fm_radio_test in library work.
+@N: CG364 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv":3:7:3:14|Synthesizing module fm_radio in library work.
 @N|Running in 64-bit mode
-@N: NF107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio_test.sv":3:7:3:19|Selected library: work cell: fm_radio_test view verilog as top level
-@N: NF107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio_test.sv":3:7:3:19|Selected library: work cell: fm_radio_test view verilog as top level
+@N: NF107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv":3:7:3:14|Selected library: work cell: fm_radio view verilog as top level
+@N: NF107 :"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv":3:7:3:14|Selected library: work cell: fm_radio view verilog as top level
 @N|Running in 64-bit mode
 

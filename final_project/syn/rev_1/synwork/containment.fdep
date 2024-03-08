@@ -10,7 +10,8 @@
 #CUR:"/vol/synopsys/fpga/O-2018.09-SP1/lib/synip/hcei/zceistubs.v":1543381931
 #CUR:"/vol/synopsys/fpga/O-2018.09-SP1/lib/vlog/scemi_objects.v":1543382268
 #CUR:"/vol/synopsys/fpga/O-2018.09-SP1/lib/vlog/scemi_pipes.svh":1543382268
-#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":1709764929
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":1709841684
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv":1709862541
 #CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/add.sv":1709766258
 #CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":1709841684
 #CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/sub.sv":1709766325
@@ -35,12 +36,11 @@
 #CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":1709841684
 #CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv":1709850690
 #CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":1709841684
+#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv":1709862502
 #CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":1709841684
-#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio_test.sv":1709852381
-#CUR:"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv":1709841684
-0			"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv" verilog
-1			"/home/mwp8699/CE387-Assignments/final_project/sv/add.sv" verilog
-2		*	"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv" verilog
+0			"/home/mwp8699/CE387-Assignments/final_project/sv/globals.sv" verilog
+1			"/home/mwp8699/CE387-Assignments/final_project/sv/fifo.sv" verilog
+2			"/home/mwp8699/CE387-Assignments/final_project/sv/add.sv" verilog
 3			"/home/mwp8699/CE387-Assignments/final_project/sv/sub.sv" verilog
 4			"/home/mwp8699/CE387-Assignments/final_project/sv/div.sv" verilog
 5			"/home/mwp8699/CE387-Assignments/final_project/sv/qarctan.sv" verilog
@@ -52,27 +52,27 @@
 11			"/home/mwp8699/CE387-Assignments/final_project/sv/gain.sv" verilog
 12			"/home/mwp8699/CE387-Assignments/final_project/sv/read_iq.sv" verilog
 13			"/home/mwp8699/CE387-Assignments/final_project/sv/demodulate.sv" verilog
-14			"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio_test.sv" verilog
+14			"/home/mwp8699/CE387-Assignments/final_project/sv/fm_radio.sv" verilog
 #Dependency Lists(Uses List)
-0 2 1
-1 1 2
-2 2 1
-3 1 2
-4 1 2
-5 1 4 2
-6 1 2
-7 1 2
-8 1 2
-9 1 2
-10 1 2
-11 1 2
-12 1 2
-13 1 5 2
-14 12 9 13 6 8 7 1 3 10 11 0 2
+0 0
+1 0
+2 0
+3 0
+4 0
+5 4 0
+6 0
+7 0
+8 0
+9 0
+10 0
+11 0
+12 0
+13 5 0
+14 12 9 13 6 8 7 2 3 10 11 1 0
 #Dependency Lists(Users Of)
-0 14
-1 0 14 13 12 11 10 9 8 7 6 5 4 3 2
-2 0 14 13 12 11 10 9 8 7 6 5 4 3 2 1
+0 1 14 13 12 11 10 9 8 7 6 5 4 3 2 0
+1 14
+2 14
 3 14
 4 5
 5 13
@@ -86,7 +86,7 @@
 13 14
 14 -1
 #Design Unit to File Association
-module work fm_radio_test 14
+module work fm_radio 14
 module work demodulate 13
 module work read_iq 12
 module work gain 11
@@ -98,5 +98,5 @@ module work multiply 6
 module work qarctan 5
 module work div 4
 module work sub 3
-module work add 1
-module work fifo 0
+module work add 2
+module work fifo 1

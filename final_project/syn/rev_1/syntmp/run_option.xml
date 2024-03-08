@@ -3,12 +3,12 @@
   Synopsys, Inc.
   Version O-2018.09-SP1
   Project file /home/mwp8699/CE387-Assignments/final_project/syn/rev_1/syntmp/run_option.xml
-  Written on Thu Mar  7 17:18:55 2024
+  Written on Thu Mar  7 19:49:08 2024
 
 
 --> 
 <project_attribute_list name="Project Settings"> 
-     <option name="project_name" display_name="Project Name">fm_radio_test</option>
+     <option name="project_name" display_name="Project Name">fm_radio</option>
      <option name="device_name" display_name="Device Name">rev_1: Intel CYCLONE IV E : EP4CE6</option>
      <option name="impl_name" display_name="Implementation Name">rev_1</option>
      <option name="top_module" display_name="Top Module"></option>

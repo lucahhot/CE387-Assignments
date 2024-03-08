@@ -16,50 +16,50 @@ Max Top 5 critical clocks will be reported. For rest user needs to refer to Deta
 </row>
 <row>
 <data>add|state_derived_clock</data>
-<data>38.1 MHz</data>
+<data>100.0 MHz</data>
 <data>238.2 MHz</data>
-<data>26.034</data>
+<data>9.807</data>
 </row>
 <row>
 <data>div_32s_32s|state_derived_clock[5]</data>
-<data>38.1 MHz</data>
+<data>100.0 MHz</data>
 <data>255.5 MHz</data>
-<data>22.313</data>
+<data>6.086</data>
 </row>
 <row>
-<data>fm_radio_test|clock</data>
-<data>38.1 MHz</data>
-<data>32.4 MHz</data>
-<data>-4.628</data>
+<data>fm_radio|clock</data>
+<data>100.0 MHz</data>
+<data>82.9 MHz</data>
+<data>-2.061</data>
 </row>
 <row>
 <data>gain_32s_10s_0|state_derived_clock[0]</data>
-<data>38.1 MHz</data>
+<data>100.0 MHz</data>
 <data>166.5 MHz</data>
-<data>25.974</data>
+<data>5.315</data>
 </row>
 <row>
 <data>gain_32s_10s_1|state_derived_clock[0]</data>
-<data>38.1 MHz</data>
+<data>100.0 MHz</data>
 <data>110.5 MHz</data>
-<data>25.974</data>
+<data>5.048</data>
 </row>
 <row>
 <data>multiply_32s_0|state_derived_clock[0]</data>
-<data>38.1 MHz</data>
-<data>203.1 MHz</data>
-<data>25.909</data>
+<data>100.0 MHz</data>
+<data>167.7 MHz</data>
+<data>9.683</data>
 </row>
 <row>
 <data>multiply_32s_1|state_derived_clock[0]</data>
-<data>38.1 MHz</data>
-<data>210.0 MHz</data>
-<data>25.909</data>
+<data>100.0 MHz</data>
+<data>210.6 MHz</data>
+<data>9.683</data>
 </row>
 <row>
 <data>System</data>
-<data>717.1 MHz</data>
-<data>609.6 MHz</data>
-<data>-0.246</data>
+<data>100.0 MHz</data>
+<data>611.8 MHz</data>
+<data>8.366</data>
 </row>
 </report_table>

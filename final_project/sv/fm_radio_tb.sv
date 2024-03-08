@@ -32,7 +32,7 @@ logic in_full;
 logic in_wr_en;
 logic signed [BYTE_SIZE-1:0] data_in;
 
-fm_radio_test #(
+fm_radio #(
     .DATA_SIZE(DATA_SIZE),
     .CHAR_SIZE(CHAR_SIZE),
     .BYTE_SIZE(BYTE_SIZE),
@@ -64,7 +64,7 @@ fm_radio_test #(
     .data_in(data_in),
     .left_audio_out(left_audio_out),
     .left_audio_empty(left_audio_empty),
-    .left_audio_rd_en(left_audio_rd_en),     // don't forget comma
+    .left_audio_rd_en(left_audio_rd_en),
     .right_audio_out(right_audio_out),
     .right_audio_empty(right_audio_empty),
     .right_audio_rd_en(right_audio_rd_en)
