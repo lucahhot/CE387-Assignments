@@ -5,7 +5,6 @@ module qarctan
     input   logic                   clk,
     input   logic                   reset,
     input   logic                   demod_data_valid,
-    output  logic                   divider_ready,
     input   logic [DATA_SIZE-1:0]   x,
     input   logic [DATA_SIZE-1:0]   y,
     output  logic [DATA_SIZE-1:0]   data_out,
@@ -16,7 +15,7 @@ module qarctan
 const logic [DATA_SIZE-1:0] QUAD_ONE = 32'h00000324;
 const logic [DATA_SIZE-1:0] QUAD_THREE = 32'h0000096c;
 
-typedef enum logic [1:0] {READY, MULTIPLY, ANGLE} state_t;
+typedef enum logic [1:0] {READY,MULTIPLY,ANGLE,OUTPUT} state_t;
 state_t state, next_state;
 
 // Signals to and from the divider
@@ -38,6 +37,9 @@ logic [DATA_SIZE-1:0] quant_x_plus_abs_y;
 // quad_product register
 logic [DATA_SIZE-1:0] quad_product, quad_product_c;
 
+// Data_temp registers
+logic [DATA_SIZE-1:0] data_out_temp, data_out_temp_c;
+
 div #(
     .DIVIDEND_WIDTH(DATA_SIZE),
     .DIVISOR_WIDTH(DATA_SIZE)
@@ -57,9 +59,11 @@ always_ff @(posedge clk or posedge reset) begin
     if (reset == 1'b1) begin
         state <= READY;
         quad_product <= '0;
+        data_out_temp <= '0;
     end else begin
         state <= next_state;
         quad_product <= quad_product_c;
+        data_out_temp <= data_out_temp_c;
     end
 end
 
@@ -67,9 +71,8 @@ always_comb begin
     // Output the current readiness of the divider
     qarctan_done = 1'b0;;
     data_out = '0;
-    divider_ready = (state == READY);
-
     quad_product_c = quad_product;
+    data_out_temp_c = data_out_temp;
 
     // Default start_div assignment
     start_div = 1'b0;
@@ -129,10 +132,25 @@ always_comb begin
             else 
                 angle = ($signed(QUAD_THREE) - $signed(DEQUANTIZE(quad_product)));
 
-            // Assign output
-            data_out = ($signed(y) < 0) ? -$signed(angle) : angle;
+            data_out_temp_c = ($signed(y) < 0) ? -$signed(angle) : angle;
+            next_state = OUTPUT;
+        end
+
+        OUTPUT: begin
+            // Write output back to demodulate
+            // This is an important stage to have since demodulate does a multiplication and dequantization 
+            // in the same cycle as this is being outputted
             qarctan_done = 1'b1;
+            data_out = data_out_temp;
             next_state = READY;
+        end
+
+        default: begin
+            data_out = '0;
+            qarctan_done = 1'b0;
+            quad_product_c = 'X;
+            start_div = 1'b0;
+            data_out_temp_c = 'X;
         end
 
     endcase

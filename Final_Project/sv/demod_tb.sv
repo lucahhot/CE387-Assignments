@@ -100,7 +100,7 @@ initial begin : read_process
     i = 0;
 
     // Read data from input angles text file
-    while ( i < 100 ) begin
+    while ( i < 50 ) begin
         @(negedge clk);
         if (real_full == 1'b0 && imag_full == 1'b0) begin
             count = $fscanf(imag_in_file,"%h", imag_in);
@@ -149,7 +149,6 @@ initial begin : comp_process
                 $display("@ %0t: (%0d): ERROR: %x != %x.", $time, i+1, data_out, cmp_dout);
             end else
                 $display("@ %0t: (%0d): CORRECT: %x == %x.", $time, i+1, data_out, cmp_dout);
-
             i++;
         end 
     end

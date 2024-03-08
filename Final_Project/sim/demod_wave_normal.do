@@ -8,6 +8,12 @@ add wave -noupdate -group demod_tb/demod_top_inst -radix hexadecimal /demod_tb/d
 add wave -noupdate -group demod_tb/demod_top_inst/demod_inst
 add wave -noupdate -group demod_tb/demod_top_inst/demod_inst -radix hexadecimal /demod_tb/demod_top_inst/demod_inst/*
 
+add wave -noupdate -group demod_tb/demod_top_inst/demod_inst/qarctan_inst
+add wave -noupdate -group demod_tb/demod_top_inst/demod_inst/qarctan_inst -radix hexadecimal /demod_tb/demod_top_inst/demod_inst/qarctan_inst/*
+
+add wave -noupdate -group demod_tb/demod_top_inst/demod_inst/qarctan_inst/divider_inst
+add wave -noupdate -group demod_tb/demod_top_inst/demod_inst/qarctan_inst/divider_inst -radix hexadecimal /demod_tb/demod_top_inst/demod_inst/qarctan_inst/divider_inst/*
+
 add wave -noupdate -group demod_tb/demod_top_inst/real_input_fifo
 add wave -noupdate -group demod_tb/demod_top_inst/real_input_fifo -radix hexadecimal /demod_tb/demod_top_inst/real_input_fifo/*
 
