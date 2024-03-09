@@ -35,6 +35,8 @@ vsim -classdebug -voptargs=+acc +notimingchecks -L work work.fm_radio_uvm_tb -wl
 
 # do fm_radio_wave.do
 
+do fm_radio_uvm_wave.do
+
 run -all 
 
 #quit;
