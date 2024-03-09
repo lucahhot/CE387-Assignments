@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version O-2018.09-SP1
 #--  Project file /home/laa8390/Documents/CE387/CE387-Assignments/Final_Project/syn/div.prj
-#--  Written on Thu Mar  7 14:15:37 2024
+#--  Written on Fri Mar  8 18:04:13 2024
 
 
 #project files
@@ -24,8 +24,8 @@ set_option -job par_1 -add par
 
 #device options
 set_option -technology CYCLONEIV-E
-set_option -part EP4CE6
-set_option -package EA22
+set_option -part EP4CE115
+set_option -package FC23
 set_option -speed_grade -7
 set_option -part_companion ""
 

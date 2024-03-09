@@ -10,39 +10,18 @@ module fm_radio_uvm_tb;
 
     fm_radio_uvm_if vif();
 
-    fm_radio #(
-    .DATA_SIZE(DATA_SIZE),
-    .CHAR_SIZE(CHAR_SIZE),
-    .BYTE_SIZE(BYTE_SIZE),
-    .BITS(BITS),
-    .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE),
-    .AUDIO_DECIMATION(AUDIO_DECIMATION),
-    .CHANNEL_COEFF_TAPS(CHANNEL_COEFF_TAPS),
-    .CHANNEL_COEFFICIENTS_REAL(CHANNEL_COEFFICIENTS_REAL),
-    .CHANNEL_COEFFICIENTS_IMAG(CHANNEL_COEFFICIENTS_IMAG),
-    .AUDIO_LPR_COEFF_TAPS(AUDIO_LPR_COEFF_TAPS),
-    .AUDIO_LPR_COEFFS(AUDIO_LPR_COEFFS),
-    .AUDIO_LMR_COEFF_TAPS(AUDIO_LMR_COEFF_TAPS),
-    .AUDIO_LMR_COEFFS(AUDIO_LMR_COEFFS),
-    .BP_LMR_COEFF_TAPS(BP_LMR_COEFF_TAPS),
-    .BP_LMR_COEFFS(BP_LMR_COEFFS),
-    .BP_PILOT_COEFF_TAPS(BP_PILOT_COEFF_TAPS),
-    .BP_PILOT_COEFFS(BP_PILOT_COEFFS),
-    .HP_COEFF_TAPS(HP_COEFF_TAPS),
-    .HP_COEFFS(HP_COEFFS),
-    .GAIN(GAIN)
-    ) fm_radio_inst (
+    fm_radio fm_radio_inst (
         .clock(vif.clock),
         .reset(vif.reset),
         .in_full(vif.in_full),
         .in_wr_en(vif.in_wr_en),
-        .data_din(vif.data_din),
+        .data_in(vif.data_in),
         .left_audio_empty(vif.left_audio_empty),
         .left_audio_rd_en(vif.left_audio_rd_en),
-        .left_audio_dout(vif.left_audio_dout),
+        .left_audio_out(vif.left_audio_out),
         .right_audio_empty(vif.right_audio_empty),
         .right_audio_rd_en(vif.right_audio_rd_en),
-        .right_audio_dout(vif.right_audio_dout)
+        .right_audio_out(vif.right_audio_out)
     );
 
     initial begin
@@ -68,8 +47,6 @@ module fm_radio_uvm_tb;
     always
         #(CLOCK_PERIOD/2) vif.clock = ~vif.clock;
 endmodule
-
-
 
 
 

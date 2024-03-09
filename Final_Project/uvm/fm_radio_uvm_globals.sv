@@ -1,6 +1,8 @@
 `ifndef __GLOBALS__
 `define __GLOBALS__
 
+localparam CLOCK_PERIOD = 10;
+localparam NUM_INPUTS = 32000;
 localparam BITS = 10;
 localparam QUANT_VAL = (1 << BITS);
 localparam BYTE_SIZE = 8;
@@ -13,7 +15,7 @@ localparam string FILE_IN_FILE = "../test/usrp.dat";
 localparam string FILE_LEFT_OUT_FILE = "../source/output_files/fm_radio_left_sim_out.txt";
 localparam string FILE_RIGHT_OUT_FILE = "../source/output_files/fm_radio_right_sim_out.txt";
 localparam string FILE_LEFT_CMP_FILE = "../source/text_files/gain_left.txt";
-localparam string FILE_RIGHT_OUT_FILE = "../source/text_files/gain_right.txt";
+localparam string FILE_RIGHT_CMP_FILE = "../source/text_files/gain_right.txt";
 localparam GAIN = 1;
 
 parameter CHANNEL_COEFF_TAPS = 20;
@@ -32,7 +34,7 @@ parameter  AUDIO_LPR_COEFF_TAPS = 32;
 
 parameter logic signed [0:AUDIO_LPR_COEFF_TAPS-1] [DATA_SIZE-1:0] AUDIO_LPR_COEFFS = '{
     32'hfffffffd, 32'hfffffffa, 32'hfffffff4, 32'hffffffed, 32'hffffffe5, 32'hffffffdf, 32'hffffffe2, 32'hfffffff3, 
-    32'h00000015, 32'h00000043, 32'h0000009b, 32'h000000f9, 32'h0000015d, 32'h000001be, 32'h0000020e, 32'h00000243, 
+    32'h00000015, 32'h0000004e, 32'h0000009b, 32'h000000f9, 32'h0000015d, 32'h000001be, 32'h0000020e, 32'h00000243, 
     32'h00000243, 32'h0000020e, 32'h000001be, 32'h0000015d, 32'h000000f9, 32'h0000009b, 32'h0000004e, 32'h00000015, 
     32'hfffffff3, 32'hffffffe2, 32'hffffffdf, 32'hffffffe5, 32'hffffffed, 32'hfffffff4, 32'hfffffffa, 32'hfffffffd
 };
@@ -83,59 +85,18 @@ parameter logic signed [0:IIR_COEFF_TAPS-1] [DATA_SIZE-1:0] IIR_X_COEFFS = '{32'
 
 // DEQUANTIZE function
 function logic signed [DATA_SIZE-1:0] DEQUANTIZE(logic signed [DATA_SIZE-1:0] i);
-    DEQUANTIZE = DATA_SIZE'(i >>> BITS);
+    // Arithmetic right shift doesn't work well with negative number rounding so switch the sign 
+    // to perform the right shift then apply the negative sign to the results
+    if (i < 0) 
+        DEQUANTIZE = DATA_SIZE'(-(-i >>> BITS));
+    else 
+        DEQUANTIZE = DATA_SIZE'(i >>> BITS);
 endfunction
 
 // QUANTIZE function
-function logic signed [DATA_SIZE_2-1:0] QUANTIZE(logic signed [DATA_SIZE_2-1:0] i);
-    QUANTIZE = i << BITS;
-endfunction
-
-// Multiply function using trucation (assumed quantized inputs)
-function logic signed [DATA_SIZE-1:0] MULTIPLY_TRUNCATION(logic signed [DATA_SIZE-1:0] x, logic signed [DATA_SIZE-1:0] y);
-
-    // Perform truncation multiplication
-    logic signed [DATA_SIZE_2-1:0] temp;
-    temp = DATA_SIZE_2'(x) * DATA_SIZE_2'(y);
-    // Shift the fixed point back and truncate the output
-    MULTIPLY_TRUNCATION = DATA_SIZE'(DEQUANTIZE(temp));   
-
-endfunction
-
-// Multiply function using rounding & saturation (assumed quantized inputs)
-function logic signed [DATA_SIZE-1:0] MULTIPLY_ROUNDING(logic signed [DATA_SIZE-1:0] x, logic signed [DATA_SIZE-1:0] y);
-
-    logic signed [DATA_SIZE_2-1:0] temp;
-    temp = DATA_SIZE_2'(x) * DATA_SIZE_2'(y);
-    // Add 1/2 to give correct rounding 
-    temp = temp + (1 << BITS - 1);
-    // Saturate result
-    if (temp > $signed(MAX_VALUE))
-        MULTIPLY_ROUNDING = MAX_VALUE;
-    else if (temp < $signed(MIN_VALUE))
-        MULTIPLY_ROUNDING = MIN_VALUE;
-    // Dequantize temp
-    MULTIPLY_ROUNDING = DATA_SIZE'(DEQUANTIZE(temp));   
-
-endfunction
-
-// Multiply function using rounding & saturation (assumed quantized inputs) but no DEQUANTIZATION
-function logic signed [DATA_SIZE_2-1:0] MULTIPLY_ROUNDING_NODEQUANTIZE(logic signed [DATA_SIZE-1:0] x, logic signed [DATA_SIZE-1:0] y);
-
-    logic signed [DATA_SIZE_2-1:0] temp;
-    temp = DATA_SIZE_2'(x) * DATA_SIZE_2'(y);
-    // Add 1/2 to give correct rounding 
-    temp = temp + (1 << BITS - 1);
-    // Saturate result
-    if (temp > $signed(MAX_VALUE))
-        MULTIPLY_ROUNDING_NODEQUANTIZE = MAX_VALUE;
-    else if (temp < $signed(MIN_VALUE))
-        MULTIPLY_ROUNDING_NODEQUANTIZE = MIN_VALUE;
-    // Since we do not shift the fixed point back, we do not truncate output
-    MULTIPLY_ROUNDING_NODEQUANTIZE = temp;   
-
+function logic signed [DATA_SIZE-1:0] QUANTIZE(logic signed [DATA_SIZE-1:0] i);
+    QUANTIZE = DATA_SIZE'(i << BITS);
 endfunction
 
 
 `endif
-

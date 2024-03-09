@@ -1,12 +1,14 @@
 #--  Synopsys, Inc.
 #--  Version O-2018.09-SP1
 #--  Project file /home/laa8390/Documents/CE387/CE387-Assignments/Final_Project/syn/fir.prj
-#--  Written on Fri Mar  8 11:30:54 2024
+#--  Written on Fri Mar  8 16:47:33 2024
 
 
 #project files
 add_file -verilog -vlog_std sysv "../sv/globals.sv"
 add_file -verilog -vlog_std sysv "../sv/fir.sv"
+add_file -verilog -vlog_std sysv "../sv/fifo.sv"
+add_file -verilog -vlog_std sysv "../sv/fir_top.sv"
 
 
 
@@ -24,13 +26,14 @@ set_option -job par_1 -add par
 
 #device options
 set_option -technology CYCLONEIV-E
-set_option -part EP4CE6
-set_option -package EA22
+set_option -part EP4CE115
+set_option -package FC23
 set_option -speed_grade -7
 set_option -part_companion ""
 
 #compilation/mapping options
 set_option -use_fsm_explorer 1
+set_option -top_module "fir_top"
 
 # hdl_compiler_options
 set_option -distributed_compile 1

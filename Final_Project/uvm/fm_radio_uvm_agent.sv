@@ -5,7 +5,7 @@ class fm_radio_uvm_agent extends uvm_agent;
 
     `uvm_component_utils(fm_radio_uvm_agent)
 
-    uvm_analysis_port#(fm_radio_results_uvm_transaction) agent_ap_output;
+    uvm_analysis_port#(fm_radio_uvm_transaction) agent_ap_output;
     uvm_analysis_port#(fm_radio_uvm_transaction) agent_ap_compare;
 
     fm_radio_uvm_sequencer        seqr;

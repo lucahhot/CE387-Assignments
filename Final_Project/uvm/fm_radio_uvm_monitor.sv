@@ -5,7 +5,7 @@ import uvm_pkg::*;
 class fm_radio_uvm_monitor_output extends uvm_monitor;
     `uvm_component_utils(fm_radio_uvm_monitor_output)
 
-    uvm_analysis_port#(fm_radio_results_uvm_transaction) mon_ap_output;
+    uvm_analysis_port#(fm_radio_uvm_transaction) mon_ap_output;
 
     virtual fm_radio_uvm_if vif;
     int left_out_file, right_out_file;
@@ -21,23 +21,23 @@ class fm_radio_uvm_monitor_output extends uvm_monitor;
         mon_ap_output = new(.name("mon_ap_output"), .parent(this));
 
         left_out_file = $fopen(FILE_LEFT_OUT_FILE, "wb");
-        if ( !out_file ) begin
+        if ( !left_out_file ) begin
             `uvm_fatal("MON_OUT_BUILD", $sformatf("Failed to open output file %s...", FILE_LEFT_OUT_FILE));
         end
         right_out_file = $fopen(FILE_RIGHT_OUT_FILE, "wb");
-        if ( !out_file ) begin
+        if ( !right_out_file ) begin
             `uvm_fatal("MON_OUT_BUILD", $sformatf("Failed to open output file %s...", FILE_RIGHT_OUT_FILE));
         end
     endfunction: build_phase
 
     virtual task run_phase(uvm_phase phase);
-        fm_radio_results_uvm_transaction tx_out;
+        fm_radio_uvm_transaction tx_out;
         int left_out, right_out;
         // wait for reset
         @(posedge vif.reset)
         @(negedge vif.reset)
 
-        tx_out = fm_radio_results_uvm_transaction::type_id::create(.name("tx_out"), .contxt(get_full_name()));
+        tx_out = fm_radio_uvm_transaction::type_id::create(.name("tx_out"), .contxt(get_full_name()));
 
         vif.left_audio_rd_en = 1'b0;
         vif.right_audio_rd_en = 1'b0;
@@ -48,8 +48,8 @@ class fm_radio_uvm_monitor_output extends uvm_monitor;
                 if (vif.left_audio_empty == 1'b0 && vif.right_audio_empty == 1'b0) begin
                     left_out = vif.left_audio_out;  
                     right_out = vif.right_audio_out;
-                    $fwrite(left_out_file, "%x",left_out);
-                    $fwrite(right_out_file, "%x",right_out);
+                    $fwrite(left_out_file, "%x\n",left_out);
+                    $fwrite(right_out_file, "%x\n",right_out);
                     tx_out.audio_left_output = vif.left_audio_out;
                     tx_out.audio_right_output = vif.right_audio_out;
                     mon_ap_output.write(tx_out);
@@ -67,7 +67,7 @@ class fm_radio_uvm_monitor_output extends uvm_monitor;
         super.final_phase(phase);
         `uvm_info("MON_OUT_FINAL", $sformatf("Closing file %s...", FILE_LEFT_OUT_FILE), UVM_LOW);
         $fclose(left_out_file);
-        `uvm_info("MON_OUT_FINAL", $sformatf("Closing file %s...", FILE_RIGHT_OUT_NAME), UVM_LOW);
+        `uvm_info("MON_OUT_FINAL", $sformatf("Closing file %s...", FILE_RIGHT_OUT_FILE), UVM_LOW);
         $fclose(right_out_file);
     endfunction: final_phase
 
@@ -93,20 +93,20 @@ class fm_radio_uvm_monitor_compare extends uvm_monitor;
         mon_ap_compare = new(.name("mon_ap_compare"), .parent(this));
 
         left_cmp_file = $fopen(FILE_LEFT_CMP_FILE, "rb");
-        if ( !cmp_file ) begin
+        if ( !left_cmp_file ) begin
             `uvm_fatal("MON_CMP_BUILD", $sformatf("Failed to open file %s...", FILE_LEFT_CMP_FILE));
         end
 
         right_cmp_file = $fopen(FILE_RIGHT_CMP_FILE, "rb");
-        if ( !cmp_file ) begin
+        if ( !right_cmp_file ) begin
             `uvm_fatal("MON_CMP_BUILD", $sformatf("Failed to open file %s...", FILE_RIGHT_CMP_FILE));
         end
 
     endfunction: build_phase
 
     virtual task run_phase(uvm_phase phase);
-        int i=0;
-        fm_radio_results_uvm_transaction tx_cmp;
+        int i=0, m_bytes, n_bytes;
+        fm_radio_uvm_transaction tx_cmp;
         logic [31:0] left_cmp_out, right_cmp_out;
 
         // extend the run_phase 20 clock cycles
@@ -125,9 +125,9 @@ class fm_radio_uvm_monitor_compare extends uvm_monitor;
         while (i < 100/AUDIO_DECIMATION) begin
             @(negedge vif.clock)
             if (vif.left_audio_empty == 1'b0 && vif.right_audio_empty == 1'b0) begin
-                n_bytes = $fscanf(left_cmp_file, "%h", left_cmp_out)
+                m_bytes = $fscanf(left_cmp_file, "%h", left_cmp_out);
                 tx_cmp.audio_left_output = left_cmp_out;
-                n_bytes = $fscanf(right_cmp_file, "%h", right_cmp_out)
+                n_bytes = $fscanf(right_cmp_file, "%h", right_cmp_out);
                 tx_cmp.audio_right_output = right_cmp_out;
                 mon_ap_compare.write(tx_cmp);
                 i++;

@@ -33,9 +33,6 @@ logic   out_read_done = '0;
 integer out_errors    = '0;
 
 iir_top #(
-    .NUM_TAPS(NUM_TAPS),
-    .IIR_X_COEFFS(IIR_X_COEFFS),
-    .IIR_Y_COEFFS(IIR_Y_COEFFS),
     .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
 ) iir_top_inst (
     .clock(clock),
@@ -90,7 +87,7 @@ end
 initial begin : data_read_process
 
     int in_file;
-    int i = 0, j;
+    int i, j;
 
     @(negedge reset);
     $display("@ %0t: Loading file %s...", $time, FILE_IN_NAME);
@@ -99,8 +96,9 @@ initial begin : data_read_process
     x_in_wr_en = 1'b0;
     @(negedge clock);
 
+    i = 0;
     // Only read the first 200 values of data
-    while (i < 10) begin
+    while (i < 200) begin
  
         @(negedge clock);
         if (x_in_full == 1'b0) begin
@@ -134,7 +132,7 @@ initial begin : data_write_process
     y_out_rd_en = 1'b0;
 
     i = 0;
-    while (i < 10) begin
+    while (i < 200) begin
         @(negedge clock);
         y_out_rd_en = 1'b0;
         if (y_out_empty == 1'b0) begin

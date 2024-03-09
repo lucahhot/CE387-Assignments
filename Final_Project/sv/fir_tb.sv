@@ -16,6 +16,14 @@ logic done  = '0;
 
 localparam FIFO_BUFFER_SIZE = 16;
 localparam DECIMATION = 8;
+parameter  AUDIO_LPR_COEFF_TAPS = 32;
+
+parameter logic signed [0:AUDIO_LPR_COEFF_TAPS-1] [DATA_SIZE-1:0] AUDIO_LPR_COEFFS = '{
+    32'hfffffffd, 32'hfffffffa, 32'hfffffff4, 32'hffffffed, 32'hffffffe5, 32'hffffffdf, 32'hffffffe2, 32'hfffffff3, 
+    32'h00000015, 32'h0000004e, 32'h0000009b, 32'h000000f9, 32'h0000015d, 32'h000001be, 32'h0000020e, 32'h00000243, 
+    32'h00000243, 32'h0000020e, 32'h000001be, 32'h0000015d, 32'h000000f9, 32'h0000009b, 32'h0000004e, 32'h00000015, 
+    32'hfffffff3, 32'hffffffe2, 32'hffffffdf, 32'hffffffe5, 32'hffffffed, 32'hfffffff4, 32'hfffffffa, 32'hfffffffd
+};
 
 logic x_in_full;
 logic x_in_wr_en = '0;
@@ -87,7 +95,7 @@ end
 initial begin : data_read_process
 
     int in_file;
-    int i = 0, j;
+    int i, j;
 
     @(negedge reset);
     $display("@ %0t: Loading file %s...", $time, FILE_IN_NAME);
@@ -96,6 +104,7 @@ initial begin : data_read_process
     x_in_wr_en = 1'b0;
     @(negedge clock);
 
+    i = 0;
     // Only read the first 200 values of data
     while (i < 200) begin
  

@@ -17,6 +17,9 @@ module fm_radio (
     input   logic                   right_audio_rd_en
 );
 
+parameter FIR_UNROLL = 4;
+parameter FIR_CMPLX_UNROLL = 4;
+
 parameter  AUDIO_LPR_COEFF_TAPS = 32;
 
 parameter logic signed [0:AUDIO_LPR_COEFF_TAPS-1] [DATA_SIZE-1:0] AUDIO_LPR_COEFFS = '{
@@ -158,7 +161,9 @@ logic imag_out_wr_en;
 logic imag_out_full;
 logic [DATA_SIZE-1:0] imag_out_din;
 
-fir_cmplx fir_cmplx_inst (
+fir_cmplx #(
+    .UNROLL(FIR_CMPLX_UNROLL)
+) fir_cmplx_inst(
     .clock(clock),
     .reset(reset),
     .xreal_in_dout(i_out_dout),
@@ -268,6 +273,7 @@ logic bp_pilot_fir_out_full;
 logic [DATA_SIZE-1:0] bp_pilot_fir_out_din;
 
 demod_fir #(
+    .UNROLL(FIR_UNROLL),
     .NUM_TAPS(BP_PILOT_COEFF_TAPS),
     .DECIMATION(1),
     .COEFFICIENTS(BP_PILOT_COEFFS)
@@ -333,6 +339,7 @@ logic bp_lmr_out_full;
 logic [DATA_SIZE-1:0] bp_lmr_out_din;
 
 demod_fir #(
+    .UNROLL(FIR_UNROLL),
     .NUM_TAPS(BP_LMR_COEFF_TAPS),
     .DECIMATION(1),
     .COEFFICIENTS(BP_LMR_COEFFS)
@@ -376,6 +383,7 @@ logic hp_pilot_out_full;
 logic [DATA_SIZE-1:0] hp_pilot_out_din;
 
 fir #(
+    .UNROLL(FIR_UNROLL),
     .NUM_TAPS(HP_COEFF_TAPS),
     .DECIMATION(1),
     .COEFFICIENTS(HP_COEFFS)
@@ -457,6 +465,7 @@ logic lpr_out_full;
 logic [DATA_SIZE-1:0] lpr_out_din;
 
 demod_fir #(
+    .UNROLL(FIR_UNROLL),
     .NUM_TAPS(AUDIO_LPR_COEFF_TAPS),
     .DECIMATION(AUDIO_DECIMATION),
     .COEFFICIENTS(AUDIO_LPR_COEFFS)
@@ -523,6 +532,7 @@ logic lmr_out_full;
 logic [DATA_SIZE-1:0] lmr_out_din;
 
 fir #(
+    .UNROLL(FIR_UNROLL),
     .NUM_TAPS(AUDIO_LMR_COEFF_TAPS),
     .DECIMATION(AUDIO_DECIMATION),
     .COEFFICIENTS(AUDIO_LMR_COEFFS)

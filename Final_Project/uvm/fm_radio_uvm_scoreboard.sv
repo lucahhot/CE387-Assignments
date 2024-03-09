@@ -3,17 +3,17 @@ import uvm_pkg::*;
 `uvm_analysis_imp_decl(_output)
 `uvm_analysis_imp_decl(_compare)
 
-class cordic_uvm_scoreboard extends uvm_scoreboard;
-    `uvm_component_utils(cordic_uvm_scoreboard)
+class fm_radio_uvm_scoreboard extends uvm_scoreboard;
+    `uvm_component_utils(fm_radio_uvm_scoreboard)
 
-    uvm_analysis_export #(cordic_results_uvm_transaction) sb_export_output;
-    uvm_analysis_export #(cordic_uvm_transaction) sb_export_compare;
+    uvm_analysis_export #(fm_radio_uvm_transaction) sb_export_output;
+    uvm_analysis_export #(fm_radio_uvm_transaction) sb_export_compare;
 
-    uvm_tlm_analysis_fifo #(cordic_results_uvm_transaction) output_fifo;
-    uvm_tlm_analysis_fifo #(cordic_uvm_transaction) compare_fifo;
+    uvm_tlm_analysis_fifo #(fm_radio_uvm_transaction) output_fifo;
+    uvm_tlm_analysis_fifo #(fm_radio_uvm_transaction) compare_fifo;
 
-    cordic_results_uvm_transaction tx_out;
-    cordic_results_transaction tx_cmp;
+    fm_radio_uvm_transaction tx_out;
+    fm_radio_uvm_transaction tx_cmp;
 
     function new(string name, uvm_component parent);
         super.new(name, parent);
@@ -46,19 +46,31 @@ class cordic_uvm_scoreboard extends uvm_scoreboard;
 
     virtual function void comparison();
 
-        real THRESHOLD = 1;
+        // real THRESHOLD = 1;
 
-        if ((tx_out.audio_left_output - tx_cmp.audio_left_output) > THRESHOLD || (tx_cmp.audio_left_output - tx_out.audio_left_output) > THRESHOLD) begin
+        // if ((tx_out.audio_left_output - tx_cmp.audio_left_output) > THRESHOLD || (tx_cmp.audio_left_output - tx_out.audio_left_output) > THRESHOLD) begin
+        //     `uvm_info("SB_CMP", tx_out.sprint(), UVM_LOW);
+        //     `uvm_info("SB_CMP", tx_cmp.sprint(), UVM_LOW);
+        //     `uvm_fatal("SB_CMP", $sformatf("Audio left output exceeded error threshold: fm_radio audio_left_output = %x, real output = %x", tx_out.audio_left_output, tx_cmp.audio_left_output));
+        // end
+
+        // if ((tx_out.audio_right_output - tx_cmp.audio_right_output) > THRESHOLD || (tx_cmp.audio_right_output - tx_out.audio_right_output) > THRESHOLD) begin
+        //     `uvm_info("SB_CMP", tx_out.sprint(), UVM_LOW);
+        //     `uvm_info("SB_CMP", tx_cmp.sprint(), UVM_LOW);
+        //     `uvm_fatal("SB_CMP", $sformatf("Audio right output exceeded error threshold: fm_radio audio_right_output = %x, real output = %x", tx_out.audio_right_output, tx_cmp.audio_right_output));
+        // end
+
+        if (tx_out.audio_left_output != tx_cmp.audio_left_output) begin
             `uvm_info("SB_CMP", tx_out.sprint(), UVM_LOW);
             `uvm_info("SB_CMP", tx_cmp.sprint(), UVM_LOW);
-            `uvm_fatal("SB_CMP", $sformatf("Audio left output exceeded error threshold: fm_radio audio_left_output = %x, real output = %x", tx_out.audio_left_output, tx_cmp.audio_left_output));
+            `uvm_fatal("SB_CMP", $sformatf("Audio left output not equal: fm_radio audio_left_output = %x, real output = %x", tx_out.audio_left_output, tx_cmp.audio_left_output));
         end
 
-        if ((tx_out.audio_right_output - tx_cmp.audio_right_output) > THRESHOLD || (tx_cmp.audio_right_output - tx_out.audio_right_output) > THRESHOLD) begin
+        if (tx_out.audio_right_output != tx_cmp.audio_right_output) begin
             `uvm_info("SB_CMP", tx_out.sprint(), UVM_LOW);
             `uvm_info("SB_CMP", tx_cmp.sprint(), UVM_LOW);
-            `uvm_fatal("SB_CMP", $sformatf("Audio right output exceeded error threshold: fm_radio audio_right_output = %x, real output = %x", tx_out.audio_right_output, tx_cmp.audio_right_output));
+            `uvm_fatal("SB_CMP", $sformatf("Audio right output not equal: fm_radio audio_right_output = %x, real output = %x", tx_out.audio_right_output, tx_cmp.audio_right_output));
         end
 
     endfunction: comparison
-endclass: cordic_uvm_scoreboard
+endclass: fm_radio_uvm_scoreboard

@@ -51,9 +51,6 @@ logic   out_read_done = '0;
 integer out_errors    = '0;
 
 fir_cmplx_top #(
-    .NUM_TAPS(NUM_TAPS),
-    .COEFFICIENTS_REAL(CHANNEL_COEFFS_REAL),
-    .COEFFICIENTS_IMAG(CHANNEL_COEFFS_IMAG),
     .FIFO_BUFFER_SIZE(FIFO_BUFFER_SIZE)
 ) fir_cmplx_top_inst (
     .clock(clock),

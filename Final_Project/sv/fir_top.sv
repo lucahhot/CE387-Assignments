@@ -52,7 +52,8 @@ logic [DATA_SIZE-1:0] y_out_din;
 fir #(
     .NUM_TAPS(NUM_TAPS),
     .DECIMATION(DECIMATION),
-    .COEFFICIENTS(COEFFICIENTS)
+    .COEFFICIENTS(COEFFICIENTS),
+    .UNROLL(16)
 ) fir_inst (
     .clock(clock),
     .reset(reset),
